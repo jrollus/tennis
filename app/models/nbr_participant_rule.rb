@@ -1,0 +1,2 @@
+class NbrParticipantRule < ApplicationRecord
+end

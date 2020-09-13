@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_12_081446) do
+ActiveRecord::Schema.define(version: 2020_09_13_123755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,52 @@ ActiveRecord::Schema.define(version: 2020_09_12_081446) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "category"
+    t.string "gender"
+    t.integer "points_1_128"
+    t.integer "points_1_64"
+    t.integer "points_1_32"
+    t.integer "points_1_16"
+    t.integer "points_1_8"
+    t.integer "points_1_4"
+    t.integer "points_1_2"
+    t.integer "final_points"
+    t.integer "winner_points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "clubs", force: :cascade do |t|
+    t.integer "code"
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "website"
+    t.string "email"
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "courts", force: :cascade do |t|
+    t.bigint "club_id", null: false
+    t.boolean "indoor"
+    t.string "court_type"
+    t.boolean "light"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_id"], name: "index_courts_on_club_id"
+  end
+
+  create_table "nbr_participant_rules", force: :cascade do |t|
+    t.integer "lower_bound"
+    t.integer "upper_bound"
+    t.float "weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -43,6 +89,25 @@ ActiveRecord::Schema.define(version: 2020_09_12_081446) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
+  create_table "ranking_entries", force: :cascade do |t|
+    t.string "ranking_name"
+    t.integer "ranking_points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.bigint "club_id", null: false
+    t.bigint "category_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "nbr_participants"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_tournaments_on_category_id"
+    t.index ["club_id"], name: "index_tournaments_on_club_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,4 +124,7 @@ ActiveRecord::Schema.define(version: 2020_09_12_081446) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "courts", "clubs"
+  add_foreign_key "tournaments", "categories"
+  add_foreign_key "tournaments", "clubs"
 end
