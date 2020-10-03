@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_123755) do
+ActiveRecord::Schema.define(version: 2020_09_25_232558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,29 @@ ActiveRecord::Schema.define(version: 2020_09_13_123755) do
     t.index ["club_id"], name: "index_courts_on_club_id"
   end
 
+  create_table "game_players", force: :cascade do |t|
+    t.bigint "player_id", null: false
+    t.bigint "game_id", null: false
+    t.boolean "victory"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_game_players_on_game_id"
+    t.index ["player_id"], name: "index_game_players_on_player_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.bigint "tournament_id", null: false
+    t.date "date"
+    t.string "round"
+    t.string "status"
+    t.string "set_1"
+    t.string "set_2"
+    t.string "set_3"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tournament_id"], name: "index_games_on_tournament_id"
+  end
+
   create_table "nbr_participant_rules", force: :cascade do |t|
     t.integer "lower_bound"
     t.integer "upper_bound"
@@ -91,9 +114,34 @@ ActiveRecord::Schema.define(version: 2020_09_13_123755) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
-  create_table "ranking_entries", force: :cascade do |t|
-    t.string "ranking_name"
-    t.integer "ranking_points"
+  create_table "players", force: :cascade do |t|
+    t.bigint "club_id", null: false
+    t.integer "affilitiation_number"
+    t.string "gender"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "dominant_hand"
+    t.date "birthdate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_id"], name: "index_players_on_club_id"
+  end
+
+  create_table "ranking_histories", force: :cascade do |t|
+    t.bigint "ranking_id", null: false
+    t.bigint "player_id", null: false
+    t.integer "year"
+    t.integer "points"
+    t.string "national_ranking"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_ranking_histories_on_player_id"
+    t.index ["ranking_id"], name: "index_ranking_histories_on_ranking_id"
+  end
+
+  create_table "rankings", force: :cascade do |t|
+    t.string "name"
+    t.integer "points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -125,6 +173,12 @@ ActiveRecord::Schema.define(version: 2020_09_13_123755) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "courts", "clubs"
+  add_foreign_key "game_players", "games"
+  add_foreign_key "game_players", "players"
+  add_foreign_key "games", "tournaments"
+  add_foreign_key "players", "clubs"
+  add_foreign_key "ranking_histories", "players"
+  add_foreign_key "ranking_histories", "rankings"
   add_foreign_key "tournaments", "categories"
   add_foreign_key "tournaments", "clubs"
 end
