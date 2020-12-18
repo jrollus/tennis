@@ -87,6 +87,7 @@ end
 Player.import(players)
 
 # Ranking History
+User.destroy_all
 puts "Seeding Ranking History"
 ActiveRecord::Base.connection.reset_pk_sequence!('ranking_histories')
 

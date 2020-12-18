@@ -115,8 +115,9 @@ ActiveRecord::Schema.define(version: 2020_09_25_232558) do
   end
 
   create_table "players", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "club_id", null: false
-    t.integer "affilitiation_number"
+    t.string "affiliation_number"
     t.string "gender"
     t.string "first_name"
     t.string "last_name"
@@ -125,6 +126,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_232558) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["club_id"], name: "index_players_on_club_id"
+    t.index ["user_id"], name: "index_players_on_user_id"
   end
 
   create_table "ranking_histories", force: :cascade do |t|
@@ -177,6 +179,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_232558) do
   add_foreign_key "game_players", "players"
   add_foreign_key "games", "tournaments"
   add_foreign_key "players", "clubs"
+  add_foreign_key "players", "users"
   add_foreign_key "ranking_histories", "players"
   add_foreign_key "ranking_histories", "rankings"
   add_foreign_key "tournaments", "categories"

@@ -4,6 +4,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :avatar, as: :file %>
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,6 +22,24 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    
+    <%= f.simple_fields_for :player do |p| %>
+      <%= p.input :id, :as => :hidden %>
+      <%= p.input :affiliation_number, label:"Numéro d'affiliation" %>
+      <%= p.input :first_name, label:'Prénom' %>
+      <%= p.input :last_name, label:'Nom' %>
+      <%= p.association :club %>
+      <%= p.input :birthdate,  label: "Date d'anniversaire", as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 12, order: [:day, :month, :year] %>
+      <%= p.input :gender, collection:['Homme', 'Femme'], label: 'Sexe' %>
+      <%= p.input :dominant_hand, label: 'Main dominante', collection:['Droitier', 'Gaucher'] %>
+
+      <%= p.simple_fields_for :ranking_histories, p.object.ranking_histories.order("year DESC").first do |rh| %>
+        <%= rh.input :id, :as => :hidden %>
+        <%= rh.association :ranking %>
+      <% end %>
+
+    <% end %>
   </div>
 
   <div class="form-actions">
