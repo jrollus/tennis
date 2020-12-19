@@ -3,10 +3,19 @@
   <div class="navbar-right-section">
     <% if current_user %>
       <%= link_to "My account", edit_user_registration_path , class: "nav-link text-dark"%>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link text-dark") %>
+       <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link text-dark") %>
     <% else %>
       <%= link_to "Connexion", new_user_session_path , class: "nav-link text-dark"%>
       <%= link_to "S'inscrire", new_user_registration_path , class: "nav-link text-dark"%>
     <% end  %>
+    <!-- 
+    <div data-controller="dropdown" class="dropdown">
+      <a data-action="click->dropdown#toggleVisibility" data-target="dropdown.button" href="" aria-haspopup="true" aria-expanded="false">Test</a>
+      <div data-target="dropdown.popup" class="dropdown-content">
+        <a href="">Lien 1</a>
+        <a href="">Lien 2</a>
+      </div>
+    </div>
+    -->
   </div>
 </div>

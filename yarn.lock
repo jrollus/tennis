@@ -6960,6 +6960,11 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
+stimulus-use@^0.21.4:
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.21.4.tgz#e88fc4e3ba532e187713c800c599267c0ca5d768"
+  integrity sha512-PDqy1fS+ajqNSk7uLt3Pb/+EJiE7LXMFXFxaey/YoZIPwIrDHg5OhEZtLRTpM574U8ikwE5rx/7t/34zaJUDCA==
+
 stimulus@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-1.1.1.tgz#53c2fded6849e7b85eed3ed8dd76e33abd74bec5"
