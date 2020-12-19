@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-    static targets = ['number', 'firstName', 'lastName', 'gender', 'birthdate','dominantHand', 'club', 'ranking']
+    static targets = ['number', 'firstName', 'lastName', 'gender', 'birthDate','dominantHand', 'club', 'ranking']
 
     async autofill() {
       const response = await fetch('/api/v1/players/' + this.numberTarget.value, { headers: { accept: "application/json" } });
