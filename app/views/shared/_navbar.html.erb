@@ -1,21 +1,33 @@
 <div class="navbar-tennis">
-  <h1>BRAND NAME</h1>
+  <h1>TennisRanking</h1>
   <div class="navbar-right-section">
     <% if current_user %>
-      <%= link_to "My account", edit_user_registration_path , class: "nav-link text-dark"%>
-       <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link text-dark") %>
+      <div class="navbar-collapsable">
+        <a class="navbar-link" href="">Encodage</a>
+        <a class="navbar-link" href="">Statistiques</a>
+        <h6 class="navbar-points"> XXX pts</h6>
+      </div>
+      <div data-controller="dropdown" class="dropdown">
+        <%= cl_image_tag "sandwich-menu_ukriiv.svg", class: "navbar-sandwich", data: {action: 'click->dropdown#toggleVisibility', target:'dropdown.button' }, role:"button", 'aria-haspopup': "true", 'aria-expanded': "false"  %>
+        <div data-target="dropdown.popup" class="dropdown-content">
+          <a class="navbar-link" href="">Encodage</a>
+          <a class="navbar-link" href="">Statistiques</a>
+        </div>
+      </div>
+      <div data-controller="dropdown" class="dropdown">
+        <% if current_user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, class: "avatar", data: {action: 'click->dropdown#toggleVisibility', target:'dropdown.button' }, role:"button", 'aria-haspopup': "true", 'aria-expanded': "false"  %>
+        <% else %>
+          <%= cl_image_tag "tennis-svgrepo-com_bzn5jh.svg", class: "avatar", data: {action: 'click->dropdown#toggleVisibility', target:'dropdown.button' }, role:"button", 'aria-haspopup': "true", 'aria-expanded': "false"  %>
+        <% end %>  
+        <div data-target="dropdown.popup" class="dropdown-content">
+          <%= link_to "Mon compte", edit_user_registration_path , class: "nav-link text-dark"%>
+          <%= link_to('Déconnexion', destroy_user_session_path, method: :delete, class: "nav-link text-dark") %>
+        </div>
+      </div>
     <% else %>
       <%= link_to "Connexion", new_user_session_path , class: "nav-link text-dark"%>
       <%= link_to "S'inscrire", new_user_registration_path , class: "nav-link text-dark"%>
     <% end  %>
-    <!-- 
-    <div data-controller="dropdown" class="dropdown">
-      <a data-action="click->dropdown#toggleVisibility" data-target="dropdown.button" href="" aria-haspopup="true" aria-expanded="false">Test</a>
-      <div data-target="dropdown.popup" class="dropdown-content">
-        <a href="">Lien 1</a>
-        <a href="">Lien 2</a>
-      </div>
-    </div>
-    -->
   </div>
 </div>

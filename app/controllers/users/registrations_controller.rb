@@ -47,7 +47,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, 
-      keys: [:email, :password, :password_confirmation, 
+      keys: [:avatar, :email, :password, :password_confirmation, 
              player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, ranking_histories_attributes: [:id, :ranking_id, :year]]
             ]
     )
@@ -56,7 +56,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update,
-     keys: [:email, :password, :password_confirmation, 
+     keys: [:avatar, :email, :password, :password_confirmation, 
             player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, ranking_histories_attributes: [:id, :ranking_id, :year]]
            ]
     )
