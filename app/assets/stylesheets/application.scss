@@ -9,6 +9,21 @@
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
 
-// Your CSS partials
+// CSS partials
 @import "components/index";
 @import "pages/index";
+
+// General CSS
+
+body {
+    padding-top: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    &:hover  {
+      text-decoration: none !important;
+      color: black !important;
+    }
+  }

@@ -5,17 +5,14 @@ export default class extends Controller {
     static targets = ['button', 'popup']
 
     connect() {
-      useClickOutside(this.buttonTarget)
+      useClickOutside(this)
     }
 
     clickOutside(event) {
-      // example to close a modal
-      event.preventDefault()
       this.popupTarget.classList.remove("show");
     }
 
     toggleVisibility(event) {
-      event.preventDefault()
       this.popupTarget.classList.toggle("show");
     }
 }
