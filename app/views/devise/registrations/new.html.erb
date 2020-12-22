@@ -23,7 +23,7 @@
       <%= p.input :last_name, label:'Nom', input_html: { data: { target:"affiliation.lastName" } } %>
       <%= p.association :club, input_html: { data: { target:"affiliation.club" } }  %>
       <%= p.input :birthdate,  label: "Date d'anniversaire", as: :date, html5: true %>
-      <%= p.input :gender, collection:['Homme', 'Femme'], label: 'Sexe', input_html: { data: { target:"affiliation.gender" } }  %>
+      <%= p.input :gender, collection:[['Homme','male'],['Femme','female']], label: 'Sexe', input_html: { data: { target:"affiliation.gender" } }  %>
       <%= p.input :dominant_hand, label: 'Main dominante', collection:['Droitier', 'Gaucher'], input_html: { data: { target:"affiliation.dominantHand" } } %>
 
       <%= p.simple_fields_for :ranking_histories do |rh| %>

@@ -5,9 +5,8 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.date :date
       t.string :round
       t.string :status
-      t.string :set_1
-      t.string :set_2
-      t.string :set_3
+      t.string :court_type
+      t.boolean :indoor
      
       t.timestamps
     end

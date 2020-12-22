@@ -1,0 +1,40 @@
+<%= simple_form_for(@form, url: games_path, html: { data: { controller: "game sets" }}) do |f| %>
+  <%= f.input :club, collection: @clubs, label: "Club", input_html: { data: { target:"game.club", action:"game#autofill" }} %>
+  <%= f.input :category, collection: [""] , label: "Catégorie", input_html: { data: { target:"game.category", action:"game#autofill" }}, disabled: true %>
+  <%= f.input :date, collection: [""], label: "Date", input_html: { data: { target:"game.date"}}, disabled: true %>
+  <%= f.input :round, collection: ["Finale","1/2","1/4","1/8","1/16","1/32","1/64","1/128","1/256","Poule"] , label: "Tour" %>
+  <div class="form-flex">
+    <div>
+      <%= f.input :court_type, collection: @courts, label: "Type de terrain" %>
+    </div>
+    <%= f.input :indoor, as: :boolean, label: "Indoor?" %>
+  </div>
+  <%= f.input :opponent, label: "Adversaire" %>
+  <div class="form-flex">
+    <%= f.input :set_1_1, label: "Set 1", input_html: { data: { target:"sets.set_1_1", action:"sets#setsHandler" }} %>
+    <%= f.input :set_1_2, label: "", input_html: { data: { target:"sets.set_1_2", action:"sets#setsHandler" }}  %>
+    <%= f.input :set_2_1, label: "Set 2", input_html: { data: { target:"sets.set_2_1", action:"sets#setsHandler" }}  %>
+    <%= f.input :set_2_2, label: "", input_html: { data: { target:"sets.set_2_2", action:"sets#setsHandler" }}  %>
+    <%= f.input :set_3_1, label: "Set 3", input_html: { data: { target:"sets.set_3_1", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.set_3_1_2"} } %>
+    <%= f.input :set_3_2, label: "", input_html: { data: { target:"sets.set_3_2", action:"sets#setsHandler" }},
+                wrapper_html: { class: "visibility-off", data: {target:"sets.set_3_2_2"} } %>
+  </div>
+  <div class="form-flex">
+    <%= f.input :tie_break_1_1, label: "Tie Break 1", input_html: { data: { target:"sets.tie_break_1_1", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.tie_break_1_1_2"} } %>
+    <%= f.input :tie_break_1_1, label: "", input_html: { data: { target:"sets.tie_break_1_2", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.tie_break_1_2_2"} } %>
+    <%= f.input :tie_break_2_1, label: "Tie Break 2", input_html: { data: { target:"sets.tie_break_2_1", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.tie_break_2_1_2"} } %>
+    <%= f.input :tie_break_2_2, label: "", input_html: { data: { target:"sets.tie_break_2_2", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off" , data: {target:"sets.tie_break_2_2_2"}} %>
+    <%= f.input :tie_break_3_1, label: "Tie Break 3", input_html: { data: { target:"sets.tie_break_3_1", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.tie_break_3_1_2"} } %>
+    <%= f.input :tie_break_3_2, label: "", input_html: { data: { target:"sets.tie_break_3_2", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.tie_break_3_2_2"} } %>
+  </div>
+  <%= f.input :match_points_saved, wrapper_html: {hidden: true, data: {target:"sets.match_points_saved"}} %>
+
+  <%= f.submit class:"btn btn-pink w-100 my-2" %>
+<% end %>

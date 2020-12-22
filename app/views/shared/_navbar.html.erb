@@ -3,7 +3,7 @@
   <div class="navbar-right-section">
     <% if current_user %>
       <div class="navbar-collapsable">
-        <a class="navbar-link" href="">Encodage</a>
+        <%= link_to "Encodage", new_game_path, class: "navbar-link"%>
         <a class="navbar-link" href="">Statistiques</a>
         <h6 class="navbar-points"> XXX pts</h6>
       </div>

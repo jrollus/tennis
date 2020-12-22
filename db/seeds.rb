@@ -3,6 +3,8 @@ require 'csv'
 # Tournament Categories
 puts "Seeding Tournament Categories"
 GamePlayer.destroy_all
+GameSet.destroy_all
+TieBreak.destroy_all
 Game.destroy_all
 Tournament.destroy_all
 Category.destroy_all
@@ -108,6 +110,17 @@ CSV.foreach(filepath, headers: true) do |row|
     games << row.to_hash
 end
 Game.import(games)
+
+# Sets
+puts "Seeding GameSet"
+ActiveRecord::Base.connection.reset_pk_sequence!('game_sets')
+
+filepath = 'db/data/sets.csv'
+sets = []
+CSV.foreach(filepath, headers: true) do |row|
+    sets << row.to_hash
+end
+GameSet.import(sets)
 
 # Game Players
 puts "Seeding Game Player"
