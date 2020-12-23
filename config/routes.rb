@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # API
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :players, only: [ :show ]
+      resources :players, only: [ :index, :show ]
       resources :tournaments, only: [ :index ]
     end
   end

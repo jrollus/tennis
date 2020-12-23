@@ -6,10 +6,19 @@ class Player < ApplicationRecord
   has_many :tournaments, through: :games
   has_many :categories, through: :tournaments
   
-   # Nested attributes
-   has_many :ranking_histories
-   accepts_nested_attributes_for :ranking_histories
+  # Nested attributes
+  has_many :ranking_histories
+  has_many :ranking, through: :ranking_histories
+  accepts_nested_attributes_for :ranking_histories
 
+  # PG Search
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_affiliation_number,
+    against: [:first_name, :last_name, :affiliation_number],
+    using: {
+      tsearch: { prefix: true }
+  }
+  
   def get_win_ratio
     nbr_games = self.game_players.count
     nbr_victories = self.game_players.where(victory: true).count
