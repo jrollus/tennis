@@ -1,2 +1,54 @@
-<h1>Players#edit</h1>
-<p>Find me in app/views/players/edit.html.erb</p>
+<%= simple_form_for(@form, url: games_path, html: { data: { controller: "game sets autocomplete" }}) do |f| %>
+  <%= f.input :club, collection: @clubs, label: "Club", input_html: { data: { target:"game.club", action:"game#autofill" }} %>
+  <%= f.input :category, collection: [""] , label: "Catégorie", input_html: { data: { target:"game.category", action:"game#autofill" }}, disabled: true %>
+  <%= f.input :tournament_id, collection: [""], label: "Date du tournoi", input_html: { data: { target:"game.date"}}, disabled: true %>
+  <%= f.input :date, as: :date, label: "Date du match", html5: true %>
+  <%= f.input :status,  collection: [['Terminé','completed'], ['Blessure', 'retirement'],['WO','wo']], label: 'Statut' %>
+  <%= f.input :round, collection: ["Finale","1/2","1/4","1/8","1/16","1/32","1/64","1/128","1/256","Poule"] , label: "Tour" %>
+  <div class="form-flex">
+    <div>
+      <%= f.input :court_type, collection: @courts, label: "Type de terrain" %>
+    </div>
+    <%= f.input :indoor, as: :boolean, label: "Indoor?" %>
+  </div>
+  <%= f.input :opponent, label: "Adversaire", wrapper_html: {class: "autocomplete", data: {target:"autocomplete.wrapper"}},
+              input_html: {autocomplete:"off", data: {target:"autocomplete.autocomplete", action:"input->autocomplete#autocomplete"}} %>
+  <%= f.input :victory, as: :boolean, label: "Victoire?" %>
+  <div class="form-flex">
+    <%= f.input :set_1_number, as: :hidden, input_html: { value: '1', name: 'game_form[game_sets_attributes][0][set_number]'} %>
+    <%= f.input :set_1_1, label: "Set 1", input_html: { name:'game_form[game_sets_attributes][0][games_1]', data: { target:"sets.set_1_1", action:"sets#setsHandler" }} %>
+    <%= f.input :set_1_2, label: "", input_html: { name:'game_form[game_sets_attributes][0][games_2]', data: { target:"sets.set_1_2", action:"sets#setsHandler" }}  %>
+    <%= f.input :set_2_number, as: :hidden, input_html: { value: '2', name: 'game_form[game_sets_attributes][1][set_number]'} %>
+    <%= f.input :set_2_1, label: "Set 2", input_html: {  name:'game_form[game_sets_attributes][1][games_1]', data: { target:"sets.set_2_1", action:"sets#setsHandler" }}  %>
+    <%= f.input :set_2_2, label: "", input_html: { name:'game_form[game_sets_attributes][1][games_2]', data: {target:"sets.set_2_2", action:"sets#setsHandler" }}  %>
+    <%= f.input :set_3_number, as: :hidden, input_html: { value: '3', name: 'game_form[game_sets_attributes][2][set_number]', data: {target: "sets.set_3_number"}}, disabled: true %>
+    <%= f.input :set_3_1, label: "Set 3", input_html: {  name:'game_form[game_sets_attributes][2][games_1]', data: { target:"sets.set_3_1", action:"sets#setsHandler" }, disabled: true}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.set_3_1_2"} } %>
+    <%= f.input :set_3_2, label: "", input_html: {  name:'game_form[game_sets_attributes][2][games_2]', data: { target:"sets.set_3_2", action:"sets#setsHandler" }, disabled: true},
+                wrapper_html: { class: "visibility-off", data: {target:"sets.set_3_2_2"} } %>
+  </div>
+  <div class="form-flex">
+    <%= f.input :tie_break_1_1, label: "Tie Break 1", 
+                input_html: { name:'game_form[game_sets_attributes][0][tie_break_attributes][points_1]',
+                data: { target:"sets.tie_break_1_1", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.tie_break_1_1_2"}}, disabled: true %>
+    <%= f.input :tie_break_1_2, label: "", input_html: { name:'game_form[game_sets_attributes][0][tie_break_attributes][points_2]', 
+                data: { target:"sets.tie_break_1_2", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.tie_break_1_2_2"} }, disabled: true %>
+    <%= f.input :tie_break_2_1, label: "Tie Break 2", input_html: { name:'game_form[game_sets_attributes][1][tie_break_attributes][points_1]', 
+                data: { target:"sets.tie_break_2_1", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.tie_break_2_1_2"} }, disabled: true %>
+    <%= f.input :tie_break_2_2, label: "", input_html: { name:'game_form[game_sets_attributes][1][tie_break_attributes][points_2]',
+                data: { target:"sets.tie_break_2_2", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off" , data: {target:"sets.tie_break_2_2_2"}}, disabled: true %>
+    <%= f.input :tie_break_3_1, label: "Tie Break 3", input_html: { name:'game_form[game_sets_attributes][2][tie_break_attributes][points_1]',
+                data: { target:"sets.tie_break_3_1", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.tie_break_3_1_2"} }, disabled: true %>
+    <%= f.input :tie_break_3_2, label: "", input_html: { name:'game_form[game_sets_attributes][2][tie_break_attributes][points_2]',
+                data: { target:"sets.tie_break_3_2", action:"sets#setsHandler" }}, 
+                wrapper_html: { class: "visibility-off", data: {target:"sets.tie_break_3_2_2"} }, disabled: true %>
+  </div>
+  <%= f.input :match_points_saved, input_html: {value: '0'}, wrapper_html: {hidden: true, data: {target:"sets.match_points_saved"}} %>
+
+  <%= f.submit class:"btn btn-pink w-100 my-2" %>
+<% end %>

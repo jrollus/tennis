@@ -13,4 +13,12 @@ class GameFormPolicy < ApplicationPolicy
       create?
     end
     
+    def update?
+      true
+    end
+  
+    def edit?
+      update?
+    end
+
 end 

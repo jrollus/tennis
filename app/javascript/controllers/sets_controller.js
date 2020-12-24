@@ -4,7 +4,7 @@ export default class extends Controller {
     static targets = ['set_1_1', 'set_1_2', 'set_2_1', 'set_2_2', 'set_3_1','set_3_2','set_3_1_2','set_3_2_2',
                       'tie_break_1_1', 'tie_break_1_1_2', 'tie_break_1_2', 'tie_break_1_2_2', 'tie_break_2_1',
                       'tie_break_2_1_2', 'tie_break_2_2', 'tie_break_2_2_2', 'tie_break_3_1', 'tie_break_3_1_2',
-                      'tie_break_3_2', 'tie_break_3_2_2', 'match_points_saved']
+                      'tie_break_3_2', 'tie_break_3_2_2', 'set_3_number', 'match_points_saved']
 
     setsHandler() {
       // Third set
@@ -13,11 +13,17 @@ export default class extends Controller {
            ((this.set_1_1Target.value < this.set_1_2Target.value) && (this.set_2_1Target.value > this.set_2_2Target.value))) {
           this.set_3_1_2Target.classList.add("visibility-on")
           this.set_3_2_2Target.classList.add("visibility-on")
+          this.set_3_1Target.disabled = false;
+          this.set_3_2Target.disabled = false;
+          this.set_3_numberTarget.disabled = false;
         } else {
           this.set_3_1_2Target.classList.remove("visibility-on")
           this.set_3_1Target.value = '';
           this.set_3_2_2Target.classList.remove("visibility-on")
           this.set_3_2Target.value = '';
+          this.set_3_1Target.disabled = true;
+          this.set_3_2Target.disabled = true;
+          this.set_3_numberTarget.disabled = true;
         }
       } else {
         this.set_3_1_2Target.classList.remove("visibility-on")
@@ -30,33 +36,45 @@ export default class extends Controller {
       if (Math.abs(this.set_1_1Target.value - this.set_1_2Target.value) == 1) {
         this.tie_break_1_1_2Target.classList.add("visibility-on")
         this.tie_break_1_2_2Target.classList.add("visibility-on")
+        this.tie_break_1_1Target.disabled = false;
+        this.tie_break_1_2Target.disabled = false;
       } else {
         this.tie_break_1_1_2Target.classList.remove("visibility-on")
         this.tie_break_1_1Target.hidden = '';
         this.tie_break_1_2_2Target.classList.remove("visibility-on")
         this.tie_break_1_2Target.hidden = '';
+        this.tie_break_1_1Target.disabled = true;
+        this.tie_break_1_2Target.disabled = true;
       }
 
       // Tie Break 2 
       if (Math.abs(this.set_2_1Target.value - this.set_2_2Target.value) == 1) {
         this.tie_break_2_1_2Target.classList.add("visibility-on")
         this.tie_break_2_2_2Target.classList.add("visibility-on")
+        this.tie_break_2_1Target.disabled = false;
+        this.tie_break_2_2Target.disabled = false;
       } else {
         this.tie_break_2_1_2Target.classList.remove("visibility-on")
         this.tie_break_2_1Target.hidden = '';
         this.tie_break_2_2_2Target.classList.remove("visibility-on")
         this.tie_break_2_2Target.hidden = '';
+        this.tie_break_2_1Target.disabled = true;
+        this.tie_break_2_2Target.disabled = true;
       }
 
       // Tie Break 3
       if (Math.abs(this.set_3_1Target.value - this.set_3_2Target.value) == 1) {
         this.tie_break_3_1_2Target.classList.add("visibility-on")
         this.tie_break_3_2_2Target.classList.add("visibility-on")
+        this.tie_break_3_1Target.disabled = false;
+        this.tie_break_3_2Target.disabled = false;
       } else {
         this.tie_break_3_1_2Target.classList.remove("visibility-on")
         this.tie_break_3_1Target.hidden = '';
         this.tie_break_3_2_2Target.classList.remove("visibility-on")
         this.tie_break_3_2Target.hidden = '';
+        this.tie_break_3_1Target.disabled = true;
+        this.tie_break_3_2Target.disabled = true;
       }
 
       // Match Points

@@ -1,5 +1,5 @@
 json.array! @players do |player|
-    json.extract! player, :first_name, :last_name, :affiliation_number
+    json.extract! player, :id, :first_name, :last_name, :affiliation_number
     begin
         json.ranking player.ranking_histories.last.ranking.name
     rescue
