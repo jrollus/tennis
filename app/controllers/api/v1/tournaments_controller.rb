@@ -4,11 +4,13 @@ class Api::V1::TournamentsController < Api::V1::BaseController
             player_age = Date.today.year - current_user.player.birthdate.year
             query = "tournaments.club_id = ? AND categories.gender = ? AND categories.c_type = ? AND ? >= categories.age_min AND ? < categories.age_max "
             if params[:type] == 'club'
-                @tournaments = policy_scope(Tournament).includes(:category).joins(:category).where(query, params[:club], current_user.player.gender, params[:ctype], player_age, player_age)
+                @tournaments = policy_scope(Tournament).includes(:category).joins(:category)
+                               .where(query, params[:club], current_user.player.gender, params[:ctype], player_age, player_age)
                 @options_list = @tournaments.map{ |tournament| generate_option_tag(tournament, params[:type]) }.uniq.sort_by {|category| category.scan(/'(\d+)'/)[0][0].to_i}
             elsif params[:type] == 'category'
                 query += "AND tournaments.category_id = ?"
-                @tournaments = policy_scope(Tournament).includes(:category).joins(:category).where(query, params[:club], current_user.player.gender, params[:ctype], player_age, player_age,params[:category])
+                @tournaments = policy_scope(Tournament).includes(:category).joins(:category)
+                               .where(query, params[:club], current_user.player.gender, params[:ctype], player_age, player_age,params[:category])
                 @options_list = @tournaments.map{ |tournament| generate_option_tag(tournament, params[:type]) }.uniq.sort_by {|category| category.scan(/'(\d+)'/)[0][0].to_i}
             end
             @options_list.unshift("<option value></option>")

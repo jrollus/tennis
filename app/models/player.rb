@@ -19,6 +19,10 @@ class Player < ApplicationRecord
       tsearch: { prefix: true }
   }
   
+  def get_age
+    Date.today.year - self.birthdate.year
+  end
+
   def get_win_ratio
     nbr_games = self.game_players.count
     nbr_victories = self.game_players.where(victory: true).count

@@ -13,4 +13,12 @@ class GamePolicy < ApplicationPolicy
       create?
     end
     
+    def update?
+      true
+    end
+  
+    def edit?
+      update?
+    end
+    
 end
