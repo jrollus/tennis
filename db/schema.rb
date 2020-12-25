@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_232558) do
+ActiveRecord::Schema.define(version: 2020_12_21_220903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,11 @@ ActiveRecord::Schema.define(version: 2020_09_25_232558) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category"
+    t.integer "age_min"
+    t.integer "age_max"
     t.string "gender"
+    t.string "age"
+    t.string "c_type"
     t.integer "points_1_128"
     t.integer "points_1_64"
     t.integer "points_1_32"
@@ -78,10 +82,19 @@ ActiveRecord::Schema.define(version: 2020_09_25_232558) do
     t.bigint "player_id", null: false
     t.bigint "game_id", null: false
     t.boolean "victory"
+    t.integer "match_points_saved"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_game_players_on_game_id"
     t.index ["player_id"], name: "index_game_players_on_player_id"
+  end
+
+  create_table "game_sets", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.integer "set_number"
+    t.integer "games_1"
+    t.integer "games_2"
+    t.index ["game_id"], name: "index_game_sets_on_game_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -89,9 +102,8 @@ ActiveRecord::Schema.define(version: 2020_09_25_232558) do
     t.date "date"
     t.string "round"
     t.string "status"
-    t.string "set_1"
-    t.string "set_2"
-    t.string "set_3"
+    t.string "court_type"
+    t.boolean "indoor"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tournament_id"], name: "index_games_on_tournament_id"
@@ -148,6 +160,13 @@ ActiveRecord::Schema.define(version: 2020_09_25_232558) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tie_breaks", force: :cascade do |t|
+    t.bigint "game_set_id", null: false
+    t.integer "points_1"
+    t.integer "points_2"
+    t.index ["game_set_id"], name: "index_tie_breaks_on_game_set_id"
+  end
+
   create_table "tournaments", force: :cascade do |t|
     t.bigint "club_id", null: false
     t.bigint "category_id", null: false
@@ -177,11 +196,13 @@ ActiveRecord::Schema.define(version: 2020_09_25_232558) do
   add_foreign_key "courts", "clubs"
   add_foreign_key "game_players", "games"
   add_foreign_key "game_players", "players"
+  add_foreign_key "game_sets", "games"
   add_foreign_key "games", "tournaments"
   add_foreign_key "players", "clubs"
   add_foreign_key "players", "users"
   add_foreign_key "ranking_histories", "players"
   add_foreign_key "ranking_histories", "rankings"
+  add_foreign_key "tie_breaks", "game_sets"
   add_foreign_key "tournaments", "categories"
   add_foreign_key "tournaments", "clubs"
 end
