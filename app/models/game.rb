@@ -1,4 +1,5 @@
 class Game < ApplicationRecord
+  # Relations
   belongs_to :tournament
   has_many :game_players
   has_many :players, through: :game_players
@@ -7,6 +8,7 @@ class Game < ApplicationRecord
   has_many :game_sets
   accepts_nested_attributes_for :game_sets, allow_destroy: true
 
+  # Instance Methods
   def check_user_order(player_id)
     victory = self.game_players.where(player_id: player_id).first.victory
     sets_won = 0
@@ -15,4 +17,5 @@ class Game < ApplicationRecord
     end
     (sets_won == 2) ? true : false
   end
+  
 end

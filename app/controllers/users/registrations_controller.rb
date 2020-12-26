@@ -29,9 +29,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    resource.player.update(user_id: nil)
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -48,7 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, 
       keys: [:avatar, :email, :password, :password_confirmation, 
-             player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, ranking_histories_attributes: [:id, :ranking_id, :year]]
+             player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, ranking_histories_attributes: [:id, :ranking_id, :year, :year_number]]
             ]
     )
   end
@@ -57,7 +58,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update,
      keys: [:avatar, :email, :password, :password_confirmation, 
-            player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, ranking_histories_attributes: [:id, :ranking_id, :year]]
+            player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, ranking_histories_attributes: [:id, :ranking_id, :year, :year_number]]
            ]
     )
   end

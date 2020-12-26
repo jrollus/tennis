@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_220903) do
     t.bigint "player_id", null: false
     t.bigint "game_id", null: false
     t.boolean "victory"
+    t.boolean "validated"
     t.integer "match_points_saved"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -99,6 +100,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_220903) do
 
   create_table "games", force: :cascade do |t|
     t.bigint "tournament_id", null: false
+    t.bigint "player_id"
     t.date "date"
     t.string "round"
     t.string "status"
@@ -106,6 +108,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_220903) do
     t.boolean "indoor"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_games_on_player_id"
     t.index ["tournament_id"], name: "index_games_on_tournament_id"
   end
 
@@ -145,6 +148,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_220903) do
     t.bigint "ranking_id", null: false
     t.bigint "player_id", null: false
     t.integer "year"
+    t.integer "year_number"
     t.integer "points"
     t.string "national_ranking"
     t.datetime "created_at", precision: 6, null: false
@@ -156,6 +160,9 @@ ActiveRecord::Schema.define(version: 2020_12_21_220903) do
   create_table "rankings", force: :cascade do |t|
     t.string "name"
     t.integer "points"
+    t.string "r_type"
+    t.integer "age_min"
+    t.integer "age_max"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -197,6 +204,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_220903) do
   add_foreign_key "game_players", "games"
   add_foreign_key "game_players", "players"
   add_foreign_key "game_sets", "games"
+  add_foreign_key "games", "players"
   add_foreign_key "games", "tournaments"
   add_foreign_key "players", "clubs"
   add_foreign_key "players", "users"

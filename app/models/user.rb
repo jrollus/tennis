@@ -1,7 +1,5 @@
 class User < ApplicationRecord
   # Devise
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -21,7 +19,7 @@ class User < ApplicationRecord
 
   def find_or_create_nested_children
     player = Player.find_by_affiliation_number(self.player.affiliation_number)
-    if player
+    if player 
       temp_player_data = self.player
       temp_ranking_history = self.player.ranking_histories.last
 
@@ -33,13 +31,12 @@ class User < ApplicationRecord
                                     birthdate: temp_player_data.birthdate,
                                     dominant_hand: temp_player_data.dominant_hand)
       
-      if player.ranking_histories.find_by_player_id_and_year(player.id, temp_ranking_history.year)
+      if player.ranking_histories.find_by_player_id_and_year_and_year_number(player.id, temp_ranking_history.year, temp_ranking_history.year_number)
         self.player.ranking_histories = player.ranking_histories
-        self.player.ranking_histories.last.assign_attributes(ranking_id: temp_ranking_history.ranking_id, year: temp_ranking_history.year)
+        self.player.ranking_histories.last.assign_attributes(ranking_id: temp_ranking_history.ranking_id, year: temp_ranking_history.year, year_number: temp_ranking_history.year_number)
       else
         self.player.ranking_histories << temp_ranking_history
       end
-      
     end
   end
 
