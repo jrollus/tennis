@@ -1,1849 +1,1849 @@
-club_id,indoor,court_type,light
-1,TRUE,tapis,TRUE
-1,TRUE,tapis,TRUE
-1,FALSE,terre battue,FALSE
-1,FALSE,terre battue,FALSE
-1,FALSE,terre battue,FALSE
-1,FALSE,terre battue,FALSE
-1,FALSE,terre battue,FALSE
-1,FALSE,terre battue,FALSE
-1,FALSE,terre battue,FALSE
-2,FALSE,terre battue,FALSE
-2,FALSE,terre battue,FALSE
-2,FALSE,terre battue,FALSE
-3,FALSE,terre battue,FALSE
-3,FALSE,terre battue,FALSE
-3,FALSE,terre battue,FALSE
-3,FALSE,terre battue,FALSE
-3,FALSE,terre battue,FALSE
-3,FALSE,terre battue,FALSE
-3,FALSE,terre battue,FALSE
-3,FALSE,terre battue,FALSE
-4,FALSE,terre battue,FALSE
-4,FALSE,terre battue,FALSE
-4,FALSE,terre battue,FALSE
-5,FALSE,terre battue,FALSE
-5,FALSE,terre battue,FALSE
-5,FALSE,terre battue,FALSE
-5,FALSE,terre battue,FALSE
-6,TRUE,hard rapide,TRUE
-6,TRUE,hard rapide,TRUE
-6,FALSE,terre battue,FALSE
-6,FALSE,terre battue,FALSE
-6,FALSE,terre battue,FALSE
-6,FALSE,terre battue,FALSE
-7,FALSE,hard rapide,TRUE
-7,FALSE,hard rapide,TRUE
-8,TRUE,hard rapide,TRUE
-8,TRUE,hard rapide,TRUE
-8,FALSE,hard rapide,FALSE
-8,FALSE,hard rapide,FALSE
-8,FALSE,hard rapide,FALSE
-8,FALSE,hard rapide,FALSE
-9,TRUE,hard rapide,TRUE
-9,TRUE,hard rapide,TRUE
-9,TRUE,hard rapide,TRUE
-9,FALSE,terre battue,TRUE
-9,FALSE,terre battue,TRUE
-9,FALSE,terre battue,TRUE
-9,FALSE,terre battue,TRUE
-9,FALSE,terre battue,TRUE
-9,FALSE,terre battue,TRUE
-9,FALSE,terre battue,TRUE
-10,FALSE,terre battue,FALSE
-10,FALSE,terre battue,FALSE
-10,FALSE,terre battue,FALSE
-11,TRUE,hard rapide,TRUE
-11,TRUE,hard rapide,TRUE
-11,TRUE,hard rapide,TRUE
-11,TRUE,hard rapide,TRUE
-11,TRUE,hard rapide,TRUE
-11,TRUE,hard rapide,TRUE
-11,FALSE,terre battue,FALSE
-11,FALSE,terre battue,FALSE
-11,FALSE,terre battue,FALSE
-11,FALSE,terre battue,FALSE
-11,FALSE,terre battue,FALSE
-11,FALSE,terre battue,FALSE
-11,FALSE,terre battue,FALSE
-11,FALSE,terre battue,FALSE
-12,TRUE,hard lent,TRUE
-12,FALSE,terre battue,FALSE
-12,FALSE,terre battue,FALSE
-12,FALSE,terre battue,FALSE
-12,FALSE,terre battue,FALSE
-12,FALSE,terre battue,FALSE
-12,FALSE,terre battue,FALSE
-12,FALSE,terre battue,FALSE
-12,FALSE,terre battue,FALSE
-12,FALSE,terre battue,FALSE
-12,FALSE,terre battue,FALSE
-13,TRUE,hard rapide,TRUE
-13,FALSE,terre battue,FALSE
-13,FALSE,terre battue,FALSE
-13,FALSE,terre battue,FALSE
-13,FALSE,terre battue,FALSE
-13,FALSE,terre battue,FALSE
-13,FALSE,terre battue,FALSE
-13,FALSE,terre battue,FALSE
-14,FALSE,terre battue,FALSE
-14,FALSE,terre battue,FALSE
-14,FALSE,terre battue,FALSE
-15,TRUE,terre battue,TRUE
-15,TRUE,terre battue,TRUE
-15,FALSE,terre battue,TRUE
-15,FALSE,terre battue,TRUE
-15,FALSE,terre battue,TRUE
-15,FALSE,terre battue,TRUE
-16,FALSE,terre battue,FALSE
-16,FALSE,terre battue,FALSE
-17,TRUE,terre battue,TRUE
-17,TRUE,terre battue,TRUE
-17,FALSE,terre battue,FALSE
-17,FALSE,terre battue,FALSE
-17,FALSE,terre battue,FALSE
-17,FALSE,terre battue,FALSE
-17,FALSE,terre battue,FALSE
-18,FALSE,terre battue,TRUE
-18,FALSE,terre battue,TRUE
-18,FALSE,terre battue,TRUE
-18,FALSE,terre battue,TRUE
-18,FALSE,terre battue,TRUE
-18,FALSE,terre battue,TRUE
-19,FALSE,terre battue,FALSE
-20,TRUE,terre battue,TRUE
-20,TRUE,terre battue,TRUE
-20,TRUE,terre battue,TRUE
-20,FALSE,terre battue,FALSE
-20,FALSE,terre battue,FALSE
-20,FALSE,terre battue,FALSE
-20,FALSE,terre battue,FALSE
-20,FALSE,terre battue,FALSE
-22,FALSE,terre battue,FALSE
-22,FALSE,terre battue,FALSE
-22,FALSE,terre battue,FALSE
-22,FALSE,terre battue,FALSE
-22,FALSE,terre battue,FALSE
-22,FALSE,terre battue,FALSE
-22,FALSE,terre battue,FALSE
-22,FALSE,terre battue,FALSE
-23,FALSE,terre battue,TRUE
-23,FALSE,terre battue,TRUE
-24,FALSE,terre battue,FALSE
-24,FALSE,terre battue,FALSE
-24,FALSE,terre battue,FALSE
-24,FALSE,terre battue,FALSE
-25,FALSE,terre battue,FALSE
-25,FALSE,terre battue,FALSE
-25,FALSE,terre battue,FALSE
-25,FALSE,terre battue,FALSE
-25,FALSE,terre battue,FALSE
-25,FALSE,terre battue,FALSE
-25,FALSE,terre battue,FALSE
-26,FALSE,terre battue,FALSE
-26,FALSE,terre battue,FALSE
-26,FALSE,terre battue,FALSE
-26,FALSE,terre battue,FALSE
-26,FALSE,terre battue,FALSE
-26,FALSE,terre battue,FALSE
-26,FALSE,terre battue,FALSE
-26,FALSE,terre battue,FALSE
-27,FALSE,terre battue,FALSE
-27,FALSE,terre battue,FALSE
-27,FALSE,terre battue,FALSE
-27,FALSE,terre battue,FALSE
-27,FALSE,terre battue,FALSE
-28,TRUE,terre battue,TRUE
-28,TRUE,terre battue,TRUE
-28,FALSE,terre battue,FALSE
-28,FALSE,terre battue,FALSE
-28,FALSE,terre battue,FALSE
-28,FALSE,terre battue,FALSE
-29,FALSE,terre battue,FALSE
-29,FALSE,terre battue,FALSE
-29,FALSE,terre battue,FALSE
-30,TRUE,hard rapide,TRUE
-30,TRUE,hard rapide,TRUE
-30,TRUE,hard rapide,TRUE
-31,FALSE,hard rapide,FALSE
-31,FALSE,hard rapide,FALSE
-31,FALSE,hard rapide,FALSE
-31,FALSE,hard rapide,FALSE
-31,FALSE,hard rapide,FALSE
-31,FALSE,hard rapide,FALSE
-32,FALSE,terre battue,FALSE
-32,FALSE,terre battue,FALSE
-32,FALSE,terre battue,FALSE
-33,FALSE,terre battue,FALSE
-33,FALSE,terre battue,FALSE
-33,FALSE,terre battue,FALSE
-34,FALSE,terre battue,TRUE
-34,FALSE,terre battue,TRUE
-34,FALSE,terre battue,TRUE
-34,FALSE,terre battue,TRUE
-34,FALSE,terre battue,TRUE
-34,FALSE,terre battue,TRUE
-35,FALSE,terre battue,FALSE
-35,FALSE,terre battue,FALSE
-35,FALSE,terre battue,FALSE
-36,FALSE,terre battue,TRUE
-36,FALSE,terre battue,TRUE
-36,FALSE,terre battue,TRUE
-36,FALSE,terre battue,TRUE
-36,FALSE,terre battue,TRUE
-37,FALSE,terre battue,TRUE
-37,FALSE,terre battue,TRUE
-37,FALSE,terre battue,TRUE
-37,FALSE,terre battue,TRUE
-37,FALSE,terre battue,TRUE
-38,FALSE,terre battue,FALSE
-38,FALSE,terre battue,FALSE
-38,FALSE,terre battue,FALSE
-38,FALSE,terre battue,FALSE
-38,FALSE,terre battue,FALSE
-39,TRUE,hard rapide,TRUE
-39,FALSE,terre battue,FALSE
-39,FALSE,terre battue,FALSE
-40,TRUE,hard rapide,TRUE
-40,TRUE,hard rapide,TRUE
-40,TRUE,hard rapide,TRUE
-40,FALSE,hard rapide,FALSE
-40,FALSE,hard rapide,FALSE
-40,FALSE,hard rapide,FALSE
-40,FALSE,hard rapide,FALSE
-40,FALSE,hard rapide,FALSE
-40,FALSE,hard rapide,FALSE
-41,TRUE,terre battue,TRUE
-41,TRUE,terre battue,TRUE
-41,FALSE,hard rapide,FALSE
-42,TRUE,tapis,TRUE
-42,FALSE,terre battue,TRUE
-42,FALSE,terre battue,TRUE
-42,FALSE,terre battue,TRUE
-43,TRUE,terre battue,TRUE
-43,TRUE,terre battue,TRUE
-43,TRUE,terre battue,TRUE
-43,FALSE,terre battue,FALSE
-43,FALSE,terre battue,FALSE
-43,FALSE,terre battue,FALSE
-44,FALSE,terre battue,TRUE
-44,FALSE,terre battue,TRUE
-45,TRUE,terre battue,TRUE
-45,TRUE,terre battue,TRUE
-45,FALSE,terre battue,FALSE
-45,FALSE,terre battue,FALSE
-45,FALSE,terre battue,FALSE
-46,FALSE,terre battue,FALSE
-46,FALSE,terre battue,FALSE
-46,FALSE,terre battue,FALSE
-46,FALSE,terre battue,FALSE
-46,FALSE,terre battue,FALSE
-46,FALSE,terre battue,FALSE
-47,TRUE,terre battue,TRUE
-47,FALSE,hard rapide,FALSE
-47,FALSE,hard rapide,FALSE
-48,TRUE,tapis,TRUE
-48,TRUE,tapis,TRUE
-48,FALSE,terre battue,FALSE
-48,FALSE,terre battue,FALSE
-49,TRUE,terre battue,TRUE
-49,TRUE,terre battue,TRUE
-49,FALSE,terre battue,TRUE
-49,FALSE,terre battue,TRUE
-49,FALSE,terre battue,TRUE
-49,FALSE,terre battue,TRUE
-49,FALSE,terre battue,TRUE
-49,FALSE,terre battue,TRUE
-50,FALSE,terre battue,TRUE
-51,FALSE,terre battue,FALSE
-51,FALSE,terre battue,FALSE
-51,FALSE,terre battue,FALSE
-51,FALSE,terre battue,FALSE
-52,TRUE,hard rapide,TRUE
-52,TRUE,hard rapide,TRUE
-52,FALSE,terre battue,FALSE
-52,FALSE,terre battue,FALSE
-52,FALSE,terre battue,FALSE
-53,FALSE,terre battue,FALSE
-53,FALSE,terre battue,FALSE
-53,FALSE,terre battue,FALSE
-54,FALSE,hard rapide,FALSE
-54,FALSE,hard rapide,FALSE
-54,FALSE,hard rapide,FALSE
-55,TRUE,terre battue,TRUE
-55,FALSE,terre battue,FALSE
-55,FALSE,terre battue,FALSE
-55,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-56,FALSE,terre battue,FALSE
-57,TRUE,hard rapide,TRUE
-57,TRUE,hard rapide,TRUE
-57,TRUE,hard rapide,TRUE
-57,TRUE,hard rapide,TRUE
-57,FALSE,terre battue,FALSE
-57,FALSE,terre battue,FALSE
-57,FALSE,terre battue,FALSE
-57,FALSE,terre battue,FALSE
-57,FALSE,terre battue,FALSE
-57,FALSE,terre battue,FALSE
-57,FALSE,terre battue,FALSE
-57,FALSE,terre battue,FALSE
-59,TRUE,hard rapide,TRUE
-59,TRUE,hard rapide,TRUE
-59,TRUE,hard rapide,TRUE
-59,FALSE,terre battue,FALSE
-59,FALSE,terre battue,FALSE
-59,FALSE,terre battue,FALSE
-59,FALSE,terre battue,FALSE
-59,FALSE,terre battue,FALSE
-60,TRUE,hard lent,TRUE
-60,TRUE,hard lent,TRUE
-60,TRUE,hard lent,TRUE
-60,TRUE,hard lent,TRUE
-60,FALSE,hard lent,FALSE
-60,FALSE,hard lent,FALSE
-61,FALSE,terre battue,FALSE
-61,FALSE,terre battue,FALSE
-61,FALSE,terre battue,FALSE
-61,FALSE,terre battue,FALSE
-61,FALSE,terre battue,FALSE
-61,FALSE,terre battue,FALSE
-61,FALSE,terre battue,FALSE
-62,FALSE,hard rapide,TRUE
-62,FALSE,hard rapide,TRUE
-63,FALSE,terre battue,FALSE
-63,FALSE,terre battue,FALSE
-63,FALSE,terre battue,FALSE
-63,FALSE,terre battue,FALSE
-64,TRUE,terre battue,TRUE
-64,TRUE,terre battue,TRUE
-64,TRUE,terre battue,TRUE
-64,TRUE,terre battue,TRUE
-64,FALSE,terre battue,TRUE
-64,FALSE,terre battue,TRUE
-65,TRUE,hard rapide,TRUE
-65,TRUE,hard rapide,TRUE
-65,FALSE,terre battue,FALSE
-65,FALSE,terre battue,FALSE
-66,TRUE,terre battue,TRUE
-66,TRUE,terre battue,TRUE
-66,TRUE,terre battue,TRUE
-66,FALSE,hard rapide,FALSE
-67,TRUE,tapis,TRUE
-67,FALSE,gazon synthetique,FALSE
-68,FALSE,terre battue,FALSE
-68,FALSE,terre battue,FALSE
-68,FALSE,terre battue,FALSE
-68,FALSE,terre battue,FALSE
-68,FALSE,terre battue,FALSE
-68,FALSE,terre battue,FALSE
-69,TRUE,hard rapide,TRUE
-69,TRUE,hard rapide,TRUE
-69,FALSE,terre battue,FALSE
-69,FALSE,terre battue,FALSE
-69,FALSE,terre battue,FALSE
-70,TRUE,hard rapide,TRUE
-70,TRUE,hard rapide,TRUE
-70,TRUE,hard rapide,TRUE
-70,TRUE,hard rapide,TRUE
-70,FALSE,hard rapide,FALSE
-70,FALSE,hard rapide,FALSE
-71,FALSE,hard rapide,FALSE
-71,FALSE,hard rapide,FALSE
-71,FALSE,hard rapide,FALSE
-71,FALSE,hard rapide,FALSE
-72,FALSE,terre battue,FALSE
-73,FALSE,terre battue,FALSE
-73,FALSE,terre battue,FALSE
-73,FALSE,terre battue,FALSE
-73,FALSE,terre battue,FALSE
-74,TRUE,hard rapide,TRUE
-74,TRUE,hard rapide,TRUE
-74,TRUE,hard rapide,TRUE
-74,FALSE,terre battue,FALSE
-74,FALSE,terre battue,FALSE
-74,FALSE,terre battue,FALSE
-74,FALSE,terre battue,FALSE
-74,FALSE,terre battue,FALSE
-75,FALSE,terre battue,FALSE
-75,FALSE,terre battue,FALSE
-75,FALSE,terre battue,FALSE
-75,FALSE,terre battue,FALSE
-75,FALSE,terre battue,FALSE
-75,FALSE,terre battue,FALSE
-75,FALSE,terre battue,FALSE
-75,FALSE,terre battue,FALSE
-75,FALSE,terre battue,FALSE
-75,FALSE,terre battue,FALSE
-76,FALSE,hard rapide,TRUE
-76,FALSE,hard rapide,TRUE
-77,FALSE,terre battue,FALSE
-77,FALSE,terre battue,FALSE
-78,TRUE,tapis,TRUE
-78,TRUE,tapis,TRUE
-78,TRUE,tapis,TRUE
-78,FALSE,terre battue,FALSE
-78,FALSE,terre battue,FALSE
-78,FALSE,terre battue,FALSE
-78,FALSE,terre battue,FALSE
-78,FALSE,terre battue,FALSE
-80,FALSE,terre battue,FALSE
-80,FALSE,terre battue,FALSE
-80,FALSE,terre battue,FALSE
-80,FALSE,terre battue,FALSE
-81,TRUE,tapis,TRUE
-81,FALSE,terre battue,FALSE
-81,FALSE,terre battue,FALSE
-82,FALSE,terre battue,FALSE
-82,FALSE,terre battue,FALSE
-82,FALSE,terre battue,FALSE
-82,FALSE,terre battue,FALSE
-82,FALSE,terre battue,FALSE
-82,FALSE,terre battue,FALSE
-83,TRUE,tapis,TRUE
-83,TRUE,tapis,TRUE
-83,TRUE,tapis,TRUE
-83,TRUE,tapis,TRUE
-83,TRUE,tapis,TRUE
-83,FALSE,hard rapide,TRUE
-83,FALSE,hard rapide,TRUE
-83,FALSE,hard rapide,TRUE
-83,FALSE,hard rapide,TRUE
-83,FALSE,hard rapide,TRUE
-83,FALSE,hard rapide,TRUE
-84,TRUE,terre battue,TRUE
-84,TRUE,terre battue,TRUE
-84,TRUE,terre battue,TRUE
-84,TRUE,terre battue,TRUE
-84,TRUE,terre battue,TRUE
-84,TRUE,terre battue,TRUE
-84,FALSE,gazon synthetique,FALSE
-85,FALSE,hard rapide,FALSE
-86,TRUE,terre battue,TRUE
-86,FALSE,terre battue,FALSE
-86,FALSE,terre battue,FALSE
-87,FALSE,terre battue,TRUE
-87,FALSE,terre battue,TRUE
-87,FALSE,terre battue,TRUE
-88,FALSE,terre battue,FALSE
-88,FALSE,terre battue,FALSE
-88,FALSE,terre battue,FALSE
-88,FALSE,terre battue,FALSE
-88,FALSE,terre battue,FALSE
-88,FALSE,terre battue,FALSE
-88,FALSE,terre battue,FALSE
-88,FALSE,terre battue,FALSE
-88,FALSE,terre battue,FALSE
-89,TRUE,hard lent,TRUE
-89,TRUE,hard lent,TRUE
-89,TRUE,hard lent,TRUE
-89,TRUE,hard lent,TRUE
-89,FALSE,terre battue,FALSE
-89,FALSE,terre battue,FALSE
-89,FALSE,terre battue,FALSE
-89,FALSE,terre battue,FALSE
-89,FALSE,terre battue,FALSE
-90,FALSE,terre battue,TRUE
-90,FALSE,terre battue,TRUE
-91,FALSE,terre battue,FALSE
-91,FALSE,terre battue,FALSE
-91,FALSE,terre battue,FALSE
-92,FALSE,terre battue,FALSE
-92,FALSE,terre battue,FALSE
-92,FALSE,terre battue,FALSE
-92,FALSE,terre battue,FALSE
-94,TRUE,tapis,TRUE
-94,TRUE,tapis,TRUE
-94,TRUE,tapis,TRUE
-94,TRUE,tapis,TRUE
-94,TRUE,tapis,TRUE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-94,FALSE,terre battue,FALSE
-95,TRUE,tapis,TRUE
-95,TRUE,tapis,TRUE
-95,TRUE,tapis,TRUE
-95,TRUE,tapis,TRUE
-95,TRUE,tapis,TRUE
-95,TRUE,tapis,TRUE
-95,FALSE,terre battue,FALSE
-95,FALSE,terre battue,FALSE
-95,FALSE,terre battue,FALSE
-95,FALSE,terre battue,FALSE
-95,FALSE,terre battue,FALSE
-96,TRUE,terre battue,TRUE
-96,TRUE,terre battue,TRUE
-96,TRUE,terre battue,TRUE
-96,TRUE,terre battue,TRUE
-96,TRUE,terre battue,TRUE
-96,FALSE,terre battue,FALSE
-96,FALSE,terre battue,FALSE
-96,FALSE,terre battue,FALSE
-96,FALSE,terre battue,FALSE
-96,FALSE,terre battue,FALSE
-96,FALSE,terre battue,FALSE
-96,FALSE,terre battue,FALSE
-97,FALSE,terre battue,FALSE
-97,FALSE,terre battue,FALSE
-97,FALSE,terre battue,FALSE
-99,TRUE,tapis,TRUE
-99,TRUE,tapis,TRUE
-99,TRUE,tapis,TRUE
-99,FALSE,terre battue,FALSE
-99,FALSE,terre battue,FALSE
-99,FALSE,terre battue,FALSE
-99,FALSE,terre battue,FALSE
-99,FALSE,terre battue,FALSE
-99,FALSE,terre battue,FALSE
-99,FALSE,terre battue,FALSE
-99,FALSE,terre battue,FALSE
-99,FALSE,terre battue,FALSE
-99,FALSE,terre battue,FALSE
-99,FALSE,terre battue,FALSE
-99,FALSE,terre battue,FALSE
-100,TRUE,terre battue,TRUE
-100,TRUE,terre battue,TRUE
-100,TRUE,terre battue,TRUE
-100,FALSE,terre battue,FALSE
-100,FALSE,terre battue,FALSE
-100,FALSE,terre battue,FALSE
-100,FALSE,terre battue,FALSE
-100,FALSE,terre battue,FALSE
-100,FALSE,terre battue,FALSE
-100,FALSE,terre battue,FALSE
-100,FALSE,terre battue,FALSE
-100,FALSE,terre battue,FALSE
-100,FALSE,terre battue,FALSE
-101,FALSE,hard rapide,FALSE
-102,TRUE,hard rapide,TRUE
-102,TRUE,hard rapide,TRUE
-102,FALSE,terre battue,FALSE
-102,FALSE,terre battue,FALSE
-103,TRUE,hard rapide,TRUE
-103,TRUE,hard rapide,TRUE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-103,FALSE,terre battue,FALSE
-104,TRUE,hard lent,TRUE
-104,TRUE,hard lent,TRUE
-104,TRUE,hard lent,TRUE
-104,TRUE,hard lent,TRUE
-104,TRUE,hard lent,TRUE
-105,FALSE,hard rapide,FALSE
-105,FALSE,hard rapide,FALSE
-105,FALSE,hard rapide,FALSE
-106,FALSE,terre battue,FALSE
-106,FALSE,terre battue,FALSE
-107,FALSE,terre battue,FALSE
-107,FALSE,terre battue,FALSE
-107,FALSE,terre battue,FALSE
-107,FALSE,terre battue,FALSE
-107,FALSE,terre battue,FALSE
-108,FALSE,terre battue,FALSE
-108,FALSE,terre battue,FALSE
-109,TRUE,hard rapide,TRUE
-109,FALSE,hard rapide,FALSE
-109,FALSE,hard rapide,FALSE
-109,FALSE,hard rapide,FALSE
-110,TRUE,hard rapide,TRUE
-110,TRUE,hard rapide,TRUE
-110,FALSE,terre battue,FALSE
-110,FALSE,terre battue,FALSE
-110,FALSE,terre battue,FALSE
-110,FALSE,terre battue,FALSE
-110,FALSE,terre battue,FALSE
-111,FALSE,terre battue,FALSE
-111,FALSE,terre battue,FALSE
-111,FALSE,terre battue,FALSE
-112,TRUE,hard rapide,TRUE
-112,TRUE,hard rapide,TRUE
-112,FALSE,terre battue,FALSE
-112,FALSE,terre battue,FALSE
-112,FALSE,terre battue,FALSE
-112,FALSE,terre battue,FALSE
-113,TRUE,hard rapide,TRUE
-113,TRUE,hard rapide,TRUE
-113,TRUE,hard rapide,TRUE
-113,TRUE,hard rapide,TRUE
-113,FALSE,terre battue,FALSE
-113,FALSE,terre battue,FALSE
-113,FALSE,terre battue,FALSE
-113,FALSE,terre battue,FALSE
-113,FALSE,terre battue,FALSE
-113,FALSE,terre battue,FALSE
-113,FALSE,terre battue,FALSE
-113,FALSE,terre battue,FALSE
-114,FALSE,terre battue,TRUE
-114,FALSE,terre battue,TRUE
-114,FALSE,terre battue,TRUE
-115,FALSE,terre battue,TRUE
-115,FALSE,terre battue,TRUE
-115,FALSE,terre battue,TRUE
-115,FALSE,terre battue,TRUE
-116,FALSE,gazon synthetique,FALSE
-116,FALSE,gazon synthetique,FALSE
-117,FALSE,terre battue,FALSE
-117,FALSE,terre battue,FALSE
-118,FALSE,terre battue,FALSE
-118,FALSE,terre battue,FALSE
-119,TRUE,hard rapide,TRUE
-119,TRUE,hard rapide,TRUE
-119,FALSE,gazon synthetique,FALSE
-119,FALSE,gazon synthetique,FALSE
-120,FALSE,terre battue,TRUE
-120,FALSE,terre battue,TRUE
-121,FALSE,terre battue,FALSE
-121,FALSE,terre battue,FALSE
-121,FALSE,terre battue,FALSE
-121,FALSE,terre battue,FALSE
-121,FALSE,terre battue,FALSE
-122,TRUE,hard rapide,TRUE
-122,TRUE,hard rapide,TRUE
-122,FALSE,terre battue,FALSE
-122,FALSE,terre battue,FALSE
-122,FALSE,terre battue,FALSE
-122,FALSE,terre battue,FALSE
-123,TRUE,hard rapide,TRUE
-123,TRUE,hard rapide,TRUE
-123,TRUE,hard rapide,TRUE
-123,TRUE,hard rapide,TRUE
-123,FALSE,hard rapide,TRUE
-123,FALSE,hard rapide,TRUE
-124,TRUE,hard rapide,TRUE
-124,TRUE,hard rapide,TRUE
-124,TRUE,hard rapide,TRUE
-124,FALSE,terre battue,FALSE
-124,FALSE,terre battue,FALSE
-124,FALSE,terre battue,FALSE
-124,FALSE,terre battue,FALSE
-125,FALSE,terre battue,FALSE
-125,FALSE,terre battue,FALSE
-125,FALSE,terre battue,FALSE
-126,TRUE,hard rapide,TRUE
-126,TRUE,hard rapide,TRUE
-126,FALSE,hard rapide,FALSE
-126,FALSE,hard rapide,FALSE
-127,TRUE,hard rapide,TRUE
-127,FALSE,terre battue,TRUE
-128,FALSE,terre battue,TRUE
-128,FALSE,terre battue,TRUE
-128,FALSE,terre battue,TRUE
-128,FALSE,terre battue,TRUE
-128,FALSE,terre battue,TRUE
-128,FALSE,terre battue,TRUE
-129,TRUE,tapis,TRUE
-129,TRUE,tapis,TRUE
-129,TRUE,tapis,TRUE
-129,FALSE,hard rapide,FALSE
-129,FALSE,hard rapide,FALSE
-129,FALSE,hard rapide,FALSE
-130,TRUE,terre battue,TRUE
-130,TRUE,terre battue,TRUE
-130,TRUE,terre battue,TRUE
-130,FALSE,terre battue,FALSE
-130,FALSE,terre battue,FALSE
-130,FALSE,terre battue,FALSE
-130,FALSE,terre battue,FALSE
-130,FALSE,terre battue,FALSE
-130,FALSE,terre battue,FALSE
-131,TRUE,terre battue,TRUE
-131,TRUE,terre battue,TRUE
-131,TRUE,terre battue,TRUE
-131,TRUE,terre battue,TRUE
-131,FALSE,terre battue,FALSE
-131,FALSE,terre battue,FALSE
-131,FALSE,terre battue,FALSE
-131,FALSE,terre battue,FALSE
-131,FALSE,terre battue,FALSE
-131,FALSE,terre battue,FALSE
-131,FALSE,terre battue,FALSE
-131,FALSE,terre battue,FALSE
-131,FALSE,terre battue,FALSE
-131,FALSE,terre battue,FALSE
-132,FALSE,terre battue,FALSE
-132,FALSE,terre battue,FALSE
-132,FALSE,terre battue,FALSE
-132,FALSE,terre battue,FALSE
-132,FALSE,terre battue,FALSE
-132,FALSE,terre battue,FALSE
-133,FALSE,terre battue,TRUE
-133,FALSE,terre battue,TRUE
-133,FALSE,terre battue,TRUE
-133,FALSE,terre battue,TRUE
-134,TRUE,hard rapide,TRUE
-134,TRUE,hard rapide,TRUE
-134,TRUE,hard rapide,TRUE
-135,FALSE,terre battue,FALSE
-135,FALSE,terre battue,FALSE
-136,TRUE,hard rapide,TRUE
-136,FALSE,hard rapide,TRUE
-136,FALSE,hard rapide,TRUE
-136,FALSE,hard rapide,TRUE
-137,TRUE,terre battue,TRUE
-137,TRUE,terre battue,TRUE
-137,FALSE,terre battue,FALSE
-137,FALSE,terre battue,FALSE
-137,FALSE,terre battue,FALSE
-137,FALSE,terre battue,FALSE
-137,FALSE,terre battue,FALSE
-137,FALSE,terre battue,FALSE
-138,FALSE,terre battue,FALSE
-138,FALSE,terre battue,FALSE
-138,FALSE,terre battue,FALSE
-139,FALSE,terre battue,FALSE
-139,FALSE,terre battue,FALSE
-139,FALSE,terre battue,FALSE
-139,FALSE,terre battue,FALSE
-140,FALSE,terre battue,FALSE
-140,FALSE,terre battue,FALSE
-141,TRUE,terre battue,TRUE
-141,FALSE,terre battue,TRUE
-141,FALSE,terre battue,TRUE
-141,FALSE,terre battue,TRUE
-143,FALSE,terre battue,FALSE
-143,FALSE,terre battue,FALSE
-143,FALSE,terre battue,FALSE
-143,FALSE,terre battue,FALSE
-143,FALSE,terre battue,FALSE
-144,FALSE,terre battue,FALSE
-144,FALSE,terre battue,FALSE
-144,FALSE,terre battue,FALSE
-144,FALSE,terre battue,FALSE
-145,FALSE,terre battue,FALSE
-145,FALSE,terre battue,FALSE
-145,FALSE,terre battue,FALSE
-145,FALSE,terre battue,FALSE
-145,FALSE,terre battue,FALSE
-146,TRUE,hard rapide,TRUE
-146,TRUE,hard rapide,TRUE
-146,FALSE,terre battue,TRUE
-146,FALSE,terre battue,TRUE
-146,FALSE,terre battue,TRUE
-146,FALSE,terre battue,TRUE
-147,TRUE,hard rapide,TRUE
-147,TRUE,hard rapide,TRUE
-147,FALSE,terre battue,FALSE
-147,FALSE,terre battue,FALSE
-147,FALSE,terre battue,FALSE
-147,FALSE,terre battue,FALSE
-147,FALSE,terre battue,FALSE
-147,FALSE,terre battue,FALSE
-147,FALSE,terre battue,FALSE
-147,FALSE,terre battue,FALSE
-147,FALSE,terre battue,FALSE
-147,FALSE,terre battue,FALSE
-147,FALSE,terre battue,FALSE
-148,TRUE,terre battue,TRUE
-148,TRUE,terre battue,TRUE
-148,FALSE,terre battue,FALSE
-148,FALSE,terre battue,FALSE
-148,FALSE,terre battue,FALSE
-149,TRUE,hard rapide,TRUE
-149,TRUE,hard rapide,TRUE
-149,TRUE,hard rapide,TRUE
-149,TRUE,hard rapide,TRUE
-149,TRUE,hard rapide,TRUE
-150,FALSE,terre battue,FALSE
-150,FALSE,terre battue,FALSE
-150,FALSE,terre battue,FALSE
-150,FALSE,terre battue,FALSE
-150,FALSE,terre battue,FALSE
-151,TRUE,hard rapide,TRUE
-151,TRUE,hard rapide,TRUE
-151,TRUE,hard rapide,TRUE
-151,TRUE,hard rapide,TRUE
-151,TRUE,hard rapide,TRUE
-151,TRUE,hard rapide,TRUE
-151,FALSE,terre battue,FALSE
-151,FALSE,terre battue,FALSE
-151,FALSE,terre battue,FALSE
-151,FALSE,terre battue,FALSE
-151,FALSE,terre battue,FALSE
-152,TRUE,hard rapide,TRUE
-152,TRUE,hard rapide,TRUE
-152,TRUE,hard rapide,TRUE
-152,TRUE,hard rapide,TRUE
-152,FALSE,terre battue,FALSE
-152,FALSE,terre battue,FALSE
-152,FALSE,terre battue,FALSE
-152,FALSE,terre battue,FALSE
-152,FALSE,terre battue,FALSE
-152,FALSE,terre battue,FALSE
-152,FALSE,terre battue,FALSE
-152,FALSE,terre battue,FALSE
-153,TRUE,terre battue,TRUE
-153,TRUE,terre battue,TRUE
-153,FALSE,terre battue,FALSE
-153,FALSE,terre battue,FALSE
-153,FALSE,terre battue,FALSE
-153,FALSE,terre battue,FALSE
-153,FALSE,terre battue,FALSE
-153,FALSE,terre battue,FALSE
-153,FALSE,terre battue,FALSE
-154,TRUE,terre battue,TRUE
-154,TRUE,terre battue,TRUE
-154,TRUE,terre battue,TRUE
-154,TRUE,terre battue,TRUE
-154,FALSE,hard rapide,FALSE
-155,FALSE,terre battue,FALSE
-155,FALSE,terre battue,FALSE
-155,FALSE,terre battue,FALSE
-156,FALSE,terre battue,FALSE
-156,FALSE,terre battue,FALSE
-156,FALSE,terre battue,FALSE
-157,TRUE,hard rapide,TRUE
-157,FALSE,hard rapide,FALSE
-158,TRUE,hard rapide,TRUE
-158,FALSE,terre battue,TRUE
-159,TRUE,tapis,TRUE
-159,TRUE,tapis,TRUE
-159,TRUE,tapis,TRUE
-159,FALSE,terre battue,FALSE
-159,FALSE,terre battue,FALSE
-159,FALSE,terre battue,FALSE
-159,FALSE,terre battue,FALSE
-159,FALSE,terre battue,FALSE
-159,FALSE,terre battue,FALSE
-159,FALSE,terre battue,FALSE
-160,TRUE,hard rapide,TRUE
-160,TRUE,hard rapide,TRUE
-160,FALSE,terre battue,TRUE
-160,FALSE,terre battue,TRUE
-160,FALSE,terre battue,TRUE
-160,FALSE,terre battue,TRUE
-161,FALSE,terre battue,FALSE
-161,FALSE,terre battue,FALSE
-161,FALSE,terre battue,FALSE
-162,FALSE,terre battue,FALSE
-162,FALSE,terre battue,FALSE
-162,FALSE,terre battue,FALSE
-163,FALSE,terre battue,FALSE
-163,FALSE,terre battue,FALSE
-163,FALSE,terre battue,FALSE
-163,FALSE,terre battue,FALSE
-163,FALSE,terre battue,FALSE
-163,FALSE,terre battue,FALSE
-164,TRUE,terre battue,TRUE
-164,TRUE,terre battue,TRUE
-164,TRUE,terre battue,TRUE
-164,TRUE,terre battue,TRUE
-164,FALSE,terre battue,FALSE
-164,FALSE,terre battue,FALSE
-164,FALSE,terre battue,FALSE
-164,FALSE,terre battue,FALSE
-164,FALSE,terre battue,FALSE
-164,FALSE,terre battue,FALSE
-164,FALSE,terre battue,FALSE
-164,FALSE,terre battue,FALSE
-164,FALSE,terre battue,FALSE
-164,FALSE,terre battue,FALSE
-165,FALSE,terre battue,FALSE
-165,FALSE,terre battue,FALSE
-165,FALSE,terre battue,FALSE
-165,FALSE,terre battue,FALSE
-165,FALSE,terre battue,FALSE
-165,FALSE,terre battue,FALSE
-166,FALSE,terre battue,FALSE
-166,FALSE,terre battue,FALSE
-166,FALSE,terre battue,FALSE
-166,FALSE,terre battue,FALSE
-166,FALSE,terre battue,FALSE
-166,FALSE,terre battue,FALSE
-166,FALSE,terre battue,FALSE
-166,FALSE,terre battue,FALSE
-166,FALSE,terre battue,FALSE
-166,FALSE,terre battue,FALSE
-166,FALSE,terre battue,FALSE
-167,TRUE,hard rapide,TRUE
-167,FALSE,terre battue,FALSE
-167,FALSE,terre battue,FALSE
-168,TRUE,terre battue,TRUE
-168,TRUE,terre battue,TRUE
-168,FALSE,hard rapide,FALSE
-168,FALSE,hard rapide,FALSE
-169,FALSE,terre battue,FALSE
-169,FALSE,terre battue,FALSE
-170,TRUE,tapis,TRUE
-170,TRUE,tapis,TRUE
-170,TRUE,tapis,TRUE
-170,FALSE,terre battue,FALSE
-170,FALSE,terre battue,FALSE
-170,FALSE,terre battue,FALSE
-170,FALSE,terre battue,FALSE
-171,FALSE,terre battue,FALSE
-171,FALSE,terre battue,FALSE
-171,FALSE,terre battue,FALSE
-171,FALSE,terre battue,FALSE
-172,TRUE,hard lent,TRUE
-172,TRUE,hard lent,TRUE
-172,TRUE,hard lent,TRUE
-172,TRUE,hard lent,TRUE
-172,FALSE,terre battue,FALSE
-172,FALSE,terre battue,FALSE
-172,FALSE,terre battue,FALSE
-172,FALSE,terre battue,FALSE
-172,FALSE,terre battue,FALSE
-173,TRUE,tapis,TRUE
-173,FALSE,hard rapide,FALSE
-173,FALSE,hard rapide,FALSE
-173,FALSE,hard rapide,FALSE
-174,TRUE,hard rapide,TRUE
-174,TRUE,hard rapide,TRUE
-174,FALSE,terre battue,FALSE
-174,FALSE,terre battue,FALSE
-175,TRUE,hard rapide,TRUE
-175,TRUE,hard rapide,TRUE
-175,TRUE,hard rapide,TRUE
-175,TRUE,hard rapide,TRUE
-175,FALSE,terre battue,FALSE
-175,FALSE,terre battue,FALSE
-175,FALSE,terre battue,FALSE
-175,FALSE,terre battue,FALSE
-175,FALSE,terre battue,FALSE
-175,FALSE,terre battue,FALSE
-176,TRUE,hard rapide,TRUE
-176,TRUE,hard rapide,TRUE
-176,TRUE,hard rapide,TRUE
-176,FALSE,terre battue,TRUE
-176,FALSE,terre battue,TRUE
-176,FALSE,terre battue,TRUE
-176,FALSE,terre battue,TRUE
-176,FALSE,terre battue,TRUE
-176,FALSE,terre battue,TRUE
-176,FALSE,terre battue,TRUE
-177,FALSE,hard rapide,FALSE
-177,FALSE,hard rapide,FALSE
-177,FALSE,hard rapide,FALSE
-177,FALSE,hard rapide,FALSE
-177,FALSE,hard rapide,FALSE
-178,TRUE,hard rapide,TRUE
-178,TRUE,hard rapide,TRUE
-178,FALSE,terre battue,FALSE
-178,FALSE,terre battue,FALSE
-178,FALSE,terre battue,FALSE
-178,FALSE,terre battue,FALSE
-178,FALSE,terre battue,FALSE
-179,TRUE,terre battue,TRUE
-179,TRUE,terre battue,TRUE
-179,FALSE,terre battue,FALSE
-179,FALSE,terre battue,FALSE
-179,FALSE,terre battue,FALSE
-180,FALSE,terre battue,FALSE
-180,FALSE,terre battue,FALSE
-180,FALSE,terre battue,FALSE
-180,FALSE,terre battue,FALSE
-181,TRUE,hard rapide,TRUE
-181,TRUE,hard rapide,TRUE
-181,TRUE,hard rapide,TRUE
-181,TRUE,hard rapide,TRUE
-181,TRUE,hard rapide,TRUE
-181,FALSE,terre battue,FALSE
-181,FALSE,terre battue,FALSE
-181,FALSE,terre battue,FALSE
-181,FALSE,terre battue,FALSE
-181,FALSE,terre battue,FALSE
-181,FALSE,terre battue,FALSE
-181,FALSE,terre battue,FALSE
-181,FALSE,terre battue,FALSE
-182,FALSE,terre battue,FALSE
-182,FALSE,terre battue,FALSE
-182,FALSE,terre battue,FALSE
-183,FALSE,gazon synthetique,FALSE
-183,FALSE,gazon synthetique,FALSE
-184,TRUE,gazon synthetique,TRUE
-184,TRUE,gazon synthetique,TRUE
-184,FALSE,terre battue,FALSE
-184,FALSE,terre battue,FALSE
-184,FALSE,terre battue,FALSE
-185,TRUE,hard rapide,TRUE
-185,TRUE,hard rapide,TRUE
-185,FALSE,terre battue,FALSE
-185,FALSE,terre battue,FALSE
-185,FALSE,terre battue,FALSE
-185,FALSE,terre battue,FALSE
-186,TRUE,terre battue,TRUE
-186,TRUE,terre battue,TRUE
-186,FALSE,terre battue,FALSE
-186,FALSE,terre battue,FALSE
-186,FALSE,terre battue,FALSE
-186,FALSE,terre battue,FALSE
-187,FALSE,terre battue,FALSE
-187,FALSE,terre battue,FALSE
-187,FALSE,terre battue,FALSE
-187,FALSE,terre battue,FALSE
-187,FALSE,terre battue,FALSE
-187,FALSE,terre battue,FALSE
-187,FALSE,terre battue,FALSE
-187,FALSE,terre battue,FALSE
-187,FALSE,terre battue,FALSE
-187,FALSE,terre battue,FALSE
-187,FALSE,terre battue,FALSE
-188,TRUE,tapis,TRUE
-188,TRUE,tapis,TRUE
-188,TRUE,tapis,TRUE
-188,FALSE,terre battue,FALSE
-188,FALSE,terre battue,FALSE
-188,FALSE,terre battue,FALSE
-188,FALSE,terre battue,FALSE
-188,FALSE,terre battue,FALSE
-188,FALSE,terre battue,FALSE
-188,FALSE,terre battue,FALSE
-188,FALSE,terre battue,FALSE
-188,FALSE,terre battue,FALSE
-189,TRUE,hard rapide,TRUE
-189,FALSE,hard rapide,FALSE
-189,FALSE,hard rapide,FALSE
-190,FALSE,gazon synthetique,FALSE
-190,FALSE,gazon synthetique,FALSE
-191,TRUE,terre battue,TRUE
-191,TRUE,terre battue,TRUE
-191,FALSE,terre battue,FALSE
-191,FALSE,terre battue,FALSE
-191,FALSE,terre battue,FALSE
-191,FALSE,terre battue,FALSE
-191,FALSE,terre battue,FALSE
-191,FALSE,terre battue,FALSE
-191,FALSE,terre battue,FALSE
-191,FALSE,terre battue,FALSE
-191,FALSE,terre battue,FALSE
-192,TRUE,terre battue,TRUE
-192,TRUE,terre battue,TRUE
-192,TRUE,terre battue,TRUE
-192,FALSE,terre battue,TRUE
-192,FALSE,terre battue,TRUE
-192,FALSE,terre battue,TRUE
-192,FALSE,terre battue,TRUE
-192,FALSE,terre battue,TRUE
-193,FALSE,terre battue,TRUE
-193,FALSE,terre battue,TRUE
-193,FALSE,terre battue,TRUE
-193,FALSE,terre battue,TRUE
-193,FALSE,terre battue,TRUE
-194,TRUE,hard rapide,TRUE
-194,TRUE,hard rapide,TRUE
-194,TRUE,hard rapide,TRUE
-195,TRUE,terre battue,TRUE
-195,TRUE,terre battue,TRUE
-195,FALSE,terre battue,FALSE
-195,FALSE,terre battue,FALSE
-195,FALSE,terre battue,FALSE
-195,FALSE,terre battue,FALSE
-195,FALSE,terre battue,FALSE
-195,FALSE,terre battue,FALSE
-195,FALSE,terre battue,FALSE
-196,FALSE,terre battue,TRUE
-196,FALSE,terre battue,TRUE
-196,FALSE,terre battue,TRUE
-197,TRUE,terre battue,TRUE
-197,TRUE,terre battue,TRUE
-197,FALSE,terre battue,TRUE
-197,FALSE,terre battue,TRUE
-197,FALSE,terre battue,TRUE
-197,FALSE,terre battue,TRUE
-198,FALSE,gazon synthetique,FALSE
-198,FALSE,gazon synthetique,FALSE
-198,FALSE,gazon synthetique,FALSE
-199,TRUE,tapis,TRUE
-199,TRUE,tapis,TRUE
-199,TRUE,tapis,TRUE
-199,FALSE,terre battue,TRUE
-199,FALSE,terre battue,TRUE
-199,FALSE,terre battue,TRUE
-199,FALSE,terre battue,TRUE
-199,FALSE,terre battue,TRUE
-199,FALSE,terre battue,TRUE
-200,TRUE,terre battue,TRUE
-200,TRUE,terre battue,TRUE
-200,TRUE,terre battue,TRUE
-200,FALSE,terre battue,FALSE
-200,FALSE,terre battue,FALSE
-200,FALSE,terre battue,FALSE
-200,FALSE,terre battue,FALSE
-200,FALSE,terre battue,FALSE
-201,FALSE,terre battue,FALSE
-201,FALSE,terre battue,FALSE
-202,FALSE,terre battue,FALSE
-202,FALSE,terre battue,FALSE
-202,FALSE,terre battue,FALSE
-203,TRUE,hard rapide,TRUE
-203,TRUE,hard rapide,TRUE
-203,TRUE,hard rapide,TRUE
-203,FALSE,terre battue,FALSE
-203,FALSE,terre battue,FALSE
-203,FALSE,terre battue,FALSE
-204,TRUE,hard rapide,TRUE
-204,TRUE,hard rapide,TRUE
-204,FALSE,terre battue,FALSE
-204,FALSE,terre battue,FALSE
-204,FALSE,terre battue,FALSE
-204,FALSE,terre battue,FALSE
-204,FALSE,terre battue,FALSE
-205,TRUE,hard rapide,TRUE
-205,FALSE,hard rapide,FALSE
-206,TRUE,hard rapide,TRUE
-206,TRUE,hard rapide,TRUE
-206,TRUE,hard rapide,TRUE
-206,FALSE,terre battue,FALSE
-206,FALSE,terre battue,FALSE
-206,FALSE,terre battue,FALSE
-206,FALSE,terre battue,FALSE
-206,FALSE,terre battue,FALSE
-206,FALSE,terre battue,FALSE
-206,FALSE,terre battue,FALSE
-206,FALSE,terre battue,FALSE
-206,FALSE,terre battue,FALSE
-207,FALSE,terre battue,FALSE
-207,FALSE,terre battue,FALSE
-208,TRUE,terre battue,TRUE
-208,TRUE,terre battue,TRUE
-208,TRUE,terre battue,TRUE
-208,FALSE,terre battue,FALSE
-208,FALSE,terre battue,FALSE
-209,TRUE,hard lent,TRUE
-209,TRUE,hard lent,TRUE
-209,FALSE,hard lent,TRUE
-209,FALSE,hard lent,TRUE
-210,TRUE,terre battue,TRUE
-210,TRUE,terre battue,TRUE
-210,TRUE,terre battue,TRUE
-210,FALSE,terre battue,FALSE
-210,FALSE,terre battue,FALSE
-210,FALSE,terre battue,FALSE
-210,FALSE,terre battue,FALSE
-210,FALSE,terre battue,FALSE
-210,FALSE,terre battue,FALSE
-211,TRUE,hard rapide,TRUE
-211,TRUE,hard rapide,TRUE
-211,TRUE,hard rapide,TRUE
-211,FALSE,terre battue,FALSE
-211,FALSE,terre battue,FALSE
-211,FALSE,terre battue,FALSE
-211,FALSE,terre battue,FALSE
-211,FALSE,terre battue,FALSE
-211,FALSE,terre battue,FALSE
-211,FALSE,terre battue,FALSE
-212,FALSE,hard rapide,FALSE
-213,TRUE,terre battue,TRUE
-213,TRUE,terre battue,TRUE
-213,FALSE,hard rapide,FALSE
-213,FALSE,hard rapide,FALSE
-213,FALSE,hard rapide,FALSE
-214,TRUE,hard rapide,TRUE
-214,TRUE,hard rapide,TRUE
-214,FALSE,terre battue,FALSE
-214,FALSE,terre battue,FALSE
-214,FALSE,terre battue,FALSE
-214,FALSE,terre battue,FALSE
-214,FALSE,terre battue,FALSE
-214,FALSE,terre battue,FALSE
-215,TRUE,terre battue,TRUE
-215,TRUE,terre battue,TRUE
-215,TRUE,terre battue,TRUE
-215,TRUE,terre battue,TRUE
-215,TRUE,terre battue,TRUE
-215,TRUE,terre battue,TRUE
-215,FALSE,terre battue,FALSE
-215,FALSE,terre battue,FALSE
-215,FALSE,terre battue,FALSE
-215,FALSE,terre battue,FALSE
-216,FALSE,terre battue,FALSE
-216,FALSE,terre battue,FALSE
-216,FALSE,terre battue,FALSE
-216,FALSE,terre battue,FALSE
-217,TRUE,hard rapide,TRUE
-217,FALSE,gazon synthetique,FALSE
-217,FALSE,gazon synthetique,FALSE
-217,FALSE,gazon synthetique,FALSE
-218,FALSE,hard rapide,TRUE
-218,FALSE,hard rapide,TRUE
-219,FALSE,terre battue,FALSE
-219,FALSE,terre battue,FALSE
-219,FALSE,terre battue,FALSE
-220,FALSE,hard rapide,FALSE
-221,FALSE,terre battue,FALSE
-221,FALSE,terre battue,FALSE
-222,TRUE,terre battue,TRUE
-222,TRUE,terre battue,TRUE
-222,TRUE,terre battue,TRUE
-222,TRUE,terre battue,TRUE
-222,TRUE,terre battue,TRUE
-222,TRUE,terre battue,TRUE
-222,FALSE,terre battue,FALSE
-222,FALSE,terre battue,FALSE
-222,FALSE,terre battue,FALSE
-222,FALSE,terre battue,FALSE
-222,FALSE,terre battue,FALSE
-222,FALSE,terre battue,FALSE
-222,FALSE,terre battue,FALSE
-223,TRUE,hard rapide,TRUE
-223,FALSE,terre battue,FALSE
-223,FALSE,terre battue,FALSE
-224,FALSE,gazon synthetique,FALSE
-225,TRUE,hard lent,TRUE
-225,TRUE,hard lent,TRUE
-225,TRUE,hard lent,TRUE
-225,FALSE,gazon synthetique,FALSE
-226,FALSE,terre battue,TRUE
-226,FALSE,terre battue,TRUE
-227,FALSE,terre battue,FALSE
-227,FALSE,terre battue,FALSE
-227,FALSE,terre battue,FALSE
-227,FALSE,terre battue,FALSE
-227,FALSE,terre battue,FALSE
-227,FALSE,terre battue,FALSE
-227,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-228,FALSE,terre battue,FALSE
-229,TRUE,terre battue,TRUE
-229,FALSE,terre battue,FALSE
-229,FALSE,terre battue,FALSE
-229,FALSE,terre battue,FALSE
-229,FALSE,terre battue,FALSE
-229,FALSE,terre battue,FALSE
-230,FALSE,terre battue,FALSE
-230,FALSE,terre battue,FALSE
-230,FALSE,terre battue,FALSE
-231,FALSE,terre battue,FALSE
-231,FALSE,terre battue,FALSE
-231,FALSE,terre battue,FALSE
-232,TRUE,tapis,TRUE
-232,TRUE,tapis,TRUE
-232,TRUE,tapis,TRUE
-232,FALSE,terre battue,FALSE
-232,FALSE,terre battue,FALSE
-232,FALSE,terre battue,FALSE
-232,FALSE,terre battue,FALSE
-233,FALSE,terre battue,FALSE
-233,FALSE,terre battue,FALSE
-233,FALSE,terre battue,FALSE
-234,TRUE,terre battue,TRUE
-234,TRUE,terre battue,TRUE
-234,FALSE,terre battue,FALSE
-234,FALSE,terre battue,FALSE
-234,FALSE,terre battue,FALSE
-234,FALSE,terre battue,FALSE
-234,FALSE,terre battue,FALSE
-234,FALSE,terre battue,FALSE
-234,FALSE,terre battue,FALSE
-234,FALSE,terre battue,FALSE
-235,FALSE,terre battue,FALSE
-235,FALSE,terre battue,FALSE
-235,FALSE,terre battue,FALSE
-235,FALSE,terre battue,FALSE
-235,FALSE,terre battue,FALSE
-235,FALSE,terre battue,FALSE
-235,FALSE,terre battue,FALSE
-235,FALSE,terre battue,FALSE
-236,FALSE,terre battue,FALSE
-236,FALSE,terre battue,FALSE
-236,FALSE,terre battue,FALSE
-237,FALSE,hard rapide,TRUE
-237,FALSE,hard rapide,TRUE
-237,FALSE,hard rapide,TRUE
-238,FALSE,terre battue,TRUE
-238,FALSE,terre battue,TRUE
-238,FALSE,terre battue,TRUE
-238,FALSE,terre battue,TRUE
-238,FALSE,terre battue,TRUE
-239,FALSE,terre battue,FALSE
-239,FALSE,terre battue,FALSE
-239,FALSE,terre battue,FALSE
-239,FALSE,terre battue,FALSE
-240,TRUE,hard rapide,TRUE
-240,TRUE,hard rapide,TRUE
-240,TRUE,hard rapide,TRUE
-240,FALSE,terre battue,FALSE
-241,TRUE,tapis,TRUE
-241,TRUE,tapis,TRUE
-241,FALSE,terre battue,FALSE
-241,FALSE,terre battue,FALSE
-241,FALSE,terre battue,FALSE
-241,FALSE,terre battue,FALSE
-241,FALSE,terre battue,FALSE
-241,FALSE,terre battue,FALSE
-242,FALSE,terre battue,FALSE
-242,FALSE,terre battue,FALSE
-242,FALSE,terre battue,FALSE
-242,FALSE,terre battue,FALSE
-243,TRUE,hard lent,TRUE
-243,TRUE,hard lent,TRUE
-243,TRUE,hard lent,TRUE
-243,TRUE,hard lent,TRUE
-243,FALSE,hard lent,TRUE
-243,FALSE,hard lent,TRUE
-243,FALSE,hard lent,TRUE
-244,TRUE,hard rapide,TRUE
-244,TRUE,hard rapide,TRUE
-244,TRUE,hard rapide,TRUE
-244,TRUE,hard rapide,TRUE
-244,FALSE,hard rapide,FALSE
-244,FALSE,hard rapide,FALSE
-245,FALSE,terre battue,TRUE
-246,FALSE,terre battue,FALSE
-246,FALSE,terre battue,FALSE
-246,FALSE,terre battue,FALSE
-246,FALSE,terre battue,FALSE
-247,FALSE,terre battue,FALSE
-247,FALSE,terre battue,FALSE
-247,FALSE,terre battue,FALSE
-247,FALSE,terre battue,FALSE
-248,TRUE,terre battue,TRUE
-248,TRUE,terre battue,TRUE
-248,FALSE,terre battue,FALSE
-248,FALSE,terre battue,FALSE
-248,FALSE,terre battue,FALSE
-248,FALSE,terre battue,FALSE
-248,FALSE,terre battue,FALSE
-248,FALSE,terre battue,FALSE
-249,TRUE,hard rapide,TRUE
-249,TRUE,hard rapide,TRUE
-249,TRUE,hard rapide,TRUE
-249,FALSE,terre battue,FALSE
-249,FALSE,terre battue,FALSE
-249,FALSE,terre battue,FALSE
-249,FALSE,terre battue,FALSE
-249,FALSE,terre battue,FALSE
-249,FALSE,terre battue,FALSE
-250,TRUE,terre battue,TRUE
-250,TRUE,terre battue,TRUE
-250,TRUE,terre battue,TRUE
-250,FALSE,hard rapide,FALSE
-250,FALSE,hard rapide,FALSE
-250,FALSE,hard rapide,FALSE
-251,FALSE,hard rapide,FALSE
-251,FALSE,hard rapide,FALSE
-251,FALSE,hard rapide,FALSE
-251,FALSE,hard rapide,FALSE
-252,TRUE,tapis,TRUE
-252,TRUE,tapis,TRUE
-252,TRUE,tapis,TRUE
-252,FALSE,terre battue,FALSE
-252,FALSE,terre battue,FALSE
-252,FALSE,terre battue,FALSE
-252,FALSE,terre battue,FALSE
-252,FALSE,terre battue,FALSE
-252,FALSE,terre battue,FALSE
-252,FALSE,terre battue,FALSE
-252,FALSE,terre battue,FALSE
-253,TRUE,hard rapide,TRUE
-253,FALSE,hard rapide,FALSE
-253,FALSE,hard rapide,FALSE
-254,FALSE,terre battue,FALSE
-254,FALSE,terre battue,FALSE
-254,FALSE,terre battue,FALSE
-255,TRUE,terre battue,TRUE
-255,TRUE,terre battue,TRUE
-255,TRUE,terre battue,TRUE
-255,FALSE,terre battue,TRUE
-255,FALSE,terre battue,TRUE
-255,FALSE,terre battue,TRUE
-255,FALSE,terre battue,TRUE
-255,FALSE,terre battue,TRUE
-255,FALSE,terre battue,TRUE
-255,FALSE,terre battue,TRUE
-256,FALSE,terre battue,FALSE
-256,FALSE,terre battue,FALSE
-256,FALSE,terre battue,FALSE
-257,TRUE,terre battue,TRUE
-257,TRUE,terre battue,TRUE
-257,FALSE,terre battue,FALSE
-257,FALSE,terre battue,FALSE
-257,FALSE,terre battue,FALSE
-257,FALSE,terre battue,FALSE
-257,FALSE,terre battue,FALSE
-258,FALSE,hard rapide,TRUE
-258,FALSE,hard rapide,TRUE
-259,FALSE,terre battue,FALSE
-259,FALSE,terre battue,FALSE
-260,FALSE,terre battue,FALSE
-260,FALSE,terre battue,FALSE
-260,FALSE,terre battue,FALSE
-261,TRUE,terre battue,TRUE
-261,TRUE,terre battue,TRUE
-261,TRUE,terre battue,TRUE
-261,TRUE,terre battue,TRUE
-261,TRUE,terre battue,TRUE
-261,TRUE,terre battue,TRUE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-261,FALSE,terre battue,FALSE
-262,FALSE,terre battue,TRUE
-262,FALSE,terre battue,TRUE
-262,FALSE,terre battue,TRUE
-262,FALSE,terre battue,TRUE
-262,FALSE,terre battue,TRUE
-262,FALSE,terre battue,TRUE
-262,FALSE,terre battue,TRUE
-263,TRUE,hard rapide,TRUE
-263,FALSE,hard rapide,FALSE
-263,FALSE,hard rapide,FALSE
-263,FALSE,hard rapide,FALSE
-263,FALSE,hard rapide,FALSE
-264,TRUE,hard rapide,TRUE
-264,TRUE,hard rapide,TRUE
-264,FALSE,terre battue,FALSE
-264,FALSE,terre battue,FALSE
-264,FALSE,terre battue,FALSE
-265,FALSE,terre battue,FALSE
-265,FALSE,terre battue,FALSE
-266,FALSE,terre battue,FALSE
-266,FALSE,terre battue,FALSE
-267,TRUE,hard rapide,TRUE
-267,FALSE,gazon synthetique,FALSE
-267,FALSE,gazon synthetique,FALSE
-268,TRUE,gazon synthetique,TRUE
-268,FALSE,hard rapide,FALSE
-268,FALSE,hard rapide,FALSE
-269,TRUE,terre battue,TRUE
-269,TRUE,terre battue,TRUE
-269,TRUE,terre battue,TRUE
-269,TRUE,terre battue,TRUE
-269,TRUE,terre battue,TRUE
-270,FALSE,hard rapide,FALSE
-270,FALSE,hard rapide,FALSE
-270,FALSE,hard rapide,FALSE
-271,TRUE,hard rapide,TRUE
-271,TRUE,hard rapide,TRUE
-271,TRUE,hard rapide,TRUE
-272,TRUE,gazon synthetique,TRUE
-272,TRUE,gazon synthetique,TRUE
-272,TRUE,gazon synthetique,TRUE
-272,FALSE,terre battue,FALSE
-272,FALSE,terre battue,FALSE
-272,FALSE,terre battue,FALSE
-272,FALSE,terre battue,FALSE
-272,FALSE,terre battue,FALSE
-273,FALSE,terre battue,FALSE
-273,FALSE,terre battue,FALSE
-273,FALSE,terre battue,FALSE
-274,TRUE,hard lent,TRUE
-274,TRUE,hard lent,TRUE
-274,FALSE,terre battue,TRUE
-274,FALSE,terre battue,TRUE
-274,FALSE,terre battue,TRUE
-274,FALSE,terre battue,TRUE
-275,FALSE,terre battue,FALSE
-275,FALSE,terre battue,FALSE
-275,FALSE,terre battue,FALSE
-275,FALSE,terre battue,FALSE
-275,FALSE,terre battue,FALSE
-276,FALSE,terre battue,FALSE
-276,FALSE,terre battue,FALSE
-276,FALSE,terre battue,FALSE
-276,FALSE,terre battue,FALSE
-276,FALSE,terre battue,FALSE
-276,FALSE,terre battue,FALSE
-277,TRUE,terre battue,TRUE
-277,TRUE,terre battue,TRUE
-277,FALSE,terre battue,FALSE
-277,FALSE,terre battue,FALSE
-277,FALSE,terre battue,FALSE
-277,FALSE,terre battue,FALSE
-277,FALSE,terre battue,FALSE
-278,FALSE,terre battue,FALSE
-278,FALSE,terre battue,FALSE
-278,FALSE,terre battue,FALSE
-279,TRUE,terre battue,TRUE
-279,TRUE,terre battue,TRUE
-279,FALSE,terre battue,FALSE
-279,FALSE,terre battue,FALSE
-279,FALSE,terre battue,FALSE
-279,FALSE,terre battue,FALSE
-279,FALSE,terre battue,FALSE
-279,FALSE,terre battue,FALSE
-279,FALSE,terre battue,FALSE
-279,FALSE,terre battue,FALSE
-279,FALSE,terre battue,FALSE
-280,TRUE,terre battue,TRUE
-280,TRUE,terre battue,TRUE
-280,TRUE,terre battue,TRUE
-280,TRUE,terre battue,TRUE
-280,TRUE,terre battue,TRUE
-280,FALSE,terre battue,TRUE
-280,FALSE,terre battue,TRUE
-280,FALSE,terre battue,TRUE
-280,FALSE,terre battue,TRUE
-280,FALSE,terre battue,TRUE
-280,FALSE,terre battue,TRUE
-281,TRUE,terre battue,TRUE
-281,TRUE,terre battue,TRUE
-281,TRUE,terre battue,TRUE
-281,FALSE,hard rapide,FALSE
-281,FALSE,hard rapide,FALSE
-281,FALSE,hard rapide,FALSE
-282,FALSE,hard rapide,FALSE
-282,FALSE,hard rapide,FALSE
-283,TRUE,hard rapide,TRUE
-283,TRUE,hard rapide,TRUE
-283,FALSE,terre battue,FALSE
-283,FALSE,terre battue,FALSE
-283,FALSE,terre battue,FALSE
-283,FALSE,terre battue,FALSE
-283,FALSE,terre battue,FALSE
-284,FALSE,terre battue,TRUE
-284,FALSE,terre battue,TRUE
-285,TRUE,hard lent,TRUE
-285,TRUE,hard lent,TRUE
-285,TRUE,hard lent,TRUE
-285,FALSE,terre battue,TRUE
-285,FALSE,terre battue,TRUE
-285,FALSE,terre battue,TRUE
-285,FALSE,terre battue,TRUE
-285,FALSE,terre battue,TRUE
-285,FALSE,terre battue,TRUE
-285,FALSE,terre battue,TRUE
-285,FALSE,terre battue,TRUE
-286,TRUE,tapis,TRUE
-286,TRUE,tapis,TRUE
-286,FALSE,terre battue,FALSE
-286,FALSE,terre battue,FALSE
-287,TRUE,hard rapide,TRUE
-287,TRUE,hard rapide,TRUE
-287,FALSE,hard rapide,FALSE
-287,FALSE,hard rapide,FALSE
-288,FALSE,terre battue,FALSE
-288,FALSE,terre battue,FALSE
-288,FALSE,terre battue,FALSE
-288,FALSE,terre battue,FALSE
-288,FALSE,terre battue,FALSE
-288,FALSE,terre battue,FALSE
-288,FALSE,terre battue,FALSE
-289,FALSE,terre battue,FALSE
-289,FALSE,terre battue,FALSE
-290,TRUE,hard rapide,TRUE
-290,TRUE,hard rapide,TRUE
-290,TRUE,hard rapide,TRUE
-291,FALSE,terre battue,FALSE
-291,FALSE,terre battue,FALSE
-292,TRUE,terre battue,TRUE
-292,TRUE,terre battue,TRUE
-292,FALSE,terre battue,FALSE
-292,FALSE,terre battue,FALSE
-292,FALSE,terre battue,FALSE
-293,FALSE,hard rapide,TRUE
-293,FALSE,hard rapide,TRUE
-294,FALSE,terre battue,FALSE
-294,FALSE,terre battue,FALSE
-294,FALSE,terre battue,FALSE
-294,FALSE,terre battue,FALSE
-295,FALSE,hard rapide,FALSE
-295,FALSE,hard rapide,FALSE
-296,TRUE,hard rapide,TRUE
-296,TRUE,hard rapide,TRUE
-296,FALSE,terre battue,FALSE
-296,FALSE,terre battue,FALSE
-297,TRUE,tapis,TRUE
-297,TRUE,tapis,TRUE
-297,TRUE,tapis,TRUE
-297,TRUE,tapis,TRUE
-297,FALSE,terre battue,FALSE
-297,FALSE,terre battue,FALSE
-297,FALSE,terre battue,FALSE
-297,FALSE,terre battue,FALSE
-297,FALSE,terre battue,FALSE
-297,FALSE,terre battue,FALSE
-297,FALSE,terre battue,FALSE
-298,FALSE,hard rapide,FALSE
-298,FALSE,hard rapide,FALSE
-299,TRUE,hard rapide,TRUE
-299,TRUE,hard rapide,TRUE
-299,TRUE,hard rapide,TRUE
-299,TRUE,hard rapide,TRUE
-299,FALSE,terre battue,FALSE
-299,FALSE,terre battue,FALSE
-299,FALSE,terre battue,FALSE
-299,FALSE,terre battue,FALSE
-299,FALSE,terre battue,FALSE
-299,FALSE,terre battue,FALSE
-300,TRUE,hard rapide,TRUE
-300,TRUE,hard rapide,TRUE
-300,TRUE,hard rapide,TRUE
-300,FALSE,terre battue,FALSE
-300,FALSE,terre battue,FALSE
-301,TRUE,hard rapide,TRUE
-301,FALSE,terre battue,FALSE
-301,FALSE,terre battue,FALSE
-301,FALSE,terre battue,FALSE
-301,FALSE,terre battue,FALSE
-301,FALSE,terre battue,FALSE
-303,TRUE,tapis,TRUE
-303,TRUE,tapis,TRUE
-303,FALSE,terre battue,TRUE
-303,FALSE,terre battue,TRUE
-303,FALSE,terre battue,TRUE
-303,FALSE,terre battue,TRUE
-303,FALSE,terre battue,TRUE
-303,FALSE,terre battue,TRUE
-303,FALSE,terre battue,TRUE
-303,FALSE,terre battue,TRUE
-303,FALSE,terre battue,TRUE
-304,FALSE,terre battue,TRUE
-304,FALSE,terre battue,TRUE
-304,FALSE,terre battue,TRUE
-304,FALSE,terre battue,TRUE
-304,FALSE,terre battue,TRUE
-305,TRUE,terre battue,TRUE
-305,TRUE,terre battue,TRUE
-305,FALSE,terre battue,FALSE
-305,FALSE,terre battue,FALSE
-305,FALSE,terre battue,FALSE
-305,FALSE,terre battue,FALSE
-306,FALSE,hard rapide,FALSE
-307,TRUE,hard rapide,TRUE
-307,TRUE,hard rapide,TRUE
-307,FALSE,terre battue,FALSE
-307,FALSE,terre battue,FALSE
-307,FALSE,terre battue,FALSE
-307,FALSE,terre battue,FALSE
-307,FALSE,terre battue,FALSE
-307,FALSE,terre battue,FALSE
-307,FALSE,terre battue,FALSE
-308,TRUE,terre battue,TRUE
-308,TRUE,terre battue,TRUE
-308,TRUE,terre battue,TRUE
-308,TRUE,terre battue,TRUE
-308,FALSE,terre battue,FALSE
-308,FALSE,terre battue,FALSE
-308,FALSE,terre battue,FALSE
-308,FALSE,terre battue,FALSE
-308,FALSE,terre battue,FALSE
-308,FALSE,terre battue,FALSE
-313,TRUE,tapis,TRUE
-313,TRUE,tapis,TRUE
-313,FALSE,hard rapide,TRUE
-313,FALSE,hard rapide,TRUE
-314,FALSE,terre battue,FALSE
-314,FALSE,terre battue,FALSE
-314,FALSE,terre battue,FALSE
-315,TRUE,terre battue,TRUE
-315,TRUE,terre battue,TRUE
-315,TRUE,terre battue,TRUE
-315,FALSE,terre battue,FALSE
-315,FALSE,terre battue,FALSE
-315,FALSE,terre battue,FALSE
-315,FALSE,terre battue,FALSE
-315,FALSE,terre battue,FALSE
-315,FALSE,terre battue,FALSE
-316,TRUE,hard rapide,TRUE
-316,FALSE,hard rapide,FALSE
-316,FALSE,hard rapide,FALSE
-316,FALSE,hard rapide,FALSE
-317,FALSE,terre battue,FALSE
-317,FALSE,terre battue,FALSE
-317,FALSE,terre battue,FALSE
-317,FALSE,terre battue,FALSE
-318,FALSE,terre battue,TRUE
-318,FALSE,terre battue,TRUE
-318,FALSE,terre battue,TRUE
-318,FALSE,terre battue,TRUE
-318,FALSE,terre battue,TRUE
-318,FALSE,terre battue,TRUE
-319,TRUE,hard rapide,TRUE
-319,TRUE,hard rapide,TRUE
-319,FALSE,terre battue,FALSE
-319,FALSE,terre battue,FALSE
-319,FALSE,terre battue,FALSE
-319,FALSE,terre battue,FALSE
-319,FALSE,terre battue,FALSE
-319,FALSE,terre battue,FALSE
-319,FALSE,terre battue,FALSE
-319,FALSE,terre battue,FALSE
-319,FALSE,terre battue,FALSE
-319,FALSE,terre battue,FALSE
-319,FALSE,terre battue,FALSE
-319,FALSE,terre battue,FALSE
-320,FALSE,terre battue,FALSE
-320,FALSE,terre battue,FALSE
-320,FALSE,terre battue,FALSE
-320,FALSE,terre battue,FALSE
-320,FALSE,terre battue,FALSE
-320,FALSE,terre battue,FALSE
-321,FALSE,terre battue,FALSE
-321,FALSE,terre battue,FALSE
-322,TRUE,terre battue,TRUE
-322,TRUE,terre battue,TRUE
-322,TRUE,terre battue,TRUE
-322,TRUE,terre battue,TRUE
-322,FALSE,terre battue,FALSE
-322,FALSE,terre battue,FALSE
-322,FALSE,terre battue,FALSE
-322,FALSE,terre battue,FALSE
-322,FALSE,terre battue,FALSE
-322,FALSE,terre battue,FALSE
-322,FALSE,terre battue,FALSE
-322,FALSE,terre battue,FALSE
-322,FALSE,terre battue,FALSE
-322,FALSE,terre battue,FALSE
-322,FALSE,terre battue,FALSE
-323,FALSE,terre battue,FALSE
-323,FALSE,terre battue,FALSE
-323,FALSE,terre battue,FALSE
-323,FALSE,terre battue,FALSE
-324,TRUE,hard rapide,TRUE
-324,TRUE,hard rapide,TRUE
-324,TRUE,hard rapide,TRUE
-324,FALSE,terre battue,TRUE
-324,FALSE,terre battue,TRUE
-324,FALSE,terre battue,TRUE
-324,FALSE,terre battue,TRUE
-325,FALSE,hard rapide,FALSE
-326,TRUE,hard rapide,TRUE
-326,TRUE,hard rapide,TRUE
-326,FALSE,hard rapide,FALSE
-327,FALSE,terre battue,FALSE
-327,FALSE,terre battue,FALSE
-327,FALSE,terre battue,FALSE
-328,TRUE,hard rapide,TRUE
-328,FALSE,terre battue,FALSE
-328,FALSE,terre battue,FALSE
-328,FALSE,terre battue,FALSE
-328,FALSE,terre battue,FALSE
-328,FALSE,terre battue,FALSE
-329,TRUE,hard rapide,TRUE
-329,TRUE,hard rapide,TRUE
-329,TRUE,hard rapide,TRUE
-329,FALSE,terre battue,FALSE
-329,FALSE,terre battue,FALSE
-329,FALSE,terre battue,FALSE
-329,FALSE,terre battue,FALSE
-329,FALSE,terre battue,FALSE
-329,FALSE,terre battue,FALSE
-329,FALSE,terre battue,FALSE
-329,FALSE,terre battue,FALSE
-329,FALSE,terre battue,FALSE
-329,FALSE,terre battue,FALSE
-331,TRUE,tapis,TRUE
-331,TRUE,tapis,TRUE
-331,FALSE,terre battue,FALSE
-331,FALSE,terre battue,FALSE
-331,FALSE,terre battue,FALSE
-331,FALSE,terre battue,FALSE
-331,FALSE,terre battue,FALSE
-331,FALSE,terre battue,FALSE
-331,FALSE,terre battue,FALSE
-331,FALSE,terre battue,FALSE
-332,FALSE,terre battue,FALSE
-332,FALSE,terre battue,FALSE
-332,FALSE,terre battue,FALSE
-333,FALSE,terre battue,FALSE
-333,FALSE,terre battue,FALSE
-334,FALSE,terre battue,FALSE
-334,FALSE,terre battue,FALSE
-334,FALSE,terre battue,FALSE
-334,FALSE,terre battue,FALSE
-334,FALSE,terre battue,FALSE
-334,FALSE,terre battue,FALSE
-335,FALSE,terre battue,TRUE
-335,FALSE,terre battue,TRUE
-336,FALSE,terre battue,FALSE
-336,FALSE,terre battue,FALSE
-336,FALSE,terre battue,FALSE
-336,FALSE,terre battue,FALSE
-337,FALSE,terre battue,FALSE
-337,FALSE,terre battue,FALSE
-337,FALSE,terre battue,FALSE
-338,TRUE,hard rapide,TRUE
-338,TRUE,hard rapide,TRUE
-338,FALSE,terre battue,FALSE
-338,FALSE,terre battue,FALSE
-338,FALSE,terre battue,FALSE
-338,FALSE,terre battue,FALSE
-338,FALSE,terre battue,FALSE
-339,TRUE,hard rapide,TRUE
-339,TRUE,hard rapide,TRUE
-339,FALSE,terre battue,FALSE
-339,FALSE,terre battue,FALSE
-339,FALSE,terre battue,FALSE
-340,FALSE,hard rapide,FALSE
-341,FALSE,terre battue,TRUE
-341,FALSE,terre battue,TRUE
-341,FALSE,terre battue,TRUE
-341,FALSE,terre battue,TRUE
-341,FALSE,terre battue,TRUE
-341,FALSE,terre battue,TRUE
-341,FALSE,terre battue,TRUE
-341,FALSE,terre battue,TRUE
-341,FALSE,terre battue,TRUE
-341,FALSE,terre battue,TRUE
-342,FALSE,terre battue,FALSE
-342,FALSE,terre battue,FALSE
-342,FALSE,terre battue,FALSE
-343,TRUE,tapis,TRUE
-343,TRUE,tapis,TRUE
-343,TRUE,tapis,TRUE
-343,TRUE,tapis,TRUE
-343,TRUE,tapis,TRUE
-343,TRUE,tapis,TRUE
-343,TRUE,tapis,TRUE
-343,FALSE,hard rapide,FALSE
-344,TRUE,terre battue,TRUE
-344,TRUE,terre battue,TRUE
-344,TRUE,terre battue,TRUE
-344,FALSE,terre battue,FALSE
-344,FALSE,terre battue,FALSE
-344,FALSE,terre battue,FALSE
-344,FALSE,terre battue,FALSE
-344,FALSE,terre battue,FALSE
-344,FALSE,terre battue,FALSE
-344,FALSE,terre battue,FALSE
+club_id,indoor,court_type_id,light
+1,TRUE,1,TRUE
+1,TRUE,1,TRUE
+1,FALSE,2,FALSE
+1,FALSE,2,FALSE
+1,FALSE,2,FALSE
+1,FALSE,2,FALSE
+1,FALSE,2,FALSE
+1,FALSE,2,FALSE
+1,FALSE,2,FALSE
+2,FALSE,2,FALSE
+2,FALSE,2,FALSE
+2,FALSE,2,FALSE
+3,FALSE,2,FALSE
+3,FALSE,2,FALSE
+3,FALSE,2,FALSE
+3,FALSE,2,FALSE
+3,FALSE,2,FALSE
+3,FALSE,2,FALSE
+3,FALSE,2,FALSE
+3,FALSE,2,FALSE
+4,FALSE,2,FALSE
+4,FALSE,2,FALSE
+4,FALSE,2,FALSE
+5,FALSE,2,FALSE
+5,FALSE,2,FALSE
+5,FALSE,2,FALSE
+5,FALSE,2,FALSE
+6,TRUE,3,TRUE
+6,TRUE,3,TRUE
+6,FALSE,2,FALSE
+6,FALSE,2,FALSE
+6,FALSE,2,FALSE
+6,FALSE,2,FALSE
+7,FALSE,3,TRUE
+7,FALSE,3,TRUE
+8,TRUE,3,TRUE
+8,TRUE,3,TRUE
+8,FALSE,3,FALSE
+8,FALSE,3,FALSE
+8,FALSE,3,FALSE
+8,FALSE,3,FALSE
+9,TRUE,3,TRUE
+9,TRUE,3,TRUE
+9,TRUE,3,TRUE
+9,FALSE,2,TRUE
+9,FALSE,2,TRUE
+9,FALSE,2,TRUE
+9,FALSE,2,TRUE
+9,FALSE,2,TRUE
+9,FALSE,2,TRUE
+9,FALSE,2,TRUE
+10,FALSE,2,FALSE
+10,FALSE,2,FALSE
+10,FALSE,2,FALSE
+11,TRUE,3,TRUE
+11,TRUE,3,TRUE
+11,TRUE,3,TRUE
+11,TRUE,3,TRUE
+11,TRUE,3,TRUE
+11,TRUE,3,TRUE
+11,FALSE,2,FALSE
+11,FALSE,2,FALSE
+11,FALSE,2,FALSE
+11,FALSE,2,FALSE
+11,FALSE,2,FALSE
+11,FALSE,2,FALSE
+11,FALSE,2,FALSE
+11,FALSE,2,FALSE
+12,TRUE,4,TRUE
+12,FALSE,2,FALSE
+12,FALSE,2,FALSE
+12,FALSE,2,FALSE
+12,FALSE,2,FALSE
+12,FALSE,2,FALSE
+12,FALSE,2,FALSE
+12,FALSE,2,FALSE
+12,FALSE,2,FALSE
+12,FALSE,2,FALSE
+12,FALSE,2,FALSE
+13,TRUE,3,TRUE
+13,FALSE,2,FALSE
+13,FALSE,2,FALSE
+13,FALSE,2,FALSE
+13,FALSE,2,FALSE
+13,FALSE,2,FALSE
+13,FALSE,2,FALSE
+13,FALSE,2,FALSE
+14,FALSE,2,FALSE
+14,FALSE,2,FALSE
+14,FALSE,2,FALSE
+15,TRUE,2,TRUE
+15,TRUE,2,TRUE
+15,FALSE,2,TRUE
+15,FALSE,2,TRUE
+15,FALSE,2,TRUE
+15,FALSE,2,TRUE
+16,FALSE,2,FALSE
+16,FALSE,2,FALSE
+17,TRUE,2,TRUE
+17,TRUE,2,TRUE
+17,FALSE,2,FALSE
+17,FALSE,2,FALSE
+17,FALSE,2,FALSE
+17,FALSE,2,FALSE
+17,FALSE,2,FALSE
+18,FALSE,2,TRUE
+18,FALSE,2,TRUE
+18,FALSE,2,TRUE
+18,FALSE,2,TRUE
+18,FALSE,2,TRUE
+18,FALSE,2,TRUE
+19,FALSE,2,FALSE
+20,TRUE,2,TRUE
+20,TRUE,2,TRUE
+20,TRUE,2,TRUE
+20,FALSE,2,FALSE
+20,FALSE,2,FALSE
+20,FALSE,2,FALSE
+20,FALSE,2,FALSE
+20,FALSE,2,FALSE
+22,FALSE,2,FALSE
+22,FALSE,2,FALSE
+22,FALSE,2,FALSE
+22,FALSE,2,FALSE
+22,FALSE,2,FALSE
+22,FALSE,2,FALSE
+22,FALSE,2,FALSE
+22,FALSE,2,FALSE
+23,FALSE,2,TRUE
+23,FALSE,2,TRUE
+24,FALSE,2,FALSE
+24,FALSE,2,FALSE
+24,FALSE,2,FALSE
+24,FALSE,2,FALSE
+25,FALSE,2,FALSE
+25,FALSE,2,FALSE
+25,FALSE,2,FALSE
+25,FALSE,2,FALSE
+25,FALSE,2,FALSE
+25,FALSE,2,FALSE
+25,FALSE,2,FALSE
+26,FALSE,2,FALSE
+26,FALSE,2,FALSE
+26,FALSE,2,FALSE
+26,FALSE,2,FALSE
+26,FALSE,2,FALSE
+26,FALSE,2,FALSE
+26,FALSE,2,FALSE
+26,FALSE,2,FALSE
+27,FALSE,2,FALSE
+27,FALSE,2,FALSE
+27,FALSE,2,FALSE
+27,FALSE,2,FALSE
+27,FALSE,2,FALSE
+28,TRUE,2,TRUE
+28,TRUE,2,TRUE
+28,FALSE,2,FALSE
+28,FALSE,2,FALSE
+28,FALSE,2,FALSE
+28,FALSE,2,FALSE
+29,FALSE,2,FALSE
+29,FALSE,2,FALSE
+29,FALSE,2,FALSE
+30,TRUE,3,TRUE
+30,TRUE,3,TRUE
+30,TRUE,3,TRUE
+31,FALSE,3,FALSE
+31,FALSE,3,FALSE
+31,FALSE,3,FALSE
+31,FALSE,3,FALSE
+31,FALSE,3,FALSE
+31,FALSE,3,FALSE
+32,FALSE,2,FALSE
+32,FALSE,2,FALSE
+32,FALSE,2,FALSE
+33,FALSE,2,FALSE
+33,FALSE,2,FALSE
+33,FALSE,2,FALSE
+34,FALSE,2,TRUE
+34,FALSE,2,TRUE
+34,FALSE,2,TRUE
+34,FALSE,2,TRUE
+34,FALSE,2,TRUE
+34,FALSE,2,TRUE
+35,FALSE,2,FALSE
+35,FALSE,2,FALSE
+35,FALSE,2,FALSE
+36,FALSE,2,TRUE
+36,FALSE,2,TRUE
+36,FALSE,2,TRUE
+36,FALSE,2,TRUE
+36,FALSE,2,TRUE
+37,FALSE,2,TRUE
+37,FALSE,2,TRUE
+37,FALSE,2,TRUE
+37,FALSE,2,TRUE
+37,FALSE,2,TRUE
+38,FALSE,2,FALSE
+38,FALSE,2,FALSE
+38,FALSE,2,FALSE
+38,FALSE,2,FALSE
+38,FALSE,2,FALSE
+39,TRUE,3,TRUE
+39,FALSE,2,FALSE
+39,FALSE,2,FALSE
+40,TRUE,3,TRUE
+40,TRUE,3,TRUE
+40,TRUE,3,TRUE
+40,FALSE,3,FALSE
+40,FALSE,3,FALSE
+40,FALSE,3,FALSE
+40,FALSE,3,FALSE
+40,FALSE,3,FALSE
+40,FALSE,3,FALSE
+41,TRUE,2,TRUE
+41,TRUE,2,TRUE
+41,FALSE,3,FALSE
+42,TRUE,1,TRUE
+42,FALSE,2,TRUE
+42,FALSE,2,TRUE
+42,FALSE,2,TRUE
+43,TRUE,2,TRUE
+43,TRUE,2,TRUE
+43,TRUE,2,TRUE
+43,FALSE,2,FALSE
+43,FALSE,2,FALSE
+43,FALSE,2,FALSE
+44,FALSE,2,TRUE
+44,FALSE,2,TRUE
+45,TRUE,2,TRUE
+45,TRUE,2,TRUE
+45,FALSE,2,FALSE
+45,FALSE,2,FALSE
+45,FALSE,2,FALSE
+46,FALSE,2,FALSE
+46,FALSE,2,FALSE
+46,FALSE,2,FALSE
+46,FALSE,2,FALSE
+46,FALSE,2,FALSE
+46,FALSE,2,FALSE
+47,TRUE,2,TRUE
+47,FALSE,3,FALSE
+47,FALSE,3,FALSE
+48,TRUE,1,TRUE
+48,TRUE,1,TRUE
+48,FALSE,2,FALSE
+48,FALSE,2,FALSE
+49,TRUE,2,TRUE
+49,TRUE,2,TRUE
+49,FALSE,2,TRUE
+49,FALSE,2,TRUE
+49,FALSE,2,TRUE
+49,FALSE,2,TRUE
+49,FALSE,2,TRUE
+49,FALSE,2,TRUE
+50,FALSE,2,TRUE
+51,FALSE,2,FALSE
+51,FALSE,2,FALSE
+51,FALSE,2,FALSE
+51,FALSE,2,FALSE
+52,TRUE,3,TRUE
+52,TRUE,3,TRUE
+52,FALSE,2,FALSE
+52,FALSE,2,FALSE
+52,FALSE,2,FALSE
+53,FALSE,2,FALSE
+53,FALSE,2,FALSE
+53,FALSE,2,FALSE
+54,FALSE,3,FALSE
+54,FALSE,3,FALSE
+54,FALSE,3,FALSE
+55,TRUE,2,TRUE
+55,FALSE,2,FALSE
+55,FALSE,2,FALSE
+55,FALSE,2,FALSE
+56,FALSE,2,FALSE
+56,FALSE,2,FALSE
+56,FALSE,2,FALSE
+56,FALSE,2,FALSE
+56,FALSE,2,FALSE
+56,FALSE,2,FALSE
+56,FALSE,2,FALSE
+56,FALSE,2,FALSE
+56,FALSE,2,FALSE
+56,FALSE,2,FALSE
+56,FALSE,2,FALSE
+56,FALSE,2,FALSE
+57,TRUE,3,TRUE
+57,TRUE,3,TRUE
+57,TRUE,3,TRUE
+57,TRUE,3,TRUE
+57,FALSE,2,FALSE
+57,FALSE,2,FALSE
+57,FALSE,2,FALSE
+57,FALSE,2,FALSE
+57,FALSE,2,FALSE
+57,FALSE,2,FALSE
+57,FALSE,2,FALSE
+57,FALSE,2,FALSE
+59,TRUE,3,TRUE
+59,TRUE,3,TRUE
+59,TRUE,3,TRUE
+59,FALSE,2,FALSE
+59,FALSE,2,FALSE
+59,FALSE,2,FALSE
+59,FALSE,2,FALSE
+59,FALSE,2,FALSE
+60,TRUE,4,TRUE
+60,TRUE,4,TRUE
+60,TRUE,4,TRUE
+60,TRUE,4,TRUE
+60,FALSE,4,FALSE
+60,FALSE,4,FALSE
+61,FALSE,2,FALSE
+61,FALSE,2,FALSE
+61,FALSE,2,FALSE
+61,FALSE,2,FALSE
+61,FALSE,2,FALSE
+61,FALSE,2,FALSE
+61,FALSE,2,FALSE
+62,FALSE,3,TRUE
+62,FALSE,3,TRUE
+63,FALSE,2,FALSE
+63,FALSE,2,FALSE
+63,FALSE,2,FALSE
+63,FALSE,2,FALSE
+64,TRUE,2,TRUE
+64,TRUE,2,TRUE
+64,TRUE,2,TRUE
+64,TRUE,2,TRUE
+64,FALSE,2,TRUE
+64,FALSE,2,TRUE
+65,TRUE,3,TRUE
+65,TRUE,3,TRUE
+65,FALSE,2,FALSE
+65,FALSE,2,FALSE
+66,TRUE,2,TRUE
+66,TRUE,2,TRUE
+66,TRUE,2,TRUE
+66,FALSE,3,FALSE
+67,TRUE,1,TRUE
+67,FALSE,5,FALSE
+68,FALSE,2,FALSE
+68,FALSE,2,FALSE
+68,FALSE,2,FALSE
+68,FALSE,2,FALSE
+68,FALSE,2,FALSE
+68,FALSE,2,FALSE
+69,TRUE,3,TRUE
+69,TRUE,3,TRUE
+69,FALSE,2,FALSE
+69,FALSE,2,FALSE
+69,FALSE,2,FALSE
+70,TRUE,3,TRUE
+70,TRUE,3,TRUE
+70,TRUE,3,TRUE
+70,TRUE,3,TRUE
+70,FALSE,3,FALSE
+70,FALSE,3,FALSE
+71,FALSE,3,FALSE
+71,FALSE,3,FALSE
+71,FALSE,3,FALSE
+71,FALSE,3,FALSE
+72,FALSE,2,FALSE
+73,FALSE,2,FALSE
+73,FALSE,2,FALSE
+73,FALSE,2,FALSE
+73,FALSE,2,FALSE
+74,TRUE,3,TRUE
+74,TRUE,3,TRUE
+74,TRUE,3,TRUE
+74,FALSE,2,FALSE
+74,FALSE,2,FALSE
+74,FALSE,2,FALSE
+74,FALSE,2,FALSE
+74,FALSE,2,FALSE
+75,FALSE,2,FALSE
+75,FALSE,2,FALSE
+75,FALSE,2,FALSE
+75,FALSE,2,FALSE
+75,FALSE,2,FALSE
+75,FALSE,2,FALSE
+75,FALSE,2,FALSE
+75,FALSE,2,FALSE
+75,FALSE,2,FALSE
+75,FALSE,2,FALSE
+76,FALSE,3,TRUE
+76,FALSE,3,TRUE
+77,FALSE,2,FALSE
+77,FALSE,2,FALSE
+78,TRUE,1,TRUE
+78,TRUE,1,TRUE
+78,TRUE,1,TRUE
+78,FALSE,2,FALSE
+78,FALSE,2,FALSE
+78,FALSE,2,FALSE
+78,FALSE,2,FALSE
+78,FALSE,2,FALSE
+80,FALSE,2,FALSE
+80,FALSE,2,FALSE
+80,FALSE,2,FALSE
+80,FALSE,2,FALSE
+81,TRUE,1,TRUE
+81,FALSE,2,FALSE
+81,FALSE,2,FALSE
+82,FALSE,2,FALSE
+82,FALSE,2,FALSE
+82,FALSE,2,FALSE
+82,FALSE,2,FALSE
+82,FALSE,2,FALSE
+82,FALSE,2,FALSE
+83,TRUE,1,TRUE
+83,TRUE,1,TRUE
+83,TRUE,1,TRUE
+83,TRUE,1,TRUE
+83,TRUE,1,TRUE
+83,FALSE,3,TRUE
+83,FALSE,3,TRUE
+83,FALSE,3,TRUE
+83,FALSE,3,TRUE
+83,FALSE,3,TRUE
+83,FALSE,3,TRUE
+84,TRUE,2,TRUE
+84,TRUE,2,TRUE
+84,TRUE,2,TRUE
+84,TRUE,2,TRUE
+84,TRUE,2,TRUE
+84,TRUE,2,TRUE
+84,FALSE,5,FALSE
+85,FALSE,3,FALSE
+86,TRUE,2,TRUE
+86,FALSE,2,FALSE
+86,FALSE,2,FALSE
+87,FALSE,2,TRUE
+87,FALSE,2,TRUE
+87,FALSE,2,TRUE
+88,FALSE,2,FALSE
+88,FALSE,2,FALSE
+88,FALSE,2,FALSE
+88,FALSE,2,FALSE
+88,FALSE,2,FALSE
+88,FALSE,2,FALSE
+88,FALSE,2,FALSE
+88,FALSE,2,FALSE
+88,FALSE,2,FALSE
+89,TRUE,4,TRUE
+89,TRUE,4,TRUE
+89,TRUE,4,TRUE
+89,TRUE,4,TRUE
+89,FALSE,2,FALSE
+89,FALSE,2,FALSE
+89,FALSE,2,FALSE
+89,FALSE,2,FALSE
+89,FALSE,2,FALSE
+90,FALSE,2,TRUE
+90,FALSE,2,TRUE
+91,FALSE,2,FALSE
+91,FALSE,2,FALSE
+91,FALSE,2,FALSE
+92,FALSE,2,FALSE
+92,FALSE,2,FALSE
+92,FALSE,2,FALSE
+92,FALSE,2,FALSE
+94,TRUE,1,TRUE
+94,TRUE,1,TRUE
+94,TRUE,1,TRUE
+94,TRUE,1,TRUE
+94,TRUE,1,TRUE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+94,FALSE,2,FALSE
+95,TRUE,1,TRUE
+95,TRUE,1,TRUE
+95,TRUE,1,TRUE
+95,TRUE,1,TRUE
+95,TRUE,1,TRUE
+95,TRUE,1,TRUE
+95,FALSE,2,FALSE
+95,FALSE,2,FALSE
+95,FALSE,2,FALSE
+95,FALSE,2,FALSE
+95,FALSE,2,FALSE
+96,TRUE,2,TRUE
+96,TRUE,2,TRUE
+96,TRUE,2,TRUE
+96,TRUE,2,TRUE
+96,TRUE,2,TRUE
+96,FALSE,2,FALSE
+96,FALSE,2,FALSE
+96,FALSE,2,FALSE
+96,FALSE,2,FALSE
+96,FALSE,2,FALSE
+96,FALSE,2,FALSE
+96,FALSE,2,FALSE
+97,FALSE,2,FALSE
+97,FALSE,2,FALSE
+97,FALSE,2,FALSE
+99,TRUE,1,TRUE
+99,TRUE,1,TRUE
+99,TRUE,1,TRUE
+99,FALSE,2,FALSE
+99,FALSE,2,FALSE
+99,FALSE,2,FALSE
+99,FALSE,2,FALSE
+99,FALSE,2,FALSE
+99,FALSE,2,FALSE
+99,FALSE,2,FALSE
+99,FALSE,2,FALSE
+99,FALSE,2,FALSE
+99,FALSE,2,FALSE
+99,FALSE,2,FALSE
+99,FALSE,2,FALSE
+100,TRUE,2,TRUE
+100,TRUE,2,TRUE
+100,TRUE,2,TRUE
+100,FALSE,2,FALSE
+100,FALSE,2,FALSE
+100,FALSE,2,FALSE
+100,FALSE,2,FALSE
+100,FALSE,2,FALSE
+100,FALSE,2,FALSE
+100,FALSE,2,FALSE
+100,FALSE,2,FALSE
+100,FALSE,2,FALSE
+100,FALSE,2,FALSE
+101,FALSE,3,FALSE
+102,TRUE,3,TRUE
+102,TRUE,3,TRUE
+102,FALSE,2,FALSE
+102,FALSE,2,FALSE
+103,TRUE,3,TRUE
+103,TRUE,3,TRUE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+103,FALSE,2,FALSE
+104,TRUE,4,TRUE
+104,TRUE,4,TRUE
+104,TRUE,4,TRUE
+104,TRUE,4,TRUE
+104,TRUE,4,TRUE
+105,FALSE,3,FALSE
+105,FALSE,3,FALSE
+105,FALSE,3,FALSE
+106,FALSE,2,FALSE
+106,FALSE,2,FALSE
+107,FALSE,2,FALSE
+107,FALSE,2,FALSE
+107,FALSE,2,FALSE
+107,FALSE,2,FALSE
+107,FALSE,2,FALSE
+108,FALSE,2,FALSE
+108,FALSE,2,FALSE
+109,TRUE,3,TRUE
+109,FALSE,3,FALSE
+109,FALSE,3,FALSE
+109,FALSE,3,FALSE
+110,TRUE,3,TRUE
+110,TRUE,3,TRUE
+110,FALSE,2,FALSE
+110,FALSE,2,FALSE
+110,FALSE,2,FALSE
+110,FALSE,2,FALSE
+110,FALSE,2,FALSE
+111,FALSE,2,FALSE
+111,FALSE,2,FALSE
+111,FALSE,2,FALSE
+112,TRUE,3,TRUE
+112,TRUE,3,TRUE
+112,FALSE,2,FALSE
+112,FALSE,2,FALSE
+112,FALSE,2,FALSE
+112,FALSE,2,FALSE
+113,TRUE,3,TRUE
+113,TRUE,3,TRUE
+113,TRUE,3,TRUE
+113,TRUE,3,TRUE
+113,FALSE,2,FALSE
+113,FALSE,2,FALSE
+113,FALSE,2,FALSE
+113,FALSE,2,FALSE
+113,FALSE,2,FALSE
+113,FALSE,2,FALSE
+113,FALSE,2,FALSE
+113,FALSE,2,FALSE
+114,FALSE,2,TRUE
+114,FALSE,2,TRUE
+114,FALSE,2,TRUE
+115,FALSE,2,TRUE
+115,FALSE,2,TRUE
+115,FALSE,2,TRUE
+115,FALSE,2,TRUE
+116,FALSE,5,FALSE
+116,FALSE,5,FALSE
+117,FALSE,2,FALSE
+117,FALSE,2,FALSE
+118,FALSE,2,FALSE
+118,FALSE,2,FALSE
+119,TRUE,3,TRUE
+119,TRUE,3,TRUE
+119,FALSE,5,FALSE
+119,FALSE,5,FALSE
+120,FALSE,2,TRUE
+120,FALSE,2,TRUE
+121,FALSE,2,FALSE
+121,FALSE,2,FALSE
+121,FALSE,2,FALSE
+121,FALSE,2,FALSE
+121,FALSE,2,FALSE
+122,TRUE,3,TRUE
+122,TRUE,3,TRUE
+122,FALSE,2,FALSE
+122,FALSE,2,FALSE
+122,FALSE,2,FALSE
+122,FALSE,2,FALSE
+123,TRUE,3,TRUE
+123,TRUE,3,TRUE
+123,TRUE,3,TRUE
+123,TRUE,3,TRUE
+123,FALSE,3,TRUE
+123,FALSE,3,TRUE
+124,TRUE,3,TRUE
+124,TRUE,3,TRUE
+124,TRUE,3,TRUE
+124,FALSE,2,FALSE
+124,FALSE,2,FALSE
+124,FALSE,2,FALSE
+124,FALSE,2,FALSE
+125,FALSE,2,FALSE
+125,FALSE,2,FALSE
+125,FALSE,2,FALSE
+126,TRUE,3,TRUE
+126,TRUE,3,TRUE
+126,FALSE,3,FALSE
+126,FALSE,3,FALSE
+127,TRUE,3,TRUE
+127,FALSE,2,TRUE
+128,FALSE,2,TRUE
+128,FALSE,2,TRUE
+128,FALSE,2,TRUE
+128,FALSE,2,TRUE
+128,FALSE,2,TRUE
+128,FALSE,2,TRUE
+129,TRUE,1,TRUE
+129,TRUE,1,TRUE
+129,TRUE,1,TRUE
+129,FALSE,3,FALSE
+129,FALSE,3,FALSE
+129,FALSE,3,FALSE
+130,TRUE,2,TRUE
+130,TRUE,2,TRUE
+130,TRUE,2,TRUE
+130,FALSE,2,FALSE
+130,FALSE,2,FALSE
+130,FALSE,2,FALSE
+130,FALSE,2,FALSE
+130,FALSE,2,FALSE
+130,FALSE,2,FALSE
+131,TRUE,2,TRUE
+131,TRUE,2,TRUE
+131,TRUE,2,TRUE
+131,TRUE,2,TRUE
+131,FALSE,2,FALSE
+131,FALSE,2,FALSE
+131,FALSE,2,FALSE
+131,FALSE,2,FALSE
+131,FALSE,2,FALSE
+131,FALSE,2,FALSE
+131,FALSE,2,FALSE
+131,FALSE,2,FALSE
+131,FALSE,2,FALSE
+131,FALSE,2,FALSE
+132,FALSE,2,FALSE
+132,FALSE,2,FALSE
+132,FALSE,2,FALSE
+132,FALSE,2,FALSE
+132,FALSE,2,FALSE
+132,FALSE,2,FALSE
+133,FALSE,2,TRUE
+133,FALSE,2,TRUE
+133,FALSE,2,TRUE
+133,FALSE,2,TRUE
+134,TRUE,3,TRUE
+134,TRUE,3,TRUE
+134,TRUE,3,TRUE
+135,FALSE,2,FALSE
+135,FALSE,2,FALSE
+136,TRUE,3,TRUE
+136,FALSE,3,TRUE
+136,FALSE,3,TRUE
+136,FALSE,3,TRUE
+137,TRUE,2,TRUE
+137,TRUE,2,TRUE
+137,FALSE,2,FALSE
+137,FALSE,2,FALSE
+137,FALSE,2,FALSE
+137,FALSE,2,FALSE
+137,FALSE,2,FALSE
+137,FALSE,2,FALSE
+138,FALSE,2,FALSE
+138,FALSE,2,FALSE
+138,FALSE,2,FALSE
+139,FALSE,2,FALSE
+139,FALSE,2,FALSE
+139,FALSE,2,FALSE
+139,FALSE,2,FALSE
+140,FALSE,2,FALSE
+140,FALSE,2,FALSE
+141,TRUE,2,TRUE
+141,FALSE,2,TRUE
+141,FALSE,2,TRUE
+141,FALSE,2,TRUE
+143,FALSE,2,FALSE
+143,FALSE,2,FALSE
+143,FALSE,2,FALSE
+143,FALSE,2,FALSE
+143,FALSE,2,FALSE
+144,FALSE,2,FALSE
+144,FALSE,2,FALSE
+144,FALSE,2,FALSE
+144,FALSE,2,FALSE
+145,FALSE,2,FALSE
+145,FALSE,2,FALSE
+145,FALSE,2,FALSE
+145,FALSE,2,FALSE
+145,FALSE,2,FALSE
+146,TRUE,3,TRUE
+146,TRUE,3,TRUE
+146,FALSE,2,TRUE
+146,FALSE,2,TRUE
+146,FALSE,2,TRUE
+146,FALSE,2,TRUE
+147,TRUE,3,TRUE
+147,TRUE,3,TRUE
+147,FALSE,2,FALSE
+147,FALSE,2,FALSE
+147,FALSE,2,FALSE
+147,FALSE,2,FALSE
+147,FALSE,2,FALSE
+147,FALSE,2,FALSE
+147,FALSE,2,FALSE
+147,FALSE,2,FALSE
+147,FALSE,2,FALSE
+147,FALSE,2,FALSE
+147,FALSE,2,FALSE
+148,TRUE,2,TRUE
+148,TRUE,2,TRUE
+148,FALSE,2,FALSE
+148,FALSE,2,FALSE
+148,FALSE,2,FALSE
+149,TRUE,3,TRUE
+149,TRUE,3,TRUE
+149,TRUE,3,TRUE
+149,TRUE,3,TRUE
+149,TRUE,3,TRUE
+150,FALSE,2,FALSE
+150,FALSE,2,FALSE
+150,FALSE,2,FALSE
+150,FALSE,2,FALSE
+150,FALSE,2,FALSE
+151,TRUE,3,TRUE
+151,TRUE,3,TRUE
+151,TRUE,3,TRUE
+151,TRUE,3,TRUE
+151,TRUE,3,TRUE
+151,TRUE,3,TRUE
+151,FALSE,2,FALSE
+151,FALSE,2,FALSE
+151,FALSE,2,FALSE
+151,FALSE,2,FALSE
+151,FALSE,2,FALSE
+152,TRUE,3,TRUE
+152,TRUE,3,TRUE
+152,TRUE,3,TRUE
+152,TRUE,3,TRUE
+152,FALSE,2,FALSE
+152,FALSE,2,FALSE
+152,FALSE,2,FALSE
+152,FALSE,2,FALSE
+152,FALSE,2,FALSE
+152,FALSE,2,FALSE
+152,FALSE,2,FALSE
+152,FALSE,2,FALSE
+153,TRUE,2,TRUE
+153,TRUE,2,TRUE
+153,FALSE,2,FALSE
+153,FALSE,2,FALSE
+153,FALSE,2,FALSE
+153,FALSE,2,FALSE
+153,FALSE,2,FALSE
+153,FALSE,2,FALSE
+153,FALSE,2,FALSE
+154,TRUE,2,TRUE
+154,TRUE,2,TRUE
+154,TRUE,2,TRUE
+154,TRUE,2,TRUE
+154,FALSE,3,FALSE
+155,FALSE,2,FALSE
+155,FALSE,2,FALSE
+155,FALSE,2,FALSE
+156,FALSE,2,FALSE
+156,FALSE,2,FALSE
+156,FALSE,2,FALSE
+157,TRUE,3,TRUE
+157,FALSE,3,FALSE
+158,TRUE,3,TRUE
+158,FALSE,2,TRUE
+159,TRUE,1,TRUE
+159,TRUE,1,TRUE
+159,TRUE,1,TRUE
+159,FALSE,2,FALSE
+159,FALSE,2,FALSE
+159,FALSE,2,FALSE
+159,FALSE,2,FALSE
+159,FALSE,2,FALSE
+159,FALSE,2,FALSE
+159,FALSE,2,FALSE
+160,TRUE,3,TRUE
+160,TRUE,3,TRUE
+160,FALSE,2,TRUE
+160,FALSE,2,TRUE
+160,FALSE,2,TRUE
+160,FALSE,2,TRUE
+161,FALSE,2,FALSE
+161,FALSE,2,FALSE
+161,FALSE,2,FALSE
+162,FALSE,2,FALSE
+162,FALSE,2,FALSE
+162,FALSE,2,FALSE
+163,FALSE,2,FALSE
+163,FALSE,2,FALSE
+163,FALSE,2,FALSE
+163,FALSE,2,FALSE
+163,FALSE,2,FALSE
+163,FALSE,2,FALSE
+164,TRUE,2,TRUE
+164,TRUE,2,TRUE
+164,TRUE,2,TRUE
+164,TRUE,2,TRUE
+164,FALSE,2,FALSE
+164,FALSE,2,FALSE
+164,FALSE,2,FALSE
+164,FALSE,2,FALSE
+164,FALSE,2,FALSE
+164,FALSE,2,FALSE
+164,FALSE,2,FALSE
+164,FALSE,2,FALSE
+164,FALSE,2,FALSE
+164,FALSE,2,FALSE
+165,FALSE,2,FALSE
+165,FALSE,2,FALSE
+165,FALSE,2,FALSE
+165,FALSE,2,FALSE
+165,FALSE,2,FALSE
+165,FALSE,2,FALSE
+166,FALSE,2,FALSE
+166,FALSE,2,FALSE
+166,FALSE,2,FALSE
+166,FALSE,2,FALSE
+166,FALSE,2,FALSE
+166,FALSE,2,FALSE
+166,FALSE,2,FALSE
+166,FALSE,2,FALSE
+166,FALSE,2,FALSE
+166,FALSE,2,FALSE
+166,FALSE,2,FALSE
+167,TRUE,3,TRUE
+167,FALSE,2,FALSE
+167,FALSE,2,FALSE
+168,TRUE,2,TRUE
+168,TRUE,2,TRUE
+168,FALSE,3,FALSE
+168,FALSE,3,FALSE
+169,FALSE,2,FALSE
+169,FALSE,2,FALSE
+170,TRUE,1,TRUE
+170,TRUE,1,TRUE
+170,TRUE,1,TRUE
+170,FALSE,2,FALSE
+170,FALSE,2,FALSE
+170,FALSE,2,FALSE
+170,FALSE,2,FALSE
+171,FALSE,2,FALSE
+171,FALSE,2,FALSE
+171,FALSE,2,FALSE
+171,FALSE,2,FALSE
+172,TRUE,4,TRUE
+172,TRUE,4,TRUE
+172,TRUE,4,TRUE
+172,TRUE,4,TRUE
+172,FALSE,2,FALSE
+172,FALSE,2,FALSE
+172,FALSE,2,FALSE
+172,FALSE,2,FALSE
+172,FALSE,2,FALSE
+173,TRUE,1,TRUE
+173,FALSE,3,FALSE
+173,FALSE,3,FALSE
+173,FALSE,3,FALSE
+174,TRUE,3,TRUE
+174,TRUE,3,TRUE
+174,FALSE,2,FALSE
+174,FALSE,2,FALSE
+175,TRUE,3,TRUE
+175,TRUE,3,TRUE
+175,TRUE,3,TRUE
+175,TRUE,3,TRUE
+175,FALSE,2,FALSE
+175,FALSE,2,FALSE
+175,FALSE,2,FALSE
+175,FALSE,2,FALSE
+175,FALSE,2,FALSE
+175,FALSE,2,FALSE
+176,TRUE,3,TRUE
+176,TRUE,3,TRUE
+176,TRUE,3,TRUE
+176,FALSE,2,TRUE
+176,FALSE,2,TRUE
+176,FALSE,2,TRUE
+176,FALSE,2,TRUE
+176,FALSE,2,TRUE
+176,FALSE,2,TRUE
+176,FALSE,2,TRUE
+177,FALSE,3,FALSE
+177,FALSE,3,FALSE
+177,FALSE,3,FALSE
+177,FALSE,3,FALSE
+177,FALSE,3,FALSE
+178,TRUE,3,TRUE
+178,TRUE,3,TRUE
+178,FALSE,2,FALSE
+178,FALSE,2,FALSE
+178,FALSE,2,FALSE
+178,FALSE,2,FALSE
+178,FALSE,2,FALSE
+179,TRUE,2,TRUE
+179,TRUE,2,TRUE
+179,FALSE,2,FALSE
+179,FALSE,2,FALSE
+179,FALSE,2,FALSE
+180,FALSE,2,FALSE
+180,FALSE,2,FALSE
+180,FALSE,2,FALSE
+180,FALSE,2,FALSE
+181,TRUE,3,TRUE
+181,TRUE,3,TRUE
+181,TRUE,3,TRUE
+181,TRUE,3,TRUE
+181,TRUE,3,TRUE
+181,FALSE,2,FALSE
+181,FALSE,2,FALSE
+181,FALSE,2,FALSE
+181,FALSE,2,FALSE
+181,FALSE,2,FALSE
+181,FALSE,2,FALSE
+181,FALSE,2,FALSE
+181,FALSE,2,FALSE
+182,FALSE,2,FALSE
+182,FALSE,2,FALSE
+182,FALSE,2,FALSE
+183,FALSE,5,FALSE
+183,FALSE,5,FALSE
+184,TRUE,5,TRUE
+184,TRUE,5,TRUE
+184,FALSE,2,FALSE
+184,FALSE,2,FALSE
+184,FALSE,2,FALSE
+185,TRUE,3,TRUE
+185,TRUE,3,TRUE
+185,FALSE,2,FALSE
+185,FALSE,2,FALSE
+185,FALSE,2,FALSE
+185,FALSE,2,FALSE
+186,TRUE,2,TRUE
+186,TRUE,2,TRUE
+186,FALSE,2,FALSE
+186,FALSE,2,FALSE
+186,FALSE,2,FALSE
+186,FALSE,2,FALSE
+187,FALSE,2,FALSE
+187,FALSE,2,FALSE
+187,FALSE,2,FALSE
+187,FALSE,2,FALSE
+187,FALSE,2,FALSE
+187,FALSE,2,FALSE
+187,FALSE,2,FALSE
+187,FALSE,2,FALSE
+187,FALSE,2,FALSE
+187,FALSE,2,FALSE
+187,FALSE,2,FALSE
+188,TRUE,1,TRUE
+188,TRUE,1,TRUE
+188,TRUE,1,TRUE
+188,FALSE,2,FALSE
+188,FALSE,2,FALSE
+188,FALSE,2,FALSE
+188,FALSE,2,FALSE
+188,FALSE,2,FALSE
+188,FALSE,2,FALSE
+188,FALSE,2,FALSE
+188,FALSE,2,FALSE
+188,FALSE,2,FALSE
+189,TRUE,3,TRUE
+189,FALSE,3,FALSE
+189,FALSE,3,FALSE
+190,FALSE,5,FALSE
+190,FALSE,5,FALSE
+191,TRUE,2,TRUE
+191,TRUE,2,TRUE
+191,FALSE,2,FALSE
+191,FALSE,2,FALSE
+191,FALSE,2,FALSE
+191,FALSE,2,FALSE
+191,FALSE,2,FALSE
+191,FALSE,2,FALSE
+191,FALSE,2,FALSE
+191,FALSE,2,FALSE
+191,FALSE,2,FALSE
+192,TRUE,2,TRUE
+192,TRUE,2,TRUE
+192,TRUE,2,TRUE
+192,FALSE,2,TRUE
+192,FALSE,2,TRUE
+192,FALSE,2,TRUE
+192,FALSE,2,TRUE
+192,FALSE,2,TRUE
+193,FALSE,2,TRUE
+193,FALSE,2,TRUE
+193,FALSE,2,TRUE
+193,FALSE,2,TRUE
+193,FALSE,2,TRUE
+194,TRUE,3,TRUE
+194,TRUE,3,TRUE
+194,TRUE,3,TRUE
+195,TRUE,2,TRUE
+195,TRUE,2,TRUE
+195,FALSE,2,FALSE
+195,FALSE,2,FALSE
+195,FALSE,2,FALSE
+195,FALSE,2,FALSE
+195,FALSE,2,FALSE
+195,FALSE,2,FALSE
+195,FALSE,2,FALSE
+196,FALSE,2,TRUE
+196,FALSE,2,TRUE
+196,FALSE,2,TRUE
+197,TRUE,2,TRUE
+197,TRUE,2,TRUE
+197,FALSE,2,TRUE
+197,FALSE,2,TRUE
+197,FALSE,2,TRUE
+197,FALSE,2,TRUE
+198,FALSE,5,FALSE
+198,FALSE,5,FALSE
+198,FALSE,5,FALSE
+199,TRUE,1,TRUE
+199,TRUE,1,TRUE
+199,TRUE,1,TRUE
+199,FALSE,2,TRUE
+199,FALSE,2,TRUE
+199,FALSE,2,TRUE
+199,FALSE,2,TRUE
+199,FALSE,2,TRUE
+199,FALSE,2,TRUE
+200,TRUE,2,TRUE
+200,TRUE,2,TRUE
+200,TRUE,2,TRUE
+200,FALSE,2,FALSE
+200,FALSE,2,FALSE
+200,FALSE,2,FALSE
+200,FALSE,2,FALSE
+200,FALSE,2,FALSE
+201,FALSE,2,FALSE
+201,FALSE,2,FALSE
+202,FALSE,2,FALSE
+202,FALSE,2,FALSE
+202,FALSE,2,FALSE
+203,TRUE,3,TRUE
+203,TRUE,3,TRUE
+203,TRUE,3,TRUE
+203,FALSE,2,FALSE
+203,FALSE,2,FALSE
+203,FALSE,2,FALSE
+204,TRUE,3,TRUE
+204,TRUE,3,TRUE
+204,FALSE,2,FALSE
+204,FALSE,2,FALSE
+204,FALSE,2,FALSE
+204,FALSE,2,FALSE
+204,FALSE,2,FALSE
+205,TRUE,3,TRUE
+205,FALSE,3,FALSE
+206,TRUE,3,TRUE
+206,TRUE,3,TRUE
+206,TRUE,3,TRUE
+206,FALSE,2,FALSE
+206,FALSE,2,FALSE
+206,FALSE,2,FALSE
+206,FALSE,2,FALSE
+206,FALSE,2,FALSE
+206,FALSE,2,FALSE
+206,FALSE,2,FALSE
+206,FALSE,2,FALSE
+206,FALSE,2,FALSE
+207,FALSE,2,FALSE
+207,FALSE,2,FALSE
+208,TRUE,2,TRUE
+208,TRUE,2,TRUE
+208,TRUE,2,TRUE
+208,FALSE,2,FALSE
+208,FALSE,2,FALSE
+209,TRUE,4,TRUE
+209,TRUE,4,TRUE
+209,FALSE,4,TRUE
+209,FALSE,4,TRUE
+210,TRUE,2,TRUE
+210,TRUE,2,TRUE
+210,TRUE,2,TRUE
+210,FALSE,2,FALSE
+210,FALSE,2,FALSE
+210,FALSE,2,FALSE
+210,FALSE,2,FALSE
+210,FALSE,2,FALSE
+210,FALSE,2,FALSE
+211,TRUE,3,TRUE
+211,TRUE,3,TRUE
+211,TRUE,3,TRUE
+211,FALSE,2,FALSE
+211,FALSE,2,FALSE
+211,FALSE,2,FALSE
+211,FALSE,2,FALSE
+211,FALSE,2,FALSE
+211,FALSE,2,FALSE
+211,FALSE,2,FALSE
+212,FALSE,3,FALSE
+213,TRUE,2,TRUE
+213,TRUE,2,TRUE
+213,FALSE,3,FALSE
+213,FALSE,3,FALSE
+213,FALSE,3,FALSE
+214,TRUE,3,TRUE
+214,TRUE,3,TRUE
+214,FALSE,2,FALSE
+214,FALSE,2,FALSE
+214,FALSE,2,FALSE
+214,FALSE,2,FALSE
+214,FALSE,2,FALSE
+214,FALSE,2,FALSE
+215,TRUE,2,TRUE
+215,TRUE,2,TRUE
+215,TRUE,2,TRUE
+215,TRUE,2,TRUE
+215,TRUE,2,TRUE
+215,TRUE,2,TRUE
+215,FALSE,2,FALSE
+215,FALSE,2,FALSE
+215,FALSE,2,FALSE
+215,FALSE,2,FALSE
+216,FALSE,2,FALSE
+216,FALSE,2,FALSE
+216,FALSE,2,FALSE
+216,FALSE,2,FALSE
+217,TRUE,3,TRUE
+217,FALSE,5,FALSE
+217,FALSE,5,FALSE
+217,FALSE,5,FALSE
+218,FALSE,3,TRUE
+218,FALSE,3,TRUE
+219,FALSE,2,FALSE
+219,FALSE,2,FALSE
+219,FALSE,2,FALSE
+220,FALSE,3,FALSE
+221,FALSE,2,FALSE
+221,FALSE,2,FALSE
+222,TRUE,2,TRUE
+222,TRUE,2,TRUE
+222,TRUE,2,TRUE
+222,TRUE,2,TRUE
+222,TRUE,2,TRUE
+222,TRUE,2,TRUE
+222,FALSE,2,FALSE
+222,FALSE,2,FALSE
+222,FALSE,2,FALSE
+222,FALSE,2,FALSE
+222,FALSE,2,FALSE
+222,FALSE,2,FALSE
+222,FALSE,2,FALSE
+223,TRUE,3,TRUE
+223,FALSE,2,FALSE
+223,FALSE,2,FALSE
+224,FALSE,5,FALSE
+225,TRUE,4,TRUE
+225,TRUE,4,TRUE
+225,TRUE,4,TRUE
+225,FALSE,5,FALSE
+226,FALSE,2,TRUE
+226,FALSE,2,TRUE
+227,FALSE,2,FALSE
+227,FALSE,2,FALSE
+227,FALSE,2,FALSE
+227,FALSE,2,FALSE
+227,FALSE,2,FALSE
+227,FALSE,2,FALSE
+227,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+228,FALSE,2,FALSE
+229,TRUE,2,TRUE
+229,FALSE,2,FALSE
+229,FALSE,2,FALSE
+229,FALSE,2,FALSE
+229,FALSE,2,FALSE
+229,FALSE,2,FALSE
+230,FALSE,2,FALSE
+230,FALSE,2,FALSE
+230,FALSE,2,FALSE
+231,FALSE,2,FALSE
+231,FALSE,2,FALSE
+231,FALSE,2,FALSE
+232,TRUE,1,TRUE
+232,TRUE,1,TRUE
+232,TRUE,1,TRUE
+232,FALSE,2,FALSE
+232,FALSE,2,FALSE
+232,FALSE,2,FALSE
+232,FALSE,2,FALSE
+233,FALSE,2,FALSE
+233,FALSE,2,FALSE
+233,FALSE,2,FALSE
+234,TRUE,2,TRUE
+234,TRUE,2,TRUE
+234,FALSE,2,FALSE
+234,FALSE,2,FALSE
+234,FALSE,2,FALSE
+234,FALSE,2,FALSE
+234,FALSE,2,FALSE
+234,FALSE,2,FALSE
+234,FALSE,2,FALSE
+234,FALSE,2,FALSE
+235,FALSE,2,FALSE
+235,FALSE,2,FALSE
+235,FALSE,2,FALSE
+235,FALSE,2,FALSE
+235,FALSE,2,FALSE
+235,FALSE,2,FALSE
+235,FALSE,2,FALSE
+235,FALSE,2,FALSE
+236,FALSE,2,FALSE
+236,FALSE,2,FALSE
+236,FALSE,2,FALSE
+237,FALSE,3,TRUE
+237,FALSE,3,TRUE
+237,FALSE,3,TRUE
+238,FALSE,2,TRUE
+238,FALSE,2,TRUE
+238,FALSE,2,TRUE
+238,FALSE,2,TRUE
+238,FALSE,2,TRUE
+239,FALSE,2,FALSE
+239,FALSE,2,FALSE
+239,FALSE,2,FALSE
+239,FALSE,2,FALSE
+240,TRUE,3,TRUE
+240,TRUE,3,TRUE
+240,TRUE,3,TRUE
+240,FALSE,2,FALSE
+241,TRUE,1,TRUE
+241,TRUE,1,TRUE
+241,FALSE,2,FALSE
+241,FALSE,2,FALSE
+241,FALSE,2,FALSE
+241,FALSE,2,FALSE
+241,FALSE,2,FALSE
+241,FALSE,2,FALSE
+242,FALSE,2,FALSE
+242,FALSE,2,FALSE
+242,FALSE,2,FALSE
+242,FALSE,2,FALSE
+243,TRUE,4,TRUE
+243,TRUE,4,TRUE
+243,TRUE,4,TRUE
+243,TRUE,4,TRUE
+243,FALSE,4,TRUE
+243,FALSE,4,TRUE
+243,FALSE,4,TRUE
+244,TRUE,3,TRUE
+244,TRUE,3,TRUE
+244,TRUE,3,TRUE
+244,TRUE,3,TRUE
+244,FALSE,3,FALSE
+244,FALSE,3,FALSE
+245,FALSE,2,TRUE
+246,FALSE,2,FALSE
+246,FALSE,2,FALSE
+246,FALSE,2,FALSE
+246,FALSE,2,FALSE
+247,FALSE,2,FALSE
+247,FALSE,2,FALSE
+247,FALSE,2,FALSE
+247,FALSE,2,FALSE
+248,TRUE,2,TRUE
+248,TRUE,2,TRUE
+248,FALSE,2,FALSE
+248,FALSE,2,FALSE
+248,FALSE,2,FALSE
+248,FALSE,2,FALSE
+248,FALSE,2,FALSE
+248,FALSE,2,FALSE
+249,TRUE,3,TRUE
+249,TRUE,3,TRUE
+249,TRUE,3,TRUE
+249,FALSE,2,FALSE
+249,FALSE,2,FALSE
+249,FALSE,2,FALSE
+249,FALSE,2,FALSE
+249,FALSE,2,FALSE
+249,FALSE,2,FALSE
+250,TRUE,2,TRUE
+250,TRUE,2,TRUE
+250,TRUE,2,TRUE
+250,FALSE,3,FALSE
+250,FALSE,3,FALSE
+250,FALSE,3,FALSE
+251,FALSE,3,FALSE
+251,FALSE,3,FALSE
+251,FALSE,3,FALSE
+251,FALSE,3,FALSE
+252,TRUE,1,TRUE
+252,TRUE,1,TRUE
+252,TRUE,1,TRUE
+252,FALSE,2,FALSE
+252,FALSE,2,FALSE
+252,FALSE,2,FALSE
+252,FALSE,2,FALSE
+252,FALSE,2,FALSE
+252,FALSE,2,FALSE
+252,FALSE,2,FALSE
+252,FALSE,2,FALSE
+253,TRUE,3,TRUE
+253,FALSE,3,FALSE
+253,FALSE,3,FALSE
+254,FALSE,2,FALSE
+254,FALSE,2,FALSE
+254,FALSE,2,FALSE
+255,TRUE,2,TRUE
+255,TRUE,2,TRUE
+255,TRUE,2,TRUE
+255,FALSE,2,TRUE
+255,FALSE,2,TRUE
+255,FALSE,2,TRUE
+255,FALSE,2,TRUE
+255,FALSE,2,TRUE
+255,FALSE,2,TRUE
+255,FALSE,2,TRUE
+256,FALSE,2,FALSE
+256,FALSE,2,FALSE
+256,FALSE,2,FALSE
+257,TRUE,2,TRUE
+257,TRUE,2,TRUE
+257,FALSE,2,FALSE
+257,FALSE,2,FALSE
+257,FALSE,2,FALSE
+257,FALSE,2,FALSE
+257,FALSE,2,FALSE
+258,FALSE,3,TRUE
+258,FALSE,3,TRUE
+259,FALSE,2,FALSE
+259,FALSE,2,FALSE
+260,FALSE,2,FALSE
+260,FALSE,2,FALSE
+260,FALSE,2,FALSE
+261,TRUE,2,TRUE
+261,TRUE,2,TRUE
+261,TRUE,2,TRUE
+261,TRUE,2,TRUE
+261,TRUE,2,TRUE
+261,TRUE,2,TRUE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+261,FALSE,2,FALSE
+262,FALSE,2,TRUE
+262,FALSE,2,TRUE
+262,FALSE,2,TRUE
+262,FALSE,2,TRUE
+262,FALSE,2,TRUE
+262,FALSE,2,TRUE
+262,FALSE,2,TRUE
+263,TRUE,3,TRUE
+263,FALSE,3,FALSE
+263,FALSE,3,FALSE
+263,FALSE,3,FALSE
+263,FALSE,3,FALSE
+264,TRUE,3,TRUE
+264,TRUE,3,TRUE
+264,FALSE,2,FALSE
+264,FALSE,2,FALSE
+264,FALSE,2,FALSE
+265,FALSE,2,FALSE
+265,FALSE,2,FALSE
+266,FALSE,2,FALSE
+266,FALSE,2,FALSE
+267,TRUE,3,TRUE
+267,FALSE,5,FALSE
+267,FALSE,5,FALSE
+268,TRUE,5,TRUE
+268,FALSE,3,FALSE
+268,FALSE,3,FALSE
+269,TRUE,2,TRUE
+269,TRUE,2,TRUE
+269,TRUE,2,TRUE
+269,TRUE,2,TRUE
+269,TRUE,2,TRUE
+270,FALSE,3,FALSE
+270,FALSE,3,FALSE
+270,FALSE,3,FALSE
+271,TRUE,3,TRUE
+271,TRUE,3,TRUE
+271,TRUE,3,TRUE
+272,TRUE,5,TRUE
+272,TRUE,5,TRUE
+272,TRUE,5,TRUE
+272,FALSE,2,FALSE
+272,FALSE,2,FALSE
+272,FALSE,2,FALSE
+272,FALSE,2,FALSE
+272,FALSE,2,FALSE
+273,FALSE,2,FALSE
+273,FALSE,2,FALSE
+273,FALSE,2,FALSE
+274,TRUE,4,TRUE
+274,TRUE,4,TRUE
+274,FALSE,2,TRUE
+274,FALSE,2,TRUE
+274,FALSE,2,TRUE
+274,FALSE,2,TRUE
+275,FALSE,2,FALSE
+275,FALSE,2,FALSE
+275,FALSE,2,FALSE
+275,FALSE,2,FALSE
+275,FALSE,2,FALSE
+276,FALSE,2,FALSE
+276,FALSE,2,FALSE
+276,FALSE,2,FALSE
+276,FALSE,2,FALSE
+276,FALSE,2,FALSE
+276,FALSE,2,FALSE
+277,TRUE,2,TRUE
+277,TRUE,2,TRUE
+277,FALSE,2,FALSE
+277,FALSE,2,FALSE
+277,FALSE,2,FALSE
+277,FALSE,2,FALSE
+277,FALSE,2,FALSE
+278,FALSE,2,FALSE
+278,FALSE,2,FALSE
+278,FALSE,2,FALSE
+279,TRUE,2,TRUE
+279,TRUE,2,TRUE
+279,FALSE,2,FALSE
+279,FALSE,2,FALSE
+279,FALSE,2,FALSE
+279,FALSE,2,FALSE
+279,FALSE,2,FALSE
+279,FALSE,2,FALSE
+279,FALSE,2,FALSE
+279,FALSE,2,FALSE
+279,FALSE,2,FALSE
+280,TRUE,2,TRUE
+280,TRUE,2,TRUE
+280,TRUE,2,TRUE
+280,TRUE,2,TRUE
+280,TRUE,2,TRUE
+280,FALSE,2,TRUE
+280,FALSE,2,TRUE
+280,FALSE,2,TRUE
+280,FALSE,2,TRUE
+280,FALSE,2,TRUE
+280,FALSE,2,TRUE
+281,TRUE,2,TRUE
+281,TRUE,2,TRUE
+281,TRUE,2,TRUE
+281,FALSE,3,FALSE
+281,FALSE,3,FALSE
+281,FALSE,3,FALSE
+282,FALSE,3,FALSE
+282,FALSE,3,FALSE
+283,TRUE,3,TRUE
+283,TRUE,3,TRUE
+283,FALSE,2,FALSE
+283,FALSE,2,FALSE
+283,FALSE,2,FALSE
+283,FALSE,2,FALSE
+283,FALSE,2,FALSE
+284,FALSE,2,TRUE
+284,FALSE,2,TRUE
+285,TRUE,4,TRUE
+285,TRUE,4,TRUE
+285,TRUE,4,TRUE
+285,FALSE,2,TRUE
+285,FALSE,2,TRUE
+285,FALSE,2,TRUE
+285,FALSE,2,TRUE
+285,FALSE,2,TRUE
+285,FALSE,2,TRUE
+285,FALSE,2,TRUE
+285,FALSE,2,TRUE
+286,TRUE,1,TRUE
+286,TRUE,1,TRUE
+286,FALSE,2,FALSE
+286,FALSE,2,FALSE
+287,TRUE,3,TRUE
+287,TRUE,3,TRUE
+287,FALSE,3,FALSE
+287,FALSE,3,FALSE
+288,FALSE,2,FALSE
+288,FALSE,2,FALSE
+288,FALSE,2,FALSE
+288,FALSE,2,FALSE
+288,FALSE,2,FALSE
+288,FALSE,2,FALSE
+288,FALSE,2,FALSE
+289,FALSE,2,FALSE
+289,FALSE,2,FALSE
+290,TRUE,3,TRUE
+290,TRUE,3,TRUE
+290,TRUE,3,TRUE
+291,FALSE,2,FALSE
+291,FALSE,2,FALSE
+292,TRUE,2,TRUE
+292,TRUE,2,TRUE
+292,FALSE,2,FALSE
+292,FALSE,2,FALSE
+292,FALSE,2,FALSE
+293,FALSE,3,TRUE
+293,FALSE,3,TRUE
+294,FALSE,2,FALSE
+294,FALSE,2,FALSE
+294,FALSE,2,FALSE
+294,FALSE,2,FALSE
+295,FALSE,3,FALSE
+295,FALSE,3,FALSE
+296,TRUE,3,TRUE
+296,TRUE,3,TRUE
+296,FALSE,2,FALSE
+296,FALSE,2,FALSE
+297,TRUE,1,TRUE
+297,TRUE,1,TRUE
+297,TRUE,1,TRUE
+297,TRUE,1,TRUE
+297,FALSE,2,FALSE
+297,FALSE,2,FALSE
+297,FALSE,2,FALSE
+297,FALSE,2,FALSE
+297,FALSE,2,FALSE
+297,FALSE,2,FALSE
+297,FALSE,2,FALSE
+298,FALSE,3,FALSE
+298,FALSE,3,FALSE
+299,TRUE,3,TRUE
+299,TRUE,3,TRUE
+299,TRUE,3,TRUE
+299,TRUE,3,TRUE
+299,FALSE,2,FALSE
+299,FALSE,2,FALSE
+299,FALSE,2,FALSE
+299,FALSE,2,FALSE
+299,FALSE,2,FALSE
+299,FALSE,2,FALSE
+300,TRUE,3,TRUE
+300,TRUE,3,TRUE
+300,TRUE,3,TRUE
+300,FALSE,2,FALSE
+300,FALSE,2,FALSE
+301,TRUE,3,TRUE
+301,FALSE,2,FALSE
+301,FALSE,2,FALSE
+301,FALSE,2,FALSE
+301,FALSE,2,FALSE
+301,FALSE,2,FALSE
+303,TRUE,1,TRUE
+303,TRUE,1,TRUE
+303,FALSE,2,TRUE
+303,FALSE,2,TRUE
+303,FALSE,2,TRUE
+303,FALSE,2,TRUE
+303,FALSE,2,TRUE
+303,FALSE,2,TRUE
+303,FALSE,2,TRUE
+303,FALSE,2,TRUE
+303,FALSE,2,TRUE
+304,FALSE,2,TRUE
+304,FALSE,2,TRUE
+304,FALSE,2,TRUE
+304,FALSE,2,TRUE
+304,FALSE,2,TRUE
+305,TRUE,2,TRUE
+305,TRUE,2,TRUE
+305,FALSE,2,FALSE
+305,FALSE,2,FALSE
+305,FALSE,2,FALSE
+305,FALSE,2,FALSE
+306,FALSE,3,FALSE
+307,TRUE,3,TRUE
+307,TRUE,3,TRUE
+307,FALSE,2,FALSE
+307,FALSE,2,FALSE
+307,FALSE,2,FALSE
+307,FALSE,2,FALSE
+307,FALSE,2,FALSE
+307,FALSE,2,FALSE
+307,FALSE,2,FALSE
+308,TRUE,2,TRUE
+308,TRUE,2,TRUE
+308,TRUE,2,TRUE
+308,TRUE,2,TRUE
+308,FALSE,2,FALSE
+308,FALSE,2,FALSE
+308,FALSE,2,FALSE
+308,FALSE,2,FALSE
+308,FALSE,2,FALSE
+308,FALSE,2,FALSE
+313,TRUE,1,TRUE
+313,TRUE,1,TRUE
+313,FALSE,3,TRUE
+313,FALSE,3,TRUE
+314,FALSE,2,FALSE
+314,FALSE,2,FALSE
+314,FALSE,2,FALSE
+315,TRUE,2,TRUE
+315,TRUE,2,TRUE
+315,TRUE,2,TRUE
+315,FALSE,2,FALSE
+315,FALSE,2,FALSE
+315,FALSE,2,FALSE
+315,FALSE,2,FALSE
+315,FALSE,2,FALSE
+315,FALSE,2,FALSE
+316,TRUE,3,TRUE
+316,FALSE,3,FALSE
+316,FALSE,3,FALSE
+316,FALSE,3,FALSE
+317,FALSE,2,FALSE
+317,FALSE,2,FALSE
+317,FALSE,2,FALSE
+317,FALSE,2,FALSE
+318,FALSE,2,TRUE
+318,FALSE,2,TRUE
+318,FALSE,2,TRUE
+318,FALSE,2,TRUE
+318,FALSE,2,TRUE
+318,FALSE,2,TRUE
+319,TRUE,3,TRUE
+319,TRUE,3,TRUE
+319,FALSE,2,FALSE
+319,FALSE,2,FALSE
+319,FALSE,2,FALSE
+319,FALSE,2,FALSE
+319,FALSE,2,FALSE
+319,FALSE,2,FALSE
+319,FALSE,2,FALSE
+319,FALSE,2,FALSE
+319,FALSE,2,FALSE
+319,FALSE,2,FALSE
+319,FALSE,2,FALSE
+319,FALSE,2,FALSE
+320,FALSE,2,FALSE
+320,FALSE,2,FALSE
+320,FALSE,2,FALSE
+320,FALSE,2,FALSE
+320,FALSE,2,FALSE
+320,FALSE,2,FALSE
+321,FALSE,2,FALSE
+321,FALSE,2,FALSE
+322,TRUE,2,TRUE
+322,TRUE,2,TRUE
+322,TRUE,2,TRUE
+322,TRUE,2,TRUE
+322,FALSE,2,FALSE
+322,FALSE,2,FALSE
+322,FALSE,2,FALSE
+322,FALSE,2,FALSE
+322,FALSE,2,FALSE
+322,FALSE,2,FALSE
+322,FALSE,2,FALSE
+322,FALSE,2,FALSE
+322,FALSE,2,FALSE
+322,FALSE,2,FALSE
+322,FALSE,2,FALSE
+323,FALSE,2,FALSE
+323,FALSE,2,FALSE
+323,FALSE,2,FALSE
+323,FALSE,2,FALSE
+324,TRUE,3,TRUE
+324,TRUE,3,TRUE
+324,TRUE,3,TRUE
+324,FALSE,2,TRUE
+324,FALSE,2,TRUE
+324,FALSE,2,TRUE
+324,FALSE,2,TRUE
+325,FALSE,3,FALSE
+326,TRUE,3,TRUE
+326,TRUE,3,TRUE
+326,FALSE,3,FALSE
+327,FALSE,2,FALSE
+327,FALSE,2,FALSE
+327,FALSE,2,FALSE
+328,TRUE,3,TRUE
+328,FALSE,2,FALSE
+328,FALSE,2,FALSE
+328,FALSE,2,FALSE
+328,FALSE,2,FALSE
+328,FALSE,2,FALSE
+329,TRUE,3,TRUE
+329,TRUE,3,TRUE
+329,TRUE,3,TRUE
+329,FALSE,2,FALSE
+329,FALSE,2,FALSE
+329,FALSE,2,FALSE
+329,FALSE,2,FALSE
+329,FALSE,2,FALSE
+329,FALSE,2,FALSE
+329,FALSE,2,FALSE
+329,FALSE,2,FALSE
+329,FALSE,2,FALSE
+329,FALSE,2,FALSE
+331,TRUE,1,TRUE
+331,TRUE,1,TRUE
+331,FALSE,2,FALSE
+331,FALSE,2,FALSE
+331,FALSE,2,FALSE
+331,FALSE,2,FALSE
+331,FALSE,2,FALSE
+331,FALSE,2,FALSE
+331,FALSE,2,FALSE
+331,FALSE,2,FALSE
+332,FALSE,2,FALSE
+332,FALSE,2,FALSE
+332,FALSE,2,FALSE
+333,FALSE,2,FALSE
+333,FALSE,2,FALSE
+334,FALSE,2,FALSE
+334,FALSE,2,FALSE
+334,FALSE,2,FALSE
+334,FALSE,2,FALSE
+334,FALSE,2,FALSE
+334,FALSE,2,FALSE
+335,FALSE,2,TRUE
+335,FALSE,2,TRUE
+336,FALSE,2,FALSE
+336,FALSE,2,FALSE
+336,FALSE,2,FALSE
+336,FALSE,2,FALSE
+337,FALSE,2,FALSE
+337,FALSE,2,FALSE
+337,FALSE,2,FALSE
+338,TRUE,3,TRUE
+338,TRUE,3,TRUE
+338,FALSE,2,FALSE
+338,FALSE,2,FALSE
+338,FALSE,2,FALSE
+338,FALSE,2,FALSE
+338,FALSE,2,FALSE
+339,TRUE,3,TRUE
+339,TRUE,3,TRUE
+339,FALSE,2,FALSE
+339,FALSE,2,FALSE
+339,FALSE,2,FALSE
+340,FALSE,3,FALSE
+341,FALSE,2,TRUE
+341,FALSE,2,TRUE
+341,FALSE,2,TRUE
+341,FALSE,2,TRUE
+341,FALSE,2,TRUE
+341,FALSE,2,TRUE
+341,FALSE,2,TRUE
+341,FALSE,2,TRUE
+341,FALSE,2,TRUE
+341,FALSE,2,TRUE
+342,FALSE,2,FALSE
+342,FALSE,2,FALSE
+342,FALSE,2,FALSE
+343,TRUE,1,TRUE
+343,TRUE,1,TRUE
+343,TRUE,1,TRUE
+343,TRUE,1,TRUE
+343,TRUE,1,TRUE
+343,TRUE,1,TRUE
+343,TRUE,1,TRUE
+343,FALSE,3,FALSE
+344,TRUE,2,TRUE
+344,TRUE,2,TRUE
+344,TRUE,2,TRUE
+344,FALSE,2,FALSE
+344,FALSE,2,FALSE
+344,FALSE,2,FALSE
+344,FALSE,2,FALSE
+344,FALSE,2,FALSE
+344,FALSE,2,FALSE
+344,FALSE,2,FALSE

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_220903) do
+ActiveRecord::Schema.define(version: 2020_12_27_185540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 2020_12_21_220903) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "category_rankings", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "ranking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_category_rankings_on_category_id"
+    t.index ["ranking_id"], name: "index_category_rankings_on_ranking_id"
+  end
+
   create_table "clubs", force: :cascade do |t|
     t.integer "code"
     t.string "name"
@@ -68,14 +77,21 @@ ActiveRecord::Schema.define(version: 2020_12_21_220903) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "court_types", force: :cascade do |t|
+    t.string "court_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "courts", force: :cascade do |t|
     t.bigint "club_id", null: false
+    t.bigint "court_type_id", null: false
     t.boolean "indoor"
-    t.string "court_type"
     t.boolean "light"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["club_id"], name: "index_courts_on_club_id"
+    t.index ["court_type_id"], name: "index_courts_on_court_type_id"
   end
 
   create_table "game_players", force: :cascade do |t|
@@ -95,19 +111,22 @@ ActiveRecord::Schema.define(version: 2020_12_21_220903) do
     t.integer "set_number"
     t.integer "games_1"
     t.integer "games_2"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_game_sets_on_game_id"
   end
 
   create_table "games", force: :cascade do |t|
     t.bigint "tournament_id", null: false
     t.bigint "player_id"
+    t.bigint "court_type_id"
     t.date "date"
     t.string "round"
     t.string "status"
-    t.string "court_type"
     t.boolean "indoor"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["court_type_id"], name: "index_games_on_court_type_id"
     t.index ["player_id"], name: "index_games_on_player_id"
     t.index ["tournament_id"], name: "index_games_on_tournament_id"
   end
@@ -171,6 +190,8 @@ ActiveRecord::Schema.define(version: 2020_12_21_220903) do
     t.bigint "game_set_id", null: false
     t.integer "points_1"
     t.integer "points_2"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["game_set_id"], name: "index_tie_breaks_on_game_set_id"
   end
 
@@ -200,10 +221,14 @@ ActiveRecord::Schema.define(version: 2020_12_21_220903) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "category_rankings", "categories"
+  add_foreign_key "category_rankings", "rankings"
   add_foreign_key "courts", "clubs"
+  add_foreign_key "courts", "court_types"
   add_foreign_key "game_players", "games"
   add_foreign_key "game_players", "players"
   add_foreign_key "game_sets", "games"
+  add_foreign_key "games", "court_types"
   add_foreign_key "games", "players"
   add_foreign_key "games", "tournaments"
   add_foreign_key "players", "clubs"

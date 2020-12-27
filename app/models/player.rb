@@ -13,7 +13,7 @@ class Player < ApplicationRecord
   accepts_nested_attributes_for :ranking_histories
 
   # Validations
-  validates :club, :affiliation_number, :gender, :first_name, :last_name, :dominant_hand, :birthdate, presence: true
+  validates :club, :affiliation_number, :gender, :first_name, :last_name, presence: true
   validate :affiliation_number_check
   
   # PG Search

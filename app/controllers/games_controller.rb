@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_clubs_courts, only: [:new, :edit]
+  before_action :set_clubs_and_courts, only: [:new, :edit]
   before_action :set_game, only: [:edit, :update]
 
   def index
@@ -55,7 +55,6 @@ class GamesController < ApplicationController
   end
 
   def update
-    byebug
     @game.update(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
     authorize @game
   end
@@ -66,7 +65,7 @@ class GamesController < ApplicationController
   private
 
   def game_form_params
-    params.require(:game_form).permit(:club, :category, :tournament_id, :date, :status, :round, :court_type, :indoor, :opponent, :victory, :match_points_saved,
+    params.require(:game_form).permit(:club, :category, :tournament_id, :player_id, :court_type_id, :date, :status, :round, :court_type, :indoor, :opponent, :victory, :match_points_saved,
                                       game_sets_attributes: [:id, :set_number, :games_1, :games_2, :_destroy, tie_break_attributes: [:id, :points_1, :points_2, :_destroy]])
   end
 
@@ -74,19 +73,21 @@ class GamesController < ApplicationController
     @game = Game.includes(game_players: {player: {ranking_histories: :ranking}}, game_sets: :tie_break, tournament: :club, tournament: :category).find(params[:id])
   end
 
-  def set_clubs_courts
+  def set_clubs_and_courts
     query = "categories.gender = ? AND categories.c_type = 'single' AND ? >= categories.age_min AND ? < categories.age_max "
     @clubs = Club.joins(tournaments: :category).where(query, current_user.player.gender, current_user.player.get_age, current_user.player.get_age).uniq.sort
-    @courts = Court.distinct.pluck(:court_type).sort.map{|court| court.titleize}
+    @courts = CourtType.all.map{|court_type| [court_type.court_type.titleize, court_type.id]}
   end
 
   def create_game_player
     @game_player_user.victory = game_form_params[:victory]
     @game_player_user.match_points_saved = game_form_params[:match_points_saved].to_i
     @game_player_user.player = current_user.player
+    @game_player_user.validated = true
     @game_player_opponent.victory = (game_form_params[:victory].to_i == 1) ? 0 : 1
     @game_player_opponent.match_points_saved = - game_form_params[:match_points_saved].to_i
     @game_player_opponent.player = Player.find_by_affiliation_number(game_form_params[:opponent].scan(/\((\d+)\)/)[0][0])
+    @game_player_opponent.validated = false
   end
 
   def select_categories

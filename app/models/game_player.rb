@@ -4,6 +4,8 @@ class GamePlayer < ApplicationRecord
   belongs_to :game
 
   # Validationss
-  validates :player, :game, :victory, :validated, presence: true
-  
+  validates :player, :game, presence: true
+  validates :victory, :validated, inclusion: { in: [ true, false ] }
+
+  # CHECK VICTORY BOOLEAN FALSE PRESENCE VALIDATION FAILS
 end

@@ -9,7 +9,6 @@ class CreatePlayers < ActiveRecord::Migration[6.0]
       t.string :last_name
       t.string :dominant_hand
       t.date :birthdate
-
       t.timestamps
     end
   end

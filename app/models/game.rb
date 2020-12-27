@@ -1,9 +1,11 @@
 class Game < ApplicationRecord
   # Relations
   belongs_to :tournament
+  belongs_to :court_type, optional: true
+  belongs_to :player, optional: true
   has_many :game_players
   has_many :players, through: :game_players
-
+  
   # Nested attributes
   has_many :game_sets
   accepts_nested_attributes_for :game_sets, allow_destroy: true

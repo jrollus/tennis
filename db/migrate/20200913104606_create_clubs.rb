@@ -8,7 +8,6 @@ class CreateClubs < ActiveRecord::Migration[6.0]
       t.string :website
       t.string :email
       t.string :phone_number
-
       t.timestamps
     end
   end
