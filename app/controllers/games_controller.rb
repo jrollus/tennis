@@ -14,20 +14,9 @@ class GamesController < ApplicationController
   end
 
   def create
-    # Player Table and associated nested tables
-    @game = Game.new(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
-    authorize @game
-
-    # GamerPlayers Table
-    @game_player_user = GamePlayer.new
-    @game_player_opponent = GamePlayer.new
-    create_game_player
-
-    if @game.save
-      @game_player_user.game = @game
-      @game_player_user.save
-      @game_player_opponent.game = @game
-      @game_player_opponent.save
+    @form = GameForm.new(flatten_parameters(game_form_params))
+    authorize @form
+    if @form.save(game_form_params, current_user)
       redirect_to root_path 
     else
       render :new
@@ -69,6 +58,28 @@ class GamesController < ApplicationController
                                       game_sets_attributes: [:id, :set_number, :games_1, :games_2, :_destroy, tie_break_attributes: [:id, :points_1, :points_2, :_destroy]])
   end
 
+  def flatten_parameters(params)
+    flat_params = params.except(:game_sets_attributes)
+    set_index = 0
+    params[:game_sets_attributes].each do |set_nbr|
+      set_index += 1
+      set_games = 0
+      set_nbr[1].each do |set_key, set_value|
+        set_games += 1 if set_key != "set_number"
+        tb_index = 0
+        if set_value.is_a?((ActionController::Parameters))
+          set_value.each do |tb_key, tb_value|
+            tb_index += 1
+            flat_params["tie_break_#{set_index}_#{tb_index}".to_sym] = tb_value
+          end
+        else
+          flat_params["set_#{set_index}_#{set_games}".to_sym] = set_value if set_key != "set_number"
+        end
+      end
+    end
+    flat_params
+  end
+
   def set_game
     @game = Game.includes(game_players: {player: {ranking_histories: :ranking}}, game_sets: :tie_break, tournament: :club, tournament: :category).find(params[:id])
   end
@@ -77,17 +88,6 @@ class GamesController < ApplicationController
     query = "categories.gender = ? AND categories.c_type = 'single' AND ? >= categories.age_min AND ? < categories.age_max "
     @clubs = Club.joins(tournaments: :category).where(query, current_user.player.gender, current_user.player.get_age, current_user.player.get_age).uniq.sort
     @courts = CourtType.all.map{|court_type| [court_type.court_type.titleize, court_type.id]}
-  end
-
-  def create_game_player
-    @game_player_user.victory = game_form_params[:victory]
-    @game_player_user.match_points_saved = game_form_params[:match_points_saved].to_i
-    @game_player_user.player = current_user.player
-    @game_player_user.validated = true
-    @game_player_opponent.victory = (game_form_params[:victory].to_i == 1) ? 0 : 1
-    @game_player_opponent.match_points_saved = - game_form_params[:match_points_saved].to_i
-    @game_player_opponent.player = Player.find_by_affiliation_number(game_form_params[:opponent].scan(/\((\d+)\)/)[0][0])
-    @game_player_opponent.validated = false
   end
 
   def select_categories

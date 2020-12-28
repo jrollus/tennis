@@ -10,7 +10,7 @@
       <div data-controller="dropdown" class="dropdown">
         <%= cl_image_tag "sandwich-menu_ukriiv.svg", class: "navbar-sandwich", data: {action: 'click->dropdown#toggleVisibility', target:'dropdown.button' }, role:"button", 'aria-haspopup': "true", 'aria-expanded': "false"  %>
         <div data-target="dropdown.popup" class="dropdown-content">
-          <a class="navbar-link" href="">Encodage</a>
+          <%= link_to "Encodage", new_game_path, class: "navbar-link"%>
           <a class="navbar-link" href="">Statistiques</a>
         </div>
       </div>

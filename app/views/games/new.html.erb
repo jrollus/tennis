@@ -1,4 +1,6 @@
-<%= simple_form_for(@form, url: games_path, html: { data: { controller: "game sets autocomplete" }}) do |f| %>
+<%= simple_form_for(@form, url: (@form.persisted? ? game_path(@form.id) : games_path), method: (@form.persisted? ? "patch": "post"),
+                    html: { data: { controller: "game sets autocomplete", action: "sets#checkDelete"}}) do |f| %>
+
   <%= f.input :club, collection: @clubs, label: "Club", input_html: { data: { target:"game.club", action:"game#autofill" }} %>
   <%= f.input :category, collection: [""] , label: "Catégorie", input_html: { data: { target:"game.category", action:"game#autofill" }}, disabled: true %>
   <%= f.input :tournament_id, collection: [""], label: "Date du tournoi", input_html: { data: { target:"game.date"}}, disabled: true %>
