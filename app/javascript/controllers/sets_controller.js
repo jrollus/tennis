@@ -39,7 +39,7 @@ export default class extends Controller {
       }
 
       if (this.hasTie_break_3_idTarget) {
-        if (this.tie_break_3_1Target.value == 0 && this.set_3_2Target.value == 0) {
+        if (this.tie_break_3_1Target.value == 0 && this.tie_break_3_2Target.value == 0) {
           this.tie_break_3_idTarget.disabled = false;
           this.tie_break_3_destroyTarget.value = true;
           this.tie_break_3_destroyTarget.disabled = false;
