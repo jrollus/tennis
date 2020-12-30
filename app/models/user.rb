@@ -8,9 +8,11 @@ class User < ApplicationRecord
 
   # Relations
   has_one :player
-  accepts_nested_attributes_for :player
   has_many :ranking_histories, through: :player
   has_many :clubs
+  
+  # Nested Attributes
+  accepts_nested_attributes_for :player
   
   # Callbacks
   before_create :find_or_create_nested_children

@@ -5,7 +5,6 @@ class GamePlayer < ApplicationRecord
 
   # Validationss
   validates :player, :game, presence: true
-  validates :victory, :validated, inclusion: { in: [ true, false ] }
+  validates :victory, :validated, inclusion: { in: [ "0", "1", true, false ] }
 
-  # CHECK VICTORY BOOLEAN FALSE PRESENCE VALIDATION FAILS
 end

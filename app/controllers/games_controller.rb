@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_clubs_and_courts, only: [:new, :edit]
+  before_action :set_clubs_and_courts, only: [:new, :create, :edit]
   before_action :set_game, only: [:edit, :update]
 
   def index
@@ -20,6 +20,7 @@ class GamesController < ApplicationController
     if @form.save(game_form_params, current_user)
       redirect_to root_path 
     else
+      initialize_cascading_dropdowns
       render :new
     end
   end
@@ -28,12 +29,7 @@ class GamesController < ApplicationController
     @form = GameForm.new(@game.attributes.symbolize_keys.slice(:date, :court_type, :indoor, :status, :round), current_user, @game)
     
     # Initialize Cascading Dropdowns
-    @selected_club = @game.tournament.club.id
-    @categories = select_categories
-    @category_selected = @game.tournament.category.id
-    @tournament_dates = select_dates
-    @dates_selected = "#{@game.tournament.start_date.strftime("%d/%m/%Y")} - #{@game.tournament.end_date.strftime("%d/%m/%Y")}"
-    @court_selected = @game.court_type.id
+    initialize_cascading_dropdowns
 
     authorize @form
   end
@@ -41,7 +37,7 @@ class GamesController < ApplicationController
   def update
     @form = GameForm.new(flatten_parameters(game_form_params))
     authorize @form
-    if @form.update(game_form_params, current_user, @game)
+    if @form.update(game_form_params, current_user)
       redirect_to root_path
     else
       render :edit
@@ -93,15 +89,38 @@ class GamesController < ApplicationController
   def select_categories
     query = "tournaments.club_id = ? AND categories.gender = ? AND categories.c_type = ? AND ? >= categories.age_min AND ? < categories.age_max "
     tournaments = Tournament.includes(:category).joins(:category)
-                  .where(query,  @game.tournament.club.id, current_user.player.gender, 'single', current_user.player.get_age, current_user.player.get_age)
+                  .where(query,  @tournament.club.id, current_user.player.gender, 'single', current_user.player.get_age, current_user.player.get_age)
     tournaments.map{|tournament| [tournament.category.category, tournament.category.id]}.uniq.sort {|a,b| a[1] <=> b[1]}
   end
 
   def select_dates
     query = "tournaments.club_id = ? AND categories.gender = ? AND categories.c_type = ? AND ? >= categories.age_min AND ? < categories.age_max AND tournaments.category_id = ?"
     tournaments = Tournament.includes(:category).joins(:category)
-                  .where(query, @game.tournament.club.id, current_user.player.gender,'single', current_user.player.get_age, current_user.player.get_age, @game.tournament.category.id)
+                  .where(query, @tournament.club.id, current_user.player.gender,'single', current_user.player.get_age, current_user.player.get_age, @tournament.category.id)
     tournaments.map{|tournament| ["#{tournament.start_date.strftime("%d/%m/%Y")} - #{tournament.end_date.strftime("%d/%m/%Y")}", tournament.id]}.uniq.sort {|a,b| a[1] <=> b[1]}
   end
 
+  def initialize_cascading_dropdowns
+    if @game
+      @tournament = @game.tournament
+      @selected_club = @game.tournament.club.id
+      @categories = select_categories
+      @category_selected = @game.tournament.category.id
+      @tournament_dates = select_dates
+      @dates_selected = "#{@game.tournament.start_date.strftime("%d/%m/%Y")} - #{@game.tournament.end_date.strftime("%d/%m/%Y")}" ||
+                        "#{Tournament.find(@form.tournament_id).start_date.strftime("%d/%m/%Y")} - #{Tournament.find(@form.tournament_id).end_date.strftime("%d/%m/%Y")}"
+      @court_selected = @game.court_type.id
+    else
+      if @form.tournament_id
+        @tournament = Tournament.find(@form.tournament_id)
+        @selected_club = @form.club
+        @categories = select_categories
+        @category_selected = @form.category
+        @tournament_dates = select_dates
+        @dates_selected = "#{@tournament.start_date.strftime("%d/%m/%Y")} - #{@tournament.end_date.strftime("%d/%m/%Y")}"
+      end
+
+      @court_selected = CourtType.find(@form.court_type_id) unless @form.court_type_id.empty? || @form.court_type_id.nil?
+    end
+  end
 end

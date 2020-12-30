@@ -7,5 +7,5 @@ class GameSet < ApplicationRecord
   accepts_nested_attributes_for :tie_break, allow_destroy: true
 
   # Validations
-  validates :game, :set_number, :games_1, :games_1, presence: true
+  validates :game, :set_number, :games_1, :games_2, presence: true
 end

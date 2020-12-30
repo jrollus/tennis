@@ -1,9 +1,9 @@
 <%= simple_form_for(@form, url: (@form.persisted? ? game_path(@form.id) : games_path), method: (@form.persisted? ? "patch": "post"),
                     html: { data: { controller: "game sets autocomplete", action: "sets#checkDelete"}}) do |f| %>
 
-  <%= f.input :club, collection: @clubs, label: "Club", input_html: { data: { target:"game.club", action:"game#autofill" }} %>
-  <%= f.input :category, collection: [""] , label: "Catégorie", input_html: { data: { target:"game.category", action:"game#autofill" }}, disabled: true %>
-  <%= f.input :tournament_id, collection: [""], label: "Date du tournoi", input_html: { data: { target:"game.date"}}, disabled: true %>
+  <%= f.input :club, collection: @clubs, label: "Club", include_blank: true,input_html: { data: { target:"game.club", action:"game#autofill" }}, selected: @selected_club || false %>
+  <%= f.input :category, collection: @categories || [], label: "Catégorie", input_html: { data: { target:"game.category", action:"game#autofill" }}, selected: @category_selected || false, disabled: (@category_selected.nil? ? true : false) %>
+  <%= f.input :tournament_id, collection: @tournament_dates || [], label: "Date du tournoi", input_html: { data: { target:"game.date"}}, selected: @dates_selected || false, disabled: (@dates_selected.nil? ? true : false)  %>
   <%= f.input :date, as: :date, label: "Date du match", html5: true %>
   <%= f.input :status,  collection: [['Terminé','completed'], ['Blessure', 'retirement'],['WO','wo']], label: 'Statut' %>
   <%= f.input :round, collection: ["Finale","1/2","1/4","1/8","1/16","1/32","1/64","1/128","1/256","Poule"] , label: "Tour" %>
