@@ -1,16 +1,21 @@
 class Player < ApplicationRecord
+  # Relations
   belongs_to :user, optional: true
   belongs_to :club
   has_many :game_players
   has_many :games, through: :game_players
   has_many :tournaments, through: :games
   has_many :categories, through: :tournaments
-  
-  # Nested attributes
   has_many :ranking_histories
   has_many :ranking, through: :ranking_histories
+
+  # Nested attributes
   accepts_nested_attributes_for :ranking_histories
 
+  # Validations
+  validates :club, :affiliation_number, :gender, :first_name, :last_name, presence: true
+  validate :affiliation_number_check
+  
   # PG Search
   include PgSearch::Model
   pg_search_scope :search_by_name_and_affiliation_number,
@@ -19,6 +24,7 @@ class Player < ApplicationRecord
       tsearch: { prefix: true }
   }
   
+  # Instance Methods
   def get_age
     Date.today.year - self.birthdate.year
   end
@@ -43,6 +49,22 @@ class Player < ApplicationRecord
 
   def get_nbr_loss_three_sets
     GamePlayer.joins(:player, :game).where(players: {id: self.id}, game_players: {victory: false}).where.not(games: {set_3: nil}).count
+  end
+
+  private 
+
+  # Custom Validations
+  def affiliation_number_check
+    player = Player.find_by_affiliation_number(self.affiliation_number)
+    # Created through nested attributes
+    if self.user
+      if player
+          errors.add(:affiliation_number, "Déjà associé à un autre e-mail") if (!player.user_id.nil? && (player.user.email != self.user.email))
+      end
+    # Create as a stand-alone player
+    else
+      errors.add(:affiliation_number, "Déjà existant") if player
+    end
   end
 
   # def get_nbr_tie_breaks

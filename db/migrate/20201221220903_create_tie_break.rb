@@ -4,6 +4,7 @@ class CreateTieBreak < ActiveRecord::Migration[6.0]
       t.references :game_set, null: false, foreign_key: true
       t.integer :points_1
       t.integer :points_2
+      t.timestamps
     end
   end
 end

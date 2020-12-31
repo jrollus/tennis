@@ -11,14 +11,14 @@
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                hint: ("#{@minimum_password_length} caractères mininum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
     
     <%= f.simple_fields_for :player do |p| %>
-      <%= p.input :affiliation_number, label:"Numéro d'affiliation", input_html: { data: { target:"affiliation.number", action:"affiliation#autofill" } } %>
+      <%= p.input :affiliation_number, label:"Numéro d'affiliation", input_html: { data: { target:"affiliation.number", action:"affiliation#autofill" }} %>
       <%= p.input :first_name, label:'Prénom', input_html: { data: { target:"affiliation.firstName" } } %>
       <%= p.input :last_name, label:'Nom', input_html: { data: { target:"affiliation.lastName" } } %>
       <%= p.association :club, input_html: { data: { target:"affiliation.club" } }  %>
@@ -28,6 +28,7 @@
 
       <%= p.simple_fields_for :ranking_histories do |rh| %>
         <%= rh.input :year, input_html: { value: Time.current.year.to_s } , :as => :hidden %>
+        <%= rh.input :year_number, input_html: { value: RankingHistory.get_year_number } , :as => :hidden %>
         <%= rh.association :ranking, input_html: { data: { target:"affiliation.ranking" } } %>
       <% end %>
     <% end  %>

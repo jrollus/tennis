@@ -4,7 +4,6 @@ class CreateNbrParticipantRules < ActiveRecord::Migration[6.0]
       t.integer :lower_bound
       t.integer :upper_bound
       t.float :weight
-
       t.timestamps
     end
   end

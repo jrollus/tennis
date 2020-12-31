@@ -4,7 +4,8 @@ class CreateGameplayers < ActiveRecord::Migration[6.0]
       t.references :player, null: false, foreign_key: true
       t.references :game, null: false, foreign_key: true
       t.boolean :victory
-      t.integer :match_points_saved
+      t.boolean :validated
+      t.integer :match_points_saved, default: 0
       t.timestamps
     end
   end

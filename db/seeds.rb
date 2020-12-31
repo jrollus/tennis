@@ -55,6 +55,18 @@ CSV.foreach(filepath, headers: true) do |row|
 end
 Club.import(clubs)
 
+# Court Types
+CourtType.destroy_all
+puts "Seeding Court Types"
+ActiveRecord::Base.connection.reset_pk_sequence!('court_types')
+
+filepath = 'db/data/court_types.csv'
+court_types = []
+CSV.foreach(filepath, headers: true) do |row|
+    court_types << row.to_hash
+end
+CourtType.import(court_types)
+
 # Courts
 puts "Seeding Courts"
 ActiveRecord::Base.connection.reset_pk_sequence!('courts')

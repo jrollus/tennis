@@ -16,7 +16,6 @@ class CreateTournamentCategories < ActiveRecord::Migration[6.0]
       t.integer :points_1_2
       t.integer :final_points
       t.integer :winner_points
-
       t.timestamps
     end
   end

@@ -5,6 +5,7 @@ class CreateGameSets < ActiveRecord::Migration[6.0]
       t.integer :set_number
       t.integer :games_1
       t.integer :games_2
+      t.timestamps
     end
   end
 end
