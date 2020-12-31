@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
     t.bigint "game_id", null: false
     t.boolean "victory"
     t.boolean "validated"
-    t.integer "match_points_saved"
+    t.integer "match_points_saved", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_game_players_on_game_id"

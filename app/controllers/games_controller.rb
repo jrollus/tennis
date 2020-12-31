@@ -21,6 +21,7 @@ class GamesController < ApplicationController
       redirect_to root_path 
     else
       initialize_cascading_dropdowns
+      @form.date = @form.date.to_date
       render :new
     end
   end
@@ -40,6 +41,7 @@ class GamesController < ApplicationController
     if @form.update(game_form_params, current_user)
       redirect_to root_path
     else
+      @form.date = @form.date.to_date
       render :edit
     end 
   end

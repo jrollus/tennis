@@ -12,9 +12,12 @@ class GameForm
   # Validation
   validates :club, :category, :tournament_id, :date, :player_id, :status, :court_type_id, :round, :opponent, :set_1_1, :set_1_2, 
             :set_2_1, :set_2_2, :match_points_saved, presence: true
+  validates :set_1_1, :set_1_2, :set_2_1, :set_2_2, :set_3_1, :set_3_2, :tie_break_1_1, :tie_break_1_2,
+            :tie_break_2_1, :tie_break_2_2, :tie_break_3_1, :tie_break_3_2, numericality: { only_integer: true }, allow_blank: true
+  validates :set_1_1, :set_1_2, :set_2_1, :set_2_2, :set_3_1, :set_3_2, inclusion: (1..7).map(&:to_s), allow_blank: true
   validates :indoor, :victory, inclusion: { in: [ "0", "1", true, false ] }
-  validate :valid_date
-
+  validate :valid_date, :valid_opponent, :valid_score
+ 
   # Constructor
   def initialize(attr = {}, current_user = nil, game = nil)
     # Update
@@ -62,13 +65,78 @@ class GameForm
   def valid_date
     if self.tournament_id && !self.date.empty?
       tournament = Tournament.find(self.tournament_id)
-      byebug
       errors.add(:date, "en dehors des dates du tournoi") unless self.date.to_date.between?(tournament.start_date, tournament.end_date)
-    else
-      errors.add(:tournament_id, "vide")
     end
   end
 
+  def valid_opponent
+    unless self.opponent.empty?
+      errors.add(:opponent, "doit être sélectionné dans la liste proposée") if self.opponent.scan(/\((\d+)\)/).empty?
+    end
+  end
+
+  def valid_score
+    if self.status == 'completed' 
+      # Victory
+      sets_won = 0
+      
+      unless self.set_1_1.nil? || self.set_1_2.nil?
+        sets_won +=1 if self.set_1_1 > self.set_1_2
+      end
+
+      unless self.set_2_1.nil? || self.set_2_2.nil?
+        sets_won +=1 if self.set_2_1 > self.set_2_2
+      end
+
+      unless self.set_3_1.nil? || self.set_3_2.nil?
+        sets_won +=1 if self.set_3_1 > self.set_3_2
+      end 
+
+      if self.victory == '1'
+        errors.add(:victory, "le score n'est pas consistent avec le résultat du match. Selon le score, vous avez perdu le match") unless sets_won >= 2
+      else
+        errors.add(:victory, "le score n'est pas consistent avec le résultat du match. Selon le score, vous avez gagné le match") unless sets_won < 2
+      end
+
+      # Set 1
+      unless ([self.set_1_1, self.set_1_2].max == "6") && ((self.set_1_1.to_i - self.set_1_2.to_i).abs >= 2) || ([self.set_1_1, self.set_1_2].max == "7") && ((self.set_1_1.to_i - self.set_1_2.to_i).abs <= 2)
+        errors.add(:set_1_1, "le score n'est pas valide") 
+      end
+
+      # # Set 2
+      unless ([self.set_2_1, self.set_2_2].max == "6") && ((self.set_2_1.to_i - self.set_2_2.to_i).abs >= 2) || ([self.set_2_1, self.set_2_2].max == "7") && ((self.set_2_1.to_i - self.set_2_2.to_i).abs <= 2)
+        errors.add(:set_1_1, "le score n'est pas valide") 
+      end
+
+      # Set 3
+      if self.set_3_1 && self.self_set_3_2
+        unless ([self.set_3_1, self.set_3_2].max == "6") && ((self.set_3_1.to_i - self.set_3_2.to_i).abs >= 2) || ([self.set_3_1, self.set_3_2].max == "7") && ((self.set_3_1.to_i - self.set_3_2.to_i).abs <= 2)
+          errors.add(:set_1_1, "le score n'est pas valide") 
+        end
+      end
+
+      # Tie Break 1
+      if !self.tie_break_1_1.nil? && !self.tie_break_1_2.nil?
+        unless ([self.tie_break_1_1, self.tie_break_1_2].max >= "7") && ((self.tie_break_1_1.to_i - self.tie_break_1_2.to_i).abs >= 2)
+          errors.add(:tie_break_1_1, "le score n'est pas valide") 
+        end
+      end
+
+      # Tie Break 2
+      if !self.tie_break_2_1.nil? && !self.tie_break_2_2.nil?
+        unless ([self.tie_break_2_1, self.tie_break_2_2].max >= "7") && ((self.tie_break_2_1.to_i - self.tie_break_2_2.to_i).abs >= 2)
+          errors.add(:tie_break_2_1, "le score n'est pas valide") 
+        end
+      end
+
+      # Tie Break 3
+       if !self.tie_break_3_1.nil? && !self.tie_break_3_2.nil?
+        unless ([self.tie_break_3_1, self.tie_break_3_2].max >= "7") && ((self.tie_break_3_1.to_i - self.tie_break_3_2.to_i).abs >= 2)
+          errors.add(:tie_break_3_1, "le score n'est pas valide") 
+        end
+      end
+    end   
+  end
 
   # Save
   def save_game(game_form_params, current_user)
@@ -87,6 +155,17 @@ class GameForm
 
   end
 
+  def create_game_player(game_form_params, current_user)
+    @game_player_user.victory = game_form_params[:victory]
+    @game_player_user.match_points_saved = game_form_params[:match_points_saved].to_i
+    @game_player_user.player = current_user.player
+    @game_player_user.validated = true
+    @game_player_opponent.victory = (game_form_params[:victory].to_i == 1) ? 0 : 1
+    @game_player_opponent.match_points_saved = - game_form_params[:match_points_saved].to_i
+    @game_player_opponent.player = Player.find_by_affiliation_number(game_form_params[:opponent].scan(/\((\d+)\)/)[0][0])
+    @game_player_opponent.validated = false
+  end
+
   # Update
 
   def update_game(game_form_params, current_user)
@@ -102,18 +181,7 @@ class GameForm
                                  match_points_saved:  - game_form_params[:match_points_saved].to_i, validated: false)
   end
 
-  # Initializing Methods
-  def create_game_player(game_form_params, current_user)
-    @game_player_user.victory = game_form_params[:victory]
-    @game_player_user.match_points_saved = game_form_params[:match_points_saved].to_i
-    @game_player_user.player = current_user.player
-    @game_player_user.validated = true
-    @game_player_opponent.victory = (game_form_params[:victory].to_i == 1) ? 0 : 1
-    @game_player_opponent.match_points_saved = - game_form_params[:match_points_saved].to_i
-    byebug
-    @game_player_opponent.player = Player.find_by_affiliation_number(game_form_params[:opponent].scan(/\((\d+)\)/)[0][0])
-    @game_player_opponent.validated = false
-  end
+   # Initializing Methods
 
   def init_sets_tie_breaks(current_user, game)
     user_score_order = game.check_user_order(current_user.player.id)
