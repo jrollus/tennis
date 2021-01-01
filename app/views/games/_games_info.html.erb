@@ -1,0 +1,12 @@
+<% structured_output.each do |tournament| %>
+    <h2><%= "#{tournament[:club]} - #{tournament[:category]} - #{tournament[:dates]}" %></h2>
+    <% tournament[:games].each do |game| %>
+        <% if game[:status] == 'completed' %>
+            <h6><%= "#{game[:date]} - #{game[:name]} - #{game[:ranking]} - #{game[:score]}" %></h6>
+        <% elsif game[:status] == 'WO' %>
+            <h6><%= "#{game[:date]} - #{game[:name]} - #{game[:ranking]} - #{game[:victory]} - WO" %></h6>
+        <% elsif game[:status] == 'retirement' %>
+            <h6><%= "#{game[:date]} - #{game[:name]} - #{game[:ranking]} - #{game[:victory]} - Blessure - #{game[:score]}" %></h6>
+        <% end %>
+    <% end %>
+<% end %>

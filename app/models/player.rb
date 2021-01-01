@@ -51,6 +51,10 @@ class Player < ApplicationRecord
     GamePlayer.joins(:player, :game).where(players: {id: self.id}, game_players: {victory: false}).where.not(games: {set_3: nil}).count
   end
 
+  def full_name
+    "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+  
   private 
 
   # Custom Validations
