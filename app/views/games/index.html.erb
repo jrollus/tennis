@@ -1,2 +1,8 @@
-<h1>Players#index</h1>
-<p>Find me in app/views/players/index.html.erb</p>
+<div data-controller='filter'>
+    <%= select_year(@max_date, {start_year: @max_date, end_year: @min_date}, 
+                            {data: {target: 'filter.year', action: 'filter#selectYear'}})%>
+
+    <div class='games-container' data-target='filter.container'>
+        <%= render 'games_info', structured_output: @structured_output %>
+    </div>
+</div>

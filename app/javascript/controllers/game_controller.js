@@ -10,7 +10,6 @@ export default class extends Controller {
       if (response.ok) {
         const data = await response.json()
         if (type == 'club') {
-          console.log("IN")
           this.categoryTarget.disabled = false;
           this.categoryTarget.innerHTML = data.join()
           this.dateTarget.disabled = true;
