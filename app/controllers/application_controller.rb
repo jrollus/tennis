@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
 
   # Instance Method
   
+  def after_sign_in_path_for(resource)
+    games_path
+  end
 
   private
 
