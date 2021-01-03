@@ -53,9 +53,9 @@ class GameForm
     save_game(game_form_params, current_user)
   end
 
-  def update(game_form_params, current_user)
+  def update(game_form_params, current_user, game)
     return false if invalid?
-    update_game(game_form_params, current_user)
+    update_game(game_form_params, current_user, game)
   end
 
   private
@@ -159,24 +159,30 @@ class GameForm
     @game_player_user.victory = game_form_params[:victory]
     @game_player_user.match_points_saved = game_form_params[:match_points_saved].to_i
     @game_player_user.player = current_user.player
+    @game_player_user.ranking = @game_player_user.player.ranking_histories.where('? >= start_date AND ? <= end_date', game_form_params[:date], game_form_params[:date])
+                                                 .first .ranking
     @game_player_user.validated = true
     @game_player_opponent.victory = (game_form_params[:victory].to_i == 1) ? 0 : 1
     @game_player_opponent.match_points_saved = - game_form_params[:match_points_saved].to_i
     @game_player_opponent.player = Player.find_by_affiliation_number(game_form_params[:opponent].scan(/\((\d+)\)/)[0][0])
+    @game_player_opponent.ranking =  @game_player_opponent.player.ranking_histories.where('? >= start_date AND ? <= end_date', game_form_params[:date], game_form_params[:date])
+                                                          .first.ranking
     @game_player_opponent.validated = false
   end
 
   # Update
 
-  def update_game(game_form_params, current_user)
+  def update_game(game_form_params, current_user, game)
     # Player Table and associated nested tables
-    @game.update(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
+    game.update(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
 
     # GamePlayers Table
     @game_player_user = game.game_players.where(player_id: current_user.player.id).first
     @game_player_user.update(victory: game_form_params[:victory], match_points_saved: game_form_params[:match_points_saved], validated: true)
     @game_player_opponent = game.game_players.where.not(player_id: current_user.player.id).first
-    @game_player_opponent.update(player_id: Player.find_by_affiliation_number(game_form_params[:opponent].scan(/\((\d+)\)/)[0][0]).id, 
+    opponent = Player.find_by_affiliation_number(game_form_params[:opponent].scan(/\((\d+)\)/)[0][0])
+    @game_player_opponent.update(player_id: opponent.id, 
+                                 ranking_id: opponent.ranking_histories.where('? >= start_date AND ? <= end_date', game_form_params[:date], game_form_params[:date]).first.ranking.id,
                                  victory:  (game_form_params[:victory].to_i == 1) ? 0 : 1,
                                  match_points_saved:  - game_form_params[:match_points_saved].to_i, validated: false)
   end

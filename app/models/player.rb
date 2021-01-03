@@ -9,6 +9,10 @@ class Player < ApplicationRecord
   has_many :ranking_histories
   has_many :ranking, through: :ranking_histories
 
+  # Reflexive Relation
+  belongs_to :player_creator, class_name: 'Player', optional: true, foreign_key: 'player_creator_id'
+  has_many :players_created, class_name: 'Player', foreign_key: 'player_creator_id'
+
   # Nested attributes
   accepts_nested_attributes_for :ranking_histories
 
@@ -84,14 +88,14 @@ class Player < ApplicationRecord
   def get_wins_by_ranking(win, year=nil)
     if year
       query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
-      player_subset = Player.joins(game_players: :game,ranking_histories: :ranking).where(games: {id: Game.joins(:game_players).where(query, self.id, win, year)})
-                                                                                  .where.not(game_players: {player_id: self.id})
-      Ranking.joins(ranking_histories: :player).where(players: {id:  player_subset}, ranking_histories: {year: year, year_number: RankingHistory.select('MAX(year_number)')}).group('rankings.name').count
+      player_subset = GamePlayer.joins(:game, :ranking).where(games: {id: Game.joins(:game_players).where(query, self.id, win, year)})
+                                                                                         .where.not(game_players: {player_id: self.id})
+                                                                                         .group('rankings.name').count
     else
       query = 'game_players.player_id = ? AND game_players.victory = ?'
-      player_subset = Player.joins(game_players: :game,ranking_histories: :ranking).where(games: {id: Game.joins(:game_players).where(query, self.id, win)})
-                                                                                  .where.not(game_players: {player_id: self.id})
-      Ranking.joins(ranking_histories: :player).where(players: {id:  player_subset}).group('rankings.name').count
+      player_subset = GamePlayer.joins(:game, :ranking).where(games: {id: Game.joins(:game_players).where(query, self.id, win, year)})
+                                                                                         .where.not(game_players: {player_id: self.id})
+                                                                                         .group('rankings.name').count
     end
   end
 
@@ -145,18 +149,4 @@ class Player < ApplicationRecord
       errors.add(:affiliation_number, "Déjà existant") if player
     end
   end
-
-
-  # def wins_by_ranking
-  #   query = <<-SQL
-  #     SELECT games.id FROM games
-  #     JOIN game_players ON game_players.game_id = games.id
-  #     JOIN players ON players.id = game_players.player_id
-  #     WHERE players.last_name = 'Rollus'
-  #   SQL
-  #   Player.includes(:game_players, ranking_histories: :ranking).where(players: {last_name: "Rollus"})
-
-  #   ActiveRecord::Base.connection.exec_query(
-  # end
-
 end

@@ -2,6 +2,8 @@ class Tournament < ApplicationRecord
   # Relations
   belongs_to :club
   belongs_to :category
+  belongs_to :player, optional: true
+
   has_many :games
   
   # Validations
