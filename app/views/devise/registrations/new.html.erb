@@ -28,7 +28,9 @@
 
       <%= p.simple_fields_for :ranking_histories do |rh| %>
         <%= rh.input :year, input_html: { value: Time.current.year.to_s } , :as => :hidden %>
-        <%= rh.input :year_number, input_html: { value: RankingHistory.get_year_number } , :as => :hidden %>
+        <%= rh.input :year_number, input_html: { value: @year_nbr_dates[:year_number] } , :as => :hidden %>
+        <%= rh.input :start_date, input_html: { value: @year_nbr_dates[:start_date] } , :as => :hidden %>
+        <%= rh.input :end_date, input_html: { value:@year_nbr_dates[:end_date] } , :as => :hidden %>
         <%= rh.association :ranking, input_html: { data: { target:"affiliation.ranking" } } %>
       <% end %>
     <% end  %>

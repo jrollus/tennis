@@ -5,6 +5,8 @@ class CreateRankingHistories < ActiveRecord::Migration[6.0]
       t.references :player, null: false, foreign_key: true
       t.integer :year
       t.integer :year_number
+      t.date :start_date
+      t.date :end_date
       t.integer :points
       t.string :national_ranking
       t.timestamps

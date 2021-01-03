@@ -10,6 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     yield resource if block_given?
 
     resource.build_player.ranking_histories.build
+    @year_nbr_dates = RankingHistory.get_year_nbr_dates
     respond_with resource
   end
 
@@ -49,7 +50,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, 
       keys: [:avatar, :email, :password, :password_confirmation, 
-             player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, ranking_histories_attributes: [:id, :ranking_id, :year, :year_number]]
+             player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, 
+                                ranking_histories_attributes: [:id, :ranking_id, :year, :year_number, :start_date, :end_date]]
             ]
     )
   end
@@ -58,7 +60,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update,
      keys: [:avatar, :email, :password, :password_confirmation, 
-            player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, ranking_histories_attributes: [:id, :ranking_id, :year, :year_number]]
+            player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, 
+            ranking_histories_attributes: [:id, :ranking_id, :year, :year_numberr, :start_date, :end_date]]
            ]
     )
   end

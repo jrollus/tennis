@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
   create_table "game_players", force: :cascade do |t|
     t.bigint "player_id", null: false
     t.bigint "game_id", null: false
+    t.bigint "ranking_id"
     t.boolean "victory"
     t.boolean "validated"
     t.integer "match_points_saved", default: 0
@@ -104,6 +105,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_game_players_on_game_id"
     t.index ["player_id"], name: "index_game_players_on_player_id"
+    t.index ["ranking_id"], name: "index_game_players_on_ranking_id"
   end
 
   create_table "game_sets", force: :cascade do |t|
@@ -151,15 +153,18 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
   create_table "players", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "club_id", null: false
+    t.bigint "player_creator_id"
     t.string "affiliation_number"
     t.string "gender"
     t.string "first_name"
     t.string "last_name"
     t.string "dominant_hand"
     t.date "birthdate"
+    t.boolean "validated"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["club_id"], name: "index_players_on_club_id"
+    t.index ["player_creator_id"], name: "index_players_on_player_creator_id"
     t.index ["user_id"], name: "index_players_on_user_id"
   end
 
@@ -168,6 +173,8 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
     t.bigint "player_id", null: false
     t.integer "year"
     t.integer "year_number"
+    t.date "start_date"
+    t.date "end_date"
     t.integer "points"
     t.string "national_ranking"
     t.datetime "created_at", precision: 6, null: false
@@ -198,13 +205,16 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
   create_table "tournaments", force: :cascade do |t|
     t.bigint "club_id", null: false
     t.bigint "category_id", null: false
+    t.bigint "player_id"
     t.date "start_date"
     t.date "end_date"
     t.integer "nbr_participants"
+    t.boolean "validated"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_tournaments_on_category_id"
     t.index ["club_id"], name: "index_tournaments_on_club_id"
+    t.index ["player_id"], name: "index_tournaments_on_player_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -227,15 +237,18 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
   add_foreign_key "courts", "court_types"
   add_foreign_key "game_players", "games"
   add_foreign_key "game_players", "players"
+  add_foreign_key "game_players", "rankings"
   add_foreign_key "game_sets", "games"
   add_foreign_key "games", "court_types"
   add_foreign_key "games", "players"
   add_foreign_key "games", "tournaments"
   add_foreign_key "players", "clubs"
+  add_foreign_key "players", "players", column: "player_creator_id"
   add_foreign_key "players", "users"
   add_foreign_key "ranking_histories", "players"
   add_foreign_key "ranking_histories", "rankings"
   add_foreign_key "tie_breaks", "game_sets"
   add_foreign_key "tournaments", "categories"
   add_foreign_key "tournaments", "clubs"
+  add_foreign_key "tournaments", "players"
 end

@@ -31,7 +31,7 @@ class Api::V1::GamesController < Api::V1::BaseController
           game_hash[:status] = game.status
           game_hash[:victory] = (game.game_players.find{|player| player.player_id == user_player_id}.victory ? "Victoire" : "Défaite")
           game_hash[:name] = (opponent ? opponent.full_name : "N.A.")
-          game_hash[:ranking] = (opponent ? opponent.ranking_histories.last.ranking.name : "N.A.")
+          game_hash[:ranking] = (opponent ? game.game_players.find{|player| player.id != user_player_id}.ranking.name : "N.A.")
           game_hash[:score] = game.game_score(user_player_id)
           @structured_output[-1][:games] << game_hash
         end
