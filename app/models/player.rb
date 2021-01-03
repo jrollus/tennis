@@ -81,13 +81,18 @@ class Player < ApplicationRecord
     end
   end
 
-  def get_wins_by_ranking
-    #Ranking.joins(ranking_histories: :player).where(player: {id: Player.joins(game_players: :game,ranking_histories: :ranking).where(games: {id: Game.joins(:game_players).where(game_players: {player_id: self.id, victory: true})}).where.not(game_players: {player_id: self.id})},
-     #                                               ranking_histories: {year: '2020'}).group('rankings.name').count
-    # Player.joins(game_players: :game,ranking_histories: :ranking).where(games: {id: Game.joins(:game_players).where(game_players: {player_id: self.id, victory: true})})
-    #                                                              .where.not(game_players: {player_id: self.id}).group('rankings.name').count
-    # MISSING the match between year and ranking
-
+  def get_wins_by_ranking(win, year=nil)
+    if year
+      query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
+      player_subset = Player.joins(game_players: :game,ranking_histories: :ranking).where(games: {id: Game.joins(:game_players).where(query, self.id, win, year)})
+                                                                                  .where.not(game_players: {player_id: self.id})
+      Ranking.joins(ranking_histories: :player).where(players: {id:  player_subset}, ranking_histories: {year: year, year_number: RankingHistory.select('MAX(year_number)')}).group('rankings.name').count
+    else
+      query = 'game_players.player_id = ? AND game_players.victory = ?'
+      player_subset = Player.joins(game_players: :game,ranking_histories: :ranking).where(games: {id: Game.joins(:game_players).where(query, self.id, win)})
+                                                                                  .where.not(game_players: {player_id: self.id})
+      Ranking.joins(ranking_histories: :player).where(players: {id:  player_subset}).group('rankings.name').count
+    end
   end
 
 
