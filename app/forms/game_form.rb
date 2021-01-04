@@ -174,6 +174,7 @@ class GameForm
 
   def update_game(game_form_params, current_user, game)
     # Player Table and associated nested tables
+    byebug
     game.update(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
 
     # GamePlayers Table

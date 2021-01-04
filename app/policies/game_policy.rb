@@ -21,4 +21,11 @@ class GamePolicy < ApplicationPolicy
       update?
     end
     
+    def validate?
+      true
+    end
+
+    def destroy?
+      true
+    end
 end

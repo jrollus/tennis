@@ -6,11 +6,11 @@
   <%= f.input :tournament_id, collection: @tournament_dates, label: "Date du tournoi", input_html: { data: { target:"game.date"}}, selected: @dates_selected %>
   <%= f.input :date, as: :date, label: "Date du match", html5: true %>
   <%= f.input :status,  collection: [['Terminé','completed'], ['Blessure', 'retirement'],['WO','wo']], label: 'Statut', input_html: { data: { target:"sets.status", action:"sets#setsHandler" }} %>
-  <%= f.input :round, collection: ["Finale","1/2","1/4","1/8","1/16","1/32","1/64","1/128","1/256","Poule"] , label: "Tour" %>
+  <%= f.input :round, collection: ["Finale","1/2","1/4","1/8","1/16","1/32","1/64","1/128","1/256","Poule"] , label: "Tour", selected: @round_selected %>
   <%= f.input :player_id, as: :hidden , input_html: { value: current_user.player.id, name: 'game_form[player_id]'} %>
   <div class="form-flex">
     <div>
-      <%= f.input :court_type_id, collection: @courts, label: 'Terrain', selected: @court_selected%>
+      <%= f.input :court_type_id, collection: @courts, label: 'Terrain', selected: @court_selected %>
     </div>
     <%= f.input :indoor, as: :boolean, label: "Indoor?" %>
   </div>
