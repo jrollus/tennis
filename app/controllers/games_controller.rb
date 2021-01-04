@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_clubs_and_courts, only: [:new, :create, :edit]
+  before_action :set_clubs_and_courts, only: [:new, :create, :edit, :update]
   before_action :set_game, only: [:edit, :update]
 
   def index
@@ -7,9 +7,10 @@ class GamesController < ApplicationController
     @min_date = Game.minimum(:date).year
 
     query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
-    games = policy_scope(Game).includes(:game_players, players: {ranking_histories: :ranking}, game_sets: :tie_break, tournament: [:club, :category])
+    games = policy_scope(Game).includes(:players, game_players: :ranking, game_sets: :tie_break, tournament: [:club, :category])
                                .joins(:game_players, :tournament).merge(Tournament.order(start_date: :desc)).where(query, current_user.player.id, @max_date)
                                .group_by(&:tournament_id)
+
     @structured_output = []
     user_player_id = current_user.player.id
     games.each do |tournament_key, tournament_value| 
@@ -23,9 +24,11 @@ class GamesController < ApplicationController
         user_score_order = (game.player_id.nil? ? game.check_user_order(user_player_id) : (user_player_id == game.player_id))
     
         opponent = game.players.find{|player| player.id != user_player_id}
+        game_hash[:game] = game
         game_hash[:date] = game.date
         game_hash[:status] = game.status
         game_hash[:victory] = (game.game_players.find{|player| player.player_id == user_player_id}.victory ? "Victoire" : "Défaite")
+        game_hash[:validated] = game.game_players.find{|player| player.player_id == user_player_id}.validated
         game_hash[:name] = (opponent ? opponent.full_name : "N.A.")
         game_hash[:ranking] = (opponent ? game.game_players.find{|player| player.id != user_player_id}.ranking.name : "N.A.")
         game_hash[:score] = game.game_score(user_player_id)
@@ -33,7 +36,7 @@ class GamesController < ApplicationController
       end
     end
     
-    
+
   end
 
   def show
@@ -49,7 +52,7 @@ class GamesController < ApplicationController
 
     authorize @form
     if @form.save(game_form_params, current_user)
-      redirect_to root_path 
+      redirect_to games_path 
     else
       initialize_cascading_dropdowns
       @form.date = @form.date.to_date
@@ -70,14 +73,25 @@ class GamesController < ApplicationController
     @form = GameForm.new(flatten_parameters(game_form_params))
     authorize @form
     if @form.update(game_form_params, current_user, @game)
-      redirect_to root_path
+      redirect_to games_path
     else
+      initialize_cascading_dropdowns
       @form.date = @form.date.to_date
       render :edit
     end 
   end
 
   def destroy
+    @game = Game.find(params[:id])
+    authorize @game
+    @game.destroy
+    redirect_to games_path
+  end
+
+  def validate
+    @game = Game.includes(:game_players).find(params[:game_id])
+    authorize @game
+    @game.game_players.find{|player| player.player_id == current_user.player.id}.update(validated: true)
   end
 
   private
@@ -142,7 +156,8 @@ class GamesController < ApplicationController
       @tournament_dates = select_dates
       @dates_selected = "#{@game.tournament.start_date.strftime("%d/%m/%Y")} - #{@game.tournament.end_date.strftime("%d/%m/%Y")}" ||
                         "#{Tournament.find(@form.tournament_id).start_date.strftime("%d/%m/%Y")} - #{Tournament.find(@form.tournament_id).end_date.strftime("%d/%m/%Y")}"
-      @court_selected = @game.court_type.id
+      @court_selected = @game.court_type.id if @game.court_type
+      @round_selected = @game.round
     else
       if @form.tournament_id
         @tournament = Tournament.find(@form.tournament_id)
@@ -154,6 +169,7 @@ class GamesController < ApplicationController
       end
 
       @court_selected = CourtType.find(@form.court_type_id) unless @form.court_type_id.empty? || @form.court_type_id.nil?
+      @round_selected = @form.round
     end
   end
 end

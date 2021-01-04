@@ -4,14 +4,16 @@ Rails.application.routes.draw do
 
   # Generale Routes
   root to: 'pages#home'
-  resources :games, except: [:show]
+  resources :games, except: [:show] do
+    post '/validate',  to:'games#validate'
+  end
 
   # API
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :players, only: [ :index, :show ]
       resources :tournaments, only: [ :index ]
-      resources :games, only: [ :index ]
+      resources :games, only: [ :index ] 
     end
   end
 
