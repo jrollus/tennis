@@ -29,7 +29,7 @@ export default class extends Controller {
 
         // Add search hits within the popup
         data.forEach((player) => {
-          let popupItem = document.createElement("DIV");
+          let popupItem = document.createElement('DIV');
           popupItem.dataset.action = 'click->autocomplete#selectPopupItem'
           const reg = new RegExp(this.autocompleteTarget.value, 'gi');
           const result = `${this.capitalize(player.first_name)} ${this.capitalize(player.last_name)} (${(player.affiliation_number)}) ${(player.ranking)}`;

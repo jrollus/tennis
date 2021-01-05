@@ -9,10 +9,10 @@ export default class extends Controller {
     }
 
     clickOutside(event) {
-      this.popupTarget.classList.remove("show");
+      this.popupTarget.classList.remove('show');
     }
 
     toggleVisibility(event) {
-      this.popupTarget.classList.toggle("show");
+      this.popupTarget.classList.toggle('show');
     }
 }

@@ -61,7 +61,7 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @form = GameForm.new(@game.attributes.symbolize_keys.slice(:date, :court_type, :indoor, :status, :round), current_user, @game)
+    @form = GameForm.new({}, current_user, @game)
     
     # Initialize Cascading Dropdowns
     initialize_cascading_dropdowns
@@ -70,7 +70,7 @@ class GamesController < ApplicationController
   end
 
   def update
-    @form = GameForm.new(flatten_parameters(game_form_params))
+    @form = GameForm.new(flatten_parameters(game_form_params), current_user, @game)
     authorize @form
     if @form.update(game_form_params, current_user, @game)
       redirect_to games_path
@@ -148,27 +148,10 @@ class GamesController < ApplicationController
   end
 
   def initialize_cascading_dropdowns
-    if @game
-      @tournament = @game.tournament
-      @selected_club = @game.tournament.club.id
+    unless @form.tournament_id.blank?
+      @tournament = Tournament.find(@form.tournament_id)
       @categories = select_categories
-      @category_selected = @game.tournament.category.id
       @tournament_dates = select_dates
-      @dates_selected = "#{@game.tournament.start_date.strftime("%d/%m/%Y")} - #{@game.tournament.end_date.strftime("%d/%m/%Y")}" ||
-                        "#{Tournament.find(@form.tournament_id).start_date.strftime("%d/%m/%Y")} - #{Tournament.find(@form.tournament_id).end_date.strftime("%d/%m/%Y")}"
-      @court_selected = @game.court_type.id if @game.court_type
-      @round_selected = @game.round
-    else
-      if @form.tournament_id
-        @tournament = Tournament.find(@form.tournament_id)
-        @selected_club = @form.club
-        @categories = select_categories
-        @category_selected = @form.category
-        @tournament_dates = select_dates
-        @dates_selected = "#{@tournament.start_date.strftime("%d/%m/%Y")} - #{@tournament.end_date.strftime("%d/%m/%Y")}"
-      end
-
-      @court_selected = CourtType.find(@form.court_type_id) unless @form.court_type_id.empty? || @form.court_type_id.nil?
       @round_selected = @form.round
     end
   end
