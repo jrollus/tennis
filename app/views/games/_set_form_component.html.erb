@@ -1,0 +1,40 @@
+<% param_name = "game_form[game_sets_attributes][#{set_number - 1}]" %>
+<% if @form.persisted? %>
+    <% if @game.game_sets[set_number - 1] %>
+
+        <% attr_name =  "set_#{set_number}_id".to_sym %>
+        <%= f.input attr_name, as: :hidden , 
+                            input_html: {value: @game.game_sets[set_number - 1].id, name: param_name + '[id]', data: {target: "sets.#{attr_name}"}} %>
+
+        <% if set_number == 3 %>
+            <% attr_name =  "set_#{set_number}_destroy".to_sym %>
+            <%= f.input attr_name, as: :hidden , 
+                                input_html: { value: false, name: param_name + '[_destroy]', data: {target: "sets.#{attr_name}"}}, disabled: true %>
+        <% end %>
+    <% end %>
+<% end %>
+
+<% attr_name = "set_#{set_number}_number".to_sym %>
+<%= f.input attr_name, as: :hidden, 
+                       input_html: {value: "#{set_number}", name: param_name + '[set_number]', data: {target: "sets.#{attr_name}"}} %>
+
+<% attr_name = "set_#{set_number}_1".to_sym %>
+<% if set_number != 3 %>
+    <%= f.input attr_name, label: "Set #{set_number}", 
+                           input_html: {name: param_name + "[games_1]", data: {target: "sets.#{attr_name}", action: 'sets#setsHandler'}} %>
+<% else %>
+    <%= f.input attr_name, label: "Set #{set_number}", 
+                           input_html: {name: param_name + "[games_1]", data: {target: "sets.#{attr_name}", action: 'sets#setsHandler'}},
+                           wrapper_html: {class: 'visibility-off', data: {target:"sets.#{attr_name}_2"}} %>
+<% end %>
+
+<% attr_name =  "set_#{set_number}_2".to_sym %>
+<% if set_number != 3 %>
+    <%= f.input attr_name, label: '', 
+                           input_html: { name: param_name + '[games_2]', data: { target: "sets.#{attr_name}", action: 'sets#setsHandler'}} %>
+<% else %>
+    <%= f.input attr_name, label: '', 
+                           input_html: { name: param_name + '[games_2]', data: { target: "sets.#{attr_name}", action: 'sets#setsHandler'}},
+                           wrapper_html: {class: 'visibility-off', data: {target: "sets.#{attr_name}_2"}} %>
+<% end %>
+                        

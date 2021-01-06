@@ -1,0 +1,61 @@
+<%= simple_form_for(@form, url: (@form.persisted? ? game_path(@form.id) : games_path), 
+                           method: (@form.persisted? ? 'patch': 'post'),
+                           html: {data: {controller: 'cascading sets autocomplete', action: 'sets#checkDelete'}}) do |f| %>
+
+  <%= f.input :club, label: 'Club',
+                     collection: @clubs, 
+                     input_html: {data: {target:'cascading.club', action:'cascading#autofill'}} %>
+
+  <%= f.input :category, label: 'Catégorie', 
+                         collection: (@categories.nil? ? [] : @categories), 
+                         input_html: {data: {target:'cascading.category', action:'cascading#autofill' }}, 
+                         disabled: (@form.category.blank? ? true : false) %>
+
+  <%= f.input :tournament_id, label: 'Date du tournoi', 
+                              collection: (@tournament_dates.nil? ? [] : @tournament_dates), 
+                              input_html: {data: {target:'cascading.date'}}, 
+                              disabled: (@form.tournament_id.blank? ? true : false) %>
+
+  <%= f.input :date, label: 'Date du match', as: :date, html5: true %>
+
+  <%= f.input :status, label: 'Statut', 
+                              collection: [['Terminé','completed'], ['Blessure', 'retirement'],['WO','wo']],
+                              input_html: { data: { target:'sets.status', action:'sets#setsHandler' }} %>
+                              
+  <%= f.input :round,  label: 'Tour',
+                       collection: ['Finale','1/2','1/4','1/8','1/16','1/32','1/64','1/128','1/256','Poule'] %>
+
+  <%= f.input :player_id, as: :hidden , 
+                          input_html: { value: current_user.player.id, name: 'game_form[player_id]'} %>
+
+  <div class='form-flex'>
+    <div>
+      <%= f.input :court_type_id, label: 'Terrain', collection: @courts %>
+    </div>
+    <%= f.input :indoor, label: 'Indoor?',  as: :boolean %>
+  </div>
+
+  <%= f.input :opponent, label: 'Adversaire', 
+                         wrapper_html: {class: 'autocomplete', data: {target:'autocomplete.wrapper'}},
+                         input_html: {autocomplete:'off', data: {target:'autocomplete.autocomplete', action:'input->autocomplete#autocomplete'}} %>
+
+  <%= f.input :victory, label: 'Victoire?', as: :boolean %>
+
+  <div class='form-flex'>
+    <% (1..3).each do |set_number| %>
+      <%= render 'set_form_component', f: f, set_number: set_number  %>
+    <% end %>
+  </div>
+  
+  <div class='form-flex'>
+    <% (1..3).each do |set_number| %>
+        <%= render 'tie_break_component', f: f, set_number: set_number  %>
+    <% end %>
+  </div>
+
+  <%= f.input :match_points_saved, label: 'Balles de match sauvées',
+                                   input_html: {value: (@form.match_points_saved.nil? ? 0 : @form.match_points_saved)}, 
+                                   wrapper_html: {hidden: true, data: {target:'sets.match_points_saved'}} %>
+
+  <%= f.submit class:'btn btn-pink w-100 my-2' %>
+<% end %>

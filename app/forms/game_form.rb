@@ -21,18 +21,27 @@ class GameForm
   # Constructor
   def initialize(attr = {}, current_user = nil, game = nil)
     # Update
-    if !current_user.nil?
+    if !game.nil?
       @game = game
-      # Assign Attributes
-      self.assign_attributes(attr)
+      user_player_id = current_user.player.id
 
-      # Initiliaze General Form Parameters
-      self.victory = @game.game_players.where(player_id: current_user.player.id).first.victory
-      opponent = @game.game_players.where.not(player_id: current_user.player.id).first.player
-      self.opponent = "#{opponent.first_name.capitalize} #{opponent.last_name.capitalize} (#{opponent.affiliation_number}) #{opponent.ranking_histories.last.ranking.name}"
+      # Assign Attributes
+      self.player_id = user_player_id
+      self.club = attr[:club].blank? ? @game.tournament.club.id : attr[:club]
+      self.category = attr[:category].blank? ? @game.tournament.category.id : attr[:category]
+      self.tournament_id = attr[:tournament_id].blank? ? @game.tournament.id : attr[:tournament_id]
+      self.date = attr[:date].blank? ? @game.date : attr[:date]
+      self.court_type_id = attr[:court_type_id].blank? ? @game.court_type.id : attr[:court_type_id]
+      self.indoor = attr[:indoor].blank? ? @game.indoor : attr[:indoor]
+      self.status = attr[:status].blank? ? @game.status : attr[:status]
+      self.round = attr[:round].blank? ? @game.round : attr[:round]
+      self.victory = attr[:victory].blank? ? @game.game_players.find{|player| player.player_id == user_player_id}.victory : attr[:victory]
+      opponent = @game.game_players.find{|player| player.player_id != user_player_id}.player
+      self.opponent = attr[:opponent].blank? ? "#{opponent.first_name.capitalize} #{opponent.last_name.capitalize} (#{opponent.affiliation_number}) #{opponent.ranking_histories.last.ranking.name}" :
+                                            attr[:opponent]
 
       # Initialize Sets and Tie Breaks
-      init_sets_tie_breaks(current_user, @game)
+      init_sets_tie_breaks(attr, current_user)
 
     # Create
     else
@@ -63,14 +72,14 @@ class GameForm
   # Custom Validation
 
   def valid_date
-    if self.tournament_id && !self.date.empty?
+    unless self.tournament_id.blank? || self.date.blank?
       tournament = Tournament.find(self.tournament_id)
       errors.add(:date, "en dehors des dates du tournoi") unless self.date.to_date.between?(tournament.start_date, tournament.end_date)
     end
   end
 
   def valid_opponent
-    unless self.opponent.empty?
+    unless self.opponent.blank?
       errors.add(:opponent, "doit être sélectionné dans la liste proposée") if self.opponent.scan(/\((\d+)\)/).empty?
     end
   end
@@ -80,15 +89,15 @@ class GameForm
       # Victory
       sets_won = 0
       
-      unless self.set_1_1.nil? || self.set_1_2.nil?
+      unless self.set_1_1.blank? || self.set_1_2.blank?
         sets_won +=1 if self.set_1_1 > self.set_1_2
       end
 
-      unless self.set_2_1.nil? || self.set_2_2.nil?
+      unless self.set_2_1.blank? || self.set_2_2.blank?
         sets_won +=1 if self.set_2_1 > self.set_2_2
       end
 
-      unless self.set_3_1.nil? || self.set_3_2.nil?
+      unless self.set_3_1.blank? || self.set_3_2.blank?
         sets_won +=1 if self.set_3_1 > self.set_3_2
       end 
 
@@ -116,21 +125,21 @@ class GameForm
       end
 
       # Tie Break 1
-      if !self.tie_break_1_1.nil? && !self.tie_break_1_2.nil?
+      if !self.tie_break_1_1.blank? && !self.tie_break_1_2.blank?
         unless ([self.tie_break_1_1, self.tie_break_1_2].max >= "7") && ((self.tie_break_1_1.to_i - self.tie_break_1_2.to_i).abs >= 2)
           errors.add(:tie_break_1_1, "le score n'est pas valide") 
         end
       end
 
       # Tie Break 2
-      if !self.tie_break_2_1.nil? && !self.tie_break_2_2.nil?
+      if !self.tie_break_2_1.blank? && !self.tie_break_2_2.blank?
         unless ([self.tie_break_2_1, self.tie_break_2_2].max >= "7") && ((self.tie_break_2_1.to_i - self.tie_break_2_2.to_i).abs >= 2)
           errors.add(:tie_break_2_1, "le score n'est pas valide") 
         end
       end
 
       # Tie Break 3
-       if !self.tie_break_3_1.nil? && !self.tie_break_3_2.nil?
+       if !self.tie_break_3_1.blank? && !self.tie_break_3_2.blank?
         unless ([self.tie_break_3_1, self.tie_break_3_2].max >= "7") && ((self.tie_break_3_1.to_i - self.tie_break_3_2.to_i).abs >= 2)
           errors.add(:tie_break_3_1, "le score n'est pas valide") 
         end
@@ -174,7 +183,6 @@ class GameForm
 
   def update_game(game_form_params, current_user, game)
     # Player Table and associated nested tables
-    byebug
     game.update(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
 
     # GamePlayers Table
@@ -190,45 +198,45 @@ class GameForm
 
    # Initializing Methods
 
-  def init_sets_tie_breaks(current_user, game)
-    user_score_order = game.check_user_order(current_user.player.id)
-    game.game_sets.each do |set|
+  def init_sets_tie_breaks(attr, current_user)
+    user_score_order = @game.check_user_order(current_user.player.id)
+    @game.game_sets.each do |set|
       case set.set_number
       when 1
         if user_score_order
-          self.set_1_1 = set.games_1
-          self.set_1_2 = set.games_2
-          self.tie_break_1_1 = set.tie_break.points_1 unless set.tie_break.nil?
-          self.tie_break_1_2 = set.tie_break.points_2 unless set.tie_break.nil?
+          self.set_1_1 = attr[:set_1_1].blank? ? set.games_1 : attr[:set_1_1]
+          self.set_1_2 = attr[:set_1_2].blank? ? set.games_2 : attr[:set_1_2]
+          self.tie_break_1_1 = (attr[:tie_break_1_1].blank? ? set.tie_break.points_1 : attr[:tie_break_1_1]) unless set.tie_break.blank?
+          self.tie_break_1_2 = (attr[:tie_break_1_2].blank? ? set.tie_break.points_2 : attr[:tie_break_1_2]) unless set.tie_break.blank?
         else
-          self.set_1_1 = set.games_2
-          self.set_1_2 = set.games_1
-          self.tie_break_1_1 = set.tie_break.points_2 unless set.tie_break.nil?
-          self.tie_break_1_2 = set.tie_break.points_1 unless set.tie_break.nil?
+          self.set_1_1 = attr[:set_1_1].blank? ? set.games_2 : attr[:set_1_1]
+          self.set_1_2 = attr[:set_1_2].blank? ? set.games_1 : attr[:set_1_2]
+          self.tie_break_1_1 = (attr[:tie_break_1_1].blank? ? set.tie_break.points_2 : attr[:tie_break_1_1]) unless set.tie_break.blank?
+          self.tie_break_1_2 = (attr[:tie_break_1_2].blank? ? set.tie_break.points_1 : attr[:tie_break_1_2]) unless set.tie_break.blank?
         end
       when 2
         if user_score_order
-          self.set_2_1 = set.games_1
-          self.set_2_2 = set.games_2
-          self.tie_break_2_1 = set.tie_break.points_1 unless set.tie_break.nil?
-          self.tie_break_2_2 = set.tie_break.points_2 unless set.tie_break.nil?
+          self.set_2_1 = attr[:set_2_1].blank? ? set.games_1 : attr[:set_2_1]
+          self.set_2_2 = attr[:set_2_2].blank? ? set.games_2 : attr[:set_2_2]
+          self.tie_break_2_1 = (attr[:tie_break_2_1].blank? ? set.tie_break.points_1 : attr[:tie_break_2_1]) unless set.tie_break.blank?
+          self.tie_break_2_2 = (attr[:tie_break_2_2].blank? ? set.tie_break.points_2 : attr[:tie_break_2_2]) unless set.tie_break.blank?
         else
-          self.set_2_1 = set.games_2
-          self.set_2_2 = set.games_1
-          self.tie_break_2_1 = set.tie_break.points_2 unless set.tie_break.nil?
-          self.tie_break_2_2 = set.tie_break.points_1 unless set.tie_break.nil?
+          self.set_2_1 = attr[:set_2_1].blank? ? set.games_2 : attr[:set_2_1]
+          self.set_2_2 = attr[:set_2_2].blank? ? set.games_1 : attr[:set_2_2]
+          self.tie_break_2_1 = (attr[:tie_break_2_1].blank? ? set.tie_break.points_2 : attr[:tie_break_2_1]) unless set.tie_break.blank?
+          self.tie_break_2_2 = (attr[:tie_break_2_2].blank? ? set.tie_break.points_1 : attr[:tie_break_2_2]) unless set.tie_break.blank?
         end
       when 3
         if user_score_order
-          self.set_3_1 = set.games_1
-          self.set_3_2 = set.games_2
-          self.tie_break_3_1 = set.tie_break.points_1 unless set.tie_break.nil?
-          self.tie_break_3_2 = set.tie_break.points_2 unless set.tie_break.nil?
+          self.set_3_1 = attr[:set_3_1].blank? ? set.games_1 : attr[:set_3_1]
+          self.set_3_2 = attr[:set_3_2].blank? ? set.games_2 : attr[:set_3_2]
+          self.tie_break_3_1 = (attr[:tie_break_3_1].blank? ? set.tie_break.points_1 : attr[:tie_break_3_1]) unless set.tie_break.blank?
+          self.tie_break_3_2 = (attr[:tie_break_3_2].blank? ? set.tie_break.points_2 : attr[:tie_break_3_2]) unless set.tie_break.blank?
         else
-          self.set_3_1 = set.games_2
-          self.set_3_2 = set.games_1
-          self.tie_break_3_1 = set.tie_break.points_2 unless set.tie_break.nil?
-          self.tie_break_3_2 = set.tie_break.points_1 unless set.tie_break.nil?
+          self.set_3_1 = attr[:set_3_1].nil? ? set.games_2 : attr[:set_3_1]
+          self.set_3_2 = attr[:set_3_2].nil? ? set.games_1 : attr[:set_3_2]
+          self.tie_break_3_1 = (attr[:tie_break_3_1].blank? ? set.tie_break.points_2 : attr[:tie_break_3_1]) unless set.tie_break.blank?
+          self.tie_break_3_2 = (attr[:tie_break_3_2].blank? ? set.tie_break.points_1 : attr[:tie_break_3_2]) unless set.tie_break.blank?
         end
       end
     end
