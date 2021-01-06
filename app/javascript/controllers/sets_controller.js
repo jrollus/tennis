@@ -13,16 +13,16 @@ export default class extends Controller {
       this.checkSets()
 
       // Initialize Data
-      this.set1 = [this.set_1_1Target, this.set_1_2Target, this.set_1_numberTarget, this.hasSet_1_idTarget,  ( this.hasSet_1_idTarget ? this.set_1_idTarget : null)]
-      this.set2 = [this.set_2_1Target, this.set_2_2Target, this.set_2_numberTarget, this.hasSet_2_idTarget,  ( this.hasSet_2_idTarget ? this.set_3_idTarget : null)]
+      this.set1 = [this.set_1_1Target, this.set_1_2Target, this.set_1_numberTarget, this.hasSet_1_idTarget,  ( this.hasSet_1_idTarget ? this.set_1_idTarget : null)];
+      this.set2 = [this.set_2_1Target, this.set_2_2Target, this.set_2_numberTarget, this.hasSet_2_idTarget,  ( this.hasSet_2_idTarget ? this.set_3_idTarget : null)];
       this.set3 = [this.set_3_1Target, this.set_3_2Target, this.set_3_numberTarget, this.hasSet_3_idTarget,  ( this.hasSet_3_idTarget ? this.set_3_idTarget : null),
-                   this.set_3_1_2Target, this.set_3_2_2Target]
+                   this.set_3_1_2Target, this.set_3_2_2Target];
       this.tieBreak1 = [this.tie_break_1_1Target, this.tie_break_1_2Target, this.hasTie_break_1_idTarget, ( this.hasTie_break_1_idTarget ? this.tie_break_1_idTarget : null),
-                        this.tie_break_1_1_2Target, this.tie_break_1_2_2Target]
+                        this.tie_break_1_1_2Target, this.tie_break_1_2_2Target];
       this.tieBreak2 = [this.tie_break_2_1Target, this.tie_break_2_2Target, this.hasTie_break_2_idTarget, ( this.hasTie_break_2_idTarget ? this.tie_break_2_idTarget : null), 
-                        this.tie_break_2_1_2Target, this.tie_break_2_2_2Target]
+                        this.tie_break_2_1_2Target, this.tie_break_2_2_2Target];
       this.tieBreak3 = [this.tie_break_3_1Target, this.tie_break_3_2Target, this.hasTie_break_3_idTarget, ( this.hasTie_break_3_idTarget ? this.tie_break_3_idTarget : null), 
-                        this.tie_break_3_1_2Target, this.tie_break_3_2_2Target]
+                        this.tie_break_3_1_2Target, this.tie_break_3_2_2Target];
     }
 
     // In case of edit check before submitting the form whether some sets/tie breaks have to be deleted
@@ -31,7 +31,7 @@ export default class extends Controller {
                               [this.hasTie_break_1_idTarget, this.tie_break_1_1Target, this.tie_break_1_2Target, this.tie_break_1_idTarget,  this.tie_break_1_destroyTarget],
                               [this.hasTie_break_2_idTarget, this.tie_break_2_1Target, this.tie_break_2_2Target, this.tie_break_2_idTarget,  this.tie_break_2_destroyTarget],
                               [this.hasTie_break_3_idTarget, this.tie_break_3_1Target, this.tie_break_3_2Target, this.tie_break_3_idTarget,  this.tie_break_3_destroyTarget]
-                            ]
+                            ];
       
       structuredData.forEach((element) => {
         if (element[0]) {
@@ -47,19 +47,19 @@ export default class extends Controller {
     // In case of edit check sets that have already defined values to enable them and have them visible
     checkSets() {
       if (this.set_3_1Target.value || this.set_3_2Target.value) {
-        this.setsOnOff([this.set3], true)
+        this.setsOnOff([this.set3], true);
       }
 
       if (this.tie_break_1_1Target.value || this.tie_break_1_2Target.value) {
-        this.tieBreaksOnOff([this.tieBreak1], true)
+        this.tieBreaksOnOff([this.tieBreak1], true);
       }
 
       if (this.tie_break_2_1Target.value || this.tie_break_2_2Target.value) {
-       this.tieBreaksOnOff([this.tieBreak2], true)
+       this.tieBreaksOnOff([this.tieBreak2], true);
       }
 
       if (this.tie_break_3_1Target.value || this.tie_break_3_2Target.value) {
-       this.tieBreaksOnOff([this.tieBreak3], true)
+       this.tieBreaksOnOff([this.tieBreak3], true);
       }
     }
 
@@ -67,24 +67,24 @@ export default class extends Controller {
       structuredSets.forEach((gameSet, i)  => {
         if (gameSet.length == 7) {
           if (on) {
-            gameSet[5].classList.add('visibility-on')
-            gameSet[6].classList.add('visibility-on')
+            gameSet[5].classList.add('visibility-on');
+            gameSet[6].classList.add('visibility-on');
           } else {
-            gameSet[5].classList.remove('visibility-on')
-            gameSet[6].classList.remove('visibility-on')
+            gameSet[5].classList.remove('visibility-on');
+            gameSet[6].classList.remove('visibility-on');
           }
         }
-        gameSet[0].disabled = (on ? false : true)
-        gameSet[1].disabled = (on ? false : true)
+        gameSet[0].disabled = (on ? false : true);
+        gameSet[1].disabled = (on ? false : true);
         if (on == false) {
-          gameSet[0].value = ''
-          gameSet[1].value = ''
+          gameSet[0].value = '';
+          gameSet[1].value = '';
         }
 
-        gameSet[2].disabled = (on ? false : true)
+        gameSet[2].disabled = (on ? false : true);
         
         if (gameSet[3]) {
-          gameSet[4].disabled = (on ? false : true)
+          gameSet[4].disabled = (on ? false : true);
         }
       });
     }
@@ -92,23 +92,23 @@ export default class extends Controller {
     tieBreaksOnOff(structuredTieBreaks, on) {
       structuredTieBreaks.forEach((TieBreak, i) => {
         if (on) {
-          TieBreak[4].classList.add('visibility-on')
-          TieBreak[5].classList.add('visibility-on')
+          TieBreak[4].classList.add('visibility-on');
+          TieBreak[5].classList.add('visibility-on');
         } else {
-          TieBreak[4].classList.remove('visibility-on')
-          TieBreak[5].classList.remove('visibility-on')
+          TieBreak[4].classList.remove('visibility-on');
+          TieBreak[5].classList.remove('visibility-on');
         }
         
-        TieBreak[0].disabled = (on ? false : true)
-        TieBreak[1].disabled = (on ? false : true)
+        TieBreak[0].disabled = (on ? false : true);
+        TieBreak[1].disabled = (on ? false : true);
 
         if (on == false) {
-          TieBreak[0].value = ''
-          TieBreak[1].value = ''
+          TieBreak[0].value = '';
+          TieBreak[1].value = '';
         }
         
         if (TieBreak[2]) {
-          TieBreak[3].disabled == (on ? false : true)
+          TieBreak[3].disabled == (on ? false : true);
         }
       });
     }
@@ -117,45 +117,45 @@ export default class extends Controller {
       // Status
       if (this.statusTarget.value == 'wo') {
         // Sets
-        this.setsOnOff([this.set1, this.set2, this.set3], false)
+        this.setsOnOff([this.set1, this.set2, this.set3], false);
         
         // Tie Breaks
-        this.tieBreaksOnOff([this.tieBreak1, this.tieBreak2, this.tieBreak3], false)
+        this.tieBreaksOnOff([this.tieBreak1, this.tieBreak2, this.tieBreak3], false);
       } else {
-        this.setsOnOff([this.set1, this.set2], true)
+        this.setsOnOff([this.set1, this.set2], true);
       }
 
       // Third set
       if (this.set_1_1Target.value && this.set_1_2Target.value && this.set_2_1Target.value && this.set_2_2Target.value) {
         if (((this.set_1_1Target.value > this.set_1_2Target.value) && (this.set_2_1Target.value < this.set_2_2Target.value)) ||
            ((this.set_1_1Target.value < this.set_1_2Target.value) && (this.set_2_1Target.value > this.set_2_2Target.value))) {
-            this.setsOnOff([this.set3], true)
+            this.setsOnOff([this.set3], true);
         } else {
-          this.setsOnOff([this.set3], false)
+          this.setsOnOff([this.set3], false);
         }
       } else {
-        this.setsOnOff([this.set3], false)
+        this.setsOnOff([this.set3], false);
       }
 
       // Tie Break 1
       if (Math.abs(this.set_1_1Target.value - this.set_1_2Target.value) == 1) {
-        this.tieBreaksOnOff([this.tieBreak1], true)
+        this.tieBreaksOnOff([this.tieBreak1], true);
       } else {
-        this.tieBreaksOnOff([this.tieBreak1], false)
+        this.tieBreaksOnOff([this.tieBreak1], false);
       }
 
       // Tie Break 2 
       if (Math.abs(this.set_2_1Target.value - this.set_2_2Target.value) == 1) {
-        this.tieBreaksOnOff([this.tieBreak2], true)
+        this.tieBreaksOnOff([this.tieBreak2], true);
       } else {
-        this.tieBreaksOnOff([this.tieBreak2], false)
+        this.tieBreaksOnOff([this.tieBreak2], false);
       }
 
       // Tie Break 3
       if (Math.abs(this.set_3_1Target.value - this.set_3_2Target.value) == 1) {
-        this.tieBreaksOnOff([this.tieBreak3], true)
+        this.tieBreaksOnOff([this.tieBreak3], true);
       } else {
-        this.tieBreaksOnOff([this.tieBreak3], false)
+        this.tieBreaksOnOff([this.tieBreak3], false);
       }
 
       // Match Points

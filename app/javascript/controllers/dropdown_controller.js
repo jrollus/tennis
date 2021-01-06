@@ -2,10 +2,10 @@ import { Controller } from 'stimulus'
 import { useClickOutside } from 'stimulus-use'
 
 export default class extends Controller {
-    static targets = ['button', 'popup']
+    static targets = ['button', 'popup'];
 
     connect() {
-      useClickOutside(this)
+      useClickOutside(this);
     }
 
     clickOutside(event) {

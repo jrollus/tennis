@@ -1,16 +1,16 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-    static targets = ['year', 'container']
+    static targets = ['year', 'container'];
 
     async selectYear() {
-      const query = `year=${this.yearTarget.value}`
+      const query = `year=${this.yearTarget.value}`;
       const response = await fetch('/api/v1/games?' + query, { headers: { accept: 'application/json' } });
       if (response.ok) {
         const data = await response.json()
-        this.containerTarget.innerHTML = data['html_data']
+        this.containerTarget.innerHTML = data['html_data'];
       } else {
-        this.containerTarget.innerHTML = 'Aucun match trouvé.'
+        this.containerTarget.innerHTML = 'Aucun match trouvé';
       }
     }
 }

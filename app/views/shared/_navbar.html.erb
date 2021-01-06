@@ -1,33 +1,45 @@
-<div class="navbar-tennis">
-  <h1>TennisRanking</h1>
-  <div class="navbar-right-section">
+<div class='navbar-tennis'>
+  <%= link_to 'TennisRanking', games_path %>
+  <div class='navbar-right-section'>
     <% if current_user %>
-      <div class="navbar-collapsable">
-        <%= link_to "Encodage", new_game_path, class: "navbar-link"%>
-        <a class="navbar-link" href="">Statistiques</a>
-        <h6 class="navbar-points"> XXX pts</h6>
+      <div class='navbar-collapsable'>
+        <%= link_to 'Encodage', new_game_path, class: 'navbar-link'%>
+        <a class='navbar-link' href=''>Statistiques</a>
+        <h6 class='navbar-points'> XXX pts</h6>
       </div>
-      <div data-controller="dropdown" class="dropdown">
-        <%= cl_image_tag "sandwich-menu_ukriiv.svg", class: "navbar-sandwich", data: {action: 'click->dropdown#toggleVisibility', target:'dropdown.button' }, role:"button", 'aria-haspopup': "true", 'aria-expanded': "false"  %>
-        <div data-target="dropdown.popup" class="dropdown-content">
-          <%= link_to "Encodage", new_game_path, class: "navbar-link"%>
-          <a class="navbar-link" href="">Statistiques</a>
+      <div data-controller='dropdown' class='dropdown'>
+        <%= cl_image_tag 'sandwich-menu_ukriiv.svg', class: 'navbar-sandwich', 
+                                                     data: { target:'dropdown.button', action: 'click->dropdown#toggleVisibility'}, 
+                                                     role:'button', 
+                                                     'aria-haspopup': 'true', 
+                                                     'aria-expanded': 'false' %>
+        <div data-target='dropdown.popup' class='dropdown-content'>
+          <%= link_to 'Encodage', new_game_path, class: 'navbar-link'%>
+          <a class='navbar-link' href=''>Statistiques</a>
         </div>
       </div>
-      <div data-controller="dropdown" class="dropdown">
+      <div data-controller='dropdown' class='dropdown'>
         <% if current_user.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key, class: "avatar", data: {action: 'click->dropdown#toggleVisibility', target:'dropdown.button' }, role:"button", 'aria-haspopup': "true", 'aria-expanded': "false"  %>
+          <%= cl_image_tag current_user.avatar.key, class: 'avatar', 
+                                                    data: {target:'dropdown.button', action: 'click->dropdown#toggleVisibility'}, 
+                                                    role: 'button', 
+                                                    'aria-haspopup': 'true', 
+                                                    'aria-expanded': 'false'  %>
         <% else %>
-          <%= cl_image_tag "tennis-svgrepo-com_bzn5jh.svg", class: "avatar", data: {action: 'click->dropdown#toggleVisibility', target:'dropdown.button' }, role:"button", 'aria-haspopup': "true", 'aria-expanded': "false"  %>
+          <%= cl_image_tag 'tennis-svgrepo-com_bzn5jh.svg', class: 'avatar', 
+                                                            data: {target:'dropdown.button', action: 'click->dropdown#toggleVisibility'}, 
+                                                            role:'button', 
+                                                            'aria-haspopup': 'true', 
+                                                            'aria-expanded': 'false'  %>
         <% end %>  
-        <div data-target="dropdown.popup" class="dropdown-content">
-          <%= link_to "Mon compte", edit_user_registration_path , class: "nav-link text-dark"%>
-          <%= link_to('Déconnexion', destroy_user_session_path, method: :delete, class: "nav-link text-dark") %>
+        <div data-target='dropdown.popup' class='dropdown-content'>
+          <%= link_to 'Mon compte', edit_user_registration_path , class: 'nav-link text-dark'%>
+          <%= link_to('Déconnexion', destroy_user_session_path, method: :delete, class: 'nav-link text-dark') %>
         </div>
       </div>
     <% else %>
-      <%= link_to "Connexion", new_user_session_path , class: "nav-link text-dark"%>
-      <%= link_to "S'inscrire", new_user_registration_path , class: "nav-link text-dark"%>
+      <%= link_to 'Connexion', new_user_session_path , class: 'nav-link text-dark'%>
+      <%= link_to "S'inscrire", new_user_registration_path , class: 'nav-link text-dark'%>
     <% end  %>
   </div>
 </div>
