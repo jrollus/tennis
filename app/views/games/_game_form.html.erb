@@ -9,12 +9,12 @@
   <%= f.input :category, label: 'Catégorie', 
                          collection: (@categories.nil? ? [] : @categories), 
                          input_html: {data: {target:'cascading.category', action:'cascading#autofill' }}, 
-                         disabled: (@form.category.blank? ? true : false) %>
+                         disabled: @form.club.blank? %>
 
   <%= f.input :tournament_id, label: 'Date du tournoi', 
                               collection: (@tournament_dates.nil? ? [] : @tournament_dates), 
                               input_html: {data: {target:'cascading.date'}}, 
-                              disabled: (@form.tournament_id.blank? ? true : false) %>
+                              disabled: @form.category.blank? %>
 
   <%= f.input :date, label: 'Date du match', as: :date, html5: true %>
 
@@ -54,7 +54,8 @@
   </div>
 
   <%= f.input :match_points_saved, label: 'Balles de match sauvées',
-                                   input_html: {value: (@form.match_points_saved.nil? ? 0 : @form.match_points_saved)}, 
+                                   as: :integer,
+                                   input_html: {value: (@form.match_points_saved.blank? ? 0 : @form.match_points_saved)}, 
                                    wrapper_html: {hidden: true, data: {target:'sets.match_points_saved'}} %>
 
   <%= f.submit class:'btn btn-pink w-100 my-2' %>

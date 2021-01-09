@@ -99,7 +99,6 @@ class Player < ApplicationRecord
     end
   end
 
-
   def get_match_points(win, year=nil)
     if year
       query = (win ? 'game_players.player_id = ? AND  match_points_saved > ? AND extract(year from games.date) = ?' : 'game_players.player_id = ? AND  match_points_saved < ? AND extract(year from games.date) = ?')
@@ -132,6 +131,10 @@ class Player < ApplicationRecord
 
   def full_name
     "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+
+  def player_description
+    "#{self.first_name.capitalize} #{self.last_name.capitalize} (#{self.affiliation_number}) #{self.ranking_histories.last.ranking.name}"
   end
   
   private 
