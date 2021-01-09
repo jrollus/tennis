@@ -9,29 +9,33 @@ export default class extends Controller {
                       'tie_break_1_destroy', 'tie_break_2_destroy', 'tie_break_3_destroy', 'match_points_saved']
 
     connect() {
+      // Initialize Data
+      this.set1 = [this.set_1_1Target, this.set_1_2Target, this.set_1_numberTarget, this.hasSet_1_idTarget,  (this.hasSet_1_idTarget ? this.set_1_idTarget : null)];
+      this.set2 = [this.set_2_1Target, this.set_2_2Target, this.set_2_numberTarget, this.hasSet_2_idTarget,  (this.hasSet_2_idTarget ? this.set_2_idTarget : null)];
+      this.set3 = [this.set_3_1Target, this.set_3_2Target, this.set_3_numberTarget, this.hasSet_3_idTarget,  (this.hasSet_3_idTarget ? this.set_3_idTarget : null),
+                   this.set_3_1_2Target, this.set_3_2_2Target];
+      this.tieBreak1 = [this.tie_break_1_1Target, this.tie_break_1_2Target, this.hasTie_break_1_idTarget, (this.hasTie_break_1_idTarget ? this.tie_break_1_idTarget : null),
+                        this.tie_break_1_1_2Target, this.tie_break_1_2_2Target];
+      this.tieBreak2 = [this.tie_break_2_1Target, this.tie_break_2_2Target, this.hasTie_break_2_idTarget, (this.hasTie_break_2_idTarget ? this.tie_break_2_idTarget : null), 
+                        this.tie_break_2_1_2Target, this.tie_break_2_2_2Target];
+      this.tieBreak3 = [this.tie_break_3_1Target, this.tie_break_3_2Target, this.hasTie_break_3_idTarget, (this.hasTie_break_3_idTarget ? this.tie_break_3_idTarget : null), 
+                        this.tie_break_3_1_2Target, this.tie_break_3_2_2Target];
+
       // Check whether there is some data in the form already to enable third set and/or tie breaks if necessary
       this.checkSets()
-
-      // Initialize Data
-      this.set1 = [this.set_1_1Target, this.set_1_2Target, this.set_1_numberTarget, this.hasSet_1_idTarget,  ( this.hasSet_1_idTarget ? this.set_1_idTarget : null)];
-      this.set2 = [this.set_2_1Target, this.set_2_2Target, this.set_2_numberTarget, this.hasSet_2_idTarget,  ( this.hasSet_2_idTarget ? this.set_3_idTarget : null)];
-      this.set3 = [this.set_3_1Target, this.set_3_2Target, this.set_3_numberTarget, this.hasSet_3_idTarget,  ( this.hasSet_3_idTarget ? this.set_3_idTarget : null),
-                   this.set_3_1_2Target, this.set_3_2_2Target];
-      this.tieBreak1 = [this.tie_break_1_1Target, this.tie_break_1_2Target, this.hasTie_break_1_idTarget, ( this.hasTie_break_1_idTarget ? this.tie_break_1_idTarget : null),
-                        this.tie_break_1_1_2Target, this.tie_break_1_2_2Target];
-      this.tieBreak2 = [this.tie_break_2_1Target, this.tie_break_2_2Target, this.hasTie_break_2_idTarget, ( this.hasTie_break_2_idTarget ? this.tie_break_2_idTarget : null), 
-                        this.tie_break_2_1_2Target, this.tie_break_2_2_2Target];
-      this.tieBreak3 = [this.tie_break_3_1Target, this.tie_break_3_2Target, this.hasTie_break_3_idTarget, ( this.hasTie_break_3_idTarget ? this.tie_break_3_idTarget : null), 
-                        this.tie_break_3_1_2Target, this.tie_break_3_2_2Target];
     }
 
     // In case of edit check before submitting the form whether some sets/tie breaks have to be deleted
     checkDelete(){
-      const structuredData = [[this.hasSet_3_idTarget, this.set_3_1Target, this.set_3_2Target, this.set_3_idTarget,  this.set_3_destroyTarget],
-                              [this.hasTie_break_1_idTarget, this.tie_break_1_1Target, this.tie_break_1_2Target, this.tie_break_1_idTarget,  this.tie_break_1_destroyTarget],
-                              [this.hasTie_break_2_idTarget, this.tie_break_2_1Target, this.tie_break_2_2Target, this.tie_break_2_idTarget,  this.tie_break_2_destroyTarget],
-                              [this.hasTie_break_3_idTarget, this.tie_break_3_1Target, this.tie_break_3_2Target, this.tie_break_3_idTarget,  this.tie_break_3_destroyTarget]
-                            ];
+      const structuredData = [[this.hasSet_3_idTarget, this.set_3_1Target, this.set_3_2Target,  (this.hasSet_3_idTarget ? this.set_3_idTarget : null),  
+                               (this.hasSet_3_idTarget ? this.set_3_destroyTarget : null)],
+                              [this.hasTie_break_1_idTarget, this.tie_break_1_1Target, this.tie_break_1_2Target, (this.hasTie_break_1_idTarget ? this.tie_break_1_idTarget : null),
+                               (this.hasTie_break_1_idTarget ? this.tie_break_1_destroyTarget : null)],
+                              [this.hasTie_break_2_idTarget, this.tie_break_2_1Target, this.tie_break_2_2Target, (this.hasTie_break_2_idTarget ? this.tie_break_2_idTarget : null),
+                               (this.hasTie_break_2_idTarget ? this.tie_break_2_destroyTarget : null)],
+                              [this.hasTie_break_3_idTarget, this.tie_break_3_1Target, this.tie_break_3_2Target, (this.hasTie_break_3_idTarget ? this.tie_break_3_idTarget : null),
+                               (this.hasTie_break_3_idTarget ? this.tie_break_3_destroyTarget : null)]
+                             ];
       
       structuredData.forEach((element) => {
         if (element[0]) {
