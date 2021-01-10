@@ -92,7 +92,7 @@ class GamesController < ApplicationController
   private
 
   def game_form_params
-    params.require(:game_form).permit(:club, :category, :tournament_id, :player_id, :court_type_id, :date, :status, :round, :court_type, :indoor, :opponent, :victory, :match_points_saved,
+    params.require(:game_form).permit(:club, :category, :tournament_id, :player_id, :court_type_id, :date, :status, :round_id, :court_type, :indoor, :opponent, :victory, :match_points_saved,
                                       game_sets_attributes: [:id, :set_number, :games_1, :games_2, :_destroy, tie_break_attributes: [:id, :points_1, :points_2, :_destroy]])
   end
   
@@ -100,6 +100,7 @@ class GamesController < ApplicationController
     query = "categories.gender = ? AND categories.c_type = 'single' AND ? >= categories.age_min AND ? < categories.age_max "
     @clubs = Club.joins(tournaments: :category).where(query, current_user.player.gender, current_user.player.get_age, current_user.player.get_age).uniq.sort
     @courts = CourtType.all.map{|court_type| [court_type.court_type.titleize, court_type.id]}
+    @rounds = Round.where.not(name: 'vainqueur').map{|round| [round.name.gsub('_', '/').capitalize, round.id]}
   end
 
   def set_game
@@ -123,6 +124,6 @@ class GamesController < ApplicationController
   def refresh_cascading_dropdowns
     @categories = select_categories unless @form.club.blank?
     @tournament_dates = select_dates unless @form.category.blank?
-    @round_selected = @form.round
+    @round_selected = @form.round_id
   end
 end

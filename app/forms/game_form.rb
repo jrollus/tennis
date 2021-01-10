@@ -3,14 +3,14 @@ class GameForm
   include ActiveModel::Model
 
   # Attributes
-  attr_accessor :club, :category, :tournament_id, :player_id, :court_type_id, :date, :status, :indoor, :round, :opponent,
+  attr_accessor :club, :category, :tournament_id, :player_id, :court_type_id, :date, :status, :indoor, :round_id, :opponent,
                 :victory, :set_1_number, :set_2_number, :set_3_number, :set_3_id, :tie_break_1_id, :tie_break_2_id, :tie_break_3_id, 
                 :set_3_destroy, :tie_break_1_destroy, :tie_break_2_destroy, :tie_break_2_destroy, :set_1_1, :set_1_2, :tie_break_1_1,
                 :tie_break_1_2, :set_2_1, :set_2_2, :tie_break_2_1, :tie_break_2_2, :set_3_1, :set_3_2, :tie_break_3_1, :tie_break_3_2, 
                 :match_points_saved
                 
   # Validation
-  validates :club, :category, :tournament_id, :date, :player_id, :status, :court_type_id, :round, :opponent, :set_1_1, :set_1_2, 
+  validates :club, :category, :tournament_id, :date, :player_id, :status, :court_type_id, :round_id, :opponent, :set_1_1, :set_1_2, 
             :set_2_1, :set_2_2, :match_points_saved, presence: true
   validates :set_1_1, :set_1_2, :set_2_1, :set_2_2, :set_3_1, :set_3_2, :tie_break_1_1, :tie_break_1_2,
             :tie_break_2_1, :tie_break_2_2, :tie_break_3_1, :tie_break_3_2, numericality: { only_integer: true }, allow_blank: true
@@ -38,7 +38,7 @@ class GameForm
       self.court_type_id = edit ? (@game.court_type ? @game.court_type.id : nil) : attr[:court_type_id]
       self.indoor = edit ? @game.indoor : attr[:indoor]
       self.status = edit ? @game.status : attr[:status]
-      self.round = edit ? @game.round : attr[:round]
+      self.round_id = edit ? @game.round.id : attr[:round_id]
       self.match_points_saved = edit ? @game.game_players.find{|player| player.player_id == user_player_id}.match_points_saved : 
                                                                    attr[:match_points_saved]
       self.victory = edit ? @game.game_players.find{|player| player.player_id == user_player_id}.victory : attr[:victory]
@@ -138,8 +138,6 @@ class GameForm
     # Player Table and associated nested tables
     @game = Game.new(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
     @game.save 
-
-    byebug
 
     # GamerPlayers Table
     @game_player_user = GamePlayer.new

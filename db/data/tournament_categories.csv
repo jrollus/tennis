@@ -1,177 +1,177 @@
-category,age_min,age_max,gender,age,c_type,points_1_128,points_1_64,points_1_32,points_1_16,points_1_8,points_1_4,points_1_2,final_points,winner_points
-Simples Messieurs 1 - Belgian Circuit 1*,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 1 - Belgian Circuit 2*,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 1 - Belgian Circuit 3*,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 1 - Belgian Circuit 4*,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 1 - Belgian Circuit 5*,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 2,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 3,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 4,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 5,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 6,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 35 1 - Belgian Circuit 1*,35,45,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 35 1,35,45,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 35 2,35,45,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 35 3,35,45,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 35 4,35,45,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 35 5,35,45,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 35 6,35,45,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 45 1 - Belgian Circuit 1*,45,55,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 45 2,45,55,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 45 3,45,55,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 45 4,45,55,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 45 5,45,55,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples  Messieurs 55 1 - Belgian Circuit,55,60,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 55 2,55,60,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 55 3,55,60,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 55 4,55,60,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 60 1,60,99,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 60 2,60,99,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 65 1,60,99,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs 65 2,60,99,male,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 11 ans Grade 1,0,11,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 11 ans Grade 2,0,11,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 11 ans Grade 3,0,11,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 13 ans Grade 1,11,13,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 13 ans Grade 2,11,13,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 13 ans Grade 3,11,13,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 15 ans Grade 2,13,15,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 15 ans Grade 3,13,15,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 9 ans BJC,0,9,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens -10 ans BJC,9,10,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 11 ans BJC,10,11,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 13 ans BJC,11,13,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens - 15 ans BJC,13,15,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens -11 ans Masters Critérium Jeunes AFT - Grade 1,0,11,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens -11 ans Masters Critérium Jeunes AFT - Grade 2,0,11,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens -11 ans Masters Critérium Jeunes AFT - Grade 3,0,11,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens -13 ans Masters Critérium Jeunes AFT - Grade 1,11,13,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens -13 ans Masters Critérium Jeunes AFT - Grade 2,11,13,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens -13 ans Masters Critérium Jeunes AFT - Grade 3,11,13,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens -15 ans Masters Critérium Jeunes AFT - Grade 2,13,15,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes gens -15 ans Masters Critérium Jeunes AFT - Grade 3,13,15,male,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Catégorie A,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Catégorie B,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Messieurs A,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Messieurs B,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Messieurs - intime,0,99,male,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 1 - Belgian Circuit 1*,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 1 - Belgian Circuit 2*,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 1 - Belgian Circuit 3*,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 1 - Belgian Circuit 5*,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 2,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 3,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 4,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 5,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 25 1,25,35,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 25 2,25,35,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 25 3,25,35,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 25 4,25,35,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 35 1,35,45,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 35 2,35,45,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 35 3,35,45,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 45 1,45,50,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 45 2,45,50,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 50 1,50,55,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 50 2,50,55,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 55 1,55,60,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 55 2,55,60,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 60 1,60,99,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames 60 2,60,99,female,senior,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 11 ans Grade 1,0,11,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 11 ans Grade 2,0,11,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 11 ans Grade 3,0,11,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 13 ans Grade 1,11,13,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 13 ans Grade 2,11,13,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 13 ans Grade 3,11,13,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 15 ans Grade 2,13,15,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 15 ans Grade 3,13,15,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 9 ans BJC,0,9,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles -10 ans BJC,9,10,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 11 ans BJC,10,11,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 13 ans BJC,11,13,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles - 15 ans BJC,13,15,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles -11 ans Masters Critérium Jeunes AFT - Grade 1,0,11,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles -11 ans Masters Critérium Jeunes AFT - Grade 2,0,11,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles -11 ans Masters Critérium Jeunes AFT - Grade 3,0,11,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles -13 ans Masters Critérium Jeunes AFT - Grade 1,11,13,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles -13 ans Masters Critérium Jeunes AFT - Grade 2,11,13,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles -13 ans Masters Critérium Jeunes AFT - Grade 3,11,13,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles -15 ans Masters Critérium Jeunes AFT - Grade 2,13,15,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes filles -15 ans Masters Critérium Jeunes AFT - Grade 3,13,15,female,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Consolante Catégorie A,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Consolante Catégorie B,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Dames A,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples Dames - intime,0,99,female,adult,single,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Messieurs I,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Messieurs II,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Messieurs III,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Messieurs IV,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Double Messieurs V,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Double Messieurs VI,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Messieurs 6-30,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Messieurs 6-60,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Messieurs 33-90,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Messieurs 63-120,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Messieurs 93 - 150,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Messieurs 118-230,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Double Messieurs 35 hors Critérium,35,45,male,senior,double,560,672,806,967,1160,1392,1670,2004,2405
-Hors critérium Doubles Messieurs 45,45,55,male,senior,double,560,672,806,967,1160,1392,1670,2004,2405
-Hors critérium Doubles Messieurs 55,55,60,male,senior,double,560,672,806,967,1160,1392,1670,2004,2405
-Double Messieurs 60,60,99,male,senior,double,560,672,806,967,1160,1392,1670,2004,2405
-Hors critérium Doubles Messieurs,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Gens -13,0,13,male,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Gens - 15,13,15,male,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Gens -9 ans BJC,0,9,male,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Gens -10 ans BJC,9,10,male,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Gens -11 ans BJC,10,11,male,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Gens -13 ans BJC,11,13,male,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Gens -15 ans BJC,13,15,male,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Messieurs - intime,0,99,male,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Dames I,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Dames II,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Dames III,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Double Dames III,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Double Dames IV,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Double Dames V,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Double Dames VI,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Dames 6-30,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Dames 6-60,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Dames 33-90,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Dames 63-120,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Dames 93-150,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Dames 118-230,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Double Dames 25,25,99,female,senior,double,560,672,806,967,1160,1392,1670,2004,2405
-Hors critérium Doubles Dames,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Filles -13,0,13,female,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Filles -15,13,15,female,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Filles -9 ans BJC,0,9,female,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Filles -10 ans BJC,9,10,female,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Filles - 11 ans BJC,10,11,female,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Filles -13 ans BJC,11,13,female,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Jeunes Filles -15 ans BJC,13,15,female,youth,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Dames - intime,0,99,female,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes I,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes II,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes III,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes IV,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Double Mixte V,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Double Mixte VI,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes 6-30,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes 6-60,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes 33-90,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes 63-120,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes 93-150,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes 118-230,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Hors critérium Doubles Mixtes,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Simple Jeunes Mixte -7,0,7,mixed,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes mixte - 9 ans Grade 1,7,9,mixed,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes mixte - 9 ans Grade 2,7,9,mixed,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes mixte - 9 ans Grade 3,7,9,mixed,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simple Jeunes Mixte -7,0,7,mixed,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes mixte -9 ans Masters Critérium Jeunes AFT - Grade 1,0,9,mixed,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes mixte -9 ans Masters Critérium Jeunes AFT - Grade 2,0,9,mixed,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Simples jeunes mixte -9 ans Masters Critérium Jeunes AFT - Grade 3,0,9,mixed,youth,single,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes A,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixtes B,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
-Doubles Mixte - intime,0,99,mixed,adult,double,560,672,806,967,1160,1392,1670,2004,2405
+category,age_min,age_max,gender,age,c_type
+Simples Messieurs 1 - Belgian Circuit 1*,0,99,male,adult,single
+Simples Messieurs 1 - Belgian Circuit 2*,0,99,male,adult,single
+Simples Messieurs 1 - Belgian Circuit 3*,0,99,male,adult,single
+Simples Messieurs 1 - Belgian Circuit 4*,0,99,male,adult,single
+Simples Messieurs 1 - Belgian Circuit 5*,0,99,male,adult,single
+Simples Messieurs 2,0,99,male,adult,single
+Simples Messieurs 3,0,99,male,adult,single
+Simples Messieurs 4,0,99,male,adult,single
+Simples Messieurs 5,0,99,male,adult,single
+Simples Messieurs 6,0,99,male,adult,single
+Simples Messieurs 35 1 - Belgian Circuit 1*,35,45,male,senior,single
+Simples Messieurs 35 1,35,45,male,senior,single
+Simples Messieurs 35 2,35,45,male,senior,single
+Simples Messieurs 35 3,35,45,male,senior,single
+Simples Messieurs 35 4,35,45,male,senior,single
+Simples Messieurs 35 5,35,45,male,senior,single
+Simples Messieurs 35 6,35,45,male,senior,single
+Simples Messieurs 45 1 - Belgian Circuit 1*,45,55,male,senior,single
+Simples Messieurs 45 2,45,55,male,senior,single
+Simples Messieurs 45 3,45,55,male,senior,single
+Simples Messieurs 45 4,45,55,male,senior,single
+Simples Messieurs 45 5,45,55,male,senior,single
+Simples  Messieurs 55 1 - Belgian Circuit,55,60,male,senior,single
+Simples Messieurs 55 2,55,60,male,senior,single
+Simples Messieurs 55 3,55,60,male,senior,single
+Simples Messieurs 55 4,55,60,male,senior,single
+Simples Messieurs 60 1,60,99,male,senior,single
+Simples Messieurs 60 2,60,99,male,senior,single
+Simples Messieurs 65 1,60,99,male,senior,single
+Simples Messieurs 65 2,60,99,male,senior,single
+Simples jeunes gens - 11 ans Grade 1,0,11,male,youth,single
+Simples jeunes gens - 11 ans Grade 2,0,11,male,youth,single
+Simples jeunes gens - 11 ans Grade 3,0,11,male,youth,single
+Simples jeunes gens - 13 ans Grade 1,11,13,male,youth,single
+Simples jeunes gens - 13 ans Grade 2,11,13,male,youth,single
+Simples jeunes gens - 13 ans Grade 3,11,13,male,youth,single
+Simples jeunes gens - 15 ans Grade 2,13,15,male,youth,single
+Simples jeunes gens - 15 ans Grade 3,13,15,male,youth,single
+Simples jeunes gens - 9 ans BJC,0,9,male,youth,single
+Simples jeunes gens -10 ans BJC,9,10,male,youth,single
+Simples jeunes gens - 11 ans BJC,10,11,male,youth,single
+Simples jeunes gens - 13 ans BJC,11,13,male,youth,single
+Simples jeunes gens - 15 ans BJC,13,15,male,youth,single
+Simples jeunes gens -11 ans Masters Critérium Jeunes AFT - Grade 1,0,11,male,youth,single
+Simples jeunes gens -11 ans Masters Critérium Jeunes AFT - Grade 2,0,11,male,youth,single
+Simples jeunes gens -11 ans Masters Critérium Jeunes AFT - Grade 3,0,11,male,youth,single
+Simples jeunes gens -13 ans Masters Critérium Jeunes AFT - Grade 1,11,13,male,youth,single
+Simples jeunes gens -13 ans Masters Critérium Jeunes AFT - Grade 2,11,13,male,youth,single
+Simples jeunes gens -13 ans Masters Critérium Jeunes AFT - Grade 3,11,13,male,youth,single
+Simples jeunes gens -15 ans Masters Critérium Jeunes AFT - Grade 2,13,15,male,youth,single
+Simples jeunes gens -15 ans Masters Critérium Jeunes AFT - Grade 3,13,15,male,youth,single
+Catégorie A,0,99,male,adult,single
+Catégorie B,0,99,male,adult,single
+Messieurs A,0,99,male,adult,single
+Messieurs B,0,99,male,adult,single
+Simples Messieurs - intime,0,99,male,adult,single
+Simples Dames 1 - Belgian Circuit 1*,0,99,female,adult,single
+Simples Dames 1 - Belgian Circuit 2*,0,99,female,adult,single
+Simples Dames 1 - Belgian Circuit 3*,0,99,female,adult,single
+Simples Dames 1 - Belgian Circuit 5*,0,99,female,adult,single
+Simples Dames 2,0,99,female,adult,single
+Simples Dames 3,0,99,female,adult,single
+Simples Dames 4,0,99,female,adult,single
+Simples Dames 5,0,99,female,adult,single
+Simples Dames 25 1,25,35,female,senior,single
+Simples Dames 25 2,25,35,female,senior,single
+Simples Dames 25 3,25,35,female,senior,single
+Simples Dames 25 4,25,35,female,senior,single
+Simples Dames 35 1,35,45,female,senior,single
+Simples Dames 35 2,35,45,female,senior,single
+Simples Dames 35 3,35,45,female,senior,single
+Simples Dames 45 1,45,50,female,senior,single
+Simples Dames 45 2,45,50,female,senior,single
+Simples Dames 50 1,50,55,female,senior,single
+Simples Dames 50 2,50,55,female,senior,single
+Simples Dames 55 1,55,60,female,senior,single
+Simples Dames 55 2,55,60,female,senior,single
+Simples Dames 60 1,60,99,female,senior,single
+Simples Dames 60 2,60,99,female,senior,single
+Simples jeunes filles - 11 ans Grade 1,0,11,female,youth,single
+Simples jeunes filles - 11 ans Grade 2,0,11,female,youth,single
+Simples jeunes filles - 11 ans Grade 3,0,11,female,youth,single
+Simples jeunes filles - 13 ans Grade 1,11,13,female,youth,single
+Simples jeunes filles - 13 ans Grade 2,11,13,female,youth,single
+Simples jeunes filles - 13 ans Grade 3,11,13,female,youth,single
+Simples jeunes filles - 15 ans Grade 2,13,15,female,youth,single
+Simples jeunes filles - 15 ans Grade 3,13,15,female,youth,single
+Simples jeunes filles - 9 ans BJC,0,9,female,youth,single
+Simples jeunes filles -10 ans BJC,9,10,female,youth,single
+Simples jeunes filles - 11 ans BJC,10,11,female,youth,single
+Simples jeunes filles - 13 ans BJC,11,13,female,youth,single
+Simples jeunes filles - 15 ans BJC,13,15,female,youth,single
+Simples jeunes filles -11 ans Masters Critérium Jeunes AFT - Grade 1,0,11,female,youth,single
+Simples jeunes filles -11 ans Masters Critérium Jeunes AFT - Grade 2,0,11,female,youth,single
+Simples jeunes filles -11 ans Masters Critérium Jeunes AFT - Grade 3,0,11,female,youth,single
+Simples jeunes filles -13 ans Masters Critérium Jeunes AFT - Grade 1,11,13,female,youth,single
+Simples jeunes filles -13 ans Masters Critérium Jeunes AFT - Grade 2,11,13,female,youth,single
+Simples jeunes filles -13 ans Masters Critérium Jeunes AFT - Grade 3,11,13,female,youth,single
+Simples jeunes filles -15 ans Masters Critérium Jeunes AFT - Grade 2,13,15,female,youth,single
+Simples jeunes filles -15 ans Masters Critérium Jeunes AFT - Grade 3,13,15,female,youth,single
+Consolante Catégorie A,0,99,female,adult,single
+Consolante Catégorie B,0,99,female,adult,single
+Dames A,0,99,female,adult,single
+Simples Dames - intime,0,99,female,adult,single
+Doubles Messieurs I,0,99,male,adult,double
+Doubles Messieurs II,0,99,male,adult,double
+Doubles Messieurs III,0,99,male,adult,double
+Doubles Messieurs IV,0,99,male,adult,double
+Double Messieurs V,0,99,male,adult,double
+Double Messieurs VI,0,99,male,adult,double
+Doubles Messieurs 6-30,0,99,male,adult,double
+Doubles Messieurs 6-60,0,99,male,adult,double
+Doubles Messieurs 33-90,0,99,male,adult,double
+Doubles Messieurs 63-120,0,99,male,adult,double
+Doubles Messieurs 93 - 150,0,99,male,adult,double
+Doubles Messieurs 118-230,0,99,male,adult,double
+Double Messieurs 35 hors Critérium,35,45,male,senior,double
+Hors critérium Doubles Messieurs 45,45,55,male,senior,double
+Hors critérium Doubles Messieurs 55,55,60,male,senior,double
+Double Messieurs 60,60,99,male,senior,double
+Hors critérium Doubles Messieurs,0,99,male,adult,double
+Doubles Jeunes Gens -13,0,13,male,youth,double
+Doubles Jeunes Gens - 15,13,15,male,youth,double
+Doubles Jeunes Gens -9 ans BJC,0,9,male,youth,double
+Doubles Jeunes Gens -10 ans BJC,9,10,male,youth,double
+Doubles Jeunes Gens -11 ans BJC,10,11,male,youth,double
+Doubles Jeunes Gens -13 ans BJC,11,13,male,youth,double
+Doubles Jeunes Gens -15 ans BJC,13,15,male,youth,double
+Doubles Messieurs - intime,0,99,male,adult,double
+Doubles Dames I,0,99,female,adult,double
+Doubles Dames II,0,99,female,adult,double
+Doubles Dames III,0,99,female,adult,double
+Double Dames III,0,99,female,adult,double
+Double Dames IV,0,99,female,adult,double
+Double Dames V,0,99,female,adult,double
+Double Dames VI,0,99,female,adult,double
+Doubles Dames 6-30,0,99,female,adult,double
+Doubles Dames 6-60,0,99,female,adult,double
+Doubles Dames 33-90,0,99,female,adult,double
+Doubles Dames 63-120,0,99,female,adult,double
+Doubles Dames 93-150,0,99,female,adult,double
+Doubles Dames 118-230,0,99,female,adult,double
+Double Dames 25,25,99,female,senior,double
+Hors critérium Doubles Dames,0,99,female,adult,double
+Doubles Jeunes Filles -13,0,13,female,youth,double
+Doubles Jeunes Filles -15,13,15,female,youth,double
+Doubles Jeunes Filles -9 ans BJC,0,9,female,youth,double
+Doubles Jeunes Filles -10 ans BJC,9,10,female,youth,double
+Doubles Jeunes Filles - 11 ans BJC,10,11,female,youth,double
+Doubles Jeunes Filles -13 ans BJC,11,13,female,youth,double
+Doubles Jeunes Filles -15 ans BJC,13,15,female,youth,double
+Doubles Dames - intime,0,99,female,adult,double
+Doubles Mixtes I,0,99,mixed,adult,double
+Doubles Mixtes II,0,99,mixed,adult,double
+Doubles Mixtes III,0,99,mixed,adult,double
+Doubles Mixtes IV,0,99,mixed,adult,double
+Double Mixte V,0,99,mixed,adult,double
+Double Mixte VI,0,99,mixed,adult,double
+Doubles Mixtes 6-30,0,99,mixed,adult,double
+Doubles Mixtes 6-60,0,99,mixed,adult,double
+Doubles Mixtes 33-90,0,99,mixed,adult,double
+Doubles Mixtes 63-120,0,99,mixed,adult,double
+Doubles Mixtes 93-150,0,99,mixed,adult,double
+Doubles Mixtes 118-230,0,99,mixed,adult,double
+Hors critérium Doubles Mixtes,0,99,mixed,adult,double
+Simple Jeunes Mixte -7,0,7,mixed,youth,single
+Simples jeunes mixte - 9 ans Grade 1,7,9,mixed,youth,single
+Simples jeunes mixte - 9 ans Grade 2,7,9,mixed,youth,single
+Simples jeunes mixte - 9 ans Grade 3,7,9,mixed,youth,single
+Simple Jeunes Mixte -7,0,7,mixed,youth,single
+Simples jeunes mixte -9 ans Masters Critérium Jeunes AFT - Grade 1,0,9,mixed,youth,single
+Simples jeunes mixte -9 ans Masters Critérium Jeunes AFT - Grade 2,0,9,mixed,youth,single
+Simples jeunes mixte -9 ans Masters Critérium Jeunes AFT - Grade 3,0,9,mixed,youth,single
+Doubles Mixtes A,0,99,mixed,adult,double
+Doubles Mixtes B,0,99,mixed,adult,double
+Doubles Mixte - intime,0,99,mixed,adult,double
