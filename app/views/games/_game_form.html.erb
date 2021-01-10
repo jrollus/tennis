@@ -22,15 +22,16 @@
                               collection: [['Terminé','completed'], ['Blessure', 'retirement'],['WO','wo']],
                               input_html: { data: { target:'sets.status', action:'sets#setsHandler' }} %>
                               
-  <%= f.input :round,  label: 'Tour',
-                       collection: ['Finale','1/2','1/4','1/8','1/16','1/32','1/64','1/128','1/256','Poule'] %>
+  <%= f.input :round_id,  label: 'Tour',
+                       collection: @rounds %>
 
   <%= f.input :player_id, as: :hidden , 
                           input_html: { value: current_user.player.id, name: 'game_form[player_id]'} %>
 
   <div class='form-flex'>
     <div>
-      <%= f.input :court_type_id, label: 'Terrain', collection: @courts %>
+      <%= f.input :court_type_id, label: 'Terrain',
+                                  collection: @courts %>
     </div>
     <%= f.input :indoor, label: 'Indoor?',  as: :boolean %>
   </div>

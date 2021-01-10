@@ -152,4 +152,5 @@ class Player < ApplicationRecord
       errors.add(:affiliation_number, "Déjà existant") if player
     end
   end
+  
 end

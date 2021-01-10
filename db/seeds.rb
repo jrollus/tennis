@@ -1,13 +1,26 @@
 require 'csv'
 
-# Tournament Categories
-puts "Seeding Tournament Categories"
+# Destroy
+puts "Destroying Existing Data"
 GamePlayer.destroy_all
 GameSet.destroy_all
 TieBreak.destroy_all
 Game.destroy_all
+CategoryRound.destroy_all
+Round.destroy_all
 Tournament.destroy_all
 Category.destroy_all
+RankingHistory.destroy_all
+Ranking.destroy_all
+NbrParticipantRule.destroy_all
+Player.destroy_all
+Court.destroy_all
+Club.destroy_all
+CourtType.destroy_all
+User.destroy_all
+
+# Tournament Categories
+puts "Seeding Tournament Categories"
 ActiveRecord::Base.connection.reset_pk_sequence!('categories')
 
 filepath = 'db/data/tournament_categories.csv'
@@ -19,8 +32,6 @@ Category.import(categories)
 
 # Ranking Entries
 puts "Seeding Ranking Entries"
-RankingHistory.destroy_all
-Ranking.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('rankings')
 filepath = 'db/data/ranking_entries.csv'
 entries = []
@@ -31,7 +42,6 @@ Ranking.import(entries)
 
 # Nbr Participant Rules
 puts "Seeding Participant Rules"
-NbrParticipantRule.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('nbr_participant_rules')
 
 filepath = 'db/data/nbr_participant_rules.csv'
@@ -43,9 +53,6 @@ NbrParticipantRule.import(rules)
 
 # Clubs
 puts "Seeding Clubs"
-Player.destroy_all
-Court.destroy_all
-Club.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('clubs')
 
 filepath = 'db/data/clubs.csv'
@@ -56,7 +63,7 @@ end
 Club.import(clubs)
 
 # Court Types
-CourtType.destroy_all
+
 puts "Seeding Court Types"
 ActiveRecord::Base.connection.reset_pk_sequence!('court_types')
 
@@ -101,7 +108,6 @@ end
 Player.import(players)
 
 # Ranking History
-User.destroy_all
 puts "Seeding Ranking History"
 ActiveRecord::Base.connection.reset_pk_sequence!('ranking_histories')
 
@@ -111,6 +117,17 @@ CSV.foreach(filepath, headers: true) do |row|
     ranking_histories << row.to_hash
 end
 RankingHistory.import(ranking_histories)
+
+# Rounds
+puts "Seeding Round"
+ActiveRecord::Base.connection.reset_pk_sequence!('rounds')
+
+filepath = 'db/data/rounds.csv'
+rounds = []
+CSV.foreach(filepath, headers: true) do |row|
+    rounds << row.to_hash
+end
+Round.import(rounds)
 
 # Game
 puts "Seeding Game"
@@ -135,8 +152,7 @@ end
 GameSet.import(sets)
 
 # Game Players
-puts "Seeding Game Player"
-
+puts "Seeding GamePlayer"
 ActiveRecord::Base.connection.reset_pk_sequence!('game_players')
 
 filepath = 'db/data/game_players.csv'
@@ -145,3 +161,14 @@ CSV.foreach(filepath, headers: true) do |row|
     game_players << row.to_hash
 end
 GamePlayer.import(game_players)
+
+# Rounds
+puts "Seeding CategoryRound"
+ActiveRecord::Base.connection.reset_pk_sequence!('category_rounds')
+
+filepath = 'db/data/category_rounds.csv'
+category_rounds = []
+CSV.foreach(filepath, headers: true) do |row|
+    category_rounds << row.to_hash
+end
+CategoryRound.import(category_rounds)

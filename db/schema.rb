@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_27_185540) do
+ActiveRecord::Schema.define(version: 2021_01_10_100612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,15 +43,6 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
     t.string "gender"
     t.string "age"
     t.string "c_type"
-    t.integer "points_1_128"
-    t.integer "points_1_64"
-    t.integer "points_1_32"
-    t.integer "points_1_16"
-    t.integer "points_1_8"
-    t.integer "points_1_4"
-    t.integer "points_1_2"
-    t.integer "final_points"
-    t.integer "winner_points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -63,6 +54,16 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_category_rankings_on_category_id"
     t.index ["ranking_id"], name: "index_category_rankings_on_ranking_id"
+  end
+
+  create_table "category_rounds", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "round_id", null: false
+    t.integer "points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_category_rounds_on_category_id"
+    t.index ["round_id"], name: "index_category_rounds_on_round_id"
   end
 
   create_table "clubs", force: :cascade do |t|
@@ -122,6 +123,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
     t.bigint "tournament_id", null: false
     t.bigint "player_id"
     t.bigint "court_type_id"
+    t.bigint "round_id", null: false
     t.date "date"
     t.string "round"
     t.string "status"
@@ -130,6 +132,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["court_type_id"], name: "index_games_on_court_type_id"
     t.index ["player_id"], name: "index_games_on_player_id"
+    t.index ["round_id"], name: "index_games_on_round_id"
     t.index ["tournament_id"], name: "index_games_on_tournament_id"
   end
 
@@ -193,6 +196,12 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "rounds", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tie_breaks", force: :cascade do |t|
     t.bigint "game_set_id", null: false
     t.integer "points_1"
@@ -233,6 +242,8 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "category_rankings", "categories"
   add_foreign_key "category_rankings", "rankings"
+  add_foreign_key "category_rounds", "categories"
+  add_foreign_key "category_rounds", "rounds"
   add_foreign_key "courts", "clubs"
   add_foreign_key "courts", "court_types"
   add_foreign_key "game_players", "games"
@@ -241,6 +252,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_185540) do
   add_foreign_key "game_sets", "games"
   add_foreign_key "games", "court_types"
   add_foreign_key "games", "players"
+  add_foreign_key "games", "rounds"
   add_foreign_key "games", "tournaments"
   add_foreign_key "players", "clubs"
   add_foreign_key "players", "players", column: "player_creator_id"
