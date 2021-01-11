@@ -3,6 +3,6 @@
                             {data: {target: 'filter.year', action: 'filter#selectYear'}})%>
 
     <div class='games-container' data-target='filter.container'>
-        <%= render 'games_info', structured_output: @structured_output %>
+        <%= render 'games_info', structured_output: @games.structured_output(current_user) %>
     </div>
 </div>
