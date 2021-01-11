@@ -32,7 +32,7 @@ export default class extends Controller {
           let popupItem = document.createElement('DIV');
           popupItem.dataset.action = 'click->autocomplete#selectPopupItem';
           const reg = new RegExp(this.autocompleteTarget.value, 'gi');
-          const result = `${this.capitalize(player.first_name)} ${this.capitalize(player.last_name)} (${(player.affiliation_number)}) ${(player.ranking)}`;
+          const result = `${player.description}`;
           popupItem.innerHTML = result.replace(reg, function(str) {return '<b>'+str+'</b>'});
           popup.appendChild(popupItem);
         });

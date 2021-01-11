@@ -6,6 +6,6 @@ class GamePlayer < ApplicationRecord
 
   # Validations
   validates :player, :game, presence: true
-  validates :victory, :validated, inclusion: { in: [ "0", "1", true, false ] }
+  validates :victory, :validated, inclusion: { in: [ '0', '1', true, false ] }
 
 end

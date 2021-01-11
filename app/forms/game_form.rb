@@ -15,7 +15,7 @@ class GameForm
   validates :set_1_1, :set_1_2, :set_2_1, :set_2_2, :set_3_1, :set_3_2, :tie_break_1_1, :tie_break_1_2,
             :tie_break_2_1, :tie_break_2_2, :tie_break_3_1, :tie_break_3_2, numericality: { only_integer: true }, allow_blank: true
   validates :set_1_1, :set_1_2, :set_2_1, :set_2_2, :set_3_1, :set_3_2, inclusion: (0..7).map(&:to_s), allow_blank: true
-  validates :indoor, :victory, inclusion: { in: [ "0", "1", true, false ] }
+  validates :indoor, :victory, inclusion: { in: [ '0', '1', true, false ] }
   validate  :valid_date, :valid_opponent, :valid_score
  
   # Constructor
@@ -43,6 +43,7 @@ class GameForm
                                                                    attr[:match_points_saved]
       self.victory = edit ? @game.game_players.find{|player| player.player_id == user_player_id}.victory : attr[:victory]
       opponent = @game.game_players.find{|player| player.player_id != user_player_id}.player
+      opponent = PlayerDecorator.new(opponent)
       self.opponent = edit ? opponent.player_description : attr[:opponent]
 
       # Initialize Sets and Tie Breaks
@@ -88,13 +89,13 @@ class GameForm
   def valid_date
     unless self.tournament_id.blank? || self.date.blank?
       tournament = Tournament.find(self.tournament_id)
-      errors.add(:date, "en dehors des dates du tournoi") unless self.date.to_date.between?(tournament.start_date, tournament.end_date)
+      errors.add(:date, 'en dehors des dates du tournoi') unless self.date.to_date.between?(tournament.start_date, tournament.end_date)
     end
   end
 
   def valid_opponent
     unless self.opponent.blank?
-      errors.add(:opponent, "doit être sélectionné dans la liste proposée") if self.opponent.scan(/\((\d+)\)/).empty?
+      errors.add(:opponent, 'doit être sélectionné dans la liste proposée') if self.opponent.scan(/\((\d+)\)/).empty?
     end
   end
 
@@ -108,7 +109,7 @@ class GameForm
         unless set[0].blank? || set[1].blank?
           sets_won +=1 if set[0] > set[1]
           # Set Score Validation
-          unless ([set[0], set[1]].max == "6") && ((set[0].to_i - set[1].to_i).abs >= 2) || ([set[0], set[1]].max == "7") && ((set[0].to_i - set[1].to_i).abs <= 2)
+          unless ([set[0], set[1]].max == '6') && ((set[0].to_i - set[1].to_i).abs >= 2) || ([set[0], set[1]].max == '7') && ((set[0].to_i - set[1].to_i).abs <= 2)
             errors.add("set_#{set_number + 1}_1".to_sym, "le score n'est pas valide") 
           end
         end 
@@ -125,7 +126,7 @@ class GameForm
       tie_breaks.each_with_index do |tie_break, tie_break_number|
         unless tie_break[0].blank? || tie_break[1].blank?
           # Tie Break Validation
-          unless ([tie_break[0], tie_break[1]].max >= "7") && ((tie_break[0].to_i - tie_break[1].to_i).abs >= 2)
+          unless ([tie_break[0], tie_break[1]].max >= '7') && ((tie_break[0].to_i - tie_break[1].to_i).abs >= 2)
             errors.add("tie_break_#{tie_break_number + 1}_1", "le score n'est pas valide") 
           end
         end
@@ -185,7 +186,7 @@ class GameForm
    # Initializing Methods
 
   def init_sets_tie_breaks(attr, current_user, edit)
-    user_score_order = @game.check_user_order(current_user.player.id)
+    user_score_order = GamePlayerOrderService.maintain?(@game, current_user.player.id)
     (1..3).each_with_index do |set_index|
       # Sets
       set = @game.game_sets.find{|set| set.set_number == set_index}
@@ -220,15 +221,15 @@ class GameForm
       set_index += 1
       set_games = 0
       set_nbr[1].each do |set_key, set_value|
-        set_games += 1 if set_key != "set_number" && set_key!= "id"
+        set_games += 1 if set_key != 'set_number' && set_key!= 'id'
         tb_index = 0
         if set_value.is_a?((ActionController::Parameters))
           set_value.each do |tb_key, tb_value|
-            tb_index += 1 if tb_key != "id"
-            flat_params["tie_break_#{set_index}_#{tb_index}".to_sym] = tb_value if tb_key != "id"
+            tb_index += 1 if tb_key != 'id'
+            flat_params["tie_break_#{set_index}_#{tb_index}".to_sym] = tb_value if tb_key != 'id'
           end
         else
-          flat_params["set_#{set_index}_#{set_games}".to_sym] = set_value if set_key != "set_number" && set_key!= "id"
+          flat_params["set_#{set_index}_#{set_games}".to_sym] = set_value if set_key != 'set_number' && set_key!= 'id'
         end
       end
     end

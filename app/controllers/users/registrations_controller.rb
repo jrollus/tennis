@@ -10,14 +10,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     yield resource if block_given?
 
     resource.build_player.ranking_histories.build
-    @year_nbr_dates = RankingHistory.get_year_nbr_dates
+    @year_nbr_dates = YearDatesService.get_year_nbr_dates
     respond_with resource
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @year_nbr_dates = YearDatesService.get_year_nbr_dates
+    super
+  end
 
   # GET /resource/edit
   # def edit

@@ -1,0 +1,41 @@
+<h6>Matches Gagnes / Perdus : <%= @query.get_nbr_wins_losses(true, 2020) %> / <%= @query.get_nbr_wins_losses(false, 2020) %> </h6>
+<br>
+<% @query.get_wins_losses_by_tournament(true, 2020).each do |k, v|%>
+   <h6>Match Gagnes en:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_losses_by_tournament(false, 2020).each do |k, v|%>
+   <h6>Match Perdus en:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_losses_dominant_hand(true, 2020).each do |k, v|%>
+   <h6>Match Gagnes contre:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_losses_dominant_hand(false, 2020).each do |k, v|%>
+   <h6>Match Perdus contre:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_losses_by_court_type(true, 2020).each do |k, v|%>
+   <h6>Match Gagnes sur:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_losses_by_court_type(false, 2020).each do |k, v|%>
+   <h6>Match Perdus sur:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_by_ranking(true, 2020).each do |k, v|%>
+   <h6>Match Gagnes contre:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_by_ranking(false, 2020).each do |k, v|%>
+   <h6>Match Perdus contre:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<h6>Balles de Match sauvees / non converties : <%= @query.get_match_points(true, 2020) %> / <%= @query.get_match_points(false, 2020) %> </h6>
+<h6>Match Gagnes / Perdus en 2 sets : <%= @query.get_wins_losses_nbr_sets(true, 2, 2020) %> / <%= @query.get_wins_losses_nbr_sets(false, 2, 2020) %> </h6>
+<h6>Match Gagnes / Perdus en 3 sets : <%= @query.get_wins_losses_nbr_sets(true, 3, 2020) %> / <%= @query.get_wins_losses_nbr_sets(false, 3, 2020) %> </h6>
+<h6>Finales Gagnees / Perdues : <%= @query.get_rounds_won_lost(true, 'finale', 2020) %> / <%= @query.get_rounds_won_lost(false, 'finale', 2020) %> </h6>
+
+
+
