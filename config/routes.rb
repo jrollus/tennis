@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   # Generale Routes
   root to: 'pages#home'
+
+  # Players
+  get '/stats', to:'players#stats'
+
+  # Games
   resources :games, except: [:show] do
     post '/validate',  to:'games#validate'
   end

@@ -9,4 +9,7 @@ class PlayerPolicy < ApplicationPolicy
     true
   end
   
+  def stats?
+    true
+  end
 end

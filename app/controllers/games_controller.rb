@@ -1,20 +1,13 @@
 class GamesController < ApplicationController
-  before_action :set_clubs_and_courts, only: [:new, :create, :edit, :update]
+  before_action :set_players_and_clubs_and_courts_and_rounds, only: [:new, :create, :edit, :update]
   before_action :set_game, only: [:edit, :update]
 
   def index
     @max_date = Game.maximum(:date).year
     @min_date = Game.minimum(:date).year
 
-    query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
-    @games = policy_scope(Game).includes(:players, game_players: :ranking, game_sets: :tie_break, tournament: [:club, :category])
-                               .joins(:game_players, :tournament).merge(Tournament.order(start_date: :desc)).where(query, current_user.player.id, @max_date)
-                               .group_by(&:tournament_id)
-
-    @games = GamesIndexDecorator.new(@games)
-  end
-
-  def show
+    @games = PlayerGamesQuery.new(policy_scope(Game), current_user.player).get_games(@max_date)
+    @games = GameIndexDecorator.new(@games)
   end
 
   def new
@@ -73,9 +66,9 @@ class GamesController < ApplicationController
                                       game_sets_attributes: [:id, :set_number, :games_1, :games_2, :_destroy, tie_break_attributes: [:id, :points_1, :points_2, :_destroy]])
   end
   
-  def set_clubs_and_courts
-    query = "categories.gender = ? AND categories.c_type = 'single' AND ? >= categories.age_min AND ? < categories.age_max "
-    @clubs = Club.joins(tournaments: :category).where(query, current_user.player.gender, current_user.player.get_age, current_user.player.get_age).uniq.sort
+  def set_players_and_clubs_and_courts_and_rounds
+    @player = PlayerDecorator.new(current_user.player)
+    @clubs = ClubsMatchingQuery.new(@player).get_clubs_matching
     @courts = CourtType.all.map{|court_type| [court_type.court_type.titleize, court_type.id]}
     @rounds = Round.where.not(name: 'vainqueur').map{|round| [round.name.gsub('_', '/').capitalize, round.id]}
   end
@@ -84,23 +77,9 @@ class GamesController < ApplicationController
     @game = Game.includes(game_players: {player: {ranking_histories: :ranking}}, game_sets: :tie_break, tournament: [:club, :category]).find(params[:id])
   end
 
-  def select_categories
-    query = "tournaments.club_id = ? AND categories.gender = ? AND categories.c_type = ? AND ? >= categories.age_min AND ? < categories.age_max "
-    tournaments = Tournament.includes(:category).joins(:category)
-                  .where(query,  @form.club, current_user.player.gender, 'single', current_user.player.get_age, current_user.player.get_age)
-    tournaments.map{|tournament| [tournament.category.category, tournament.category.id]}.uniq.sort {|a,b| a[1] <=> b[1]}
-  end
-
-  def select_dates
-    query = "tournaments.club_id = ? AND categories.gender = ? AND categories.c_type = ? AND ? >= categories.age_min AND ? < categories.age_max AND tournaments.category_id = ?"
-    tournaments = Tournament.includes(:category).joins(:category)
-                  .where(query, @form.club, current_user.player.gender,'single', current_user.player.get_age, current_user.player.get_age, @form.category)
-    tournaments.map{|tournament| ["#{tournament.start_date.strftime("%d/%m/%Y")} - #{tournament.end_date.strftime("%d/%m/%Y")}", tournament.id]}.uniq.sort {|a,b| a[1] <=> b[1]}
-  end
-
   def refresh_cascading_dropdowns
-    @categories = select_categories unless @form.club.blank?
-    @tournament_dates = select_dates unless @form.category.blank?
-    @round_selected = @form.round_id
+    query = CascadingDropdownsQuery.new(policy_scope(Tournament), @form.club, current_user.player, false)
+    @categories = query.select_categories unless @form.club.blank?
+    @tournament_dates = query.select_dates(@form.category) unless @form.category.blank?
   end
 end
