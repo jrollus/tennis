@@ -1,0 +1,13 @@
+<% if edit %>
+  <%= f.input :id, as: :hidden %>
+<% else %>
+  <%= f.input :year, as: :hidden, 
+                     input_html: {value: Time.current.year.to_s } %>
+  <%= f.input :year_number, as: :hidden,
+                            input_html: {value: @year_nbr_dates[:year_number]} %>
+  <%= f.input :start_date, as: :hidden,
+                           input_html: {value: @year_nbr_dates[:start_date]} %>
+  <%= f.input :end_date, as: :hidden,
+                         input_html: {value: @year_nbr_dates[:end_date]} %>
+<% end %>
+<%= f.association :ranking, input_html: {data: {target: 'affiliation.ranking'}} %>

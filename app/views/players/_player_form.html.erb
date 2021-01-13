@@ -1,0 +1,21 @@
+<%= f.input :id, as: :hidden if edit %>
+
+<% if autofill %>
+  <%= f.input :affiliation_number, label: "Numéro d'affiliation", 
+                                   input_html: {data: {target: 'affiliation.number', action: 'affiliation#autofill'}} %>
+<% else %>
+  <%= f.input :affiliation_number, label: "Numéro d'affiliation", 
+                                   input_html: {data: {target: 'affiliation.number'}} %>
+<% end %>
+<%= f.input :first_name, label:'Prénom', 
+                         input_html: {data: {target: 'affiliation.firstName'}} %>
+<%= f.input :last_name, label:'Nom', 
+                        input_html: {data: {target: 'affiliation.lastName'}} %>
+<%= f.association :club, input_html: {data: {target: 'affiliation.club'}} %>
+<%= f.input :birthdate, label: "Date d'anniversaire", as: :date, html5: true %>
+<%= f.input :gender, label: 'Sexe', 
+                     collection:[['Homme', 'male'], ['Femme', 'female']], 
+                     input_html: {data: {target: 'affiliation.gender'}} %>
+<%= f.input :dominant_hand, label: 'Main dominante', 
+                            collection: [['Droitier', 'right-handed'], ['Gaucher', 'left-handed']], 
+                            input_html: {data: {target:'affiliation.dominantHand'}} %>
