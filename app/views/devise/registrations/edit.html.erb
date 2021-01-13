@@ -24,20 +24,9 @@
                 input_html: {autocomplete: 'current-password'} %>
     
     <%= f.simple_fields_for :player do |p| %>
-      <%= p.input :id, as: :hidden %>
-      <%= p.input :affiliation_number, label: "Numéro d'affiliation" %>
-      <%= p.input :first_name, label: 'Prénom' %>
-      <%= p.input :last_name, label: 'Nom' %>
-      <%= p.association :club %>
-      <%= p.input :birthdate,  label: "Date d'anniversaire", as: :date, html5: true  %>
-      <%= p.input :gender, label: 'Sexe',
-                           collection: [['Homme', 'male'], ['Femme', 'female']] %>
-      <%= p.input :dominant_hand, label: 'Main dominante', 
-                                  collection: ['Droitier', 'Gaucher'] %>
-
+      <%= render 'players/player_form', f: p, autofill: true, edit: true %>
       <%= p.simple_fields_for :ranking_histories, p.object.ranking_histories.order("year DESC").first do |rh| %>
-        <%= rh.input :id, as: :hidden %>
-        <%= rh.association :ranking %>
+        <%= render 'ranking_histories/ranking_history_form', f: rh,  edit: true %>
       <% end %>
     <% end %>
   </div>

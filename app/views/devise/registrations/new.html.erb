@@ -18,31 +18,9 @@
                 input_html: { autocomplete: 'new-password' } %>
     
     <%= f.simple_fields_for :player do |p| %>
-      <%= p.input :affiliation_number, label: "Numéro d'affiliation", 
-                                       input_html: {data: {target: 'affiliation.number', action: 'affiliation#autofill'}} %>
-      <%= p.input :first_name, label:'Prénom', 
-                               input_html: {data: {target: 'affiliation.firstName'}} %>
-      <%= p.input :last_name, label:'Nom', 
-                              input_html: {data: {target: 'affiliation.lastName'}} %>
-      <%= p.association :club, input_html: {data: {target: 'affiliation.club'}} %>
-      <%= p.input :birthdate, label: "Date d'anniversaire", as: :date, html5: true %>
-      <%= p.input :gender, label: 'Sexe', 
-                           collection:[['Homme', 'male'], ['Femme', 'female']], 
-                           input_html: {data: {target: 'affiliation.gender'}} %>
-      <%= p.input :dominant_hand, label: 'Main dominante', 
-                                  collection:['Droitier', 'Gaucher'], 
-                                  input_html: {data: {target:'affiliation.dominantHand'}} %>
-
+      <%= render 'players/player_form', f: p, autofill: true, edit: false  %>
       <%= p.simple_fields_for :ranking_histories do |rh| %>
-        <%= rh.input :year, as: :hidden, 
-                            input_html: {value: Time.current.year.to_s } %>
-        <%= rh.input :year_number, as: :hidden,
-                                   input_html: {value: @year_nbr_dates[:year_number]} %>
-        <%= rh.input :start_date, as: :hidden,
-                                  input_html: {value: @year_nbr_dates[:start_date]} %>
-        <%= rh.input :end_date, as: :hidden,
-                                input_html: {value: @year_nbr_dates[:end_date]} %>
-        <%= rh.association :ranking, input_html: {data: {target: 'affiliation.ranking'}} %>
+        <%= render 'ranking_histories/ranking_history_form', f: rh,  edit: false %>
       <% end %>
     <% end  %>
   </div>

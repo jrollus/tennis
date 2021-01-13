@@ -40,7 +40,7 @@ class Player < ApplicationRecord
       end
     # Create as a stand-alone player
     else
-      errors.add(:affiliation_number, 'Déjà existant') if player
+      errors.add(:affiliation_number, 'Déjà existant') if (player && self.new_record?)
     end
   end
   

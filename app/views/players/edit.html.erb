@@ -1,0 +1,9 @@
+<%= simple_form_for(@player, method: 'patch') do |f| %>
+  <%= render 'player_form', f: f, autofill: false, edit: true %>
+  <%= f.simple_fields_for :ranking_histories do |rh| %>
+    <%= render 'ranking_histories/ranking_history_form', f: rh,  edit: true %>
+  <% end %>
+  <div class="form-actions">
+    <%= f.button :submit, "Actualiser" %>
+  </div>
+<% end %>

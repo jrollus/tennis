@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # Players
+  resources :players, only: [:new, :create, :edit, :update]
   get '/stats', to:'players#stats'
+
+  # Tournaments
+  resources :tournaments, only: [:new, :create, :edit, :update]
 
   # Games
   resources :games, except: [:show] do
