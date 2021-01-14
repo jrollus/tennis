@@ -12,5 +12,13 @@ class TournamentPolicy < ApplicationPolicy
     def new?
       create?
     end
+
+    def update?
+      true
+    end
+  
+    def edit?
+      update?
+    end
     
 end
