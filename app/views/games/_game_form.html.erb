@@ -59,5 +59,14 @@
                                    input_html: {value: (@form.match_points_saved.blank? ? 0 : @form.match_points_saved)}, 
                                    wrapper_html: {hidden: true, data: {target:'sets.match_points_saved'}} %>
 
-  <%= f.submit class:'btn btn-pink w-100 my-2' %>
+  
+  <% if @form.persisted? %>
+    <%= f.submit 'Actualiser', class:'btn btn-pink w-100 my-2' %>
+  <% else %>
+    <div class='form-flex'>
+      <%= f.submit 'Ajouter' %>
+      <%= f.button :button, 'Ajouter et un autre', type: 'submit', name: 'create_and_add' %>
+    </div>
+  <% end %>
+  
 <% end %>

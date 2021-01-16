@@ -12,6 +12,7 @@ class GamesController < ApplicationController
 
   def new
     @form = GameForm.new
+    populate_tournament if session[:tournament_id]
     authorize @form
   end
 
@@ -20,9 +21,13 @@ class GamesController < ApplicationController
 
     authorize @form
     if @form.save(game_form_params, current_user)
-      redirect_to games_path 
+      if params[:create_and_add]
+        session[:tournament_id] = @form.tournament_id
+        redirect_to new_game_path 
+      else
+        redirect_to games_path 
+      end
     else
-      byebug
       refresh_cascading_dropdowns
       @form.date = @form.date.to_date
       render :new
@@ -76,6 +81,15 @@ class GamesController < ApplicationController
 
   def set_game
     @game = Game.includes(game_players: {player: {ranking_histories: :ranking}}, game_sets: :tie_break, tournament: [:club, :category]).find(params[:id])
+  end
+
+  def populate_tournament
+    tournament = Tournament.includes(:club, :category).find(session[:tournament_id])
+    session.delete(:tournament_id)
+    @form.tournament_id = tournament.id
+    @form.club = tournament.club.id
+    @form.category = tournament.category_id
+    refresh_cascading_dropdowns
   end
 
   def refresh_cascading_dropdowns
