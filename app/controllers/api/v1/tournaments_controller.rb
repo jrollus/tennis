@@ -7,6 +7,7 @@ class Api::V1::TournamentsController < Api::V1::BaseController
       elsif params[:type] == 'category'
           @options_list = query.select_dates(params[:category], params[:type])
       end
+      @options_list.first.gsub!(/'\d+'/, '\0 selected') if @options_list.size == 1
       @options_list.unshift("<option value></option>")
       (@options_list.size == 1) ? (render json: { error: "Couldn't find #{params[:type].capitalize}"} , status: :not_found) : (render json: @options_list)
     else
