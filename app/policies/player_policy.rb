@@ -1,10 +1,4 @@
 class PlayerPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
-  end
-
   def show?
     true
   end
@@ -17,15 +11,25 @@ class PlayerPolicy < ApplicationPolicy
     create?
   end
   
-  def stats?
-    true
-  end
-
   def update?
-    true
+    user.admin
   end
 
   def edit?
     update?
+  end
+
+  def validate?
+    user.admin
+  end
+
+  def stats?
+    true
+  end
+
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
   end
 end

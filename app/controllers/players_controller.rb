@@ -35,8 +35,9 @@ class PlayersController < ApplicationController
   end
 
   def stats
-    @query = PlayersQuery.new(current_user.player)
-    authorize @query
+    @player = current_user.player 
+    @query = PlayersQuery.new(@player)
+    authorize @player
   end
 
   private

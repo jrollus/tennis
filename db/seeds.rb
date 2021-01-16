@@ -94,7 +94,7 @@ tournaments = []
 CSV.foreach(filepath, headers: true) do |row|
     tournaments << row.to_hash
 end
-Tournament.import(tournaments)
+Tournament.import(tournaments, validate: false)
 
 # Player
 puts "Seeding Player"
@@ -105,7 +105,7 @@ players = []
 CSV.foreach(filepath, headers: true) do |row|
     players << row.to_hash
 end
-Player.import(players)
+Player.import(players, validate: false)
 
 # Ranking History
 puts "Seeding Ranking History"

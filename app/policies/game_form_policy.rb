@@ -1,24 +1,20 @@
 class GameFormPolicy < ApplicationPolicy
-    class Scope < Scope
-      def resolve
-        scope.all
-      end
-    end
+  def create?
+    true
+  end
   
-    def create?
-      true
-    end
-    
-    def new?
-      create?
-    end
-    
-    def update?
-      true
-    end
+  def new?
+    create?
+  end
   
-    def edit?
-      update?
-    end
+  def update?
+    true if user.admin
 
+    game_player = Game.find(record.game.id).game_players.find{|player| player.player_id == user.player.id}
+    (game_player ? true : false)
+  end
+
+  def edit?
+    update?
+  end
 end 

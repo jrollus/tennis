@@ -3,7 +3,7 @@ class GameForm
   include ActiveModel::Model
 
   # Attributes
-  attr_accessor :club, :category, :tournament_id, :player_id, :court_type_id, :date, :status, :indoor, :round_id, :opponent,
+  attr_accessor :game, :club, :category, :tournament_id, :player_id, :court_type_id, :date, :status, :indoor, :round_id, :opponent,
                 :victory, :set_1_number, :set_2_number, :set_3_number, :set_3_id, :tie_break_1_id, :tie_break_2_id, :tie_break_3_id, 
                 :set_3_destroy, :tie_break_1_destroy, :tie_break_2_destroy, :tie_break_2_destroy, :set_1_1, :set_1_2, :tie_break_1_1,
                 :tie_break_1_2, :set_2_1, :set_2_2, :tie_break_2_1, :tie_break_2_2, :set_3_1, :set_3_2, :tie_break_3_1, :tie_break_3_2, 
@@ -39,15 +39,19 @@ class GameForm
       self.indoor = edit ? @game.indoor : attr[:indoor]
       self.status = edit ? @game.status : attr[:status]
       self.round_id = edit ? @game.round.id : attr[:round_id]
-      self.match_points_saved = edit ? @game.game_players.find{|player| player.player_id == user_player_id}.match_points_saved : 
-                                                                   attr[:match_points_saved]
-      self.victory = edit ? @game.game_players.find{|player| player.player_id == user_player_id}.victory : attr[:victory]
-      opponent = @game.game_players.find{|player| player.player_id != user_player_id}.player
-      opponent = PlayerDecorator.new(opponent)
-      self.opponent = edit ? opponent.player_description : attr[:opponent]
+      
+      # User Check (in case somebody goes to the URL directly of a game that is not his)
+      if @game.game_players.find{|player| player.player_id == user_player_id}
+        self.match_points_saved = edit ? @game.game_players.find{|player| player.player_id == user_player_id}.match_points_saved : 
+                                                                    attr[:match_points_saved]
+        self.victory = edit ? @game.game_players.find{|player| player.player_id == user_player_id}.victory : attr[:victory]
+        opponent = @game.game_players.find{|player| player.player_id != user_player_id}.player
+        opponent = PlayerDecorator.new(opponent)
+        self.opponent = edit ? opponent.player_description : attr[:opponent]
 
-      # Initialize Sets and Tie Breaks
-      init_sets_tie_breaks(attr, current_user, edit)
+        # Initialize Sets and Tie Breaks
+        init_sets_tie_breaks(attr, current_user, edit)
+      end
 
     # Create
     else
