@@ -22,6 +22,7 @@ class GamesController < ApplicationController
     if @form.save(game_form_params, current_user)
       redirect_to games_path 
     else
+      byebug
       refresh_cascading_dropdowns
       @form.date = @form.date.to_date
       render :new
