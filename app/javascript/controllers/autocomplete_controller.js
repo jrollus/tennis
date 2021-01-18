@@ -42,11 +42,11 @@ export default class extends Controller {
     }
 
     clickOutside(event) {
-      this.closeAllPopups(event.target);
+      this.closeAllPopups(event.target.innerHTML);
     }
 
     selectPopupItem(e) {
-      this.autocompleteTarget.value = e.target.innerHTML.replace(/<\/?b>/gi,'');
+      this.autocompleteTarget.value = e.currentTarget.innerHTML.replace(/<\/?b>/gi,'');
       this.closeAllPopups();
     }
 

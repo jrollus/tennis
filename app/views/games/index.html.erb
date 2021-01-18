@@ -1,8 +1,6 @@
-<div data-controller='filter'>
-    <%= select_year(@max_date, {start_year: @max_date, end_year: @min_date}, 
-                            {data: {target: 'filter.year', action: 'filter#selectYear'}})%>
-
-    <div class='games-container' data-target='filter.container'>
-        <%= render 'games_info', structured_output: @games.structured_output(current_user) %>
-    </div>
+<div class='container' data-controller='filter autocomplete'>
+  <%= render 'shared/year_and_player_search', max_date: @max_date, min_date: @min_date %>
+  <div class='games-container' data-target='filter.container'>
+    <%= render 'games_info', structured_output: @games.structured_output(current_user.player, current_user) %>
+  </div>
 </div>
