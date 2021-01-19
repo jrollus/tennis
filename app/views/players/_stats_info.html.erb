@@ -1,0 +1,40 @@
+<h3><%= PlayerDecorator.new(@player).player_description %></h3>
+<h6>Matches Gagnes / Perdus : <%= @query.get_nbr_wins_losses(true,  @year) %> / <%= @query.get_nbr_wins_losses(false, @year) %> </h6>
+<br>
+<% @query.get_wins_losses_by_tournament(true, @year).each do |k, v|%>
+   <h6>Match Gagnes en:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_losses_by_tournament(false, @year).each do |k, v|%>
+   <h6>Match Perdus en:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_losses_dominant_hand(true, @year).each do |k, v|%>
+   <h6>Match Gagnes contre:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_losses_dominant_hand(false, @year).each do |k, v|%>
+   <h6>Match Perdus contre:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_losses_by_court_type(true, @year).each do |k, v|%>
+   <h6>Match Gagnes sur:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_losses_by_court_type(false, @year).each do |k, v|%>
+   <h6>Match Perdus sur:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_by_ranking(true, @year).each do |k, v|%>
+   <h6>Match Gagnes contre:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<% @query.get_wins_by_ranking(false, @year).each do |k, v|%>
+   <h6>Match Perdus contre:  <%= k %> : <%= v %> </h6>
+<% end %>
+<br>
+<h6>Balles de Match sauvees / non converties : <%= @query.get_match_points(true, @year) %> / <%= @query.get_match_points(false, @year) %> </h6>
+<h6>Match Gagnes / Perdus en 2 sets : <%= @query.get_wins_losses_nbr_sets(true, 2, @year) %> / <%= @query.get_wins_losses_nbr_sets(false, 2, @year) %> </h6>
+<h6>Match Gagnes / Perdus en 3 sets : <%= @query.get_wins_losses_nbr_sets(true, 3, @year) %> / <%= @query.get_wins_losses_nbr_sets(false, 3, @year) %> </h6>
+<h6>Finales Gagnees / Perdues : <%= @query.get_rounds_won_lost(true, 'finale', @year) %> / <%= @query.get_rounds_won_lost(false, 'finale', @year) %> </h6>
+
