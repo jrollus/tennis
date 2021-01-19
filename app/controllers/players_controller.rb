@@ -35,6 +35,9 @@ class PlayersController < ApplicationController
   end
 
   def stats
+    @max_date = Game.maximum(:date).year
+    @min_date = Game.minimum(:date).year
+    @year = @max_date
     @player = current_user.player 
     @query = PlayersQuery.new(@player)
     authorize @player

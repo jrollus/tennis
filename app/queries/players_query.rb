@@ -61,7 +61,7 @@ class PlayersQuery
                                                                                           .group('rankings.name').count
     else
       query = 'game_players.player_id = ? AND game_players.victory = ?'
-      player_subset = GamePlayer.joins(:game, :ranking).where(games: {id: Game.joins(:game_players).where(query, @player.id, win, year)})
+      player_subset = GamePlayer.joins(:game, :ranking).where(games: {id: Game.joins(:game_players).where(query, @player.id, win)})
                                                                                           .where.not(game_players: {player_id: @player.id})
                                                                                           .group('rankings.name').count
     end
