@@ -27,7 +27,7 @@ class GameIndexDecorator < SimpleDelegator
             game_hash[:validated] = game.game_players.find{|player| player.player_id == current_user_player_id}.validated
           end
           game_hash[:name] = (opponent ? opponent.full_name : 'N.A.')
-          game_hash[:ranking] = (opponent ? game.game_players.find{|player| player.id != selected_player_id}.ranking.name : 'N.A.')
+          game_hash[:ranking] = (opponent ? game.game_players.find{|player| player.player_id != selected_player_id}.ranking.name : 'N.A.')
           game_hash[:score] = GameDecorator.new(game).game_score(selected_player_id)
           structured_output[-1][:games] << game_hash
         end
