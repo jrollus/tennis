@@ -1,4 +1,4 @@
-<h3><%= PlayerDecorator.new(@player).player_description %></h3>
+<h3><%= PlayerDecorator.new(@user_player).player_description %></h3>
 <h6>Matches Gagnes / Perdus : <%= @query.get_nbr_wins_losses(true,  @year) %> / <%= @query.get_nbr_wins_losses(false, @year) %> </h6>
 <br>
 <% @query.get_wins_losses_by_tournament(true, @year).each do |k, v|%>
