@@ -16,11 +16,12 @@ class Api::V1::PlayersController < Api::V1::BaseController
   end
 
   def stats
-    @player = get_player
-    if @player
-      authorize @player
+    @user_player = Player.includes(ranking_histories: :ranking).find(current_user.player.id)
+    player = get_player
+    if player
+      authorize player
       @year = (params[:year].present? ? params[:year] : nil)
-      @query = PlayersQuery.new(@player)
+      @query = PlayersQuery.new(player)
       render(json: { html_data: render_to_string(partial: 'players/stats_info.html.erb')})
     else
       skip_authorization
@@ -39,10 +40,10 @@ class Api::V1::PlayersController < Api::V1::BaseController
       if params[:player].scan(/\((\d+)\)/).blank?
         player = nil
       else
-        player = Player.find_by_affiliation_number(params[:player].scan(/\((\d+)\)/)[0][0])
+        player = Player.includes(ranking_histories: :ranking).find_by_affiliation_number(params[:player].scan(/\((\d+)\)/)[0][0])
       end
     else
-      player = current_user.player
+      player = @user_player
     end
   end
 end

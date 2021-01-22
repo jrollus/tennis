@@ -38,9 +38,9 @@ class PlayersController < ApplicationController
     @max_date = Game.maximum(:date).year
     @min_date = Game.minimum(:date).year
     @year = @max_date
-    @player = current_user.player 
-    @query = PlayersQuery.new(@player)
-    authorize @player
+    @user_player = Player.includes(ranking_histories: :ranking).find(current_user.player.id)
+    @query = PlayersQuery.new(@user_player)
+    authorize @user_player
   end
 
   private
