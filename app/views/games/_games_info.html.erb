@@ -10,8 +10,8 @@
       <% elsif game[:status] == 'retirement' %>
         <h6><%= "#{game[:date]} - #{game[:name]} - #{game[:ranking]} - #{game[:victory]} - Blessure - #{game[:score]}" %></h6>
       <% end %>
-      <% if structured_output.first[:games].first[:player_name] == PlayerDecorator.new(current_user.player).player_description ||
-        game[:name] == PlayerDecorator.new(current_user.player).full_name %>
+      <% if structured_output.first[:games].first[:player_name] == PlayerDecorator.new(@user_player).player_description ||
+        game[:name] == PlayerDecorator.new(@user_player).full_name %>
         <% unless game[:validated] %>
           <%= simple_form_for(game[:game], remote: true, url: game_validate_path(game[:game]), method: :post) do |f| %>
             <%= f.submit 'Valide' %>
