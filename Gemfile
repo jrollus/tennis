@@ -66,3 +66,5 @@ gem 'pundit'
 gem 'geocoder'
 gem 'pg_search', '~> 2.3.0'
 gem "activerecord-import", "~> 1.0"
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'

@@ -4,11 +4,11 @@ class PlayerPointsQuery
       @player = player
     end
   
-    def get_games(year=nil)
-      if year
-        query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
+    def get_games(start_date=nil, end_date=nil)
+      if start_date && end_date
+        query = 'game_players.player_id = ? AND (games.date BETWEEN ? AND ?)'
         games = @games.includes(:round, game_players: :ranking, tournament: {category: :category_rounds})
-                      .joins(:game_players, :tournament).where(query, @player.id, year).order('tournaments.start_date DESC, games.round_id DESC')
+                      .joins(:game_players, :tournament).where(query, @player.id, start_date, end_date).order('tournaments.start_date DESC, games.round_id DESC')
                       .group_by(&:tournament_id)
       else
         query = 'game_players.player_id = ?'
