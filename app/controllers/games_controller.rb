@@ -22,6 +22,7 @@ class GamesController < ApplicationController
 
     authorize @form
     if @form.save(game_form_params, current_user)
+      PointsJob.perform_later(current_user.player, @form.date.to_date)
       if params[:create_and_add]
         session[:tournament_id] = @form.tournament_id
         redirect_to new_game_path 
@@ -45,6 +46,7 @@ class GamesController < ApplicationController
     @form = GameForm.new(game_form_params, current_user, @game, false)
     authorize @form
     if @form.update(game_form_params, current_user, @game)
+      PointsJob.perform_later(current_user.player, @form.date.to_date)
       redirect_to games_path
     else
       refresh_cascading_dropdowns

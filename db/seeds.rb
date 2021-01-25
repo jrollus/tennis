@@ -9,6 +9,7 @@ Game.destroy_all
 CategoryRound.destroy_all
 Round.destroy_all
 Tournament.destroy_all
+CategoryRanking.destroy_all
 Category.destroy_all
 RankingHistory.destroy_all
 Ranking.destroy_all
@@ -39,6 +40,17 @@ CSV.foreach(filepath, headers: true) do |row|
     entries << row.to_hash
 end
 Ranking.import(entries)
+
+# Category Rankings
+puts "Seeding Category Rankings"
+ActiveRecord::Base.connection.reset_pk_sequence!('category_rankings')
+
+filepath = 'db/data/category_rankings.csv'
+categorie_rankings = []
+CSV.foreach(filepath, headers: true) do |row|
+    categorie_rankings << row.to_hash
+end
+CategoryRanking.import(categorie_rankings)
 
 # Nbr Participant Rules
 puts "Seeding Participant Rules"

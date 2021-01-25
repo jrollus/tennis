@@ -6,7 +6,7 @@ class Game < ApplicationRecord
   belongs_to :round
   has_many :game_players, dependent: :destroy
   has_many :players, through: :game_players
-  
+
   # Nested attributes
   has_many :game_sets, dependent: :destroy
   accepts_nested_attributes_for :game_sets, allow_destroy: true
