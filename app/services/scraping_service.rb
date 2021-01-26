@@ -24,6 +24,7 @@ class ScrapingService
             light: (court.include?(LIGHT_ON_TEXT) || is_indoor) ? true : false
           }
         end
+      end
     end
     return club_courts
   end  
