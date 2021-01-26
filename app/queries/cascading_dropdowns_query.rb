@@ -8,9 +8,9 @@ class CascadingDropdownsQuery
   end
 
   def select_categories(field=nil)
-      query = 'tournaments.club_id = ? AND categories.gender = ? AND categories.c_type = ? AND ? >= categories.age_min AND ? < categories.age_max'
-      tournaments = @tournament.includes(:category).joins(:category)
-                      .where(query,  @club, @player.gender, @type, @player.age, @player.age)
+      query = 'tournaments.club_id = ? AND categories.gender = ? AND categories.c_type = ? AND ? >= categories.age_min AND ? < categories.age_max AND category_rankings.ranking_id = ?'
+      tournaments = @tournament.includes(:category).joins(category: :category_rankings)
+                               .where(query,  @club, @player.gender, @type, @player.age, @player.age, @player.ranking_histories.last.ranking.id)
       if @api
         tournaments.map{ |tournament| generate_option_tag(tournament, field) }.uniq.sort_by {|category| category.scan(/'(\d+)'/)[0][0].to_i}
       else
