@@ -7,7 +7,7 @@ class CreateRankingHistories < ActiveRecord::Migration[6.0]
       t.integer :year_number
       t.date :start_date
       t.date :end_date
-      t.integer :points
+      t.integer :points, default: 0
       t.string :national_ranking
       t.timestamps
     end
