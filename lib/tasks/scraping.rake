@@ -1,11 +1,11 @@
 namespace :scraping do
-  require "open-uri"
-  require "nokogiri"
-  require "selenium-webdriver"
-  require "json"
-  require "csv"
-  require "watir"
-  require "byebug"
+  # require "open-uri"
+  # require "nokogiri"
+  # require "selenium-webdriver"
+  # require "json"
+  # require "csv"
+  # require "watir"
+  # require "byebug"
 
   BASE_URL = "https://www.aftnet.be"
   CLUB_SEARCH_URL = "https://www.aftnet.be/MyAFT/Clubs/Search"
