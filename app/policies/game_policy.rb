@@ -1,7 +1,6 @@
 class GamePolicy < ApplicationPolicy
   def destroy?
     true if user.admin
-    byebug
     (set_game_player ? true : false)
   end
 
