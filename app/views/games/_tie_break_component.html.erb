@@ -5,8 +5,7 @@
 
         <% attr_name =  "tie_break_#{set_number}_id".to_sym %>
         <%= f.input attr_name, as: :hidden , 
-                            input_html: {value: @game.game_sets[set_number - 1].tie_break.id, name: param_name + '[id]', data: {target: "sets.#{attr_name}"}},
-                            disabled: true %>
+                            input_html: {value: @game.game_sets[set_number - 1].tie_break.id, name: param_name + '[id]', data: {target: "sets.#{attr_name}"}} %>
 
         <% attr_name =  "tie_break_#{set_number}_destroy".to_sym %>
         <%= f.input attr_name, as: :hidden , 

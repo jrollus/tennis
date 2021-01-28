@@ -174,7 +174,7 @@ class GameForm
   def update_game(game_form_params, current_user, game)
     # Player Table and associated nested tables
     game.update(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
-
+    
     # GamePlayers Table
     user_player_id = current_user.player.id
     @game_player_user = game.game_players.find{|player| player.player_id == user_player_id}
@@ -193,25 +193,30 @@ class GameForm
     user_score_order = GamePlayerOrderService.maintain?(@game, current_user.player.id)
     (1..3).each_with_index do |set_index|
       # Sets
-      set = @game.game_sets.find{|set| set.set_number == set_index}
-      if set
-        games_1 = (user_score_order ? set.games_1 : set.games_2)
-        games_2 = (user_score_order ? set.games_2 : set.games_1)
+      if edit
+        set = @game.game_sets.find{|set| set.set_number == set_index}
+        if set
+          games_1 = (user_score_order ? set.games_1 : set.games_2)
+          games_2 = (user_score_order ? set.games_2 : set.games_1)
+        end
       end
-
+      
       self.send("set_#{set_index}_1=", (edit ? games_1 : attr["set_#{set_index}_1".to_sym]))
       self.send("set_#{set_index}_2=", (edit ? games_2 : attr["set_#{set_index}_2".to_sym]))
 
       # Tie Breaks
-      if set
-        if set.tie_break
-          points_1 = (user_score_order ? set.tie_break.points_1 : set.tie_break.points_2)
-          points_2 = (user_score_order ? set.tie_break.points_2 : set.tie_break.points_1)
-        end
-      end 
+      if edit
+        if set
+          if set.tie_break
+            points_1 = (user_score_order ? set.tie_break.points_1 : set.tie_break.points_2)
+            points_2 = (user_score_order ? set.tie_break.points_2 : set.tie_break.points_1)
+          end
+        end 
+      end
 
       self.send("tie_break_#{set_index}_1=", (edit ? points_1 : attr["tie_break_#{set_index}_1".to_sym]))
       self.send("tie_break_#{set_index}_2=", (edit ? points_2 : attr["tie_break_#{set_index}_2".to_sym]))
+      
       
     end
   end
@@ -225,15 +230,15 @@ class GameForm
       set_index += 1
       set_games = 0
       set_nbr[1].each do |set_key, set_value|
-        set_games += 1 if set_key != 'set_number' && set_key!= 'id'
+        set_games += 1 if set_key != 'set_number' && set_key!= 'id' && set_key!= '_destroy'
         tb_index = 0
         if set_value.is_a?((ActionController::Parameters))
           set_value.each do |tb_key, tb_value|
-            tb_index += 1 if tb_key != 'id'
-            flat_params["tie_break_#{set_index}_#{tb_index}".to_sym] = tb_value if tb_key != 'id'
+            tb_index += 1 if tb_key != 'id' && tb_key!= '_destroy'
+            flat_params["tie_break_#{set_index}_#{tb_index}".to_sym] = tb_value if tb_key != 'id' && tb_key!= '_destroy'
           end
         else
-          flat_params["set_#{set_index}_#{set_games}".to_sym] = set_value if set_key != 'set_number' && set_key!= 'id'
+          flat_params["set_#{set_index}_#{set_games}".to_sym] = set_value if set_key != 'set_number' && set_key!= 'id' && set_key!= '_destroy'
         end
       end
     end
