@@ -133,6 +133,11 @@ class GameForm
           unless ([tie_break[0], tie_break[1]].max >= '7') && ((tie_break[0].to_i - tie_break[1].to_i).abs >= 2)
             errors.add("tie_break_#{tie_break_number + 1}_1", "le score n'est pas valide") 
           end
+
+          unless (sets[tie_break_number][0] > sets[tie_break_number][1] && tie_break[0] > tie_break[1]) || 
+                 (sets[tie_break_number][0] < sets[tie_break_number][1] && tie_break[0] < tie_break[1])
+            errors.add("tie_break_#{tie_break_number + 1}_1", "le score du tie break n'est pas consistent avec le score du set") 
+          end
         end
       end
     end   
