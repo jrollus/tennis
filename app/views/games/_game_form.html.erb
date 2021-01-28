@@ -1,6 +1,6 @@
 <%= simple_form_for(@form, url: (@form.persisted? ? game_path(@form.id) : games_path), 
                            method: (@form.persisted? ? 'patch': 'post'),
-                           html: {data: {controller: 'cascading sets autocomplete', action: 'sets#checkDelete'}}) do |f| %>
+                           html: {data: {controller: 'cascading sets autocomplete'}}) do |f| %>
 
   <%= f.input :club, label: 'Club',
                      collection: @clubs, 

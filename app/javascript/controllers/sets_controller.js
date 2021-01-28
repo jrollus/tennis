@@ -13,39 +13,16 @@ export default class extends Controller {
       this.set1 = [this.set_1_1Target, this.set_1_2Target, this.set_1_numberTarget, this.hasSet_1_idTarget,  (this.hasSet_1_idTarget ? this.set_1_idTarget : null)];
       this.set2 = [this.set_2_1Target, this.set_2_2Target, this.set_2_numberTarget, this.hasSet_2_idTarget,  (this.hasSet_2_idTarget ? this.set_2_idTarget : null)];
       this.set3 = [this.set_3_1Target, this.set_3_2Target, this.set_3_numberTarget, this.hasSet_3_idTarget,  (this.hasSet_3_idTarget ? this.set_3_idTarget : null),
-                   this.set_3_1_2Target, this.set_3_2_2Target];
+                   this.set_3_1_2Target, this.set_3_2_2Target, (this.hasSet_3_idTarget ? this.set_3_destroyTarget : null)];
       this.tieBreak1 = [this.tie_break_1_1Target, this.tie_break_1_2Target, this.hasTie_break_1_idTarget, (this.hasTie_break_1_idTarget ? this.tie_break_1_idTarget : null),
-                        this.tie_break_1_1_2Target, this.tie_break_1_2_2Target];
+                        this.tie_break_1_1_2Target, this.tie_break_1_2_2Target, (this.hasTie_break_1_idTarget ? this.tie_break_1_destroyTarget : null)];
       this.tieBreak2 = [this.tie_break_2_1Target, this.tie_break_2_2Target, this.hasTie_break_2_idTarget, (this.hasTie_break_2_idTarget ? this.tie_break_2_idTarget : null), 
-                        this.tie_break_2_1_2Target, this.tie_break_2_2_2Target];
+                        this.tie_break_2_1_2Target, this.tie_break_2_2_2Target, (this.hasTie_break_2_idTarget ? this.tie_break_2_destroyTarget : null)];
       this.tieBreak3 = [this.tie_break_3_1Target, this.tie_break_3_2Target, this.hasTie_break_3_idTarget, (this.hasTie_break_3_idTarget ? this.tie_break_3_idTarget : null), 
-                        this.tie_break_3_1_2Target, this.tie_break_3_2_2Target];
+                        this.tie_break_3_1_2Target, this.tie_break_3_2_2Target, (this.hasTie_break_3_idTarget ? this.tie_break_3_destroyTarget : null)];
 
       // Check whether there is some data in the form already to enable third set and/or tie breaks if necessary
       this.checkSets()
-    }
-
-    // In case of edit check before submitting the form whether some sets/tie breaks have to be deleted
-    checkDelete(){
-      const structuredData = [[this.hasSet_3_idTarget, this.set_3_1Target, this.set_3_2Target,  (this.hasSet_3_idTarget ? this.set_3_idTarget : null),  
-                               (this.hasSet_3_idTarget ? this.set_3_destroyTarget : null)],
-                              [this.hasTie_break_1_idTarget, this.tie_break_1_1Target, this.tie_break_1_2Target, (this.hasTie_break_1_idTarget ? this.tie_break_1_idTarget : null),
-                               (this.hasTie_break_1_idTarget ? this.tie_break_1_destroyTarget : null)],
-                              [this.hasTie_break_2_idTarget, this.tie_break_2_1Target, this.tie_break_2_2Target, (this.hasTie_break_2_idTarget ? this.tie_break_2_idTarget : null),
-                               (this.hasTie_break_2_idTarget ? this.tie_break_2_destroyTarget : null)],
-                              [this.hasTie_break_3_idTarget, this.tie_break_3_1Target, this.tie_break_3_2Target, (this.hasTie_break_3_idTarget ? this.tie_break_3_idTarget : null),
-                               (this.hasTie_break_3_idTarget ? this.tie_break_3_destroyTarget : null)]
-                             ];
-      
-      structuredData.forEach((element) => {
-        if (element[0]) {
-          if (element[1].value == 0 && element[2].value == 0) {
-            element[3].disabled = false;
-            element[4].value = true;
-            element[4].disabled = false;
-          }
-        }
-      });
     }
 
     // In case of edit check sets that have already defined values to enable them and have them visible
@@ -69,7 +46,7 @@ export default class extends Controller {
 
     setsOnOff(structuredSets, on) {
       structuredSets.forEach((gameSet, i)  => {
-        if (gameSet.length == 7) {
+        if (gameSet.length == 8) {
           if (on) {
             gameSet[5].classList.add('visibility-on');
             gameSet[6].classList.add('visibility-on');
@@ -77,19 +54,21 @@ export default class extends Controller {
             gameSet[5].classList.remove('visibility-on');
             gameSet[6].classList.remove('visibility-on');
           }
+
+          if (gameSet[3]) {
+            gameSet[7].disabled = (on ? true : false);
+            gameSet[7].value = (on ? false : true);
+          }
         }
         gameSet[0].disabled = (on ? false : true);
         gameSet[1].disabled = (on ? false : true);
+
         if (on == false) {
           gameSet[0].value = '';
           gameSet[1].value = '';
         }
 
         gameSet[2].disabled = (on ? false : true);
-        
-        if (gameSet[3]) {
-          gameSet[4].disabled = (on ? false : true);
-        }
       });
     }
 
@@ -112,7 +91,8 @@ export default class extends Controller {
         }
         
         if (TieBreak[2]) {
-          TieBreak[3].disabled == (on ? false : true);
+          TieBreak[6].disabled = (on ? true : false);
+          TieBreak[6].value = (on ? false : true);
         }
       });
     }
