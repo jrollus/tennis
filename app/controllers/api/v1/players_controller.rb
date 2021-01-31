@@ -16,8 +16,8 @@ class Api::V1::PlayersController < Api::V1::BaseController
   end
 
   def stats
-    @user_player = Player.includes(ranking_histories: :ranking).find(current_user.player.id)
     player = get_player
+    @user_player = Player.includes(ranking_histories: :ranking).find(player.id)
     if player
       authorize player
       @year = (params[:year].present? ? params[:year] : nil)
