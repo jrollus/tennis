@@ -3,7 +3,7 @@ class User < ApplicationRecord
   include NestedUserConcern
   
   # Devise
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable
 
   # Active Storage
