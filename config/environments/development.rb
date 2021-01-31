@@ -35,7 +35,7 @@ Rails.application.configure do
   # Sidekiq
   config.active_job.queue_adapter = :sidekiq
 
-  # ActiveMailer
+  # ActionMailer
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
@@ -49,9 +49,6 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true
   }
-
-  # Don't care if the mailer can't send.
-  
 
   config.action_mailer.perform_caching = false
 
