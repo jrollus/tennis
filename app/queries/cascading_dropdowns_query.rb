@@ -22,7 +22,7 @@ class CascadingDropdownsQuery
     query = 'tournaments.club_id = ? AND categories.gender = ? AND categories.c_type = ? AND ? >= categories.age_min AND ? < categories.age_max AND tournaments.category_id = ?'
     tournaments = @tournament.includes(:category).joins(:category)
                     .where(query, @club, @player.gender, @type, @player.age, @player.age, category)
-
+    
     if @api
       tournaments.map{ |tournament| generate_option_tag(tournament, field) }.uniq.sort_by {|category| category.scan(/'(\d+)'/)[0][0].to_i}
     else
