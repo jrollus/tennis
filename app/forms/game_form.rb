@@ -163,15 +163,33 @@ class GameForm
     @game_player_user.victory = game_form_params[:victory]
     @game_player_user.match_points_saved = game_form_params[:match_points_saved].to_i
     @game_player_user.player = current_user.player
-    @game_player_user.ranking = @game_player_user.player.ranking_histories.where('? >= start_date AND ? <= end_date', game_form_params[:date], game_form_params[:date])
-                                                 .first.ranking
+    @game_player_user.ranking = get_or_create_player_ranking(@game_player_user.player, game_form_params)
     @game_player_user.validated = true
+    
     @game_player_opponent.victory = (game_form_params[:victory].to_i == 1) ? 0 : 1
     @game_player_opponent.match_points_saved = - game_form_params[:match_points_saved].to_i
     @game_player_opponent.player = Player.find_by_affiliation_number(game_form_params[:opponent].scan(/\((\d+)\)/)[0][0])
-    @game_player_opponent.ranking =  @game_player_opponent.player.ranking_histories.where('? >= start_date AND ? <= end_date', game_form_params[:date], game_form_params[:date])
-                                                          .first.ranking
+    @game_player_opponent.ranking = get_or_create_player_ranking(@game_player_opponent.player, game_form_params)
     @game_player_opponent.validated = false
+  end
+
+  def get_or_create_player_ranking(player, game_form_params)
+    # Check if ranking exists for the game's time period
+    ranking_history = player.ranking_histories.where('? >= start_date AND ? <= end_date', game_form_params[:date], game_form_params[:date])
+    if ranking_history.present?
+      return ranking_history.first.ranking
+    # If not assume - for the lack of a better option - that his ranking then was the same as the current one
+    else
+      ranking_period_dates = YearDatesService.get_year_nbr_dates(@game.date)
+      player.ranking_histories.build
+      player.ranking_histories.last.year = @game.date.year
+      player.ranking_histories.last.year_number = ranking_period_dates[:year_number]
+      player.ranking_histories.last.start_date = ranking_period_dates[:start_date]
+      player.ranking_histories.last.end_date = ranking_period_dates[:end_date]
+      player.ranking_histories.last.ranking = player.ranking_histories.second_to_last.ranking
+      player.save
+      return player.ranking_histories.last.ranking
+    end
   end
 
   # Update

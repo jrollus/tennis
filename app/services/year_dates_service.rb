@@ -1,5 +1,5 @@
 class YearDatesService
-  RANKINGS_PER_YEAR = 2
+  RANKINGS_PER_YEAR = 1
   
   def self.get_year_nbr_dates(date=Date.today)
     case RANKINGS_PER_YEAR
