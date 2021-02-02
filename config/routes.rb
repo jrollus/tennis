@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # Generale Routes
   root to: 'pages#home'
 
+  # Ranking Histories
+  resources :ranking_histories, only: [:index, :edit, :update]
+
   # Players
   resources :players, only: [:new, :create, :edit, :update]
   get '/stats', to:'players#stats'

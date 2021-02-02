@@ -1,0 +1,9 @@
+<div class='container'>
+  <div class='games-container'>
+    <% if @ranking_histories.present? %>
+      <%= render 'ranking_history_info' %>
+    <% else %>
+      Aucun classement trouvé
+    <% end %>
+  </div>
+</div>

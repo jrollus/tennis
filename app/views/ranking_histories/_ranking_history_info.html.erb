@@ -1,0 +1,10 @@
+<h3> Historique de classements </h3>
+<% @ranking_histories.each do |year, year_data| %>
+  <h6> <%= year %> </h6>
+  <% year_data.each do |ranking| %>
+    <div class='display-flex'>
+      <h6><%= "#{ranking.start_date} - #{ranking.end_date} - #{ranking.ranking.name}"%></h6>
+      <%= link_to "Modifie", edit_ranking_history_path(ranking), method: :get %>
+    </div>
+  <% end %>
+<% end %>
