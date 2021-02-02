@@ -5,6 +5,7 @@
       <div class='navbar-collapsable'>
         <%= link_to 'Encodage', new_game_path, class: 'navbar-link' %>
         <%= link_to 'Statistiques', stats_path, class: 'navbar-link' %>
+        <%= link_to 'Classement', ranking_histories_path, class: 'navbar-link' %>
         <h6 class='navbar-points'> <%= current_user.player.ranking_histories.last.points %> pts</h6>
       </div>
       <div data-controller='dropdown' class='dropdown'>
@@ -16,6 +17,7 @@
         <div data-target='dropdown.popup' class='dropdown-content'>
           <%= link_to 'Encodage', new_game_path, class: 'navbar-link'%>
           <%= link_to 'Statistiques', stats_path, class: 'navbar-link' %>
+          <%= link_to 'Classement', ranking_histories_path, class: 'navbar-link' %>
         </div>
       </div>
       <div data-controller='dropdown' class='dropdown'>

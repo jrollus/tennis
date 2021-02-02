@@ -25,9 +25,6 @@
     
     <%= f.simple_fields_for :player do |p| %>
       <%= render 'players/player_form', f: p, autofill: true, edit: true %>
-      <%= p.simple_fields_for :ranking_histories, p.object.ranking_histories.order("year DESC").first do |rh| %>
-        <%= render 'ranking_histories/ranking_history_form', f: rh,  edit: true %>
-      <% end %>
     <% end %>
   </div>
 
