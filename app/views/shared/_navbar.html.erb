@@ -1,5 +1,9 @@
 <div class='navbar-tennis'>
-  <%= link_to 'TennisRanking', games_path %>
+  <% if current_user %>
+    <%= link_to 'TennisRanking', games_path%>
+  <% else %>
+    <%= link_to 'TennisRanking', root_path %>
+  <% end %>
   <div class='navbar-right-section'>
     <% if current_user %>
       <div class='navbar-collapsable'>
