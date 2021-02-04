@@ -14,6 +14,11 @@ class RankingHistoriesController < ApplicationController
   def update
     authorize @ranking_history
     if @ranking_history.update(ranking_history_params)
+      # Update the game
+      game_players = RankingUpdateQuery.new(current_user.player, @ranking_history).get_games
+      game_players.each do |game_player|
+        game_player.update(ranking_id: @ranking_history.ranking.id)
+      end
       redirect_to ranking_histories_path
     else
       render :edit
