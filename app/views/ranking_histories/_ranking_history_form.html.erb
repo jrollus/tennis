@@ -9,5 +9,7 @@
                            input_html: {value: @year_nbr_dates[:start_date]} %>
   <%= f.input :end_date, as: :hidden,
                          input_html: {value: @year_nbr_dates[:end_date]} %>
+  <%= f.input :validated, as: :hidden,
+                         input_html: {value: true} %>
 <% end %>
 <%= f.association :ranking, input_html: {data: {target: 'affiliation.ranking'}} %>

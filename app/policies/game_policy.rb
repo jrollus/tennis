@@ -1,11 +1,11 @@
 class GamePolicy < ApplicationPolicy
   def destroy?
-    true if user.admin
+    return true if user.admin
     (set_game_player ? true : false)
   end
 
   def validate?
-    true if user.admin
+    return true if user.admin
     (set_game_player ? true : false)
   end
 

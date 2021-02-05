@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_100612) do
     t.integer "year_number"
     t.date "start_date"
     t.date "end_date"
+    t.boolean "validated"
     t.integer "points", default: 0
     t.string "national_ranking"
     t.datetime "created_at", precision: 6, null: false

@@ -8,7 +8,7 @@ class GameFormPolicy < ApplicationPolicy
   end
   
   def update?
-    true if user.admin
+    return true if user.admin
 
     game_player = Game.find(record.game.id).game_players.find{|player| player.player_id == user.player.id}
     (game_player ? true : false)

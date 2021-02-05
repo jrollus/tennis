@@ -4,6 +4,11 @@
   <% year_data.each do |ranking| %>
     <div class='display-flex'>
       <h6><%= "#{ranking.start_date} - #{ranking.end_date} - #{ranking.ranking.name}"%></h6>
+      <% unless ranking.validated %>
+        <%= simple_form_for(ranking, remote: true, url: ranking_history_validate_path(ranking), method: :post) do |f| %>
+          <%= f.submit 'Valide' %>
+        <% end %>
+      <% end %>
       <%= link_to "Modifie", edit_ranking_history_path(ranking), method: :get %>
     </div>
   <% end %>
