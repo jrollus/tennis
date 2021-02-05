@@ -1,12 +1,18 @@
 class RankingHistoryPolicy < ApplicationPolicy
   def update?
-    true if user.admin
+    return true if user.admin
 
-    @record.player = user.player
+    @record.player == user.player
   end
 
   def edit?
     update?
+  end
+
+  def validate?
+    return true if user.admin
+    
+    @record.player == user.player
   end
 
   class Scope < Scope

@@ -52,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, 
       keys: [:avatar, :email, :password, :password_confirmation, 
              player_attributes: [:first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, 
-                                ranking_histories_attributes: [:ranking_id, :year, :year_number, :start_date, :end_date]]
+                                ranking_histories_attributes: [:ranking_id, :year, :year_number, :start_date, :end_date, :validated]]
             ]
     )
   end
@@ -61,8 +61,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update,
      keys: [:avatar, :email, :password, :password_confirmation, 
-            player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender, 
-            ranking_histories_attributes: [:id, :ranking_id, :year, :year_numberr, :start_date, :end_date]]
+            player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender]
            ]
     )
   end

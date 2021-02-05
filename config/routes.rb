@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # Ranking Histories
-  resources :ranking_histories, only: [:index, :edit, :update]
+  resources :ranking_histories, only: [:index, :edit, :update] do
+    post '/validate',  to:'ranking_histories#validate'
+  end
 
   # Players
   resources :players, only: [:new, :create, :edit, :update]

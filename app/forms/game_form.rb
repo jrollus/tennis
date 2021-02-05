@@ -187,6 +187,7 @@ class GameForm
       player.ranking_histories.last.start_date = ranking_period_dates[:start_date]
       player.ranking_histories.last.end_date = ranking_period_dates[:end_date]
       player.ranking_histories.last.ranking = player.ranking_histories.second_to_last.ranking
+      player.ranking_histories.last.validated = false
       player.save
       return player.ranking_histories.last.ranking
     end

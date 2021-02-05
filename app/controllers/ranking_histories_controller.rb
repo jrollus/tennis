@@ -25,6 +25,12 @@ class RankingHistoriesController < ApplicationController
     end
   end
   
+  def validate
+    @ranking_history = RankingHistory.find(params[:ranking_history_id])
+    authorize @ranking_history
+    @ranking_history.update(validated: true)
+  end
+
   private
 
   def ranking_history_params
