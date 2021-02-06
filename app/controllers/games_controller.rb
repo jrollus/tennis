@@ -22,7 +22,6 @@ class GamesController < ApplicationController
 
     authorize @form
     if @form.save(game_form_params, current_user)
-      PointsJob.perform_later(current_user.player, @form.date.to_date)
       if params[:create_and_add]
         session[:tournament_id] = @form.tournament_id
         redirect_to new_game_path 
@@ -46,7 +45,6 @@ class GamesController < ApplicationController
     @form = GameForm.new(game_form_params, current_user, @game, false)
     authorize @form
     if @form.update(game_form_params, current_user, @game)
-      PointsJob.perform_later(current_user.player, @form.date.to_date)
       redirect_to games_path
     else
       refresh_cascading_dropdowns
@@ -56,9 +54,16 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    @game = Game.find(params[:id])
+    @game = Game.includes(:game_players).find(params[:id])
     authorize @game
+    user_player_id = current_user.player.id
+    game_player = @game.game_players.find{|player| player.player_id == user_player_id}
+    game_opponent = @game.game_players.find{|player| player.player_id != user_player_id}
+    game_date = @game.date
     @game.destroy
+    byebug
+    PointsJob.perform_later(game_player, game_date)
+    PointsJob.perform_later(game_opponent, game_date)
     redirect_to games_path
   end
 

@@ -157,6 +157,9 @@ class GameForm
     @game_player_user.save
     @game_player_opponent.game = @game
     @game_player_opponent.save
+
+    # Points
+    refresh_points
   end
 
   def create_game_player(game_form_params, current_user)
@@ -197,21 +200,32 @@ class GameForm
 
   def update_game(game_form_params, current_user, game)
     # Player Table and associated nested tables
-    game.update(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
+    @game.update(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
     
     # GamePlayers Table
     user_player_id = current_user.player.id
-    @game_player_user = game.game_players.find{|player| player.player_id == user_player_id}
+    @game_player_user = @game.game_players.find{|player| player.player_id == user_player_id}
     @game_player_user.update(victory: game_form_params[:victory], match_points_saved: game_form_params[:match_points_saved], validated: true)
-    @game_player_opponent = game.game_players.find{|player| player.player_id != user_player_id}
+    @game_player_opponent = @game.game_players.find{|player| player.player_id != user_player_id}
     opponent = Player.find_by_affiliation_number(game_form_params[:opponent].scan(/\((\d+)\)/)[0][0])
     @game_player_opponent.update(player_id: opponent.id, 
                                  ranking_id: opponent.ranking_histories.where('? >= start_date AND ? <= end_date', game_form_params[:date], game_form_params[:date]).first.ranking.id,
                                  victory:  (game_form_params[:victory].to_i == 1) ? 0 : 1,
                                  match_points_saved:  - game_form_params[:match_points_saved].to_i, validated: false)
+
+    # Points
+    refresh_points
   end
 
-   # Initializing Methods
+  # Refresh Points
+
+  def refresh_points
+    byebug
+    PointsJob.perform_later(@game_player_user.player, @game.date)
+    PointsJob.perform_later(@game_player_opponent.player, @game.date)
+  end
+
+  # Initializing Methods
 
   def init_sets_tie_breaks(attr, current_user, edit)
     user_score_order = GamePlayerOrderService.maintain?(@game, current_user.player.id)
