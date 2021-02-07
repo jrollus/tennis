@@ -99,7 +99,12 @@ class GameForm
 
   def valid_opponent
     unless self.opponent.blank?
-      errors.add(:opponent, 'doit être sélectionné dans la liste proposée') if self.opponent.scan(/\((\d+)\)/).empty?
+      affiliation_nbr = self.opponent.scan(/\((\d+)\)/)
+      if affiliation_nbr.empty?
+        errors.add(:opponent, 'doit être sélectionné dans la liste proposée')
+      else
+        errors.add(:opponent, 'ne peut pas etre vous meme') if (Player.find_by_affiliation_number(affiliation_nbr).id == self.player_id.to_i)
+      end
     end
   end
 
