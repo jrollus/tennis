@@ -220,7 +220,6 @@ class GameForm
   # Refresh Points
 
   def refresh_points
-    byebug
     PointsJob.perform_later(@game_player_user.player, @game.date)
     PointsJob.perform_later(@game_player_opponent.player, @game.date)
   end

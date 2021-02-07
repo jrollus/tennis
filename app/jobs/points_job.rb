@@ -2,7 +2,6 @@ class PointsJob < ApplicationJob
   queue_as :default
 
   def perform(player, date)
-    byebug
     puts "Attempting to compute points for player with id: #{player.id}"
     ranking_history = player.ranking_histories.find{|ranking| date.between?(ranking.start_date, ranking.end_date)}
     if ranking_history.present?

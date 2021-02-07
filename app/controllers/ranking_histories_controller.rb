@@ -14,11 +14,17 @@ class RankingHistoriesController < ApplicationController
   def update
     authorize @ranking_history
     if @ranking_history.update(ranking_history_params)
-      # Update the game
-      game_players = RankingUpdateQuery.new(current_user.player, @ranking_history).get_games
-      game_players.each do |game_player|
+      query = RankingUpdateQuery.new(current_user.player, @ranking_history)
+      # Update the ranking of the player in all games played during that ranking period
+      query.get_player_games.each do |game_player|
         game_player.update(ranking_id: @ranking_history.ranking.id)
       end
+
+      # Recompute the points of all the opponents faced during that ranking period
+      query.get_opponents.each do |player|
+        PointsJob.perform_later(player, @ranking_history.end_date)
+      end
+      
       redirect_to ranking_histories_path
     else
       render :edit
