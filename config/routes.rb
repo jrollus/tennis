@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   # Players
   resources :players, only: [:new, :create, :edit, :update]
+  get '/players', to:'players#index', constraints: lambda { |req| req.format == :json }
+  get '/players/:id', to:'players#show', constraints: lambda { |req| req.format == :json }
+
   get '/stats', to:'players#stats'
 
   # Tournaments
@@ -26,7 +29,6 @@ Rails.application.routes.draw do
   # API
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :players, only: [ :index, :show ]
       get '/stats', to:'players#stats'
     end
   end

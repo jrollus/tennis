@@ -1,6 +1,22 @@
 class PlayersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :set_player, only: [:edit, :update]
+  before_action :set_player_ajax, only: [:show]
 
+  def index
+    if params[:query].present?
+      @players = policy_scope(Player).includes(ranking_histories: :ranking).search_by_name_and_affiliation_number(params[:query]).first(10)
+    else
+      @players = policy_scope(Player).includes(ranking_histories: :ranking)
+    end
+    @players = @players.map{|player| PlayerDecorator.new(player)}
+    render json: { error: "Couldn't find #{params[:query].titleize}"} , status: :not_found if (@players.size == 0)
+  end
+
+  def show
+    authorize @player
+  end
+  
   def new
     @player = Player.new
     @player.ranking_histories.build
@@ -52,6 +68,10 @@ class PlayersController < ApplicationController
 
   def set_player
     @player = Player.find(params[:id])
+  end
+
+  def set_player_ajax
+    @player = Player.find_by_affiliation_number!(params[:id])
   end
 end
   

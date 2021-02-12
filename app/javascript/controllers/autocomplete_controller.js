@@ -14,7 +14,7 @@ export default class extends Controller {
         return;
       }
       const query = `query=${this.autocompleteTarget.value}`
-      const response = await fetch('/api/v1/players?' + query, { headers: { accept: 'application/json' } });
+      const response = await fetch('/players?' + query, { headers: { accept: 'application/json' } });
       if (response.ok) {
         const data = await response.json()
         // Close all other Popups

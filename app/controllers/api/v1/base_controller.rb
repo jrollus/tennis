@@ -18,4 +18,16 @@ class Api::V1::BaseController < ActionController::API
     def not_found(exception)
       render json: { error: exception.message }, status: :not_found
     end
+
+    def get_player
+      if params[:player].present?
+        if params[:player].scan(/\((\d+)\)/).blank?
+          player = nil
+        else
+          player = Player.includes(ranking_histories: :ranking).find_by_affiliation_number(params[:player].scan(/\((\d+)\)/)[0][0])
+        end
+      else
+        player = @user_player
+      end
+    end
   end

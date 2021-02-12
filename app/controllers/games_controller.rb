@@ -130,15 +130,5 @@ class GamesController < ApplicationController
     PointsJob.perform_later(game_opponent, game_date)
   end
 
-  def get_player
-    if params[:player].present?
-      if params[:player].scan(/\((\d+)\)/).blank?
-        player = nil
-      else
-        player = Player.includes(ranking_histories: :ranking).find_by_affiliation_number(params[:player].scan(/\((\d+)\)/)[0][0])
-      end
-    else
-      player = @user_player
-    end
-  end
+  
 end
