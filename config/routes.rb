@@ -26,11 +26,4 @@ Rails.application.routes.draw do
     post '/validate',  to:'games#validate'
   end
 
-  # API
-  namespace :api, defaults: { format: :json } do
-    namespace :v1 do
-      get '/stats', to:'players#stats'
-    end
-  end
-
 end

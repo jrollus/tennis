@@ -51,12 +51,27 @@ class PlayersController < ApplicationController
   end
 
   def stats
-    @max_date = Game.maximum(:date).year
-    @min_date = Game.minimum(:date).year
-    @year = @max_date
-    @user_player = Player.includes(ranking_histories: :ranking).find(current_user.player.id)
-    @query = PlayersQuery.new(@user_player)
+    player = get_player
+    @user_player = Player.includes(ranking_histories: :ranking).find(player.id)
     authorize @user_player
+    @query = PlayersQuery.new(player)
+
+    respond_to do |format|
+      format.html { 
+        @max_date = Game.maximum(:date).year
+        @min_date = Game.minimum(:date).year
+        @year = @max_date
+      }
+      format.json { 
+        if player
+          @year = (params[:year].present? ? params[:year] : nil)
+          render(json: { html_data: render_to_string(partial: 'players/stats_info.html.erb')})
+        else
+          skip_authorization
+          render(json: { error: "Couldn't find data for player: #{params[:player]}}"} , status: :not_found)
+        end
+       }
+    end 
   end
 
   private
