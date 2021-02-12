@@ -3,12 +3,32 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:edit, :update]
 
   def index
-    @max_date = Game.maximum(:date).year
-    @min_date = Game.minimum(:date).year
-
-    @games = PlayerGamesQuery.new(policy_scope(Game), current_user.player).get_games(@max_date)
-    @games = GameIndexDecorator.new(@games)
     @user_player = Player.includes(ranking_histories: :ranking).find(current_user.player.id)
+    player = get_player
+    query = PlayerGamesQuery.new(policy_scope(Game), player)
+    respond_to do |format|
+      format.html { 
+        @max_date = Game.maximum(:date).year
+        @min_date = Game.minimum(:date).year
+        @games = GameIndexDecorator.new(query.get_games(@max_date))
+      }
+      format.json { 
+        if player
+          games = GameIndexDecorator.new(params[:year].present? ? query.get_games(params[:year]) : query.get_games)
+          @structured_output = games.structured_output(player, current_user)
+        
+          if (@structured_output.size == 0) 
+            render(json: { error: "Couldn't find data for year: #{params[:year]} and player: #{params[:player]}"} , status: :not_found) 
+          else
+            render(json: { html_data: render_to_string(partial: 'games/games_info.html.erb', locals: { structured_output: @structured_output })})
+          end
+
+        else
+          skip_policy_scope
+          render(json: { error: "Couldn't find data for player: #{params[:player]}}"} , status: :not_found) 
+        end
+       }
+    end 
   end
 
   def new
@@ -109,4 +129,6 @@ class GamesController < ApplicationController
     PointsJob.perform_later(game_player, game_date)
     PointsJob.perform_later(game_opponent, game_date)
   end
+
+  
 end

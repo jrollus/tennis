@@ -6,7 +6,7 @@ export default class extends Controller {
     async autofill(event) {
       let type = (event.currentTarget == this.clubTarget) ? 'club' : 'category';
       let query = `club=${this.clubTarget.value}&category=${this.categoryTarget.value}&type=${type}&ctype=single`;
-      let response = await fetch('/api/v1/tournaments?' + query, { headers: { accept: 'application/json' } });
+      let response = await fetch('/tournaments?' + query, { headers: { accept: 'application/json' } });
       if (response.ok) {
         let data = await response.json()
         if (type == 'club') {
@@ -17,7 +17,7 @@ export default class extends Controller {
           if (data.length == 2) {
             type = 'category';
             query = `club=${this.clubTarget.value}&category=${this.categoryTarget.value}&type=${type}&ctype=single`;
-            response = await fetch('/api/v1/tournaments?' + query, { headers: { accept: 'application/json' } });
+            response = await fetch('/tournaments?' + query, { headers: { accept: 'application/json' } });
             if (response.ok) {
               let data = await response.json();
               this.dateTarget.disabled = false;

@@ -5,7 +5,7 @@ export default class extends Controller {
 
     async selectGames() {
       const query = `year=${this.yearTarget.value}&player=${this.playerInputTarget.value}`;
-      const response = await fetch('/api/v1/games?' + query, { headers: { accept: 'application/json' } });
+      const response = await fetch('/games?' + query, { headers: { accept: 'application/json' } });
       if (response.ok) {
         const data = await response.json()
         this.containerTarget.innerHTML = data['html_data'];
@@ -16,7 +16,7 @@ export default class extends Controller {
 
     async selectStats() {
       const query = `year=${this.yearTarget.value}&player=${this.playerInputTarget.value}`;
-      const response = await fetch('/api/v1/stats?' + query, { headers: { accept: 'application/json' } });
+      const response = await fetch('/stats?' + query, { headers: { accept: 'application/json' } });
       if (response.ok) {
         const data = await response.json()
         this.containerTarget.innerHTML = data['html_data'];

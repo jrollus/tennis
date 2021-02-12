@@ -19,4 +19,16 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
+  def get_player
+    if params[:player].present?
+      if params[:player].scan(/\((\d+)\)/).blank?
+        player = nil
+      else
+        player = Player.includes(ranking_histories: :ranking).find_by_affiliation_number(params[:player].scan(/\((\d+)\)/)[0][0])
+      end
+    else
+      player = current_user.player
+    end
+  end
+  
 end
