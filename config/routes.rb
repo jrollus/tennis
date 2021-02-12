@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :players, only: [ :index, :show ]
       get '/stats', to:'players#stats'
-      resources :games, only: [ :index ] 
     end
   end
 
