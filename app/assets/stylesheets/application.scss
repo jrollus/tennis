@@ -9,6 +9,12 @@
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
 
+// SCSS Variables
+$color-blue: #0073B2;
+$color-white: #FFFFFF;
+$color-grey: #F2F2F2;
+$color-yellow: #D7D700;
+
 // CSS partials
 @import "components/index";
 @import "pages/index";
@@ -17,14 +23,14 @@
 
 body {
     padding-top: 100px;
+    font-family: $body-font;
+    background-color: $color-white;
 }
 
 a {
     text-decoration: none;
-    color: black;
     &:hover  {
       text-decoration: none !important;
-      color: black !important;
     }
   }
 

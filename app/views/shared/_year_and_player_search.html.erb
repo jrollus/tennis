@@ -4,7 +4,7 @@
     <div>
       <div class='form-flex'>
         <div class='autocomplete' data-target='autocomplete.wrapper'>
-          <input class='form-control string' style='width:300px' autocomplete='off' data-target='filter.playerInput autocomplete.autocomplete' data-action='input->autocomplete#autocomplete' type='text'>
+          <input class='player-search' style='width:300px' autocomplete='off' data-target='filter.playerInput autocomplete.autocomplete' data-action='input->autocomplete#autocomplete' type='text'>
         </div>
         <button class='btn' data-action=<%= (search_type == 'games' ? 'click->filter#selectGames' : 'click->filter#selectStats') %>> Charger</button>
       </div>

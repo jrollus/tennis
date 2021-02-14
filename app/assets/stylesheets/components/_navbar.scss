@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px 10px;
+  background-color: $color-blue;
 }
 
 .navbar-right-section {
@@ -21,10 +22,22 @@
 
 .navbar-link {
  margin-right: 10px;
+ color: $color-white;
+ &:hover {
+  color: $color-yellow;
+ }
+}
+
+.navbar-logo {
+  height: 60px;
 }
 
 .navbar-points {
   margin: 0px 10px;
+  background-color: $color-yellow;
+  color: $color-white;
+  padding: 5px 15px;
+  border-radius: 5px;
 }
 
 .navbar-sandwich {
@@ -32,7 +45,6 @@
   margin: 7px 10px;
   width: 50px;
   size: 30px;
-
 }
 
 .navbar-collapsable {
