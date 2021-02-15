@@ -9,18 +9,12 @@
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
 
-// SCSS Variables
-$color-blue: #0073B2;
-$color-white: #FFFFFF;
-$color-grey: #F2F2F2;
-$color-yellow: #D7D700;
-
 // CSS partials
 @import "components/index";
 @import "pages/index";
+@import "games/index";
 
 // General CSS
-
 body {
     padding-top: 100px;
     font-family: $body-font;
@@ -40,4 +34,12 @@ a {
 
 .space-between {
   justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
 }

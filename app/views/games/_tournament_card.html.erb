@@ -1,0 +1,50 @@
+<div class="tournament-header">
+  <div class="display-flex space-between">
+    <h4 class="tournament-name"><%= "#{tournament[:club]}" %></h4>
+    <h4 class="tournament-date"><%= "#{tournament[:dates]}" %></h4>
+  </div>
+  <h6 class="tournament-category"><%= "#{tournament[:category]}" %></h6>
+</div>
+<table class="tournament-table">
+  <tr>
+    <th class="th-round">Tour</th>
+    <th class="th-ranking">Classement</th>
+    <th class="th-opponent">Adversaire</th>
+    <th class="th-victory">V-D</th>
+    <th class="th-status">Status</th>
+    <th class="th-score">Score</th>
+    <th class="th-actions">Actions</th>
+  </tr>
+  <% tournament[:games].each do |game| %>
+    <tr>
+      <td><%= "#{game[:round].capitalize.gsub('_','/')}" %></td>
+      <td><%= "#{game[:ranking]}" %></td>
+      <td><%= "#{game[:name]}" %></td>
+      <% if game[:victory] %>
+        <td>V</td>
+      <% else %>
+        <td>D</td>
+      <% end %>
+      <% if game[:status] == 'completed' %>
+        <td>Terminé</td>
+      <% elsif game[:status] == 'WO' %>
+        <td>W.O.</td>
+      <% elsif game[:status] == 'retirement' %>
+        <td>Blessure</td>
+      <% end %>
+      <td><%="#{game[:score]}" %></td>
+      <td>
+        <% if structured_output.first[:games].first[:player_name] == PlayerDecorator.new(@user_player).player_description ||
+          game[:name] == PlayerDecorator.new(@user_player).full_name %>
+          <div class="display-flex justify-center align-center">
+            <% unless game[:validated] %>
+              <a href="#" class="fas fa-check tournament-action"></a> | 
+            <% end %>
+            <a data-method="get" href="<%= edit_game_path(game[:game]) %>" class="fas fa-edit tournament-action"></a> |
+            <a rel="nofollow" data-method="delete" href="<%= game_path(game[:game]) %>" class="fas fa-trash tournament-action"></a>
+          </div>
+        <% end %>
+      </td> 
+    </tr>
+  <% end %>
+</table>

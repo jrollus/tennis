@@ -23,6 +23,7 @@
 .navbar-link {
  margin-right: 10px;
  color: $color-white;
+ font-size: 18px;
  &:hover {
   color: $color-yellow;
  }
@@ -38,6 +39,7 @@
   color: $color-white;
   padding: 5px 15px;
   border-radius: 5px;
+  font-size: 18px;
 }
 
 .navbar-sandwich {

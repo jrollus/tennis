@@ -22,7 +22,8 @@ class GameIndexDecorator < SimpleDelegator
           game_hash[:game] = game
           game_hash[:date] = game.date
           game_hash[:status] = game.status
-          game_hash[:victory] = (game.game_players.find{|player| player.player_id == selected_player_id}.victory ? 'Victoire' : 'Défaite')
+          game_hash[:round] = game.round.name
+          game_hash[:victory] = game.game_players.find{|player| player.player_id == selected_player_id}.victory
           if game.game_players.find{|player| player.player_id == current_user_player_id}
             game_hash[:validated] = game.game_players.find{|player| player.player_id == current_user_player_id}.validated
           end
