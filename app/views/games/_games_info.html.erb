@@ -1,25 +1,6 @@
-<h3><%= structured_output.first[:games].first[:player_name] %></h3>
-  <% structured_output.each do |tournament| %>
-    <h2><%= "#{tournament[:club]} - #{tournament[:category]} - #{tournament[:dates]}" %></h2>
-    <% tournament[:games].each do |game| %>
-      <div class='display-flex'>
-      <% if game[:status] == 'completed' %>
-        <h6><%= "#{game[:date]} - #{game[:name]} - #{game[:ranking]} - #{game[:score]}"%></h6>
-      <% elsif game[:status] == 'WO' %>
-        <h6><%= "#{game[:date]} - #{game[:name]} - #{game[:ranking]} - #{game[:victory]} - WO" %></h6>
-      <% elsif game[:status] == 'retirement' %>
-        <h6><%= "#{game[:date]} - #{game[:name]} - #{game[:ranking]} - #{game[:victory]} - Blessure - #{game[:score]}" %></h6>
-      <% end %>
-      <% if structured_output.first[:games].first[:player_name] == PlayerDecorator.new(@user_player).player_description ||
-        game[:name] == PlayerDecorator.new(@user_player).full_name %>
-        <% unless game[:validated] %>
-          <%= simple_form_for(game[:game], remote: true, url: game_validate_path(game[:game]), method: :post) do |f| %>
-            <%= f.submit 'Valide' %>
-          <% end %>
-        <% end %>
-        <%= link_to "Modifie", edit_game_path(game[:game]), method: :get %>
-        <%= link_to "Delete", game_path(game[:game]), method: :delete %>
-      <% end %>
-      </div>
-  <% end %>
+<h3 id='player-name'><%= structured_output.first[:games].first[:player_name] %></h3>
+<% structured_output.each do |tournament| %>
+  <div class='tournament'>
+    <%= render 'tournament_card.html.erb', structured_output: structured_output, tournament: tournament %>
+  </div>
 <% end %>

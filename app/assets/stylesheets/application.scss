@@ -12,19 +12,19 @@
 // CSS partials
 @import "components/index";
 @import "pages/index";
+@import "games/index";
 
 // General CSS
-
 body {
     padding-top: 100px;
+    font-family: $body-font;
+    background-color: $color-white;
 }
 
 a {
     text-decoration: none;
-    color: black;
     &:hover  {
       text-decoration: none !important;
-      color: black !important;
     }
   }
 
@@ -34,4 +34,12 @@ a {
 
 .space-between {
   justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
 }

@@ -1,0 +1,86 @@
+#player-name {
+    margin: 30px 0px;
+    color: $color-blue;
+}
+
+.tournament {
+    margin: 30px 0px;
+}
+
+.tournament-header {
+  border-top: 1px solid $color-grey-border;
+  border-bottom: 1px solid $color-grey-border;
+  padding: 5px 8px;
+  background: $color-grey;
+  color: $color-grey-darker;
+}
+
+// Table CSS
+
+.tournament-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tournament-table th {
+  padding: 8px 5px;
+  background-color: $color-lighter-grey;
+  border-bottom: 1px solid $color-lighter-grey-border;
+  font-size: 12px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.tournament-table tr {
+  padding: 8px 5px;
+  border-bottom: 1px solid $color-lighter-grey-border;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.th-round{
+  width: 10%;
+}
+
+.th-ranking{
+  width: 10%;
+}
+
+.th-opponent{
+  width: 30%;
+}
+
+.th-victory{
+  width: 10%;
+}
+
+.th-status{
+  width: 15%;
+}
+
+.th-score{
+  width: 15%;
+}
+
+.th-actions{
+  width: 10%;
+}
+
+.tournament-club {
+  font-size: 16px;
+  font: bolder;
+}
+
+.tournament-date {
+  font-size: 16px;
+  font: bolder;
+}
+
+.tournament-category {
+  font-size: 14px;
+}
+
+.tournament-action {
+  padding: 0px 5px;
+  color: $color-grey-darker
+}

@@ -1,12 +1,14 @@
 <div class='form-flex space-between'>
     <%= select_year(max_date, {start_year: max_date, end_year: min_date, include_blank: true}, 
-                              {data: {target: 'filter.year', action: (search_type == 'games' ? 'filter#selectGames' : 'filter#selectStats')}})%>
+                              {class: 'select-year', data: {target: 'filter.year', action: (search_type == 'games' ? 'filter#selectGames' : 'filter#selectStats')}})%>
     <div>
       <div class='form-flex'>
         <div class='autocomplete' data-target='autocomplete.wrapper'>
-          <input class='form-control string' style='width:300px' autocomplete='off' data-target='filter.playerInput autocomplete.autocomplete' data-action='input->autocomplete#autocomplete' type='text'>
+          <form>
+            <input class='player-search' placeholder='Cherche un joueur' autocomplete='off' data-target='filter.playerInput autocomplete.autocomplete' data-action='input->autocomplete#autocomplete' type='text'>
+          </form>
         </div>
-        <button class='btn' data-action=<%= (search_type == 'games' ? 'click->filter#selectGames' : 'click->filter#selectStats') %>> Charger</button>
+        <div class='base-btn' data-action=<%= (search_type == 'games' ? 'click->filter#selectGames' : 'click->filter#selectStats') %>> Charger</div>
       </div>
     </div>
 </div>
