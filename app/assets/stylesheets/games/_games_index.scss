@@ -12,7 +12,7 @@
   border-bottom: 1px solid $color-grey-border;
   padding: 5px 8px;
   background: $color-grey;
-  color: $color-grey-darker;
+  color: $color-blue;
 }
 
 // Table CSS
@@ -27,6 +27,7 @@
   background-color: $color-lighter-grey;
   border-bottom: 1px solid $color-lighter-grey-border;
   font-size: 12px;
+  color: $color-blue;
   vertical-align: middle;
   text-align: center;
 }
@@ -82,5 +83,8 @@
 
 .tournament-action {
   padding: 0px 5px;
-  color: $color-grey-darker
+  color: $color-grey-darker;
+  &:hover {
+    color: $color-yellow;
+  }
 }

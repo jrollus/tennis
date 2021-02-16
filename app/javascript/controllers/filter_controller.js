@@ -9,8 +9,6 @@ export default class extends Controller {
       if (response.ok) {
         const data = await response.json()
         this.containerTarget.innerHTML = data['html_data'];
-      } else {
-        this.containerTarget.innerHTML = 'Aucun match trouvé';
       }
     }
 
