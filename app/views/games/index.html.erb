@@ -1,10 +1,6 @@
 <div class='container' data-controller='filter autocomplete'>
   <%= render 'shared/year_and_player_search', max_date: @max_date, min_date: @min_date, search_type: 'games' %>
   <div class='games-container' data-target='filter.container'>
-    <% if @games.present? %>
-      <%= render 'games_info', structured_output: @games.structured_output(@user_player, current_user) %>
-    <% else %>
-      Aucun match trouvé
-    <% end %>
+      <%= render 'games_info', player: @player, structured_output: @games.structured_output(@user_player, current_user) %>
   </div>
 </div>

@@ -5,20 +5,20 @@
 
 .autocomplete-popup {
   position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
+  border: 1px solid $color-grey;
+  border-radius: 5px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
   z-index: 99;
   /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
+  top: 130%;
   left: 0;
   right: 0;
 }
 .autocomplete-popup div {
   padding: 10px;
   cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #d4d4d4;
+  background-color: $color-grey;
+  color: $color-grey-darker;
 }
 .autocomplete-popup div:hover {
   /*when hovering an item:*/

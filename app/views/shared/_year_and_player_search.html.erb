@@ -4,11 +4,9 @@
     <div>
       <div class='form-flex'>
         <div class='autocomplete' data-target='autocomplete.wrapper'>
-          <form>
             <input class='player-search' placeholder='Cherche un joueur' autocomplete='off' data-target='filter.playerInput autocomplete.autocomplete' data-action='input->autocomplete#autocomplete' type='text'>
-          </form>
         </div>
-        <div class='base-btn' data-action=<%= (search_type == 'games' ? 'click->filter#selectGames' : 'click->filter#selectStats') %>> Charger</div>
+        <div class='fas fa-search base-btn' data-action=<%= (search_type == 'games' ? 'click->filter#selectGames' : 'click->filter#selectStats') %>></div>
       </div>
     </div>
 </div>

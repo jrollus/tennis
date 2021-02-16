@@ -1,4 +1,4 @@
-<h3 id='player-name'><%= structured_output.first[:games].first[:player_name] %></h3>
+<h3 id='player-name'><%= player.player_description %></h3>
 <% structured_output.each do |tournament| %>
   <div class='tournament'>
     <%= render 'tournament_card.html.erb', structured_output: structured_output, tournament: tournament %>

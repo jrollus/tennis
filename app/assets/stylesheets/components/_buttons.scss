@@ -23,11 +23,9 @@
   color: $color-grey-darker;
   background: $color-grey;
   border-style: none;
-  border-radius: 20px;
   border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  margin-right: 0px;
   font-weight: bold;
   &:focus {
     outline: none;
@@ -35,15 +33,16 @@
 }
 
 .base-btn {
-  border-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   height: 40px;
   line-height: 40px;
   vertical-align: middle;
   background-color: $color-yellow;
   border-color: $color-yellow;
   color: $color-white;
-  margin: 0px 10px;
-  padding: 0px 8px;
+  margin-left: 0px;
+  padding: 0px 15px;
   cursor: pointer;
   font-weight: bold;
   font-size: 16px;
