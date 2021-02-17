@@ -1,6 +1,4 @@
 <div class='form-flex space-between'>
-    <%= select_year(max_date, {start_year: max_date, end_year: min_date, include_blank: true}, 
-                              {class: 'select-year', data: {target: 'filter.year', action: (search_type == 'games' ? 'filter#selectGames' : 'filter#selectStats')}})%>
     <div>
       <div class='form-flex'>
         <div class='autocomplete' data-target='autocomplete.wrapper'>
@@ -9,4 +7,6 @@
         <div class='fas fa-search base-btn' data-action=<%= (search_type == 'games' ? 'click->filter#selectGames' : 'click->filter#selectStats') %>></div>
       </div>
     </div>
+    <%= select_year(max_date, {start_year: max_date, end_year: min_date, include_blank: true}, 
+                              {class: 'select-year', data: {target: 'filter.year', action: (search_type == 'games' ? 'filter#selectGames' : 'filter#selectStats')}})%>
 </div>
