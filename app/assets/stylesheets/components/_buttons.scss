@@ -33,6 +33,16 @@
 }
 
 .base-btn {
+  background-color: $color-blue;
+  color: $color-white;
+  border-radius: 5px;
+  padding: 7px 40px;
+  &:hover {
+    color: $color-white;
+  }
+}
+
+.search-btn {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   height: 40px;
