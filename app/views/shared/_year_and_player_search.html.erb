@@ -4,7 +4,7 @@
         <div class='autocomplete' data-target='autocomplete.wrapper'>
             <input class='player-search' placeholder='Cherche un joueur' autocomplete='off' data-target='filter.playerInput autocomplete.autocomplete' data-action='input->autocomplete#autocomplete' type='text'>
         </div>
-        <div class='fas fa-search base-btn' data-action=<%= (search_type == 'games' ? 'click->filter#selectGames' : 'click->filter#selectStats') %>></div>
+        <div class='fas fa-search search-btn' data-action=<%= (search_type == 'games' ? 'click->filter#selectGames' : 'click->filter#selectStats') %>></div>
       </div>
     </div>
     <%= select_year(max_date, {start_year: max_date, end_year: min_date, include_blank: true}, 

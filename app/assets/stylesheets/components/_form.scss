@@ -1,16 +1,46 @@
+.form-group {
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-actions {
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
+}
+
+.form-actions input {
+  width: 100%;
+}
+
+.form-group input {
+  border-radius: 5px;
+  &:focus {
+    border-color: $color-blue;
+  }
+  &:checked {
+    background-color: red;
+    &:hover {
+      background-color: $color-yellow;
+    }
+  }
+}
+
 .form-flex {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .form-group abbr { 
-    visibility: hidden;  
+  visibility: hidden;  
 }
 
 .visibility-off {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .visibility-on {
-    visibility: visible;
+  visibility: visible;
 }
