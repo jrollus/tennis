@@ -1,40 +1,47 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class='container'>
+  <div class='devise-container' data-controller='file'>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true, method: :put }) do |f| %>
+      <%= f.error_notification %>
+      <div class='form-inputs'>
+        <div class="form-group user_avatar">
+          <label>
+            Avatar
+          </label>
+          <input class='form-input-file' type='file' name='user[avatar]' id='user_avatar' data-target='file.input' data-action='change->file#checkUpload'/>
+          <label for='user_avatar' data-target='file.label'><span>Choisissez un avatar</span></label>
+        </div>
+        <%= f.input :email, required: true, autofocus: true %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>En attente de la confirmation de: <%= resource.unconfirmed_email %></p>
+        <% end %>
 
-  <div class='form-inputs'>
-    <%= f.input :avatar, as: :file %>
-    <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :password,
+                    hint:"laissez le vide si vous ne voulez pas le changer",
+                    required: false,
+                    input_html: {autocomplete: 'new-password'} %>
+        <%= f.input :password_confirmation,
+                    required: false,
+                    input_html: {autocomplete: 'new-password'} %>
+        <%= f.input :current_password,
+                    hint: 'nous avons besoin de votre password actuel pour confirmer les changements',
+                    required: true,
+                    input_html: {autocomplete: 'current-password'} %>
+        
+        <%= f.simple_fields_for :player do |p| %>
+          <%= render 'players/player_form', f: p, autofill: true, edit: true %>
+        <% end %>
+      </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <div class="form-actions">
+        <%= f.button :submit, "Actualiser", class: 'base-btn' %>
+      </div>
     <% end %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: {autocomplete: 'new-password'} %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: {autocomplete: 'new-password'} %>
-    <%= f.input :current_password,
-                hint: 'we need your current password to confirm your changes',
-                required: true,
-                input_html: {autocomplete: 'current-password'} %>
-    
-    <%= f.simple_fields_for :player do |p| %>
-      <%= render 'players/player_form', f: p, autofill: true, edit: true %>
-    <% end %>
-  </div>
+    <div class='devise-extra-links'>
+     <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <%= link_to "Retour", :back %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+   </div>
+</div>
