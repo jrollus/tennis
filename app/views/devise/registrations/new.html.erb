@@ -1,33 +1,47 @@
-<h2>Sign up</h2>
+<div class='container'>
+  <div class='devise-container' data-controller='file'>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true, data: { controller: 'affiliation' } } ) do |f| %>
+      <%= f.error_notification %>
+      <div class='form-inputs'>
+        <div class="form-group user_avatar">
+          <label>
+            Avatar
+          </label>
+          <input class='form-input-file' type='file' name='user[avatar]' id='user_avatar' data-target='file.input' data-action='change->file#checkUpload'/>
+          <label for='user_avatar' data-target='file.label'><span>Choisissez un avatar</span></label>
+        </div>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: 'email' }%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} caractères mininum" if @minimum_password_length),
+                    input_html: { autocomplete: 'new-password' } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: 'new-password' } %>
+        
+        <%= f.simple_fields_for :player do |p| %>
+          <%= render 'players/player_form', f: p, autofill: true, edit: false  %>
+          <%= p.simple_fields_for :ranking_histories do |rh| %>
+            <%= render 'ranking_histories/ranking_history_form', f: rh,  edit: false %>
+          <% end %>
+        <% end  %>
+      </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { controller: 'affiliation' } } ) do |f| %>
-  <%= f.error_notification %>
-
-  <div class='form-inputs'>
-    <%= f.input :avatar, as: :file %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: 'email' }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} caractères mininum" if @minimum_password_length),
-                input_html: { autocomplete: 'new-password' } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: 'new-password' } %>
+      <div class='form-actions'>
+        <%= f.button :submit, "S'inscrire", class: 'base-btn' %>
+      </div>
+    <% end %>
     
-    <%= f.simple_fields_for :player do |p| %>
-      <%= render 'players/player_form', f: p, autofill: true, edit: false  %>
-      <%= p.simple_fields_for :ranking_histories do |rh| %>
-        <%= render 'ranking_histories/ranking_history_form', f: rh,  edit: false %>
+    <div class='devise-extra-links'>
+      <%- if controller_name != 'sessions' %>
+        <%= link_to "Connexion", new_session_path(resource_name) %><br />
       <% end %>
-    <% end  %>
-  </div>
 
-  <div class='form-actions'>
-    <%= f.button :submit, 'Sign up' %>
-  </div>
-<% end %>
-
-<%= render 'devise/shared/links' %>
+      <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+          <%= link_to "Email de confirmation pas reçu?", new_confirmation_path(resource_name) %><br />
+        <% end %>
+    </div>
+</div>

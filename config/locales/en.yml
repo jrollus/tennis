@@ -31,3 +31,43 @@
 
 en:
   hello: "Hello world"
+
+en:
+  errors:
+    format: "%{message}"
+    messages:
+      accepted: doit être accepté
+      blank: ne peut pas être vide
+      confirmation: est différent du %{attribute} indiqué
+      empty: ne peut pas être vide
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      model_invalid: 'Validation failed: %{errors}'
+      not_a_number: n'est pas un chiffre
+      not_an_integer: doit être un entier
+      odd: must be odd
+      other_than: must be other than %{count}
+      present: must be blank
+      required: doit être indiqué
+      taken: a déjà été pris
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is (minimum is 1 character)
+        other: est trop court (%{count} charactères minimum)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+  support:
+    array:
+      last_word_connector: ", et "
+      two_words_connector: " et "
+      words_connector: ", "

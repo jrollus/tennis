@@ -1,3 +1,5 @@
+// Form sizes
+
 .form-group {
   width: 75%;
   margin-right: auto;
@@ -21,6 +23,8 @@
     border-color: $color-blue;
   }
 }
+
+// Style checkbox
 
 .form-check {
   display: inline-flex;
@@ -70,6 +74,39 @@
   color: $color-grey-darker;
 }
 
+// Style File Input
+
+.form-input-file {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.form-input-file + label {
+  width: 100%;
+  padding: 7px 5px;
+  border-radius: 5px;
+  margin-bottom: 0px;
+  text-align: center;
+  color: $color-white;
+  background-color: $color-blue;
+  display: inline-block;
+}
+
+.form-input-file:focus + label,
+.form-input-file + label:hover {
+  background-color: $color-yellow;
+}
+
+.form-input-file + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+// General Styling
+
 .form-flex {
   display: flex;
   align-items: center;
@@ -85,4 +122,12 @@
 
 .visibility-on {
   visibility: visible;
+}
+
+// Alert Styling
+
+.alert-danger {
+  color: $color-black;
+  background-color: $color-yellow;
+  border-color: $color-yellow;
 }
