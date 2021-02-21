@@ -1,13 +1,41 @@
+// Form Container
+
+.form-container {
+  width: 75%;
+  padding: 50px 50px;
+  border-color: $color-grey;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin-top: 60px;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  color: $color-grey-darker;
+}
+
+.form-container a {
+  display: inline-block;
+  margin: 5px 0px;
+  color: $color-grey-darker;
+}
+
+.form-extra-links {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 // Form sizes
 
 .form-group {
-  width: 75%;
+  width: 90%;
   margin-right: auto;
   margin-left: auto;
 }
 
 .form-actions {
-  width: 75%;
+  width: 90%;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 10px;
@@ -17,11 +45,95 @@
   width: 100%;
 }
 
+.form-group mx-1 {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
 .form-group input {
   border-radius: 5px;
   &:focus {
     border-color: $color-blue;
   }
+}
+
+.form-group select {
+  border-radius: 5px;
+  &:focus {
+    border-color: $color-blue;
+  }
+}
+
+.form-flex {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Score / Tie Breaks
+
+.score-table {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.score-table th {
+  padding: 8px 5px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.th-set-1-1{
+  width: 16.66%;
+}
+
+.th-set-1-2{
+  width: 16.66%;
+}
+
+.th-set-2-1{
+  width: 16.66%;
+}
+
+.th-set-2-2{
+  width: 16.66%;
+}
+
+.th-set-3-1{
+  width: 16.66%;
+}
+
+.th-set-3-2{
+  width: 16.66%;
+}
+
+.form-flex.score label {
+  height: 48px;
+  margin-bottom: -20px;
+}
+
+.form-flex.score input {
+  text-align: center; 
+  padding: 2px 2px;
+  margin-right: 5px !important;
+}
+
+.form-flex.score .form-group {
+  width: 40px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Court
+
+.form-flex.form-court .form-group {
+  margin-right: 25px;
+}
+
+.form-flex fieldset {
+  margin-top: 30px;
 }
 
 // Style checkbox
@@ -107,21 +219,18 @@
 
 // General Styling
 
-.form-flex {
-  display: flex;
-  align-items: center;
-}
-
 .form-group abbr { 
   visibility: hidden;  
 }
 
 .visibility-off {
   visibility: hidden;
+  display: none;
 }
 
 .visibility-on {
   visibility: visible;
+  display: block;
 }
 
 // Alert Styling

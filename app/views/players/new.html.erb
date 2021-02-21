@@ -1,9 +1,13 @@
-<%= simple_form_for(@player, method: 'post') do |f| %>
-  <%= render 'player_form', f: f, autofill: false, edit: false %>
-  <%= f.simple_fields_for :ranking_histories do |rh| %>
-    <%= render 'ranking_histories/ranking_history_form', f: rh,  edit: false %>
-  <% end %>
-  <div class="form-actions">
-    <%= f.button :submit, 'Créer' %>
+<div class='container'>
+  <div class='form-container'>
+    <%= simple_form_for(@player, method: 'post') do |f| %>
+      <%= render 'player_form', f: f, autofill: false, edit: false %>
+      <%= f.simple_fields_for :ranking_histories do |rh| %>
+        <%= render 'ranking_histories/ranking_history_form', f: rh,  edit: false %>
+      <% end %>
+      <div class="form-actions">
+        <%= f.button :submit, 'Créer', class:'base-btn' %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

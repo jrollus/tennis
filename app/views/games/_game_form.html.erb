@@ -28,11 +28,9 @@
   <%= f.input :player_id, as: :hidden , 
                           input_html: { value: (@form.player_id.blank? ? current_user.player.id : @form.player_id), name: 'game_form[player_id]'} %>
 
-  <div class='form-flex'>
-    <div>
-      <%= f.input :court_type_id, label: 'Terrain',
-                                  collection: @courts %>
-    </div>
+  <div class='form-flex form-court'>
+    <%= f.input :court_type_id, label: 'Terrain',
+                                collection: @courts %>
     <%= f.input :indoor, label: 'Indoor?',  as: :boolean %>
   </div>
 
@@ -41,17 +39,30 @@
                          input_html: {autocomplete:'off', data: {target:'autocomplete.autocomplete', action:'input->autocomplete#autocomplete'}} %>
 
   <%= f.input :victory, label: 'Victoire?', as: :boolean %>
-
-  <div class='form-flex'>
-    <% (1..3).each do |set_number| %>
-      <%= render 'set_form_component', f: f, set_number: set_number  %>
-    <% end %>
-  </div>
   
-  <div class='form-flex'>
-    <% (1..3).each do |set_number| %>
+  <table class="score-table">
+    <tr>
+      <th class="th-set-1-1">Set 1</th>
+      <th class="th-set-1-2"></th>
+      <th class="th-set-2-1">Set 2</th>
+      <th class="th-set-2-2"></th>
+      <th class="th-set-3-1">Set 3</th>
+      <th class="th-set-3-2"></th>
+    </tr>
+    <tr>
+      <% (1..3).each do |set_number| %>
+        <%= render 'set_form_component', f: f, set_number: set_number  %>
+      <% end %>
+    </tr>
+    <tr>
+      <% (1..3).each do |set_number| %>
         <%= render 'tie_break_component', f: f, set_number: set_number  %>
-    <% end %>
+      <% end %>
+    </tr>
+  </table>
+
+  <div class='form-flex score'>
+    
   </div>
 
   <%= f.input :match_points_saved, label: 'Balles de match sauvées',
@@ -59,14 +70,14 @@
                                    input_html: {value: (@form.match_points_saved.blank? ? 0 : @form.match_points_saved)}, 
                                    wrapper_html: {hidden: true, data: {target:'sets.match_points_saved'}} %>
 
-  
-  <% if @form.persisted? %>
-    <%= f.submit 'Actualiser', class:'btn btn-pink w-100 my-2' %>
-  <% else %>
-    <div class='form-flex'>
-      <%= f.submit 'Ajouter' %>
-      <%= f.button :button, 'Ajouter et un autre', type: 'submit', name: 'create_and_add' %>
+  <div class="form-actions">
+    <div class='form-flex justify-center'>
+      <% if @form.persisted? %>
+        <%= f.button :submit, 'Actualiser', class:'base-btn' %>
+      <% else %>
+          <%= f.button :submit, 'Ajouter', class:'base-btn' %>
+          <%= f.button :submit, 'Ajouter un autre', type: 'submit', name: 'create_and_add', class:'secondary-btn' %>
+      <% end %>
     </div>
-  <% end %>
-  
+  </div>
 <% end %>
