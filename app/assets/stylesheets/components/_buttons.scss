@@ -33,12 +33,28 @@
 }
 
 .base-btn {
+  width: 50%;
   background-color: $color-blue;
   color: $color-white;
   border-radius: 5px;
   padding: 7px 40px;
+  margin-top: 15px;
   &:hover {
-    color: $color-white;
+    color: $color-yellow;
+  }
+}
+
+.secondary-btn {
+  width: 50%;
+  background-color: $color-white;
+  color: $color-blue;
+  border: 2px solid $color-blue;
+  border-radius: 5px;
+  padding: 7px 40px;
+  margin-left: 10px;
+   margin-top: 15px;
+  &:hover {
+    color: $color-yellow;
   }
 }
 

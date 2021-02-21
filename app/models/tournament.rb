@@ -6,7 +6,7 @@ class Tournament < ApplicationRecord
   has_many :games
   
   # Validations
-  validates :club, :category, :start_date, :end_date, :nbr_participants, presence: true
+  validates :start_date, :end_date, presence: true
   validates :club, uniqueness: { scope: [:category, :start_date, :end_date] }
   validates :nbr_participants, numericality: { only_integer: true }
   validate :valid_date
