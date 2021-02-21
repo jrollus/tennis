@@ -6,7 +6,7 @@ export default class extends Controller {
                       'tie_break_2_1_2', 'tie_break_2_2', 'tie_break_2_2_2', 'tie_break_3_1', 'tie_break_3_1_2',
                       'tie_break_3_2', 'tie_break_3_2_2', 'set_1_number', 'set_1_id', 'set_2_number', 'set_2_id',
                       'set_3_number', 'set_3_id', 'tie_break_1_id', 'tie_break_2_id', 'tie_break_3_id', 'set_3_destroy',
-                      'tie_break_1_destroy', 'tie_break_2_destroy', 'tie_break_3_destroy', 'match_points_saved']
+                      'tie_break_1_destroy', 'tie_break_2_destroy', 'tie_break_3_destroy', 'match_points_saved', 'label']
 
     connect() {
       // Initialize Data
@@ -41,6 +41,7 @@ export default class extends Controller {
 
       if (this.tie_break_3_1Target.value || this.tie_break_3_2Target.value) {
        this.tieBreaksOnOff([this.tieBreak3], true);
+       this.labelTarget.classList.remove('visibility-off');
       }
     }
 
@@ -50,9 +51,11 @@ export default class extends Controller {
           if (on) {
             gameSet[5].classList.add('visibility-on');
             gameSet[6].classList.add('visibility-on');
+            this.labelTarget.classList.remove('visibility-off');
           } else {
             gameSet[5].classList.remove('visibility-on');
             gameSet[6].classList.remove('visibility-on');
+            this.labelTarget.classList.add('visibility-off');
           }
 
           if (gameSet[3]) {
