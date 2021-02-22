@@ -1,15 +1,28 @@
-<h3> Historique de classements </h3>
-<% @ranking_histories.each do |year, year_data| %>
-  <h6> <%= year %> </h6>
-  <% year_data.each do |ranking| %>
-    <div class='display-flex'>
-      <h6><%= "#{ranking.start_date} - #{ranking.end_date} - #{ranking.ranking.name}"%></h6>
-      <% unless ranking.validated %>
-        <%= simple_form_for(ranking, remote: true, url: ranking_history_validate_path(ranking), method: :post) do |f| %>
-          <%= f.submit 'Valide' %>
-        <% end %>
-      <% end %>
-      <%= link_to "Modifie", edit_ranking_history_path(ranking), method: :get %>
-    </div>
+<h3 class='ranking-title'> Historique de classements </h3>
+<table class="ranking-table">
+  <tr>
+    <th>Année</th>
+    <th>Du</th>
+    <th>Au</th>
+    <th>Classement</th>
+    <th>Action</th>
+  </tr>
+  <% @ranking_histories.each do |year, year_data| %>
+    <tr>
+      <td> <%= year %> </td>
+      <% year_data.each do |ranking| %>
+        <td> <%= "#{ranking.start_date.strftime("%d-%m-%Y")}" %> </td>
+        <td> <%= "#{ranking.end_date.strftime("%d-%m-%Y")}" %> </td>
+        <td> <%= "#{ranking.ranking.name}" %> </td>
+        <td>
+          <div class="display-flex justify-center align-center">
+            <% unless ranking.validated %>
+              <a data-method="post" data-remote="true" href="<%= ranking_history_validate_path(ranking) %>" class="fas fa-check tournament-action"></a> | 
+            <% end %>
+            <a data-method="get" href="<%= edit_ranking_history_path(ranking) %>" class="fas fa-edit tournament-action"></a>
+          <% end %>
+          </div>
+      </td>
+    </tr>
   <% end %>
-<% end %>
+</table>

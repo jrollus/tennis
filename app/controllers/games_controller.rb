@@ -77,6 +77,8 @@ class GamesController < ApplicationController
     @game = Game.includes(:game_players).find(params[:game_id])
     authorize @game
     @game.game_players.find{|player| player.player_id == current_user.player.id}.update(validated: true)
+
+    redirect_back(fallback_location: games_path)
   end
 
   private

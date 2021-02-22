@@ -1,0 +1,27 @@
+.ranking-title {
+  color: $color-blue;
+  margin-bottom: 30px;
+}
+
+// Table
+
+.ranking-table {
+  width: 100%;
+}
+
+.ranking-table th {
+  padding: 8px 5px;
+  background-color: $color-lighter-grey;
+  border-bottom: 1px solid $color-lighter-grey-border;
+  font-size: 12px;
+  color: $color-blue;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.ranking-table tr {
+  padding: 8px 5px;
+  border-bottom: 1px solid $color-lighter-grey-border;
+  vertical-align: middle;
+  text-align: center;
+}
