@@ -35,6 +35,8 @@ class RankingHistoriesController < ApplicationController
     @ranking_history = RankingHistory.find(params[:ranking_history_id])
     authorize @ranking_history
     @ranking_history.update(validated: true)
+
+    redirect_back(fallback_location: ranking_histories_path)
   end
 
   private

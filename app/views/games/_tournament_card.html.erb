@@ -36,9 +36,8 @@
       <td>
         <% if structured_output.first[:games].first[:player_name] == PlayerDecorator.new(@user_player).player_description ||
           game[:name] == PlayerDecorator.new(@user_player).full_name %>
-          <div class="display-flex justify-center align-center">
             <% unless game[:validated] %>
-              <a href="#" class="fas fa-check tournament-action"></a> | 
+              <a data-method="post" data-remote="true" href="<%= game_validate_path(game[:game]) %>" class="fas fa-check tournament-action"></a> | 
             <% end %>
             <a data-method="get" href="<%= edit_game_path(game[:game]) %>" class="fas fa-edit tournament-action"></a> |
             <a rel="nofollow" data-method="delete" href="<%= game_path(game[:game]) %>" class="fas fa-trash tournament-action"></a>

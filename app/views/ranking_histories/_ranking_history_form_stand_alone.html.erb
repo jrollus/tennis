@@ -1,10 +1,14 @@
-<%= simple_form_for(@ranking_history, method: (edit ? 'patch' : 'post')) do |f| %>
-  <%= f.input :id, as: :hidden if edit %>
-  <%= f.input :year, disabled: true%>
-  <%= f.input :start_date, as: :date, html5: true, disabled: true%>
-  <%= f.input :end_date, as: :date, html5: true, disabled: true %>
-  <%= f.association :ranking %>
-  <div class="form-actions">
-    <%= f.button :submit, (edit ? 'Actualiser' : 'Créer') %>
+<div class='container'>
+  <div class='form-container'>
+    <%= simple_form_for(@ranking_history, method: (edit ? 'patch' : 'post')) do |f| %>
+      <%= f.input :id, as: :hidden if edit %>
+      <%= f.input :year, disabled: true%>
+      <%= f.input :start_date, as: :date, html5: true, disabled: true%>
+      <%= f.input :end_date, as: :date, html5: true, disabled: true %>
+      <%= f.association :ranking %>
+      <div class="form-actions">
+        <%= f.button :submit, (edit ? 'Actualiser' : 'Créer'), class:'base-btn' %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
