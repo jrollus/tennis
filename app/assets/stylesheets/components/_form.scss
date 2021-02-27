@@ -109,21 +109,8 @@
   width: 16.66%;
 }
 
-.form-flex.score label {
-  height: 48px;
-  margin-bottom: -20px;
-}
-
-.form-flex.score input {
-  text-align: center; 
-  padding: 2px 2px;
-  margin-right: 5px !important;
-}
-
-.form-flex.score .form-group {
-  width: 40px;
-  margin-right: auto;
-  margin-left: auto;
+.score-table tbody td {
+  vertical-align: top;
 }
 
 // Court
