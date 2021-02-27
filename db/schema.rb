@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_100612) do
+ActiveRecord::Schema.define(version: 2021_02_27_083257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,26 @@ ActiveRecord::Schema.define(version: 2021_01_10_100612) do
     t.index ["court_type_id"], name: "index_courts_on_court_type_id"
   end
 
+  create_table "division_rankings", force: :cascade do |t|
+    t.bigint "division_id", null: false
+    t.bigint "ranking_id", null: false
+    t.integer "points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["division_id"], name: "index_division_rankings_on_division_id"
+    t.index ["ranking_id"], name: "index_division_rankings_on_ranking_id"
+  end
+
+  create_table "divisions", force: :cascade do |t|
+    t.string "name"
+    t.integer "age_min"
+    t.integer "age_max"
+    t.string "gender"
+    t.string "age"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "game_players", force: :cascade do |t|
     t.bigint "player_id", null: false
     t.bigint "game_id", null: false
@@ -120,7 +140,8 @@ ActiveRecord::Schema.define(version: 2021_01_10_100612) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.bigint "tournament_id", null: false
+    t.bigint "tournament_id"
+    t.bigint "interclub_id"
     t.bigint "player_id"
     t.bigint "court_type_id"
     t.bigint "round_id", null: false
@@ -131,9 +152,15 @@ ActiveRecord::Schema.define(version: 2021_01_10_100612) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["court_type_id"], name: "index_games_on_court_type_id"
+    t.index ["interclub_id"], name: "index_games_on_interclub_id"
     t.index ["player_id"], name: "index_games_on_player_id"
     t.index ["round_id"], name: "index_games_on_round_id"
     t.index ["tournament_id"], name: "index_games_on_tournament_id"
+  end
+
+  create_table "interclubs", force: :cascade do |t|
+    t.bigint "division_id", null: false
+    t.index ["division_id"], name: "index_interclubs_on_division_id"
   end
 
   create_table "nbr_participant_rules", force: :cascade do |t|
@@ -251,14 +278,18 @@ ActiveRecord::Schema.define(version: 2021_01_10_100612) do
   add_foreign_key "category_rounds", "rounds"
   add_foreign_key "courts", "clubs"
   add_foreign_key "courts", "court_types"
+  add_foreign_key "division_rankings", "divisions"
+  add_foreign_key "division_rankings", "rankings"
   add_foreign_key "game_players", "games"
   add_foreign_key "game_players", "players"
   add_foreign_key "game_players", "rankings"
   add_foreign_key "game_sets", "games"
   add_foreign_key "games", "court_types"
+  add_foreign_key "games", "interclubs"
   add_foreign_key "games", "players"
   add_foreign_key "games", "rounds"
   add_foreign_key "games", "tournaments"
+  add_foreign_key "interclubs", "divisions"
   add_foreign_key "players", "clubs"
   add_foreign_key "players", "players", column: "player_creator_id"
   add_foreign_key "players", "users"
