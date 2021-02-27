@@ -1,0 +1,9 @@
+name,age_min,age_max,gender,age
+Dames,0,99,female,adult
+D25,25,35,female,senior
+D35,35,45,female,senior
+D45,45,99,female,senior
+Messieurs,0,99,male,adult
+M35,35,45,male,senior
+M45,45,55,male,senior
+M55,55,99,male,senior

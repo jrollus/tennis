@@ -1,5 +1,5 @@
 name,points,r_type,age_min,age_max
-A int,110,adult,0,99
+A Int,115,adult,0,99
 A Nat,110,adult,0,99
 B-15.4,105,adult,0,99
 B-15.2,100,adult,0,99

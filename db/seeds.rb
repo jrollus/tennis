@@ -6,6 +6,9 @@ GamePlayer.destroy_all
 GameSet.destroy_all
 TieBreak.destroy_all
 Game.destroy_all
+Interclub.destroy_all
+DivisionRanking.destroy_all
+Division.destroy_all
 CategoryRound.destroy_all
 Round.destroy_all
 Tournament.destroy_all
@@ -19,6 +22,17 @@ Court.destroy_all
 Club.destroy_all
 CourtType.destroy_all
 User.destroy_all
+
+# Division
+puts "Seeding Divisions"
+ActiveRecord::Base.connection.reset_pk_sequence!('divisions')
+
+filepath = 'db/data/divisions.csv'
+divisions = []
+CSV.foreach(filepath, headers: true) do |row|
+    divisions << row.to_hash
+end
+Division.import(divisions)
 
 # Tournament Categories
 puts "Seeding Tournament Categories"
@@ -40,6 +54,17 @@ CSV.foreach(filepath, headers: true) do |row|
     entries << row.to_hash
 end
 Ranking.import(entries)
+
+# Division Rankings
+puts "Seeding Division Rankings"
+ActiveRecord::Base.connection.reset_pk_sequence!('division_rankings')
+
+filepath = 'db/data/division_rankings.csv'
+division_rankings = []
+CSV.foreach(filepath, headers: true) do |row|
+    division_rankings << row.to_hash
+end
+DivisionRanking.import(division_rankings)
 
 # Category Rankings
 puts "Seeding Category Rankings"
