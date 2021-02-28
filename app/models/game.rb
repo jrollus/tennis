@@ -1,6 +1,7 @@
 class Game < ApplicationRecord
   # Relations
-  belongs_to :tournament
+  belongs_to :interclub, optional: true
+  belongs_to :tournament, optional: true
   belongs_to :court_type, optional: true
   belongs_to :player, optional: true
   belongs_to :round
