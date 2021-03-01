@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
         player = Player.includes(ranking_histories: :ranking).find_by_affiliation_number(params[:player].scan(/\((\d+)\)/)[0][0])
       end
     else
-      player = current_user.player
+      player = Player.includes(ranking_histories: :ranking).find(current_user.player.id)
     end
   end
   

@@ -160,6 +160,10 @@ ActiveRecord::Schema.define(version: 2021_02_27_083257) do
 
   create_table "interclubs", force: :cascade do |t|
     t.bigint "division_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["division_id"], name: "index_interclubs_on_division_id"
   end
 

@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_players_and_clubs_and_courts_and_rounds, only: [:new, :create, :edit, :update]
+  before_action :set_players_and_interclubs_and_clubs_and_courts_and_rounds, only: [:new, :create, :edit, :update]
   before_action :set_game, only: [:edit, :update]
 
   def index
@@ -24,6 +24,7 @@ class GamesController < ApplicationController
 
   def new
     @form = GameForm.new
+    @form.game_type = "true"
     populate_tournament if session[:tournament_id]
     authorize @form
   end
@@ -84,12 +85,13 @@ class GamesController < ApplicationController
   private
 
   def game_form_params
-    params.require(:game_form).permit(:club, :category, :tournament_id, :player_id, :court_type_id, :date, :status, :round_id, :court_type, :indoor, :opponent, :victory, :match_points_saved,
+    params.require(:game_form).permit(:game_type, :interclub_id, :club, :category, :tournament_id, :player_id, :court_type_id, :date, :status, :round_id, :court_type, :indoor, :opponent, :victory, :match_points_saved,
                                       game_sets_attributes: [:id, :set_number, :games_1, :games_2, :_destroy, tie_break_attributes: [:id, :points_1, :points_2, :_destroy]])
   end
   
-  def set_players_and_clubs_and_courts_and_rounds
+  def set_players_and_interclubs_and_clubs_and_courts_and_rounds
     @player = PlayerDecorator.new(current_user.player)
+    @interclubs = InterclubsMatchingQuery.new(@player).get_interclubs_matching
     @clubs = ClubsMatchingQuery.new(@player).get_clubs_matching
     @courts = CourtType.all.map{|court_type| [court_type.court_type.titleize, court_type.id]}
     @rounds = Round.where.not(name: 'vainqueur').map{|round| [round.name.gsub('_', '/').capitalize, round.id]}

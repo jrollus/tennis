@@ -66,6 +66,17 @@ CSV.foreach(filepath, headers: true) do |row|
 end
 DivisionRanking.import(division_rankings)
 
+# Interclubs
+puts "Seeding Interclubs"
+ActiveRecord::Base.connection.reset_pk_sequence!('interclubs')
+
+filepath = 'db/data/interclub.csv'
+interclubs = []
+CSV.foreach(filepath, headers: true) do |row|
+    interclubs << row.to_hash
+end
+Interclub.import(interclubs)
+
 # Category Rankings
 puts "Seeding Category Rankings"
 ActiveRecord::Base.connection.reset_pk_sequence!('category_rankings')

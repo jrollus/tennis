@@ -3,24 +3,24 @@ class GameForm
   include ActiveModel::Model
 
   # Attributes
-  attr_accessor :game, :club, :category, :tournament_id, :player_id, :court_type_id, :date, :status, :indoor, :round_id, :opponent,
+  attr_accessor :game, :game_type, :interclub_id, :club, :category, :tournament_id, :player_id, :court_type_id, :date, :status, :indoor, :round_id, :opponent,
                 :victory, :set_1_number, :set_2_number, :set_3_number, :set_3_id, :tie_break_1_id, :tie_break_2_id, :tie_break_3_id, 
                 :set_3_destroy, :tie_break_1_destroy, :tie_break_2_destroy, :tie_break_2_destroy, :set_1_1, :set_1_2, :tie_break_1_1,
                 :tie_break_1_2, :set_2_1, :set_2_2, :tie_break_2_1, :tie_break_2_2, :set_3_1, :set_3_2, :tie_break_3_1, :tie_break_3_2, 
                 :match_points_saved
                 
   # Validation
-  validates :club, :category, :tournament_id, :date, :player_id, :status, :court_type_id, :round_id, :opponent, :set_1_1, :set_1_2, 
+  validates :club, :category, presence: true, if: ->(o) { o.game_type == "true" }
+  validates :date, :player_id, :status, :court_type_id, :round_id, :opponent, :set_1_1, :set_1_2, 
             :set_2_1, :set_2_2, :match_points_saved, presence: true
   validates :set_1_1, :set_1_2, :set_2_1, :set_2_2, :set_3_1, :set_3_2, :tie_break_1_1, :tie_break_1_2,
             :tie_break_2_1, :tie_break_2_2, :tie_break_3_1, :tie_break_3_2, numericality: { only_integer: true }, allow_blank: true
   validates :set_1_1, :set_1_2, :set_2_1, :set_2_2, :set_3_1, :set_3_2, inclusion: (0..7).map(&:to_s), allow_blank: true
   validates :indoor, :victory, inclusion: { in: [ '0', '1', true, false ] }
-  validate  :valid_date, :valid_opponent, :valid_score
+  validate  :valid_date, :valid_opponent, :valid_score, :interclub_or_tournament_present
  
   # Constructor
   def initialize(attr = {}, current_user = nil, game = nil, edit = nil)
-  
     # Flatten Parameters
     attr = flatten_parameters(attr) unless attr.blank?
 
@@ -30,10 +30,16 @@ class GameForm
       user_player_id = current_user.player.id
 
       # Assign Attributes
+      self.game_type = edit ? (@game.tournament_id.present? ? "true" : "false") : attr[:game_type]
       self.player_id = user_player_id
-      self.club = edit ? @game.tournament.club.id : attr[:club]
-      self.category = edit ? @game.tournament.category.id : attr[:category]
-      self.tournament_id = edit ? @game.tournament.id : attr[:tournament_id]
+      self.interclub_id = edit ? @game.interclub.id : attr[:interclub_id]
+
+      if self.game_type == "true"
+        self.club = edit ? @game.tournament.club.id : attr[:club]
+        self.category = edit ? @game.tournament.category.id : attr[:category]
+        self.tournament_id = edit ? @game.tournament.id : attr[:tournament_id]
+      end
+
       self.date = edit ? @game.date : attr[:date]
       self.court_type_id = edit ? (@game.court_type ? @game.court_type.id : nil) : attr[:court_type_id]
       self.indoor = edit ? @game.indoor : attr[:indoor]
@@ -91,7 +97,7 @@ class GameForm
   # Custom Validations
 
   def valid_date
-    unless self.tournament_id.blank? || self.date.blank?
+    unless self.tournament_id.blank? || self.date.blank? || self.game_type == "false"
       tournament = Tournament.find(self.tournament_id)
       errors.add(:date, 'en dehors des dates du tournoi') unless self.date.to_date.between?(tournament.start_date, tournament.end_date)
     end
@@ -148,10 +154,15 @@ class GameForm
     end   
   end
 
+  def interclub_or_tournament_present
+    errors.add(:tournament_id, "ne peut pas être vide") unless (self.game_type == "true" && self.tournament_id.present?) || self.game_type == "false"
+    errors.add(:interclub_id, "ne peut pas être vide") unless (self.game_type == "false" && self.interclub_id.present?) || self.game_type == "true"
+  end
+
   # Save
   def save_game(game_form_params, current_user)
     # Player Table and associated nested tables
-    @game = Game.new(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
+    @game = Game.new(game_form_params.except(:game_type, :club, :category, :opponent, :victory, :match_points_saved))
     @game.save 
 
     # GamerPlayers Table
@@ -205,8 +216,12 @@ class GameForm
 
   def update_game(game_form_params, current_user, game)
     # Player Table and associated nested tables
-    @game.update(game_form_params.except(:club, :category, :opponent, :victory, :match_points_saved))
-    
+    if game_form_params[:game_type] == "true"
+      @game.update(game_form_params.merge(interclub_id: nil).except(:game_type, :club, :category, :opponent, :victory, :match_points_saved))
+    elsif game_form_params[:game_type] == "false"
+      @game.update(game_form_params.merge(tournament_id: nil).except(:game_type, :club, :category, :opponent, :victory, :match_points_saved))
+    end
+
     # GamePlayers Table
     user_player_id = current_user.player.id
     @game_player_user = @game.game_players.find{|player| player.player_id == user_player_id}
