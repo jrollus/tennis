@@ -123,7 +123,7 @@
   margin-top: 30px;
 }
 
-// Style checkbox
+// Style Checkbox
 
 .form-check {
   display: inline-flex;
@@ -171,6 +171,60 @@
 
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
   color: $color-grey-darker;
+}
+
+
+// Style Checkbox - Toggle
+
+.toggle-btn {
+  border: 3px solid $color-blue;
+  display: inline-block;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  transition: background 600ms ease, color 600ms ease;
+}
+
+input[type="radio"].toggle {
+  display: none;
+  & + label{
+      cursor: pointer;
+      min-width: 100px;
+      &:hover{
+          background: none;
+          color: $color-black;
+      }
+      &:after{
+          background: $color-blue;
+          content: "";
+          height: 100%;
+          position: absolute;
+          top: 0;
+          transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+          width: 100%;
+          z-index: -1;
+      }
+  }
+  &.toggle-left + label {
+      border-right: 0;
+      &:after{
+          left: 100%
+      }
+  }
+  &.toggle-right + label{
+      margin-left: -6px;
+      &:after{
+          left: -100%;
+      }
+  }
+  &:checked + label {
+      cursor: default;
+      color: $color-yellow;
+      transition: color 200ms;
+      &:after{
+          left: 0;
+      }
+  }
 }
 
 // Style File Input

@@ -2,19 +2,30 @@
                            method: (@form.persisted? ? 'patch': 'post'),
                            html: {data: {controller: 'cascading sets autocomplete'}}) do |f| %>
 
-  <%= f.input :club, label: 'Club',
-                     collection: @clubs, 
-                     input_html: {data: {target:'cascading.club', action:'cascading#autofill'}} %>
+  <%= render 'game_type_toggle'%>
+  
+  <div class="interclub-block <%= (@form.game_type == "true") ? "visibility-off" : "" %>" data-target='cascading.interclub'>
+    <%= f.input :interclub_id, label: 'Division',
+                              collection: @interclubs,
+                              input_html: {data: {target:'cascading.division'}},
+                              disabled: @form.game_type == "true" %>
+  </div>
 
-  <%= f.input :category, label: 'Catégorie', 
-                         collection: (@categories.nil? ? [] : @categories), 
-                         input_html: {data: {target:'cascading.category', action:'cascading#autofill' }}, 
-                         disabled: @form.club.blank? %>
+  <div class="tournament-block <%= (@form.game_type == "true") ? "" : "visibility-off" %>" data-target='cascading.tournament'>
+    <%= f.input :club, label: 'Club',
+                      collection: @clubs, 
+                      input_html: {data: {target:'cascading.club', action:'cascading#autofill'}} %>
 
-  <%= f.input :tournament_id, label: 'Date du tournoi', 
-                              collection: (@tournament_dates.nil? ? [] : @tournament_dates), 
-                              input_html: {data: {target:'cascading.date'}}, 
-                              disabled: @form.category.blank? %>
+    <%= f.input :category, label: 'Catégorie', 
+                          collection: (@categories.nil? ? [] : @categories), 
+                          input_html: {data: {target:'cascading.category', action:'cascading#autofill' }}, 
+                          disabled: @form.club.blank? %>
+
+    <%= f.input :tournament_id, label: 'Date du tournoi', 
+                                collection: (@tournament_dates.nil? ? [] : @tournament_dates), 
+                                input_html: {data: {target:'cascading.date'}}, 
+                                disabled: @form.category.blank? %>
+  </div>
 
   <%= f.input :date, label: 'Date du match', as: :date, html5: true %>
 
@@ -40,7 +51,7 @@
 
   <%= f.input :victory, label: 'Victoire?', as: :boolean %>
   
-  <table class="score-table">
+  <table class='score-table'>
     <tr>
       <th class="th-set-1-1">Set 1</th>
       <th class="th-set-1-2"></th>
