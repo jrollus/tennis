@@ -4,14 +4,14 @@
               type="radio" data-game-type='tournament' data-target='cascading.tournamentCB' data-action='change->cascading#toggle' checked>
       <label for="game_form_game_type_0" class="toggle-btn">Tournoi</label>
       <input id="game_form_game_type_1" class="toggle toggle-right" name=game_form[game_type] value="false"
-              data-game-type='interclub' data-target='cascading.interclubCB' data-action='change->cascading#toggle' type="radio">
+              data-game-type='interclub' data-action='change->cascading#toggle' type="radio">
       <label for="game_form_game_type_1" class="toggle-btn">Interclub</label>
   <% else %>
       <input id="game_form_game_type_0" class="toggle toggle-left" name=game_form[game_type] value="true"
               type="radio" data-game-type='tournament' data-target='cascading.tournamentCB' data-action='change->cascading#toggle'>
       <label for="game_form_game_type_0" class="toggle-btn">Tournoi</label>
       <input id="game_form_game_type_1" class="toggle toggle-right" name=game_form[game_type] value="false"
-              data-game-type='interclub' data-target='cascading.interclubCB' data-action='change->cascading#toggle' type="radio" checked>
+              data-game-type='interclub' data-action='change->cascading#toggle' type="radio" checked>
       <label for="game_form_game_type_1" class="toggle-btn">Interclub</label>
   <% end %>
 </div>
