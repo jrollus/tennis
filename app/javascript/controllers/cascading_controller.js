@@ -1,10 +1,9 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-    static targets = ['club', 'category', 'date', 'interclub', 'tournament', 'division', 'tournamentCB', 'interclubCB'];
+    static targets = ['club', 'category', 'date', 'interclub', 'tournament', 'division', 'round'];
     
     toggle(event) {
-      console.log(event.currentTarget)
       if (event.currentTarget.dataset.gameType == 'interclub') {
         this.interclubSelected();
       } else if (event.currentTarget.dataset.gameType == 'tournament') {
@@ -15,15 +14,20 @@ export default class extends Controller {
     interclubSelected() {
       this.interclubTarget.classList.remove('visibility-off');
       this.tournamentTarget.classList.add('visibility-off');
+      this.roundTarget.classList.add('visibility-off');
       this.dateTarget.disabled = true;
       this.divisionTarget.disabled = false;
+      this.roundTarget.disabled = true;
     }
 
     tournamentSelected() {
       this.interclubTarget.classList.add('visibility-off');
       this.tournamentTarget.classList.remove('visibility-off');
+      this.roundTarget.classList.remove('visibility-off');
       this.divisionTarget.disabled = true;
       this.dateTarget.disabled = false;
+      this.roundTarget.disabled = false;
+
     }
 
     async autofill(event) {

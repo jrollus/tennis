@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 2021_02_27_083257) do
     t.bigint "interclub_id"
     t.bigint "player_id"
     t.bigint "court_type_id"
-    t.bigint "round_id", null: false
+    t.bigint "round_id"
     t.date "date"
     t.string "round"
     t.string "status"

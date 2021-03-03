@@ -32,9 +32,12 @@
   <%= f.input :status, label: 'Statut', 
                               collection: [['Terminé','completed'], ['Blessure', 'retirement'],['WO','wo']],
                               input_html: { data: { target:'sets.status', action:'sets#setsHandler' }} %>
-                              
-  <%= f.input :round_id,  label: 'Tour',
-                       collection: @rounds %>
+
+  <div class="round-block <%= (@form.game_type == "false") ? "visibility-off" : "" %>" data-target='cascading.round'>       
+    <%= f.input :round_id,  label: 'Tour',
+                            collection: @rounds,
+                            disabled: @form.game_type == "false"%>
+  </div>
 
   <%= f.input :player_id, as: :hidden , 
                           input_html: { value: (@form.player_id.blank? ? current_user.player.id : @form.player_id), name: 'game_form[player_id]'} %>

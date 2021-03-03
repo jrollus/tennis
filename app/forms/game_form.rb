@@ -10,8 +10,8 @@ class GameForm
                 :match_points_saved
                 
   # Validation
-  validates :club, :category, presence: true, if: ->(o) { o.game_type == "true" }
-  validates :date, :player_id, :status, :court_type_id, :round_id, :opponent, :set_1_1, :set_1_2, 
+  validates :club, :category, :round_id, presence: true, if: ->(o) { o.game_type == "true" }
+  validates :date, :player_id, :status, :court_type_id, :opponent, :set_1_1, :set_1_2, 
             :set_2_1, :set_2_2, :match_points_saved, presence: true
   validates :set_1_1, :set_1_2, :set_2_1, :set_2_2, :set_3_1, :set_3_2, :tie_break_1_1, :tie_break_1_2,
             :tie_break_2_1, :tie_break_2_2, :tie_break_3_1, :tie_break_3_2, numericality: { only_integer: true }, allow_blank: true
@@ -32,19 +32,20 @@ class GameForm
       # Assign Attributes
       self.game_type = edit ? (@game.tournament_id.present? ? "true" : "false") : attr[:game_type]
       self.player_id = user_player_id
-      self.interclub_id = edit ? @game.interclub.id : attr[:interclub_id]
-
+      
       if self.game_type == "true"
         self.club = edit ? @game.tournament.club.id : attr[:club]
         self.category = edit ? @game.tournament.category.id : attr[:category]
         self.tournament_id = edit ? @game.tournament.id : attr[:tournament_id]
+        self.round_id = edit ? @game.round.id : attr[:round_id]
+      elsif self.game_type == "false"
+        self.interclub_id = edit ? @game.interclub.id : attr[:interclub_id]
       end
 
       self.date = edit ? @game.date : attr[:date]
       self.court_type_id = edit ? (@game.court_type ? @game.court_type.id : nil) : attr[:court_type_id]
       self.indoor = edit ? @game.indoor : attr[:indoor]
       self.status = edit ? @game.status : attr[:status]
-      self.round_id = edit ? @game.round.id : attr[:round_id]
       
       # User Check (in case somebody goes to the URL directly of a game that is not his)
       if @game.game_players.find{|player| player.player_id == user_player_id}

@@ -1,13 +1,18 @@
 <div class="tournament-header">
-  <div class="display-flex space-between align-center">
-    <h4 class="tournament-name"><%= "#{tournament[:club]}" %></h4>
-    <h4 class="tournament-date"><%= "#{tournament[:dates]}" %></h4>
-  </div>
-  <h6 class="tournament-category"><%= "#{tournament[:category]}" %></h6>
+  <% if competition_type == 'tournament' %>
+    <div class="display-flex space-between align-center">
+      <h4 class="tournament-name"><%= "#{competition[:club]}" %></h4>
+      <h4 class="tournament-date"><%= "#{competition[:dates]}" %></h4>
+    </div>
+    <h6 class="tournament-category"><%= "#{competition[:category]}" %></h6>
+  <% else %>
+    <h4 class="tournament-name"><%= "#{competition[:division]}" %></h4>
+  <% end %>
 </div>
+  
 <table class="tournament-table">
   <tr>
-    <th class="th-round">Tour</th>
+    <th class="th-round"> <%= competition_type == 'tournament' ? 'Tour' : 'Date' %></th>
     <th class="th-ranking">Classement</th>
     <th class="th-opponent">Adversaire</th>
     <th class="th-victory">V-D</th>
@@ -15,9 +20,9 @@
     <th class="th-score">Score</th>
     <th class="th-actions">Actions</th>
   </tr>
-  <% tournament[:games].each do |game| %>
+  <% competition[:games].each do |game| %>
     <tr>
-      <td><%= "#{game[:round].capitalize.gsub('_','/')}" %></td>
+      <td><%= competition_type == 'tournament' ? "#{game[:round].capitalize.gsub('_','/')}" : game[:date].strftime("%d-%m-%Y")  %></td>
       <td><%= "#{game[:ranking]}" %></td>
       <td><%= "#{game[:name]}" %></td>
       <% if game[:victory] %>
@@ -34,7 +39,7 @@
       <% end %>
       <td><%="#{game[:score]}" %></td>
       <td>
-        <% if structured_output.first[:games].first[:player_name] == PlayerDecorator.new(@user_player).player_description ||
+        <% if competitions.first[:games].first[:player_name] == PlayerDecorator.new(@user_player).player_description ||
           game[:name] == PlayerDecorator.new(@user_player).full_name %>
            <div class="display-flex justify-center align-center">
             <% unless game[:validated] %>

@@ -3,17 +3,23 @@ class GameIndexDecorator < SimpleDelegator
       __getobj__
     end
 
-    def structured_output(player, current_user)
+    def structured_output(player, current_user, game_type)
       structured_output = []
       selected_player_id = player.id
       current_user_player_id = current_user.player.id
-      self.each do |tournament_key, tournament_value| 
-        structured_output << { club: tournament_value.first.tournament.club.name,
-                               category: tournament_value.first.tournament.category.category,
-                               dates: TournamentDecorator.new(tournament_value.first.tournament).tournament_date,
-                               games: []
-                             }
-        tournament_value.sort_by{|tournament| [tournament.date ? 1 : 0, tournament.date] }.reverse.each do |game|
+      self.each do |k, v| 
+        if game_type == 'tournament'
+          structured_output << { club: v.first.tournament.club.name,
+                                category: v.first.tournament.category.category,
+                                dates: TournamentDecorator.new(v.first.tournament).tournament_date,
+                                games: []
+                               }
+        elsif game_type == 'interclub'
+          structured_output << { division: v.first.interclub.division.name,
+                                 games: []
+                               }
+        end
+        v.sort_by{|competition| [competition.date ? 1 : 0, competition.date] }.reverse.each do |game|
           game_hash = {}
           user_score_order = (game.player_id.nil? ? GamePlayerOrderService.maintain?(game, selected_player_id) : (selected_player_id == game.player_id))
           opponent = game.players.find{|player| player.id != selected_player_id}
@@ -22,7 +28,9 @@ class GameIndexDecorator < SimpleDelegator
           game_hash[:game] = game
           game_hash[:date] = game.date
           game_hash[:status] = game.status
-          game_hash[:round] = game.round.name
+          if game_type == 'tournament'
+            game_hash[:round] = game.round.name
+          end
           game_hash[:victory] = game.game_players.find{|player| player.player_id == selected_player_id}.victory
           if game.game_players.find{|player| player.player_id == current_user_player_id}
             game_hash[:validated] = game.game_players.find{|player| player.player_id == current_user_player_id}.validated

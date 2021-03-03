@@ -10,14 +10,17 @@ class GamesController < ApplicationController
       format.html { 
         @max_date = Game.maximum(:date).year
         @min_date = Game.minimum(:date).year
-        @games = GameIndexDecorator.new(query.get_games(@max_date))
+        @tournaments = GameIndexDecorator.new(query.get_tournament_games(@max_date))
+        @interclubs = GameIndexDecorator.new(query.get_interclub_games(@max_date))
       }
       format.json { 
         if @player
-          games = GameIndexDecorator.new(params[:year].present? ? query.get_games(params[:year]) : query.get_games)
-          @structured_output = games.structured_output(@player, current_user)
+          tournament_query = GameIndexDecorator.new(params[:year].present? ? query.get_tournament_games(params[:year]) : query.get_tournament_games)
+          interclub_query  = GameIndexDecorator.new(params[:year].present? ? query.get_interclub_games(params[:year]) : query.get_interclub_games)
+          tournaments = tournament_query.structured_output(@player, current_user, 'tournament')
+          interclubs = interclub_query.structured_output(@player, current_user, 'interclub')
         end
-        render(json: { html_data: render_to_string(partial: 'games/games_info.html.erb', locals: {player: @player, structured_output: @structured_output })})
+        render(json: { html_data: render_to_string(partial: 'games/games_info.html.erb', locals: {player: @player, tournaments: tournaments, interclubs: interclubs })})
        }
     end 
   end
