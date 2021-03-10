@@ -1,0 +1,32 @@
+<h3 class='validation-title'> Joueurs </h3>
+<table class="validation-table">
+  <tr>
+    <th>Club</th>
+    <th>Nº Affiliation</th>
+    <th>Sexe</th>
+    <th>Classement</th>
+    <th>Prénom</th>
+    <th>Nom</th>
+    <th>Main Dominante</th>
+    <th>Anniversaire</th>
+    <th>Action</th>
+  </tr>
+  <% @players.each do |player| %>
+    <tr>
+      <td> <%= player.club.name %> </td>
+      <td> <%= player.affiliation_number %> </td>
+      <td> <%= player.gender == 'male' ? 'Homme' : 'Femme' %> </td>
+      <td> <%= "#{player.ranking_histories.last.ranking.name}" %> </td>
+      <td> <%= player.first_name %> </td>
+      <td> <%= player.last_name %> </td>
+      <td> <%= player.dominant_hand == 'left-handed' ? 'Gaucher' : 'Droitier' %> </td>
+      <td> <%= player.birthdate.strftime("%d-%m-%Y") %> </td>
+      <td>
+        <div class="display-flex justify-center align-center">
+          <a data-method="post" data-remote="true" href="<%= player_validate_path(player) %>" class="fas fa-check tournament-action"></a> | 
+          <a data-method="get" href="<%= edit_player_path(player) %>" class="fas fa-edit tournament-action"></a>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>

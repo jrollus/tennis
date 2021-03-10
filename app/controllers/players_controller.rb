@@ -74,6 +74,19 @@ class PlayersController < ApplicationController
     end 
   end
 
+  def validations
+    @players = policy_scope(Player).includes(:club, ranking_histories: :ranking).where(players: {validated: false})
+    authorize @players
+  end
+
+  def validate
+    @player = Player.find(params[:player_id])
+    authorize @player
+    @player.update(validated: true)
+
+    redirect_back(fallback_location: players_validations_path)
+  end
+
   private
 
   def player_params
