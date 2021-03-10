@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'validations/index'
   # Devise
   devise_for :users, controllers: {registrations: 'users/registrations'}
 
@@ -6,15 +7,18 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # Ranking Histories
-  resources :ranking_histories, only: [:index, :edit, :update] do
+  resources :ranking_histories, only: [:index, :edit, :update], path: 'ranking-histories' do
     post '/validate',  to:'ranking_histories#validate'
   end
 
   # Players
-  resources :players, only: [:new, :create, :edit, :update]
+  resources :players, only: [:new, :create, :edit, :update] do
+    post '/validate', to:'players#validate'
+  end
+
   get '/players', to:'players#index', constraints: lambda { |req| req.format == :json }
   get '/players/:id', to:'players#show', constraints: lambda { |req| req.format == :json }
-
+  get '/players-validations', to:'players#validations'
   get '/stats', to:'players#stats'
 
   # Tournaments
