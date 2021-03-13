@@ -51,6 +51,20 @@ class TournamentsController < ApplicationController
       end
     end
     
+    def validations
+      @tournaments = policy_scope(Tournament).includes(:club, :category).where(tournaments: {validated: false})
+      authorize @tournaments
+    end
+  
+    def validate
+      @tournament = Tournament.find(params[:tournament_id])
+      authorize @tournament
+      @tournament.update(validated: true)
+  
+      redirect_back(fallback_location: tournaments_validations_path)
+    end
+
+    
     private
   
     def tournament_params

@@ -22,8 +22,12 @@ Rails.application.routes.draw do
   get '/stats', to:'players#stats'
 
   # Tournaments
-  resources :tournaments, only: [:new, :create, :edit, :update]
+  resources :tournaments, only: [:new, :create, :edit, :update] do
+    post '/validate', to:'tournaments#validate'
+  end
+
   get '/tournaments', to:'tournaments#index', constraints: lambda { |req| req.format == :json }
+  get '/tournaments-validations', to:'tournaments#validations'
 
   # Games
   resources :games, except: [:show] do
