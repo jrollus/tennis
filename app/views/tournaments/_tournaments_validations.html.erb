@@ -1,0 +1,26 @@
+<h3 class='validation-title'> Tournois </h3>
+<table class="validation-table">
+  <tr>
+    <th>Club</th>
+    <th>Catégorie </th>
+    <th>Début</th>
+    <th>Fin</th>
+    <th>Nombre d'inscrits</th>
+    <th>Action</th>
+  </tr>
+  <% @tournaments.each do |tournament| %>
+    <tr>
+      <td> <%= tournament.club.name %> </td>
+      <td> <%= tournament.category.category %> </td>
+      <td> <%= tournament.start_date.strftime("%d-%m-%Y") %> </td>
+      <td> <%= tournament.end_date.strftime("%d-%m-%Y") %> </td>
+      <td> <%= tournament.nbr_participants %> </td>
+      <td>
+        <div class="display-flex justify-center align-center">
+          <a data-method="post" data-remote="true" href="<%= tournament_validate_path(tournament) %>" class="fas fa-check tournament-action"></a> | 
+          <a data-method="get" href="<%= edit_tournament_path(tournament) %>" class="fas fa-edit tournament-action"></a>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>
