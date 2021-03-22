@@ -7,6 +7,15 @@
   <div class='navbar-right-section'>
     <% if current_user %>
       <div class='navbar-collapsable'>
+        <% if current_user.admin %>
+          <div data-controller='dropdown' class='dropdown'>
+            <div class='navbar-link' data-target='dropdown.button' data-action='click->dropdown#toggleVisibility' role='button' aria-haspopup='true' aria-expanded='false'> Validation </div>  
+            <div data-target='dropdown.popup' class='dropdown-content'>
+              <%= link_to('Joueur', players_validations_path, class: 'nav-link text-dark')%>
+              <%= link_to('Tournoi', tournaments_validations_path, class: 'nav-link text-dark')%>
+            </div>
+          </div>
+        <% end %>
         <div data-controller='dropdown' class='dropdown'>
           <div class='navbar-link' data-target='dropdown.button' data-action='click->dropdown#toggleVisibility' role='button' aria-haspopup='true' aria-expanded='false'> Encodage </div>  
           <div data-target='dropdown.popup' class='dropdown-content'>
