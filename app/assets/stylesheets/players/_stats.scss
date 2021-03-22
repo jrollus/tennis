@@ -1,0 +1,63 @@
+// General Stats
+
+.stats-header {
+  margin-top: 25px;
+  padding: 0 100px;
+  width: 90%;
+}
+
+.stats-avatar-img {
+  width: 125px;
+  height: 125px;
+  padding: 0px 0px;
+  display: block;
+  margin: auto 0;
+  margin-bottom: 10px;
+}
+
+.stats-category {
+  width: 400px;
+  margin-bottom: 30px;
+}
+
+.stats-category-title {
+  color: $color-blue;
+  font-weight: bold;
+  margin: 25px 0px;
+}
+
+.stats-category-description {
+  padding: 15px 0px;
+  min-width: 175px;
+}
+
+// Wins-Losses Cards
+.wins-losses-div {
+  margin-left: 25px;
+  width: 250px;
+}
+
+.wins-losses-div em {
+  color: $color-yellow;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.wins-number, .wins-percentage {
+  color: $color-blue;
+}
+
+.wins-number, .losses-number {
+  font-weight: bold;
+}
+
+.losses-number, .losses-percentage {
+  color: $color-yellow;
+}
+
+.wins-losses-title {
+  color: $color-blue;
+  font-weight: bold;
+  text-align: center;
+}
+

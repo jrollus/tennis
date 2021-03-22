@@ -51,10 +51,10 @@ class PlayersController < ApplicationController
   end
 
   def stats
-    player = get_player
-    @user_player = Player.includes(ranking_histories: :ranking).find(player.id)
+    @player = get_player
+    @user_player = Player.includes(ranking_histories: :ranking).find(current_user.player.id)
     authorize @user_player
-    @query = PlayersQuery.new(player)
+    @query = PlayersQuery.new(@player)
 
     respond_to do |format|
       format.html { 

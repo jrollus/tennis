@@ -22,36 +22,101 @@ class PlayersQuery
   end
 
   def get_wins_losses_by_tournament(win, year=nil)
-    if year
-      query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
-      GamePlayer.joins(game: {tournament: :category}).where(query, @player.id, win, year).group('categories.category').count
+    if win
+      if year
+        query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
+        GamePlayer.joins(game: {tournament: :category}).where(query, @player.id, win, year).group('categories.category').count
+      else
+        query = 'game_players.player_id = ? AND game_players.victory = ?'
+        GamePlayer.joins(game: {tournament: :category}).where(query, @player.id, win).group('categories.category').count
+      end
     else
-      query = 'game_players.player_id = ? AND game_players.victory = ?'
-      GamePlayer.joins(game: {tournament: :category}).where(query, @player.id, win).group('categories.category').count
+      if year
+        query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
+        raw_db_output = GamePlayer.joins(game: {tournament: :category}).where(query, @player.id, year).group('categories.category', 'game_players.victory').count
+      else
+        query = 'game_players.player_id = ?'
+        raw_db_output = GamePlayer.joins(game: {tournament: :category}).where(query, @player.id).group('categories.category', 'game_players.victory').count
+      end
+      structured_output = raw_db_output.each_with_object({}) do |((category, win_loss), win_loss_count), hash|
+        hash[category] ||= { true => 0, false => 0 }
+        hash[category][win_loss] = win_loss_count
+      end
+      return structured_output
+    end
+  end
+
+  def get_wins_losses_by_court_type(win, year=nil)
+    if win
+      if year
+        query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
+        Game.joins(:game_players, :court_type).where(query, @player.id, win, year).group('court_types.court_type').count
+      else
+        query = 'game_players.player_id = ? AND game_players.victory = ?'
+        Game.joins(:game_players, :court_type).where(query, @player.id, win).group('court_types.court_type').count
+      end
+    else
+      if year
+        query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
+        raw_db_output = Game.joins(:game_players, :court_type).where(query, @player.id, year).group('court_types.court_type', 'game_players.victory').count
+      else
+        query = 'game_players.player_id = ? AND game_players.victory = ?'
+        raw_db_output = Game.joins(:game_players, :court_type).where(query, @player.id, win).group('court_types.court_type', 'game_players.victory').count
+      end
+      structured_output = raw_db_output.each_with_object({}) do |((category, win_loss), win_loss_count), hash|
+        hash[category] ||= { true => 0, false => 0 }
+        hash[category][win_loss] = win_loss_count
+      end
+      return structured_output
     end
   end
 
   def get_wins_losses_dominant_hand(win, year=nil)
-    if year
-      query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
-      Player.joins(game_players: :game).where(games: {id: Game.joins(:game_players).where(query, @player.id, win, year)})
-                                        .where.not(game_players: {player_id: @player.id}).group(:dominant_hand).count
+    if win
+      if year
+        query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
+        Player.joins(game_players: :game).where(games: {id: Game.joins(:game_players).where(query, @player.id, win, year)})
+                                          .where.not(game_players: {player_id: @player.id}).group(:dominant_hand).count
+      else
+        query = 'game_players.player_id = ? AND game_players.victory = ?'
+        Player.joins(game_players: :game).where(games: {id: Game.joins(:game_players).where(query, @player.id, win)})
+                                          .where.not(game_players: {player_id: @player.id}).group(:dominant_hand).count
+      end
     else
-      query = 'game_players.player_id = ? AND game_players.victory = ?'
-      Player.joins(game_players: :game).where(games: {id: Game.joins(:game_players).where(query, @player.id, win)})
-                                        .where.not(game_players: {player_id: @player.id}).group(:dominant_hand).count
+      if year
+        query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
+        raw_db_output = Player.joins(game_players: :game).where(games: {id: Game.joins(:game_players).where(query, @player.id, year)})
+                                          .where.not(game_players: {player_id: @player.id}).group(:dominant_hand, 'game_players.victory').count
+      else
+        query = 'game_players.player_id = ?'
+        raw_db_output = Player.joins(game_players: :game).where(games: {id: Game.joins(:game_players).where(query, @player.id)})
+                                          .where.not(game_players: {player_id: @player.id}).group(:dominant_hand, 'game_players.victory').count
+      end
+      structured_output = raw_db_output.each_with_object({}) do |((category, win_loss), win_loss_count), hash|
+        hash[category] ||= { true => 0, false => 0 }
+        hash[category][win_loss] = win_loss_count
+      end
+      
+      structured_output['Gaucher'] = structured_output.delete 'left-handed' if structured_output.key?('left-handed')
+      structured_output['Droitier'] = structured_output.delete 'right-handed' if structured_output.key?('right-handed')
+      return structured_output
+      
     end
   end
+
+  def get_wins_losses_nbr_sets(win, nbr_sets, year=nil)
+    if year
+      query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
+      GamePlayer.joins(game: :game_sets).where(query, @player.id, win, year).group('games.id').having('count(games.id) = ?', nbr_sets).count.count
+    else
+      query = 'game_players.player_id = ? AND game_players.victory = ?'
+      GamePlayer.joins(game: :game_sets).where(query, @player.id, win).group('games.id').having('count(games.id) = ?', nbr_sets).count.count
+    end
+  end
+
   
-  def get_wins_losses_by_court_type(win, year=nil)
-    if year
-      query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
-      Game.joins(:game_players, :court_type).where(query, @player.id, win, year).group('court_types.court_type').count
-    else
-      query = 'game_players.player_id = ? AND game_players.victory = ?'
-      Game.joins(:game_players, :court_type).where(query, @player.id, win).group('court_types.court_type').count
-    end
-  end
+  
+ 
 
   def get_wins_by_ranking(win, year=nil)
     if year
@@ -74,16 +139,6 @@ class PlayersQuery
     else
       query = (win ? 'game_players.player_id = ? AND  match_points_saved > ?' : 'game_players.player_id = ? AND  match_points_saved < ?')
       GamePlayer.joins(:game).where(query, @player.id, 0).sum(:match_points_saved)
-    end
-  end
-
-  def get_wins_losses_nbr_sets(win, nbr_sets, year=nil)
-    if year
-      query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
-      GamePlayer.joins(game: :game_sets).where(query, @player.id, win, year).group('games.id').having('count(games.id) = ?', nbr_sets).count.count
-    else
-      query = 'game_players.player_id = ? AND game_players.victory = ?'
-      GamePlayer.joins(game: :game_sets).where(query, @player.id, win).group('games.id').having('count(games.id) = ?', nbr_sets).count.count
     end
   end
 

@@ -1,0 +1,14 @@
+<div class='wins-losses-div'>
+    <h5 class='wins-losses-title'>VICTOIRES - <em> DÉFAITES </em> </h5>
+    <div class='display-flex space-between align-center'>
+      <div>
+        <h2 class='wins-number'><%= wins %></h2>
+        <h5 class='wins-percentage'><%= number_to_percentage((wins / (wins+losses).to_f)*100, precision: 0) %></h5>
+      </div>
+      <canvas data-target='canvas.winsLosses' width='150' height='150'> </canvas>
+      <div>
+        <h2 class='losses-number'><%= losses %></h2>
+        <h5 class='losses-percentage'><%= number_to_percentage((losses / (wins+losses).to_f)*100, precision: 0) %></h5>
+      </div>
+    </div>
+</div>
