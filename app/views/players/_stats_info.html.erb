@@ -9,21 +9,22 @@
                                       losses: @query.get_nbr_wins_losses(false,  @year) %>
    </div>
    
-   <%= render 'stats_category', title: 'Terrain', query_data: @query.get_wins_losses_by_court_type(nil, @year),
-                                img_url: 'surface_ln6pqz.png.png.png' %>
+  <h6>Match Gagnes / Perdus en 2 sets : <%= @query.get_wins_losses_nbr_sets(true, 2, @year) %> / <%= @query.get_wins_losses_nbr_sets(false, 2, @year) %> </h6>
+   <h6>Match Gagnes / Perdus en 3 sets : <%= @query.get_wins_losses_nbr_sets(true, 3, @year) %> / <%= @query.get_wins_losses_nbr_sets(false, 3, @year) %> </h6>
+
+   <%= render 'stats_category', title: 'Nombre de Sets', query_data: @query.get_wins_losses_by_tournament(nil, @year), 
+                                img_url: 'Wins_zg1lo9.png' %>
+   <%= render 'stats_category', title: 'Tournois', query_data: @query.get_wins_losses_by_tournament(nil, @year), 
+                                img_url: 'Wins_zg1lo9.png' %>
    <%= render 'stats_category', title: 'Tournois', query_data: @query.get_wins_losses_by_tournament(nil, @year), 
                                 img_url: 'Wins_zg1lo9.png' %>
    <%= render 'stats_category', title: 'Main Dominante', query_data: @query.get_wins_losses_dominant_hand(nil, @year), 
                                 img_url: 'Racket_G_yyteyc.png' %>
-   <br>
-   <% @query.get_wins_losses_dominant_hand(true, @year).each do |k, v|%>
-      <h6>Match Gagnes contre:  <%= k %> : <%= v %> </h6>
-   <% end %>
-   <br>
-   <% @query.get_wins_losses_dominant_hand(false, @year).each do |k, v|%>
-      <h6>Match Perdus contre:  <%= k %> : <%= v %> </h6>
-   <% end %>
-   <br>
+   <%= render 'stats_category', title: 'Indoor/Outdoor', query_data: @query.get_wins_losses_indoor(nil, @year),
+                                img_url: 'inside_outside_zxlnwd.png' %>
+   <%= render 'stats_category', title: 'Type de Terrain', query_data: @query.get_wins_losses_by_court_type(nil, @year),
+                                img_url: 'surface_ln6pqz.png' %>
+  
 
    <br>
    <% @query.get_wins_by_ranking(true, @year).each do |k, v|%>
@@ -35,7 +36,6 @@
    <% end %>
    <br>
    <h6>Balles de Match sauvees / non converties : <%= @query.get_match_points(true, @year) %> / <%= @query.get_match_points(false, @year) %> </h6>
-   <h6>Match Gagnes / Perdus en 2 sets : <%= @query.get_wins_losses_nbr_sets(true, 2, @year) %> / <%= @query.get_wins_losses_nbr_sets(false, 2, @year) %> </h6>
-   <h6>Match Gagnes / Perdus en 3 sets : <%= @query.get_wins_losses_nbr_sets(true, 3, @year) %> / <%= @query.get_wins_losses_nbr_sets(false, 3, @year) %> </h6>
+   
    <h6>Finales Gagnees / Perdues : <%= @query.get_rounds_won_lost(true, 'finale', @year) %> / <%= @query.get_rounds_won_lost(false, 'finale', @year) %> </h6>
 </div>

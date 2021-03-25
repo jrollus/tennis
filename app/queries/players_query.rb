@@ -64,6 +64,7 @@ class PlayersQuery
         raw_db_output = Game.joins(:game_players, :court_type).where(query, @player.id, win).group('court_types.court_type', 'game_players.victory').count
       end
       structured_output = raw_db_output.each_with_object({}) do |((category, win_loss), win_loss_count), hash|
+        category = category.titleize
         hash[category] ||= { true => 0, false => 0 }
         hash[category][win_loss] = win_loss_count
       end
@@ -86,24 +87,52 @@ class PlayersQuery
       if year
         query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
         raw_db_output = Player.joins(game_players: :game).where(games: {id: Game.joins(:game_players).where(query, @player.id, year)})
-                                          .where.not(game_players: {player_id: @player.id}).group(:dominant_hand, 'game_players.victory').count
+                                          .where.not(game_players: {player_id: @player.id}).group(:dominant_hand, 'game_players.victory')
+                                          .having('players.dominant_hand IS NOT NULL').count
       else
         query = 'game_players.player_id = ?'
         raw_db_output = Player.joins(game_players: :game).where(games: {id: Game.joins(:game_players).where(query, @player.id)})
-                                          .where.not(game_players: {player_id: @player.id}).group(:dominant_hand, 'game_players.victory').count
+                                          .where.not(game_players: {player_id: @player.id}).group(:dominant_hand, 'game_players.victory')
+                                          .having('players.dominant_hand IS NOT NULL').count
       end
       structured_output = raw_db_output.each_with_object({}) do |((category, win_loss), win_loss_count), hash|
+        category = (category == 'left-handed' ? 'Gaucher' : 'Droitier')
         hash[category] ||= { true => 0, false => 0 }
         hash[category][win_loss] = win_loss_count
       end
-      
-      structured_output['Gaucher'] = structured_output.delete 'left-handed' if structured_output.key?('left-handed')
-      structured_output['Droitier'] = structured_output.delete 'right-handed' if structured_output.key?('right-handed')
+    
       return structured_output
-      
     end
   end
 
+  def get_wins_losses_indoor(win, year=nil)
+    if win
+      if year
+        query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
+        Game.joins(:game_players).where(query, @player.id, win, year).group(:indoor).count
+      else
+        query = 'game_players.player_id = ? AND game_players.victory = ?'
+        Game.joins(:game_players).where(query, @player.id, win).group(:indoor).count
+      end
+    else
+      if year
+        query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
+        raw_db_output = Game.joins(:game_players).where(query, @player.id, year).group(:indoor, 'game_players.victory')
+                            .having('games.indoor IS NOT NULL').count
+      else
+        query = 'game_players.player_id = ? AND game_players.victory = ?'
+        raw_db_output = Game.joins(:game_players).where(query, @player.id, win).group(:indoor, 'game_players.victory')
+                            .having('games.indoor IS NOT NULL').count
+      end
+      structured_output = raw_db_output.each_with_object({}) do |((category, win_loss), win_loss_count), hash|
+        category = category ? 'Indoor' : 'Outdoor'
+        hash[category] ||= { true => 0, false => 0 }
+        hash[category][win_loss] = win_loss_count
+      end
+      return structured_output
+    end
+  end
+  
   def get_wins_losses_nbr_sets(win, nbr_sets, year=nil)
     if year
       query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
@@ -115,9 +144,6 @@ class PlayersQuery
   end
 
   
-  
- 
-
   def get_wins_by_ranking(win, year=nil)
     if year
       query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
