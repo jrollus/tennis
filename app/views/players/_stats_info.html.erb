@@ -9,12 +9,7 @@
                                       losses: @query.get_nbr_wins_losses(false,  @year) %>
    </div>
    
-  <h6>Match Gagnes / Perdus en 2 sets : <%= @query.get_wins_losses_nbr_sets(true, 2, @year) %> / <%= @query.get_wins_losses_nbr_sets(false, 2, @year) %> </h6>
-   <h6>Match Gagnes / Perdus en 3 sets : <%= @query.get_wins_losses_nbr_sets(true, 3, @year) %> / <%= @query.get_wins_losses_nbr_sets(false, 3, @year) %> </h6>
-
-   <%= render 'stats_category', title: 'Nombre de Sets', query_data: @query.get_wins_losses_by_tournament(nil, @year), 
-                                img_url: 'Wins_zg1lo9.png' %>
-   <%= render 'stats_category', title: 'Tournois', query_data: @query.get_wins_losses_by_tournament(nil, @year), 
+   <%= render 'stats_category', title: 'Nombre de Sets', query_data: @query.get_wins_losses_nbr_sets(nil, nil, @year), 
                                 img_url: 'Wins_zg1lo9.png' %>
    <%= render 'stats_category', title: 'Tournois', query_data: @query.get_wins_losses_by_tournament(nil, @year), 
                                 img_url: 'Wins_zg1lo9.png' %>
