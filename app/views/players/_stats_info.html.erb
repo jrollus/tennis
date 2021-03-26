@@ -25,7 +25,8 @@
    <%= render 'stats_match_points', title: 'Balles de Match', saved: @query.get_match_points(true, @year), missed: @query.get_match_points(false, @year),
                                    img_url: 'balle_de_matchs_rhexxs.png' %>
 
-   <br>
+   <%= render 'stats_tournaments', title: 'Tournois', tournaments: @query.get_tournament_won(@year), img_url: 'trophy_xel8ay.png' %>
+
    <% @query.get_wins_by_ranking(true, @year).each do |k, v|%>
       <h6>Match Gagnes contre:  <%= k %> : <%= v %> </h6>
    <% end %>
@@ -34,7 +35,5 @@
       <h6>Match Perdus contre:  <%= k %> : <%= v %> </h6>
    <% end %>
    <br>
-   <h6>Balles de Match sauvees / non converties : <%= @query.get_match_points(true, @year) %> / <%= @query.get_match_points(false, @year) %> </h6>
-   
-   <h6>Finales Gagnees / Perdues : <%= @query.get_rounds_won_lost(true, 'finale', @year) %> / <%= @query.get_rounds_won_lost(false, 'finale', @year) %> </h6>
+  
 </div>

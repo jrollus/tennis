@@ -186,6 +186,26 @@ class PlayersQuery
     end
   end
 
+  def get_match_points(win, year=nil)
+    if year
+      query = (win ? 'game_players.player_id = ? AND  match_points_saved > ? AND extract(year from games.date) = ?' : 'game_players.player_id = ? AND  match_points_saved < ? AND extract(year from games.date) = ?')
+      GamePlayer.joins(:game).where(query, @player.id, 0, year).sum(:match_points_saved)
+    else
+      query = (win ? 'game_players.player_id = ? AND  match_points_saved > ?' : 'game_players.player_id = ? AND  match_points_saved < ?')
+      GamePlayer.joins(:game).where(query, @player.id, 0).sum(:match_points_saved)
+    end
+  end
+
+  def get_tournament_won(year=nil)
+    if year
+      query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ? AND rounds.id = ?'
+      Game.joins(:game_players, :round).includes(tournament: [:club, :category]).where(query, @player.id, true, year, 2).order('tournaments.start_date DESC')
+    else
+      query = 'game_players.player_id = ? AND game_players.victory = ? AND rounds.id = ?'
+      Game.joins(:game_players, :round).includes(tournament: [:club, :category]).where(query, @player.id, true, 2).order('tournaments.start_date DESC')
+    end
+  end
+
   def get_wins_by_ranking(win, year=nil)
     if year
       query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
@@ -200,15 +220,7 @@ class PlayersQuery
     end
   end
 
-  def get_match_points(win, year=nil)
-    if year
-      query = (win ? 'game_players.player_id = ? AND  match_points_saved > ? AND extract(year from games.date) = ?' : 'game_players.player_id = ? AND  match_points_saved < ? AND extract(year from games.date) = ?')
-      GamePlayer.joins(:game).where(query, @player.id, 0, year).sum(:match_points_saved)
-    else
-      query = (win ? 'game_players.player_id = ? AND  match_points_saved > ?' : 'game_players.player_id = ? AND  match_points_saved < ?')
-      GamePlayer.joins(:game).where(query, @player.id, 0).sum(:match_points_saved)
-    end
-  end
+  
 
   def get_rounds_won_lost(win, round, year=nil)
     if year
