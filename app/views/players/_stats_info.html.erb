@@ -6,11 +6,11 @@
                           class: 'stats-avatar-img') %>
       </div>
       <%= render 'stats_wins_losses', wins: @query.get_nbr_wins_losses(true,  @year),
-                                      losses: @query.get_nbr_wins_losses(false,  @year) %>
+                                      losses: @query.get_nbr_wins_losses(false,  @year), size: 250 %>
    </div>
    
    <%= render 'stats_category', title: 'Nombre de Sets', query_data: @query.get_wins_losses_nbr_sets(nil, nil, @year), 
-                                img_url: 'Wins_zg1lo9.png' %>
+                                img_url: 'scoreboard_2_p4rgdp.png' %>
    <%= render 'stats_category', title: 'Tournois', query_data: @query.get_wins_losses_by_tournament(nil, @year), 
                                 img_url: 'Wins_zg1lo9.png' %>
    <%= render 'stats_category', title: 'Main Dominante', query_data: @query.get_wins_losses_dominant_hand(nil, @year), 
@@ -19,7 +19,11 @@
                                 img_url: 'inside_outside_zxlnwd.png' %>
    <%= render 'stats_category', title: 'Type de Terrain', query_data: @query.get_wins_losses_by_court_type(nil, @year),
                                 img_url: 'surface_ln6pqz.png' %>
-  
+   <%= render 'stats_category', title: 'Tie Breaks', query_data: @query.get_wins_losses_tie_breaks(nil, @year),
+                                img_url: 'tie-break_yhnjgh.png' %>
+
+   <%= render 'stats_match_points', title: 'Balles de Match', saved: @query.get_match_points(true, @year), missed: @query.get_match_points(false, @year),
+                                   img_url: 'balle_de_matchs_rhexxs.png' %>
 
    <br>
    <% @query.get_wins_by_ranking(true, @year).each do |k, v|%>

@@ -1,34 +1,72 @@
 // General Stats
 
 .stats-header {
-  margin-top: 25px;
-  padding: 0 100px;
+  margin: 40px 0px;
+  padding: 0 15%;
   width: 90%;
 }
 
 .stats-avatar-img {
+  width: 225px;
+  height: 225px;
+  padding: 0px 0px;
+  display: block;
+  margin: auto 0;
+  margin-bottom: 15px;
+}
+
+.stats-category-img {
   width: 125px;
   height: 125px;
   padding: 0px 0px;
   display: block;
   margin: auto 0;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .stats-category {
   width: 400px;
   margin-bottom: 30px;
+  margin-top: 15px;
 }
 
 .stats-category-title {
   color: $color-blue;
   font-weight: bold;
-  margin: 25px 0px;
+  margin: 20px 0px;
+}
+
+.stats-category-name {
+  width: 125px;
+  color: $color-blue;
+  font-weight: bold;
+  margin: auto 0px;
+  text-align: center;
 }
 
 .stats-category-description {
   padding: 15px 0px;
   min-width: 175px;
+}
+
+.stats-category-saved, .stats-category-missed {
+  width: 125px;
+  height: 125px;
+  
+  line-height: 125px;
+  margin: auto auto;
+  text-align: center;
+  font-size: 45px;
+}
+
+.stats-category-saved {
+  color: $color-yellow;
+  background-color: $color-blue;
+}
+
+.stats-category-missed {
+  color: $color-blue;
+  background-color: $color-yellow;
 }
 
 // Wins-Losses Cards

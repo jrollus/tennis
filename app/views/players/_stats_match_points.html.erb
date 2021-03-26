@@ -1,0 +1,31 @@
+<% if !saved.zero? || !missed.zero? %>
+  <h3 class="stats-category-title"> <%= title %> </h3>
+  <div class="container">
+    <% if !saved.zero? %>
+      <div class="row">
+        <div class="col-12 col-lg-6">
+            <div class="stats-category display-flex">
+              <div class="stats-category-description">
+                  <%= cl_image_tag(img_url, class: 'stats-category-img') %>
+                  <h6 class="stats-category-name">Sauvées</h6>
+              </div>
+              <div class="stats-category-saved"><%= saved %></div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+    <% if !missed.zero? %>
+       <div class="row">
+        <div class="col-12 col-lg-6">
+            <div class="stats-category display-flex">
+              <div class="stats-category-description">
+                  <%= cl_image_tag(img_url, class: 'stats-category-img') %>
+                  <h6 class="stats-category-name">Ratées</h6>
+              </div>
+              <div class="stats-category-missed"><%= missed %></div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

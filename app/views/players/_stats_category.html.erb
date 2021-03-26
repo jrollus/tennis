@@ -7,10 +7,10 @@
           <div class="col-12 col-lg-6">
               <div class="stats-category display-flex">
               <div class="stats-category-description">
-                  <%= cl_image_tag(img_url, class: 'stats-avatar-img') %>
-                  <h6 class="stats-category-title"><%= k %></h6>
+                  <%= cl_image_tag(img_url, class: 'stats-category-img') %>
+                  <h5 class="stats-category-name"><%= k %></h5>
               </div>
-              <%= render 'stats_wins_losses', wins: v[true], losses: v[false] %>
+              <%= render 'stats_wins_losses', wins: v[true], losses: v[false], size: 150 %>
               </div>
           </div>
         <% end %>

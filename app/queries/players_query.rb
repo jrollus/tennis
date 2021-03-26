@@ -161,6 +161,31 @@ class PlayersQuery
     end
   end
 
+  def get_wins_losses_tie_breaks(win, year=nil)
+    if win
+      if year
+        query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
+        GamePlayer.joins(game: {game_sets: :tie_break}).where(query, @player.id, win, year).count
+      else
+        query = 'game_players.player_id = ? AND game_players.victory = ?'
+        GamePlayer.joins(game: {game_sets: :tie_break}).where(query, @player.id, win).count
+      end
+    else
+      if year
+        query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
+        raw_db_output = GamePlayer.joins(game: {game_sets: :tie_break}).where(query, @player.id, year).group('game_players.victory').count
+        structured_output = raw_db_output.each_with_object({}) do |(win_loss, win_loss_count), hash|
+          hash['Tie-Break'] ||= { true => 0, false => 0 }
+          hash['Tie-Break'][win_loss] = win_loss_count
+        end
+        return structured_output
+      else
+        query = 'game_players.player_id = ?'
+        GamePlayer.joins(game: :game_sets).where(query, @player.id).group('games.id').having('count(games.id) = ?', nbr_sets).count.count
+      end
+    end
+  end
+
   def get_wins_by_ranking(win, year=nil)
     if year
       query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
@@ -194,5 +219,6 @@ class PlayersQuery
       GamePlayer.joins(game: {tournament: :category}).where(query, @player.id, win, round).group('categories.category').count
     end
   end
+
 end
   
