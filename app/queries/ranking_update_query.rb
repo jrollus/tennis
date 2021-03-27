@@ -10,10 +10,10 @@ class RankingUpdateQuery
     end
 
     def get_opponents
-      byebug
       query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
-      player_subset = Player.joins(game_players: :game).where(games: {id: Game.joins(:game_players).where(query, @player.id, @ranking_history.end_date.year)})
-                                                                                          .where.not(game_players: {player_id: @player.id})
+      player_subset = Player.joins(game_players: :game)
+                            .where(games: {id: Game.joins(:game_players).where(query, @player.id, @ranking_history.end_date.year)})
+                            .where.not(game_players: {player_id: @player.id})
       
     end
   end

@@ -8,7 +8,8 @@ class PlayerPointsQuery
       if start_date && end_date
         query = 'game_players.player_id = ? AND games.interclub_id IS NULL AND (games.date BETWEEN ? AND ?)'
         games = @games.includes(:round, game_players: :ranking, tournament: {category: :category_rounds})
-                      .joins(:game_players, :tournament).where(query, @player.id, start_date, end_date).order('tournaments.start_date DESC, games.round_id DESC')
+                      .joins(:game_players, :tournament).where(query, @player.id, start_date, end_date)
+                      .order('tournaments.start_date DESC, games.round_id DESC')
                       .group_by(&:tournament_id)
       else
         query = 'game_players.player_id = ? AND games.interclub_id IS NULL'

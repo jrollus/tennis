@@ -11,13 +11,13 @@
    
    <%= render 'stats_category', title: 'Nombre de Sets', query_data: @query.get_wins_losses_nbr_sets(nil, nil, @year), 
                                 img_url: 'scoreboard_2_p4rgdp.png' %>
-   <%= render 'stats_category', title: 'Tournois', query_data: @query.get_wins_losses_by_tournament(nil, @year), 
+   <%= render 'stats_category', title: 'Tournois', query_data: @query.get_wins_losses_by('tournament', nil, @year), 
                                 img_url: 'Wins_zg1lo9.png' %>
-   <%= render 'stats_category', title: 'Main Dominante', query_data: @query.get_wins_losses_dominant_hand(nil, @year), 
+   <%= render 'stats_category', title: 'Main Dominante', query_data: @query.get_wins_losses_by('dominant_hand', nil, @year), 
                                 img_url: 'Racket_G_yyteyc.png' %>
-   <%= render 'stats_category', title: 'Indoor/Outdoor', query_data: @query.get_wins_losses_indoor(nil, @year),
+   <%= render 'stats_category', title: 'Indoor/Outdoor', query_data: @query.get_wins_losses_by('indoor', nil, @year),
                                 img_url: 'inside_outside_zxlnwd.png' %>
-   <%= render 'stats_category', title: 'Type de Terrain', query_data: @query.get_wins_losses_by_court_type(nil, @year),
+   <%= render 'stats_category', title: 'Type de Terrain', query_data: @query.get_wins_losses_by('court_type', nil, @year),
                                 img_url: 'surface_ln6pqz.png' %>
    <%= render 'stats_category', title: 'Tie Breaks', query_data: @query.get_wins_losses_tie_breaks(nil, @year),
                                 img_url: 'tie-break_yhnjgh.png' %>
