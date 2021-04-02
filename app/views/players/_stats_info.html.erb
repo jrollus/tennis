@@ -26,14 +26,11 @@
                                    img_url: 'balle_de_matchs_rhexxs.png' %>
 
    <%= render 'stats_tournaments', title: 'Tournois', tournaments: @query.get_tournament_won(@year), img_url: 'trophy_xel8ay.png' %>
-
-   <% @query.get_wins_by_ranking(true, @year).each do |k, v|%>
+   
+   <% @query.get_wins_by_ranking(nil, @year).each do |k, v|%>
       <h6>Match Gagnes contre:  <%= k %> : <%= v %> </h6>
    <% end %>
-   <br>
-   <% @query.get_wins_by_ranking(false, @year).each do |k, v|%>
-      <h6>Match Perdus contre:  <%= k %> : <%= v %> </h6>
-   <% end %>
+
    <br>
   
 </div>
