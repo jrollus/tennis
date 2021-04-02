@@ -77,14 +77,14 @@ class PlayersQuery
                                     .group('categories.category', 'game_players.victory', 'categories.id')
                                     .order('categories.id ASC').count
         when 'court_type'
-          raw_db_output = Game.joins(:game_players, :court_type).where(query, @player.id, win)
+          raw_db_output = Game.joins(:game_players, :court_type).where(query, @player.id)
                               .group('court_types.court_type', 'game_players.victory').count
         when 'dominant_hand'
           raw_db_output = Player.joins(game_players: :game).where(games: {id: Game.joins(:game_players).where(query, @player.id)})
                                 .where.not(game_players: {player_id: @player.id}).group(:dominant_hand, 'game_players.victory')
                                 .having('players.dominant_hand IS NOT NULL').count
         when 'indoor'
-          raw_db_output = Game.joins(:game_players).where(query, @player.id, win).group(:indoor, 'game_players.victory')
+          raw_db_output = Game.joins(:game_players).where(query, @player.id).group(:indoor, 'game_players.victory')
                                .having('games.indoor IS NOT NULL').count
         end
       end
@@ -123,9 +123,11 @@ class PlayersQuery
         raw_db_output = GamePlayer.joins(game: :game_sets).where(query, @player.id).group('games.id', 'game_players.victory').count
       end
       structured_output = raw_db_output.each_with_object({}) do |((id, win_loss), nbr_sets), hash|
-        nbr_sets = "#{nbr_sets} Sets"
-        hash[nbr_sets] ||= { true => 0, false => 0 }
-        hash[nbr_sets][win_loss] += 1
+        if nbr_sets != 1
+          nbr_sets = "#{nbr_sets} Sets"
+          hash[nbr_sets] ||= { true => 0, false => 0 }
+          hash[nbr_sets][win_loss] += 1
+        end
       end
       return structured_output
     end

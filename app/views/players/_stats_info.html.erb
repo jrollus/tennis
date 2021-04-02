@@ -1,36 +1,41 @@
-<h3 id='player-name'><%= PlayerDecorator.new(@user_player).player_description %></h3>
+<h3 id='player-name'><%= PlayerDecorator.new(@player).player_description %></h3>
 <div data-controller='canvas'>
    <div class="stats-header display-flex space-between">
       <div class="display-flex align-center">
-         <%= cl_image_tag("#{@player.gender == 'male' ? 'tennis-player_v83xbq.png' : 'girl_abdhti.png'}", 
+         <% if @player.user %>
+            <% if @player.user.avatar.attached? %>
+               <%= cl_image_tag(@player.user.avatar.key, class: 'stats-avatar-img-round') %>
+            <% else %>
+                <%= cl_image_tag("#{@player.gender == 'male' ? 'tennis-player_v83xbq.png' : 'girl_abdhti.png'}", 
                           class: 'stats-avatar-img') %>
+            <% end %>
+         <% else %>
+            <%= cl_image_tag("#{@player.gender == 'male' ? 'tennis-player_v83xbq.png' : 'girl_abdhti.png'}", 
+                          class: 'stats-avatar-img') %>
+         <% end %>
       </div>
-      <%= render 'stats_wins_losses', wins: @query.get_nbr_wins_losses(true,  @year),
+      <%= render 'stats_wins_losses.html.erb', wins: @query.get_nbr_wins_losses(true,  @year),
                                       losses: @query.get_nbr_wins_losses(false,  @year), size: 250 %>
    </div>
    
-   <%= render 'stats_category', title: 'Nombre de Sets', query_data: @query.get_wins_losses_nbr_sets(nil, nil, @year), 
+   <%= render 'stats_rankings.html.erb', title: 'Par Classement', query_data: @query.get_wins_by_ranking(nil, @year) %>
+
+   <%= render 'stats_category.html.erb', title: 'Nombre de Sets', query_data: @query.get_wins_losses_nbr_sets(nil, nil, @year), 
                                 img_url: 'scoreboard_2_p4rgdp.png' %>
-   <%= render 'stats_category', title: 'Tournois', query_data: @query.get_wins_losses_by('tournament', nil, @year), 
+   <%= render 'stats_category.html.erb', title: 'Tournois', query_data: @query.get_wins_losses_by('tournament', nil, @year), 
                                 img_url: 'Wins_zg1lo9.png' %>
-   <%= render 'stats_category', title: 'Main Dominante', query_data: @query.get_wins_losses_by('dominant_hand', nil, @year), 
+   <%= render 'stats_category.html.erb', title: 'Main Dominante', query_data: @query.get_wins_losses_by('dominant_hand', nil, @year), 
                                 img_url: 'Racket_G_yyteyc.png' %>
-   <%= render 'stats_category', title: 'Indoor/Outdoor', query_data: @query.get_wins_losses_by('indoor', nil, @year),
+   <%= render 'stats_category.html.erb', title: 'Indoor/Outdoor', query_data: @query.get_wins_losses_by('indoor', nil, @year),
                                 img_url: 'inside_outside_zxlnwd.png' %>
-   <%= render 'stats_category', title: 'Type de Terrain', query_data: @query.get_wins_losses_by('court_type', nil, @year),
+   <%= render 'stats_category.html.erb', title: 'Type de Terrain', query_data: @query.get_wins_losses_by('court_type', nil, @year),
                                 img_url: 'surface_ln6pqz.png' %>
-   <%= render 'stats_category', title: 'Tie Breaks', query_data: @query.get_wins_losses_tie_breaks(nil, @year),
+   <%= render 'stats_category.html.erb', title: 'Tie Breaks', query_data: @query.get_wins_losses_tie_breaks(nil, @year),
                                 img_url: 'tie-break_yhnjgh.png' %>
 
-   <%= render 'stats_match_points', title: 'Balles de Match', saved: @query.get_match_points(true, @year), missed: @query.get_match_points(false, @year),
+   <%= render 'stats_match_points.html.erb', title: 'Balles de Match', saved: @query.get_match_points(true, @year), missed: @query.get_match_points(false, @year),
                                    img_url: 'balle_de_matchs_rhexxs.png' %>
 
-   <%= render 'stats_tournaments', title: 'Tournois', tournaments: @query.get_tournament_won(@year), img_url: 'trophy_xel8ay.png' %>
-   
-   <% @query.get_wins_by_ranking(nil, @year).each do |k, v|%>
-      <h6>Match Gagnes contre:  <%= k %> : <%= v %> </h6>
-   <% end %>
-
-   <br>
+   <%= render 'stats_tournaments.html.erb', title: 'Tournois', tournaments: @query.get_tournament_won(@year), img_url: 'trophy_xel8ay.png' %>
   
 </div>

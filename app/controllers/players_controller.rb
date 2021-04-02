@@ -63,7 +63,7 @@ class PlayersController < ApplicationController
         @year = @max_date
       }
       format.json { 
-        if player
+        if @player
           @year = (params[:year].present? ? params[:year] : nil)
           render(json: { html_data: render_to_string(partial: 'players/stats_info.html.erb')})
         else

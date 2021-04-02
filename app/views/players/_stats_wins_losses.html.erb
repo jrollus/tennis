@@ -1,4 +1,5 @@
 <div class='wins-losses-div'>
+  <% unless wins.zero? && losses.zero? %>
     <h5 class='wins-losses-title'>VICTOIRES - <em> DÉFAITES </em> </h5>
     <div class='display-flex space-between align-center'>
       <div>
@@ -11,4 +12,5 @@
         <h5 class='losses-percentage'><%= number_to_percentage((losses / (wins+losses).to_f)*100, precision: 0) %></h5>
       </div>
     </div>
+  <% end %>
 </div>
