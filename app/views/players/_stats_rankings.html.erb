@@ -1,0 +1,18 @@
+<% if query_data.present? %>
+  <div class='stats-block'>
+    <h3 class="stats-category-title"> Par Classement </h3>
+    <div class='stats-ranking-mobile'>
+      <% query_data.each do |k, v| %>
+        <ul data-target='canvas.barChartData' class='stats-ranking-mobile-card display-flex space-between <%= ((v[true] == v[false]) ? 'equal' : (v[true] > v[false]) ? 'positive' : 'negative') %>'>
+          <li><%= "#{k}" %></li>
+          <li><%= "V: #{v[true]} (#{number_to_percentage((v[true] / (v[true]+v[false]).to_f)*100, precision: 0)})" %></li>
+          <li><%= "D: #{v[false]} (#{number_to_percentage((v[false] / (v[true]+v[false]).to_f)*100, precision: 0)})" %></li>
+        </ul>
+      <% end %>
+    </div>
+
+    <div class='stats-ranking-desktop'>
+      <canvas id='stats-ranking-bar-chart' data-target='canvas.barChart' ></canvas>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<% if tournaments.present? %>
+  <div class='stats-block'>
+    <h3 class="stats-category-title"> <%= title %> </h3>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+            <div class="stats-category-tournament display-flex">
+              <div class="stats-category-description">
+                  <%= cl_image_tag(img_url, class: 'stats-category-img') %>
+                  <h5 class="stats-category-name">Gagnés</h5>
+              </div>
+              <div>
+                <ul>
+                  <% tournaments.each do |tournament| %>
+                    <li> <%= "#{tournament.tournament.start_date.strftime("%d-%m-%Y")} / #{tournament.tournament.end_date.strftime("%d-%m-%Y")} -  
+                              #{tournament.tournament.club.name.titleize} - #{tournament.tournament.category.category}" %> </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

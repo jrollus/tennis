@@ -1,18 +1,22 @@
-<h3 id='player-name'><%= player.player_description %></h3>
-<% unless tournaments.blank? %>
-  <h3 class='competition-type'> Tournois </h2>
-  <% tournaments.each do |tournament| %>
-    <div class='tournament'>
-      <%= render 'competition_card.html.erb', competitions: tournaments, competition: tournament, competition_type: 'tournament' %>
-    </div>
+<% if player.present? %>
+  <h3 id='player-name'><%= player.player_description %></h3>
+  <% unless tournaments.blank? %>
+    <h3 class='competition-type'> Tournois </h2>
+    <% tournaments.each do |tournament| %>
+      <div class='tournament'>
+        <%= render 'competition_card.html.erb', competitions: tournaments, competition: tournament, competition_type: 'tournament' %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 
-<% unless interclubs.blank? %>
-  <h3 class='competition-type'> Interclubs </h2>
-  <% interclubs.each do |interclub| %>
-    <div class='interclub'>
-      <%= render 'competition_card.html.erb', competitions: interclubs, competition: interclub, competition_type: 'interclub' %>
-    </div>
+  <% unless interclubs.blank? %>
+    <h3 class='competition-type'> Interclubs </h2>
+    <% interclubs.each do |interclub| %>
+      <div class='interclub'>
+        <%= render 'competition_card.html.erb', competitions: interclubs, competition: interclub, competition_type: 'interclub' %>
+      </div>
+    <% end %>
   <% end %>
+<% else %>
+  <h3 id='player-name'>Joueur non disponible</h3>
 <% end %>

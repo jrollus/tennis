@@ -1,0 +1,22 @@
+<% if query_data.present? %>
+  <div class='stats-block'>
+    <h3 class="stats-category-title"> <%= title %> </h3>
+    <div class="container">
+        <div class="row">
+        <% query_data.each do |k, v|%>
+          <% unless k.nil? %>
+            <div class="col-12 col-lg-6">
+                <div class="stats-category display-flex">
+                <div class="stats-category-description">
+                    <%= cl_image_tag(img_url, class: 'stats-category-img') %>
+                    <h5 class="stats-category-name"><%= k %></h5>
+                </div>
+                <%= render 'stats_wins_losses.html.erb', wins: v[true], losses: v[false], size: 150 %>
+                </div>
+            </div>
+          <% end %>
+        <% end %>
+        </div>
+    </div>
+  </div>
+<% end %>
