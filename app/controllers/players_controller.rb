@@ -69,6 +69,27 @@ class PlayersController < ApplicationController
     end 
   end
 
+  def compare
+    @user_player = Player.includes(ranking_histories: :ranking).find(current_user.player.id)
+    @player = get_player
+    authorize @user_player
+    @query_user_player = PlayersQuery.new(@user_player)
+    @query_player = PlayersQuery.new(@player)
+
+    respond_to do |format|
+      format.html { 
+        @max_date = Game.maximum(:date).year
+        @min_date = Game.minimum(:date).year
+        @year = @max_date
+      }
+      format.json { 
+        @year = (params[:year].present? ? params[:year] : nil)
+        render(json: { html_data: render_to_string(partial: 'players/compare_info.html.erb')})
+       }
+    end 
+
+  end
+
   def validations
     @players = policy_scope(Player).includes(:club, ranking_histories: :ranking).where(players: {validated: false})
     authorize @players

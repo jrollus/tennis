@@ -1,6 +1,9 @@
 <div class='wins-losses-div'>
   <% unless wins.zero? && losses.zero? %>
-    <h5 class='wins-losses-title'>VICTOIRES - <em> DÉFAITES </em> </h5>
+    <% unless head_to_head %>
+      <h5 class='wins-losses-title'>VICTOIRES - <em> DÉFAITES </em> </h5>
+    <% end %>
+    
     <div class='display-flex space-between align-center'>
       <div>
         <h2 class='wins-number'><%= wins %></h2>

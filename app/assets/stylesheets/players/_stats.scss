@@ -2,8 +2,11 @@
 
 .stats-header {
   margin: 40px 0px;
-  padding: 0 15%;
-  width: 90%;
+  padding: 0 10%;
+}
+
+.stats-header .wins-losses-div {
+  margin-left: 80px;
 }
 
 .stats-block {
@@ -15,7 +18,6 @@
 .stats-avatar-img {
   width: 225px;
   height: 225px;
-  padding: 0px 0px;
   display: block;
   margin: auto 0;
   margin-bottom: 15px;
@@ -147,7 +149,7 @@
 // Wins-Losses Cards
 .wins-losses-div {
   margin-left: 25px;
-  width: 250px;
+  width: 350px;
 }
 
 .wins-losses-div em {

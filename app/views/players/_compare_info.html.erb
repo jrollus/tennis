@@ -1,0 +1,7 @@
+<% if @user_player.present? && @player.present? %>
+   <div data-controller='canvas'>
+     <%= render 'compare_header.html.erb' %>
+   </div>
+<% else %>
+  <h3 id='player-name'>Veuillez sélectionner un jour contre lequel vous comparer.</h3>
+<% end %>

@@ -1,0 +1,16 @@
+<div class='compare-block first-block'>
+  <div class="compare-header display-flex space-between">
+    <div>
+      <%= render 'stats_avatar.html.erb', player: @user_player %>
+      <h3 class='compare-player-name'><%= PlayerDecorator.new(@user_player).full_name %></h3>
+    </div>
+    <%= render 'stats_wins_losses.html.erb', wins: @query_user_player.get_head_to_head(@player, true, @year),
+                                             losses: @query_user_player.get_head_to_head(@player, false, @year),
+                                             head_to_head: true,
+                                             size: 250 %>
+
+    <div>
+      <%= render 'stats_avatar.html.erb', player: @player %>
+      <h3 class='compare-player-name'><%= PlayerDecorator.new(@player).full_name %></h3>
+    </div>
+</div>

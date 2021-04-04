@@ -6,8 +6,12 @@ export default class extends Controller {
     connect() {
       this.colors=['#FBEC51', '#0091D2'];
       this.fontColor='#666';
-      this.drawWinLossesCharts()
-      this.drawRankingChart()
+      if (this.hasWinsLossesTarget) {
+        this.drawWinLossesCharts();
+      }
+      if (this.hasBarChartTarget) {
+        this.drawRankingChart();
+      }
     }
 
     drawRankingChart(){

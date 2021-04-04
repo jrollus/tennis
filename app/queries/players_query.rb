@@ -103,7 +103,6 @@ class PlayersQuery
     end
   end
 
- 
   def get_wins_losses_nbr_sets(win, nbr_sets, year=nil)
     if win && nbr_sets
       if year
@@ -231,5 +230,15 @@ class PlayersQuery
     end
   end
 
+  def get_head_to_head(other_player, win, year=nil)
+    if year
+      query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
+      GamePlayer.joins(:game, :ranking).where(games: {id: Game.joins(:game_players).where(query, @player.id, win, year)})
+                                                       .where(game_players: {player_id: other_player.id})
+                                                       .count
+    else
+
+    end
+  end
 end
   
