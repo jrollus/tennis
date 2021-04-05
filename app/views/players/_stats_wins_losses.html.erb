@@ -1,16 +1,21 @@
-<div class='wins-losses-div'>
-  <% unless wins.zero? && losses.zero? %>
-    <h5 class='wins-losses-title'>VICTOIRES - <em> DÉFAITES </em> </h5>
-    <div class='display-flex space-between align-center'>
-      <div>
-        <h2 class='wins-number'><%= wins %></h2>
-        <h5 class='wins-percentage'><%= number_to_percentage((wins / (wins+losses).to_f)*100, precision: 0) %></h5>
+<% if wins.present? && losses.present? %>
+  <div class='wins-losses-div'>
+    <% unless wins.zero? && losses.zero? %>
+      <% unless head_to_head %>
+        <h5 class='wins-losses-title'>VICTOIRES - <em> DÉFAITES </em> </h5>
+      <% end %>
+      
+      <div class='display-flex space-between align-center'>
+        <div>
+          <h2 class='wins-number'><%= wins %></h2>
+          <h5 class='wins-percentage'><%= number_to_percentage((wins / (wins+losses).to_f)*100, precision: 0) %></h5>
+        </div>
+        <canvas data-target='canvas.winsLosses' width='<%= size %>' height='<%= size %>'> </canvas>
+        <div>
+          <h2 class='losses-number'><%= losses %></h2>
+          <h5 class='losses-percentage'><%= number_to_percentage((losses / (wins+losses).to_f)*100, precision: 0) %></h5>
+        </div>
       </div>
-      <canvas data-target='canvas.winsLosses' width='<%= size %>' height='<%= size %>'> </canvas>
-      <div>
-        <h2 class='losses-number'><%= losses %></h2>
-        <h5 class='losses-percentage'><%= number_to_percentage((losses / (wins+losses).to_f)*100, precision: 0) %></h5>
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>

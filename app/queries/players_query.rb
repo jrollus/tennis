@@ -8,13 +8,25 @@ class PlayersQuery
   end
 
   def get_nbr_wins_losses(win, year=nil)
-    if year
-      query = 'game_players.victory = ? AND extract(year from games.date) = ?'
-      @player.game_players.joins(:game).where(query, win, year).count
+    unless win.nil?
+      if year
+        query = 'game_players.victory = ? AND extract(year from games.date) = ?'
+        @player.game_players.joins(:game).where(query, win, year).count
+      else
+        query = 'game_players.victory = ?'
+        @player.game_players.joins(:game).where(query, win).count
+      end
     else
-      query = 'game_players.victory = ?'
-      @player.game_players.joins(:game).where(query, win).count
+      if year
+        query = 'extract(year from games.date) = ?'
+        raw_db_output = @player.game_players.joins(:game).where(query, year)
+                            .group('game_players.victory').count
+      else
+        raw_db_output = @player.game_players.joins(:game).group('game_players.victory').count
+      end
+      return raw_db_output
     end
+    
   end
 
   def get_win_ratio(win, year=nil)
@@ -22,7 +34,7 @@ class PlayersQuery
   end
 
   def get_wins_losses_by(type, win, year=nil)
-    if win
+    unless win.nil?
       if year
         query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
         case type
@@ -103,9 +115,8 @@ class PlayersQuery
     end
   end
 
- 
   def get_wins_losses_nbr_sets(win, nbr_sets, year=nil)
-    if win && nbr_sets
+    unless win.nil? && nbr_sets.nil?
       if year
         query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
         GamePlayer.joins(game: :game_sets).where(query, @player.id, win, year).group('games.id').having('count(games.id) = ?', nbr_sets).count.count
@@ -134,7 +145,7 @@ class PlayersQuery
   end
 
   def get_wins_losses_tie_breaks(win, year=nil)
-    if win
+    unless win.nil?
       if year
         query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
         GamePlayer.joins(game: {game_sets: :tie_break}).where(query, @player.id, win, year).count
@@ -181,7 +192,7 @@ class PlayersQuery
   end
 
   def get_wins_by_ranking(win, year=nil)
-    if win
+    unless win.nil?
       if year
         query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
         raw_db_output = GamePlayer.joins(:game, :ranking).where(games: {id: Game.joins(:game_players).where(query, @player.id, win, year)})
@@ -231,5 +242,18 @@ class PlayersQuery
     end
   end
 
+  def get_head_to_head(other_player, win, year=nil)
+    if year
+      query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ?'
+      GamePlayer.joins(:game, :ranking).where(games: {id: Game.joins(:game_players).where(query, @player.id, win, year)})
+                                                       .where(game_players: {player_id: other_player.id})
+                                                       .count
+    else
+      query = 'game_players.player_id = ? AND game_players.victory = ?'
+      GamePlayer.joins(:game, :ranking).where(games: {id: Game.joins(:game_players).where(query, @player.id, win)})
+                                                       .where(game_players: {player_id: other_player.id})
+                                                       .count
+    end
+  end
 end
   

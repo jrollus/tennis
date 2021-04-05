@@ -1,0 +1,6 @@
+<div class='container' data-controller='filter autocomplete'>
+  <%= render 'shared/year_and_player_search', max_date: @max_date, min_date: @min_date, search_type: 'compare' %>
+  <div data-target='filter.container'>
+    <%= render 'compare_info.html.erb' %>
+  </div>
+</div>

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/players/:id', to:'players#show', constraints: lambda { |req| req.format == :json }
   get '/players-validations', to:'players#validations'
   get '/stats', to:'players#stats'
+  get '/compare', to:'players#compare'
 
   # Tournaments
   resources :tournaments, only: [:new, :create, :edit, :update] do

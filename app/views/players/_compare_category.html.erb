@@ -1,0 +1,25 @@
+<% if user.key?(true) %>
+  <ul class='compare-element display-flex space-between'>
+    <li class='<%= (user[true] == player[true] ? 'equal' : (user[true] > player[true] ? 'positive' : 'negative')) %>'>
+      <%= "#{user[true]} (#{number_to_percentage((user[true] / (user[true]+user[false]).to_f)*100, precision: 0)})" %>
+    </li>
+    <li>Victoires</li>
+    <li class='<%= (user[true] == player[true] ? 'equal' : (user[true] < player[true] ? 'positive' : 'negative')) %>'>
+      <%= "#{player[true]} (#{number_to_percentage((player[true] / (player[true]+player[false]).to_f)*100, precision: 0)})" %>
+    </li>
+  </ul>
+<% else %>
+  <% user.each do |k, v| %>
+      <% if player[k] %>
+        <ul class='compare-element display-flex space-between'>
+          <li class='stat <%= (v[true] == player[k][true] ? 'equal' : (v[true] > player[k][true] ? 'positive' : 'negative')) %>'>
+            <%= "#{v[true]} (#{number_to_percentage((v[true] / (v[true]+v[false]).to_f)*100, precision: 0)})" %>
+          </li>
+          <li><%= "#{k}" %></li>
+          <li class='stat <%= (v[true] == player[k][true] ? 'equal' : (v[true] < player[k][true] ? 'positive' : 'negative')) %>'>
+            <%= "#{player[k][true]} (#{number_to_percentage((player[k][true] / (player[k][true]+player[k][false]).to_f)*100, precision: 0)})" %>
+          </li>
+        </ul>
+      <% end %>
+  <% end %>
+<% end %>

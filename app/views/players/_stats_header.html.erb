@@ -1,19 +1,11 @@
 <div class='stats-block'>
   <div class="stats-header display-flex space-between">
     <div class="display-flex align-center">
-      <% if @player.user %>
-        <% if @player.user.avatar.attached? %>
-          <%= cl_image_tag(@player.user.avatar.key, class: 'stats-avatar-img-round') %>
-        <% else %>
-          <%= cl_image_tag("#{@player.gender == 'male' ? 'tennis-player_v83xbq.png' : 'girl_abdhti.png'}", 
-                            class: 'stats-avatar-img') %>
-        <% end %>
-      <% else %>
-        <%= cl_image_tag("#{@player.gender == 'male' ? 'tennis-player_v83xbq.png' : 'girl_abdhti.png'}", 
-                        class: 'stats-avatar-img') %>
-      <% end %>
+      <%= render 'stats_avatar.html.erb', player: @player %>
     </div>
     <%= render 'stats_wins_losses.html.erb', wins: @query.get_nbr_wins_losses(true,  @year),
-                                    losses: @query.get_nbr_wins_losses(false,  @year), size: 250 %>
+                                             losses: @query.get_nbr_wins_losses(false,  @year),
+                                             head_to_head: false,
+                                             size: 250 %>
   </div>
 </div>

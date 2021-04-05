@@ -26,6 +26,10 @@ class PlayerPolicy < ApplicationPolicy
   def stats?
     true
   end
+
+  def compare?
+    true
+  end
   
   def validations?
     user.admin

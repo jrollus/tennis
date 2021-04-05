@@ -1,0 +1,32 @@
+<% if @user_player.present? && @player.present? %>
+   <div data-controller='canvas'>
+     <%= render 'compare_header.html.erb' %>
+     <div class='compare-block'>
+       <%= render 'compare_category.html.erb', user: @query_user_player.get_nbr_wins_losses(nil, @year),
+                                               player: @query_player.get_nbr_wins_losses(nil, @year) %>
+     </div>
+     
+     <div class='compare-block'>
+       <h3 class="compare-category-title"> Par Classement </h3>
+       <%= render 'compare_category.html.erb', user: @query_user_player.get_wins_by_ranking(nil, @year),
+                                               player: @query_player.get_wins_by_ranking(nil, @year) %>
+     </div>
+     <div class='compare-block'>
+       <h3 class="compare-category-title"> Autres Stats </h3>
+       <%= render 'compare_category.html.erb', user: @query_user_player.get_wins_losses_nbr_sets(nil, nil, @year),
+                                               player: @query_player.get_wins_losses_nbr_sets(nil, nil, @year) %>
+       <%= render 'compare_category.html.erb', user:  @query_user_player.get_wins_losses_by('tournament', nil, @year),
+                                               player: @query_player.get_wins_losses_by('tournament', nil, @year) %>
+       <%= render 'compare_category.html.erb', user:  @query_user_player.get_wins_losses_by('dominant_hand', nil, @year),
+                                               player: @query_player.get_wins_losses_by('dominant_hand', nil, @year) %>
+       <%= render 'compare_category.html.erb', user:  @query_user_player.get_wins_losses_by('indoor', nil, @year),
+                                               player: @query_player.get_wins_losses_by('indoor', nil, @year) %>
+       <%= render 'compare_category.html.erb', user:  @query_user_player.get_wins_losses_by('court_type', nil, @year),
+                                               player: @query_player.get_wins_losses_by('court_type', nil, @year) %>
+       <%= render 'compare_category.html.erb', user:  @query_user_player.get_wins_losses_tie_breaks(nil, @year),
+                                               player: @query_player.get_wins_losses_tie_breaks(nil, @year) %>
+     </div>
+   </div>
+<% else %>
+  <h3 id='player-name'>Veuillez sélectionner un jour contre lequel vous comparer.</h3>
+<% end %>
