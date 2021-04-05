@@ -41,3 +41,44 @@
     margin-bottom: 0px;
   }
 
+  .compare-category-title {
+    color: $color-blue;
+    font-weight: bold;
+    margin: 20px 0px;
+  }
+
+  .compare-element {
+    list-style-type: none;
+    margin: 10px 0px;
+    padding-left: 15px;
+  }
+
+  .compare-element li {
+    margin: auto 0px;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: $color-grey-darker;
+  }
+  
+  .compare-element li.stat {
+    width: 140px;
+  }
+
+  .compare-element li.positive {
+    background-color: $color-blue;
+    color: $color-yellow;
+  }
+  
+  .compare-element li.negative {
+    background-color: $color-yellow;
+    color: $color-blue;
+  }
+
+  .compare-element li.equal {
+   
+  }
+  
+  
+
