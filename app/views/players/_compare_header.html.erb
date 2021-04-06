@@ -8,9 +8,21 @@
                                              losses: @query_user_player.get_head_to_head(@player, false, @year),
                                              head_to_head: true,
                                              size: 250 %>
-
     <div>
       <%= render 'stats_avatar.html.erb', player: @player %>
       <h3 class='compare-player-name'><%= PlayerDecorator.new(@player).full_name %></h3>
     </div>
+  </div>
+
+  <div class="compare-head-to-head-div">
+    <div class="compare-head-to-head-centered-div">
+      <% @query_user_player.get_head_to_head_history(@player, @year).each do |game_players| %>
+        <ul class='compare-head-to-head-details display-flex space-between <%= (game_players.victory ? 'negative' : 'positive') %>'>
+          <li>  <%= "#{game_players.game.date.strftime("%d-%m-%Y")}" %> </li>
+          <li class='middle'>  <%= "#{game_players.game.tournament.club.name.titleize}" %> </li>
+          <li>  <%= "#{GameDecorator.new(game_players.game).game_score(@user_player.id)}" %> </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
 </div>

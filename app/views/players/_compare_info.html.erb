@@ -1,4 +1,4 @@
-<% if @user_player.present? && @player.present? %>
+<% if @user_player.present? && @player.present? && (@user_player != @player) %>
    <div data-controller='canvas'>
      <%= render 'compare_header.html.erb' %>
      <div class='compare-block'>
