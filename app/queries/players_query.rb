@@ -255,5 +255,19 @@ class PlayersQuery
                                                        .count
     end
   end
+  
+  def get_head_to_head_history(other_player, year=nil)
+    if year
+      query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
+      GamePlayer.includes(game: {tournament: [:club, :category]}).joins(:game, :ranking).where(games: {id: Game.joins(:game_players).where(query, @player.id, year)})
+                                                       .where(game_players: {player_id: other_player.id}).order('games.date DESC')
+                                                       
+    else
+      query = 'game_players.player_id = ?'
+      GamePlayer.includes(game: {tournament: [:club, :category]}).joins(:game, :ranking).where(games: {id: Game.joins(:game_players).where(query, @player.id)})
+                                                       .where(game_players: {player_id: other_player.id}).order('games.date DESC')
+                                                       
+    end
+  end
 end
   
