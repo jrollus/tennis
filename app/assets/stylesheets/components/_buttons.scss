@@ -1,13 +1,10 @@
 .select-year {
   box-sizing: border-box;
-  height: 40px;
-  padding: 3px;
   border: 3px solid $color-grey;
   background: $color-grey;
   color: $color-grey-darker;
-  font-weight: bold;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: calc(4px + 1vw);
   padding: 0px 8px;
   cursor: pointer;
   &:focus {
@@ -17,16 +14,16 @@
 
 .player-search {
   position: relative;
-  height: 40px;
-  width: 400px;
-  padding: 5px 20px 5px 35px;
+  height: calc(10px + 4vh);
+  width: calc(125px + 20vw);
+  padding: 5% 10%;
+  font-size: calc(4px + 1vw);
   color: $color-grey-darker;
   background: $color-grey;
   border-style: none;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   margin-right: 0px;
-  font-weight: bold;
   &:focus {
     outline: none;
   }
@@ -58,18 +55,22 @@
   }
 }
 
-.search-btn {
+.search-btn{
+  position: relative;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  height: 40px;
-  line-height: 40px;
-  vertical-align: middle;
   background-color: $color-yellow;
   border-color: $color-yellow;
+  width: calc(25px + 2vw);
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: $color-white;
-  margin-left: 0px;
-  padding: 0px 15px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: calc(4px + 1vw);
 }

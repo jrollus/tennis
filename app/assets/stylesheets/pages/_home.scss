@@ -1,5 +1,5 @@
 .explainer {
-  margin-bottom: 50px;
+  margin-bottom: 10vh;
   border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 30px;
@@ -8,9 +8,8 @@
 }
 .explainer-text {
   width: 45%;
-  height: 400px;
   color: $color-grey-darker;
-  font-size: 24px;
+  font-size: 2.5vh;
 }
 
 .explainer-text em {
@@ -20,7 +19,6 @@
 
 .explainer-img-block {
   width: 45%;
-  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;

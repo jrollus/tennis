@@ -19,6 +19,7 @@
   cursor: pointer;
   background-color: $color-grey;
   color: $color-grey-darker;
+  font-size: calc(4px + 1vw);
 }
 .autocomplete-popup div:hover {
   /*when hovering an item:*/
