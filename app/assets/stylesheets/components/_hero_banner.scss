@@ -13,23 +13,36 @@
   color: $color-grey;
 }
 
-#banner-cta {
+#banner div{
   position: absolute;
+  text-align: center;
   top: 50%; 
-  right: 15%;
+  right: 8%;
+}
+
+@media screen and (max-width: 940px) {
+  #banner {
+    height: 50vh;
+    div {
+      top: 55%;
+    }
+  }
+}
+
+#banner-cta {
   font-weight: bold;
+  font-size: calc(5px + 3vw);
+  margin-bottom: 5vh;
 }
 
 #banner-button {
-  position: absolute;
-  top: 80%; 
-  right: 30%;
+  text-align: center;
   background-color: $color-yellow;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
   border: none;
   border-radius: 5px;
   font-weight: bold;
-  color: black;
+  color: $color-black;
   padding: 10px 40px;
-  font-size: 20px;
+  font-size: calc(5px + 1vw);
 }

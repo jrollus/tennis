@@ -1,29 +1,30 @@
 #player-name {
-  margin: 30px 0px;
+  margin: 3.5vh 0px;
   color: $color-blue;
+  font-size: calc(7px + 1.8vw);
 }
 
 .competition-type {
-  margin: 30px 0px;
+  margin: 2vh 0px;
   color: $color-blue;
+  font-size: calc(5px + 1.4vw);
 }
 
 .tournament {
-    margin: 30px 0px;
+  margin: 3vh 0px;
 }
 
 .interclub {
-  margin: 30px 0px;
+  margin: 3vh 0px;
 }
 
 .tournament-header {
   border-top: 1px solid $color-grey-border;
   border-bottom: 1px solid $color-grey-border;
-  padding: 5px 8px;
+  padding: 1% 1%;
   background: $color-grey;
   color: $color-blue;
 }
-
 
 // Table CSS
 
@@ -33,17 +34,17 @@
 }
 
 .tournament-table th {
-  padding: 8px 5px;
+  padding: 0.5% 0.5%;
   background-color: $color-lighter-grey;
   border-bottom: 1px solid $color-lighter-grey-border;
-  font-size: 12px;
+  font-size: calc(4px + 0.5vw);
   color: $color-blue;
   vertical-align: middle;
   text-align: center;
 }
 
 .tournament-table tr {
-  padding: 8px 5px;
+  font-size: calc(4px + 0.5vw);
   border-bottom: 1px solid $color-lighter-grey-border;
   vertical-align: middle;
   text-align: center;
@@ -78,17 +79,19 @@
 }
 
 .tournament-name {
-  font-size: 24px;
+  font-size: calc(5px + 0.9vw);
   font: bolder;
 }
 
 .tournament-date {
-  font-size: 18px;
+  font-size: calc(5px + 0.9vw);
   font: bolder;
 }
 
 .tournament-category {
-  font-size: 14px;
+  font-size: calc(4px + 0.5vw);
+  padding: 0px;
+  margin: 0px;
 }
 
 .tournament-action {
