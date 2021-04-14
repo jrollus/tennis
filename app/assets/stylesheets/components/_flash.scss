@@ -2,10 +2,16 @@
   background-color: $color-blue;
   color: $color-white;
   border-radius: 5px;
+  font-size: calc(7px + 0.7vw);
 }
 
 .alert-warning {
   background-color: $color-yellow;
   color: $color-black;
   border-radius: 5px;
+  font-size: calc(7px + 0.7vw);
+}
+
+.alert button {
+  font-size: calc(14px + 0.7vw);
 }

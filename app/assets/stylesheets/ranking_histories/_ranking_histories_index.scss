@@ -1,6 +1,7 @@
 .ranking-title {
+  margin: 2vh 0px;
   color: $color-blue;
-  margin-bottom: 30px;
+  font-size: calc(5px + 1.4vw);
 }
 
 // Table
@@ -10,17 +11,17 @@
 }
 
 .ranking-table th {
-  padding: 8px 5px;
+  padding: 0.5% 0.5%;
   background-color: $color-lighter-grey;
   border-bottom: 1px solid $color-lighter-grey-border;
-  font-size: 12px;
+  font-size: calc(4px + 0.5vw);
   color: $color-blue;
   vertical-align: middle;
   text-align: center;
 }
 
 .ranking-table tr {
-  padding: 8px 5px;
+  font-size: calc(4px + 0.5vw);
   border-bottom: 1px solid $color-lighter-grey-border;
   vertical-align: middle;
   text-align: center;
