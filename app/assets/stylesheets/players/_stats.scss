@@ -1,37 +1,35 @@
 // General Stats
 
 .stats-header {
-  margin: 40px 0px;
+  margin: 2vh 0px;
   padding: 0 10%;
-}
-
-.stats-header .wins-losses-div {
-  margin-left: 80px;
 }
 
 .stats-block {
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 40px;
+  padding-left: 5vmin;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
   margin-bottom: 15px;
 }
 
+.stats-avatar-img-div {
+  padding-top: calc(5px + 1vw);
+}
+
 .stats-avatar-img {
-  width: 225px;
-  height: 225px;
+  width: 23vmin;
+  height: 23vmin;
   display: block;
   margin: auto 0;
-  margin-bottom: 15px;
 }
 
 .stats-avatar-img-round {
-  width: 225px;
-  height: 225px;
+  width: 23vmin;
+  height: 23vmin;
   padding: 0px 0px;
   display: block;
-  margin: auto 0;
-  margin-bottom: 15px;
+ 
   border-radius: 50%;
 }
 
@@ -149,9 +147,14 @@
 }
 
 // Wins-Losses Cards
-.wins-losses-div {
+
+#stats-header-donut-chart {
+  width: 25vmin;
+  height: 25vmin;
+}
+
+.wins-losses-div { 
   margin-left: 25px;
-  width: 350px;
 }
 
 .wins-losses-div em {
@@ -166,15 +169,26 @@
 
 .wins-number, .losses-number {
   font-weight: bold;
+  font-size: calc(5px + 1vw);
+}
+
+.wins-percentage, .losses-percentage {
+  font-weight: bold;
+  font-size: calc(5px + 0.5vw);
 }
 
 .losses-number, .losses-percentage {
   color: $color-yellow;
+  
 }
 
 .wins-losses-title {
+  font-size: calc(5px + 1vw);
+  margin-bottom: 0px;
   color: $color-blue;
   font-weight: bold;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
