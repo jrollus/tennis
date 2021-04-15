@@ -75,7 +75,7 @@
 
 .form-flex {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -128,14 +128,11 @@
   margin-right: 25px;
 }
 
-.form-flex fieldset {
-  margin-top: calc(-3px + 2.2vw);
-}
-
 // Style Checkbox
 
 .form-check {
   display: inline-flex;
+  align-items: flex-end;
   cursor: pointer;
 }
 
@@ -161,6 +158,7 @@
   transition-duration: 0.3s;
   background-color: $color-white;
   cursor: pointer;
+  
 }
 
 .form-check-input:checked {
@@ -176,7 +174,7 @@
   position: absolute;
   font-size: calc(7px + 2vh);
   left: calc((10px + 4vh)/3);
-  top: calc((10px + 4vh)/7);
+  top: calc((5px + 4vh)/30);
 }
 
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
