@@ -11,7 +11,7 @@
                     <%= cl_image_tag(img_url, class: 'stats-category-img') %>
                     <h5 class="stats-category-name"><%= k %></h5>
                 </div>
-                <%= render 'stats_wins_losses.html.erb', wins: v[true], losses: v[false], head_to_head: false, size: 150 %>
+                <%= render 'stats_wins_losses.html.erb', wins: v[true], losses: v[false], head_to_head: false, header: false %>
                 </div>
             </div>
           <% end %>

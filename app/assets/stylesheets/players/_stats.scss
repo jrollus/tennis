@@ -1,53 +1,53 @@
 // General Stats
 
 .stats-header {
-  margin: 40px 0px;
+  margin: 2vh 0px;
   padding: 0 10%;
-}
-
-.stats-header .wins-losses-div {
-  margin-left: 80px;
 }
 
 .stats-block {
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 40px;
+  padding-right: 5vmin;
+  padding-left: 5vmin;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
   margin-bottom: 15px;
 }
 
+.stats-avatar-img-div {
+  padding-top: calc(5px + 1vw);
+}
+
 .stats-avatar-img {
-  width: 225px;
-  height: 225px;
+  width: 23vmin;
+  height: 23vmin;
   display: block;
   margin: auto 0;
-  margin-bottom: 15px;
 }
 
 .stats-avatar-img-round {
-  width: 225px;
-  height: 225px;
+  width: 23vmin;
+  height: 23vmin;
   padding: 0px 0px;
   display: block;
-  margin: auto 0;
-  margin-bottom: 15px;
+ 
   border-radius: 50%;
 }
 
 .stats-category-img {
-  width: 125px;
-  height: 125px;
+  width: 15vmin;
+  height: 15vmin;
   padding: 0px 0px;
   display: block;
-  margin: auto 0;
-  margin-bottom: 15px;
+  margin: auto auto;
+  margin-bottom: 5px;
 }
 
 .stats-category {
-  width: 400px;
-  margin-bottom: 30px;
-  margin-top: 15px;
+  width: 100%;
+  margin-bottom: 3vmin;
+  margin-top: 3vmin;
+ 
 }
 
 .stats-category-tournament {
@@ -58,17 +58,23 @@
 
 .stats-category-tournament ul {
   padding-top: 10px;
+  padding-left: 0px;
   list-style-type: none;
 }
 
+.stats-category-tournament li {
+  font-size: calc(4px + 0.7vw);
+}
+
 .stats-category-title {
+  font-size: calc(5px + 1.4vw);
   color: $color-blue;
   font-weight: bold;
   margin: 20px 0px;
 }
 
 .stats-category-name {
-  width: 125px;
+  font-size: calc(4px + 0.7vw);
   color: $color-blue;
   font-weight: bold;
   margin: auto 0px;
@@ -76,18 +82,31 @@
 }
 
 .stats-category-description {
-  padding: 15px 0px;
-  min-width: 175px;
+  margin: auto 0;
+  margin-right: 5vmin;
+  width: 50%
+}
+
+.stats-category-tournament .stats-category-description {
+  width: 30%;
+}
+
+.stats-category-tournament-details {
+  width: 70%;
 }
 
 .stats-category-saved, .stats-category-missed {
-  width: 125px;
-  height: 125px;
+  width: 15vmin;
+  height: 15vmin;
   
-  line-height: 125px;
+  line-height: 15vmin;
   margin: auto auto;
   text-align: center;
-  font-size: 45px;
+  font-size: calc(7px + 5vw);
+}
+
+.stats-category-saved-container {
+  width: 50%;
 }
 
 .stats-category-saved {
@@ -103,11 +122,10 @@
 // Ranking
 
 .stats-ranking-mobile {
-  margin-bottom: 50px;
   display: none;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   .stats-ranking-desktop {
     display: none;
   }
@@ -122,10 +140,11 @@
   height: 30px;
   margin: 10px 0px;
   padding-left: 15px;
+  padding-right: 15px;
 }
 
 .stats-ranking-mobile-card li {
-  width: 90px;
+  font-size: calc(5px + 1vw);
   margin: auto 0px;
 }
 
@@ -149,9 +168,19 @@
 }
 
 // Wins-Losses Cards
-.wins-losses-div {
+
+#stats-header-donut-chart {
+  width: 25vmin;
+  height: 25vmin;
+}
+
+.stats-category-donut-chart {
+  width: 20vmin;
+  height: 20vmin;
+}
+
+.wins-losses-div { 
   margin-left: 25px;
-  width: 350px;
 }
 
 .wins-losses-div em {
@@ -166,6 +195,12 @@
 
 .wins-number, .losses-number {
   font-weight: bold;
+  
+}
+
+.wins-percentage, .losses-percentage {
+  font-weight: bold;
+  
 }
 
 .losses-number, .losses-percentage {
@@ -173,8 +208,34 @@
 }
 
 .wins-losses-title {
+  margin-bottom: 0px;
   color: $color-blue;
   font-weight: bold;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
+.wins-losses-div.header {
+  .wins-losses-title {
+    font-size: calc(5px + 1vw);
+  }
+  .wins-percentage, .losses-percentage {
+    font-size: calc(5px + 0.5vw);
+  }
+  .wins-number, .losses-number {
+    font-size: calc(5px + 1vw);
+  }
+}
+
+.wins-losses-div.category {
+  .wins-losses-title {
+    font-size: calc(4px + 0.8vw);
+  }
+  .wins-percentage, .losses-percentage {
+    font-size: calc(4px + 0.3vw);
+  }
+  .wins-number, .losses-number {
+    font-size: calc(4px + 0.8vw);
+  }
+}

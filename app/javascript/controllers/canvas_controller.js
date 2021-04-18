@@ -104,6 +104,8 @@ export default class extends Controller {
     drawWinLossesCharts(){
       const canvases = this.winsLossesTargets;
       canvases.forEach((canvas) => {
+        canvas.width = canvas.scrollWidth;
+        canvas.height = canvas.scrollHeight;
         let ctx = canvas.getContext('2d');
         let values=[parseInt(canvas.nextElementSibling.lastElementChild.innerHTML.replace('%', '')),
                     parseInt(canvas.previousElementSibling.lastElementChild.innerHTML.replace('%', ''))];
