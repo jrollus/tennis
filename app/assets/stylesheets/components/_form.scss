@@ -158,7 +158,6 @@
   transition-duration: 0.3s;
   background-color: $color-white;
   cursor: pointer;
-  
 }
 
 .form-check-input:checked {
@@ -172,9 +171,9 @@
   text-align: center;
   color: $color-blue;
   position: absolute;
+  top: 50%;
+  left: 50%;
   font-size: calc(7px + 2vh);
-  left: calc((10px + 4vh)/3);
-  top: calc((5px + 4vh)/30);
 }
 
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {

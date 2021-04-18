@@ -1,5 +1,5 @@
 <% if wins.present? && losses.present? %>
-  <div class='wins-losses-div'>
+  <div class='wins-losses-div <%= header ? 'header' : 'category' %>'>
     <% unless wins.zero? && losses.zero? %>
       <% unless head_to_head %>
         <h5 class='wins-losses-title'>VICTOIRES - <em> DÉFAITES </em> </h5>
@@ -10,7 +10,11 @@
           <h2 class='wins-number'><%= wins %></h2>
           <h5 class='wins-percentage'><%= number_to_percentage((wins / (wins+losses).to_f)*100, precision: 0) %></h5>
         </div>
-        <canvas id='stats-header-donut-chart' data-target='canvas.winsLosses'> </canvas>
+        <% if header %>
+          <canvas id='stats-header-donut-chart' data-target='canvas.winsLosses'> </canvas>
+        <% else %>
+          <canvas class='stats-category-donut-chart' data-target='canvas.winsLosses'> </canvas>
+        <% end %>
         <div>
           <h2 class='losses-number'><%= losses %></h2>
           <h5 class='losses-percentage'><%= number_to_percentage((losses / (wins+losses).to_f)*100, precision: 0) %></h5>

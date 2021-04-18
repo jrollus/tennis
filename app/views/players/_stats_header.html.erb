@@ -6,6 +6,6 @@
     <%= render 'stats_wins_losses.html.erb', wins: @query.get_nbr_wins_losses(true,  @year),
                                              losses: @query.get_nbr_wins_losses(false,  @year),
                                              head_to_head: false,
-                                             size: 250 %>
+                                             header: true %>
   </div>
 </div>

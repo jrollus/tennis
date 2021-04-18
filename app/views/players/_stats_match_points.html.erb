@@ -10,7 +10,9 @@
                     <%= cl_image_tag(img_url, class: 'stats-category-img') %>
                     <h5 class="stats-category-name">Sauvées</h5>
                 </div>
-                <div class="stats-category-saved"><%= saved %></div>
+                <div class="stats-category-save-container">
+                  <div class="stats-category-saved"><%= saved %></div>
+                </div>
               </div>
           </div>
         </div>
@@ -23,7 +25,9 @@
                     <%= cl_image_tag(img_url, class: 'stats-category-img') %>
                     <h5 class="stats-category-name">Ratées</h5>
                 </div>
-                <div class="stats-category-missed"><%= -missed %></div>
+                <div class="stats-category-save-container">
+                  <div class="stats-category-missed"><%= -missed %></div>
+                </div>
               </div>
           </div>
         </div>
