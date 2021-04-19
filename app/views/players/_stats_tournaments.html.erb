@@ -9,7 +9,7 @@
                   <%= cl_image_tag(img_url, class: 'stats-category-img') %>
                   <h5 class="stats-category-name">Gagnés</h5>
               </div>
-              <div>
+              <div class="stats-category-tournament-details">
                 <ul>
                   <% tournaments.each do |tournament| %>
                     <li> <%= "#{tournament.tournament.start_date.strftime("%d-%m-%Y")} / #{tournament.tournament.end_date.strftime("%d-%m-%Y")} -  

@@ -1,11 +1,11 @@
 <% if player.user %>
   <% if player.user.avatar.attached? %>
-    <%= cl_image_tag(player.user.avatar.key, class: 'stats-avatar-img-round') %>
+    <%= cl_image_tag(player.user.avatar.key, class: "#{stats ? 'stats-avatar-img-round' : 'compare-avatar-img-round'}") %>
   <% else %>
     <%= cl_image_tag("#{player.gender == 'male' ? 'tennis-player_v83xbq.png' : 'girl_abdhti.png'}", 
-                      class: 'stats-avatar-img') %>
+                      class: "#{stats ? 'stats-avatar-img' : 'compare-avatar-img'}") %>
   <% end %>
 <% else %>
   <%= cl_image_tag("#{player.gender == 'male' ? 'tennis-player_v83xbq.png' : 'girl_abdhti.png'}", 
-                  class: 'stats-avatar-img') %>
+                   class: "#{stats ? 'stats-avatar-img' : 'compare-avatar-img'}") %>
 <% end %>
