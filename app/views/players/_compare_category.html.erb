@@ -1,10 +1,10 @@
 <% if user.key?(true) %>
   <ul class='compare-element display-flex space-between'>
-    <li class='<%= (user[true] == player[true] ? 'equal' : (user[true] > player[true] ? 'positive' : 'negative')) %>'>
+    <li class='stat <%= (user[true] == player[true] ? 'equal' : (user[true] > player[true] ? 'positive' : 'negative')) %>'>
       <%= "#{user[true]} (#{number_to_percentage((user[true] / (user[true]+user[false]).to_f)*100, precision: 0)})" %>
     </li>
     <li>Victoires</li>
-    <li class='<%= (user[true] == player[true] ? 'equal' : (user[true] < player[true] ? 'positive' : 'negative')) %>'>
+    <li class='stat <%= (user[true] == player[true] ? 'equal' : (user[true] < player[true] ? 'positive' : 'negative')) %>'>
       <%= "#{player[true]} (#{number_to_percentage((player[true] / (player[true]+player[false]).to_f)*100, precision: 0)})" %>
     </li>
   </ul>

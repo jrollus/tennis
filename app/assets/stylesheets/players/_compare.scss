@@ -1,70 +1,100 @@
 // General Stats
 
 .compare-header {
-    margin: 40px 0px;
-    padding: 0 5%;
+    margin: 5vh 0px;
+    .wins-losses-div {
+      margin-left: 15px;
+    }
   }
   
 .compare-block {
-  padding: 5px 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 5vmin;
+  padding-left: 5vmin;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
   margin-bottom: 15px;
 }
 
-.compare-block.first-block {
-  margin: 40px 0px;
-}
-
 .compare-avatar-img {
-  width: 225px;
-  height: 225px;
-  padding: 0px 0px;
+  width: 20vmin;
+  height: 20vmin;
   display: block;
-  margin: auto 0;
-  margin-bottom: 15px;
+  margin: auto auto;
 }
 
 .compare-avatar-img-round {
-  width: 225px;
-  height: 225px;
+  width: 20vmin;
+  height: 20vmin;
   padding: 0px 0px;
   display: block;
-  margin: auto 0;
-  margin-bottom: 15px;
+  margin: auto auto;
   border-radius: 50%;
 }
 
+.compare-block.first-block {
+  margin: 5vh 0px;
+}
+
+.compare-avatar-block {
+  width: 20vw;
+}
+
 .compare-player-name {
+  font-size: calc(5px + 1.4vw);
   color: $color-blue;
   font-weight: bold;
   text-align: center;
+  margin-top: 3vh;
   margin-bottom: 0px;
 }
 
 .compare-category-title {
+  font-size: calc(5px + 1.4vw);
   color: $color-blue;
   font-weight: bold;
   margin: 20px 0px;
-  padding-left: 15px;
 }
 
 .compare-element {
   list-style-type: none;
   margin: 10px 0px;
-  padding-left: 15px;
+  padding-left: 0px;
+}
+
+.compare-table {
+  margin: 0 auto;
+}
+
+.compare-table tr {
+  font-size: calc(5px + 1vw);
+  vertical-align: middle;
+  text-align: center;
+}
+
+.compare-table td {
+  padding: 0 2vw;
+}
+
+.compare-table td.positive {
+  color: $color-blue;
+}
+
+.compare-table td.negative {
+  color: $color-yellow;
 }
 
 .compare-element li {
   margin: auto 0px;
   text-align: center;
-  padding: 10px 20px;
-  font-size: 20px;
+  padding: 1vh 2vw;
+  font-size: calc(5px + 1vw);
   font-weight: bold;
   color: $color-grey-darker;
 }
 
 .compare-element li.stat {
-  width: 250px;
+  width: calc(50px + 8vw);
 }
 
 .compare-element li.positive {
@@ -75,37 +105,4 @@
 .compare-element li.negative {
   background-color: $color-yellow;
   color: $color-blue;
-}
-
-.compare-head-to-head-div {
-  text-align: center;
-}
-
-.compare-head-to-head-centered-div {
-  display: inline-block; 
-	text-align: left;
-}
-
-.compare-head-to-head-details {
-  list-style-type: none;
-  text-decoration: none;
-  font-weight: bold;
-}
-  
-.compare-head-to-head-details li {
-  font-size: 20px;
-  margin-right: 5px;
-  width: 120px;
-}
-
-.compare-head-to-head-details li.middle {
-  text-align: center;
-}
-
-.compare-head-to-head-details.positive {
-  color: $color-blue;
-}
-
-.compare-head-to-head-details.negative {
-  color: $color-yellow;
 }

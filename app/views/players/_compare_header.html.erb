@@ -1,28 +1,27 @@
 <div class='compare-block first-block'>
-  <div class="compare-header display-flex space-between">
-    <div>
-      <%= render 'stats_avatar.html.erb', player: @user_player %>
+  <div class="compare-header display-flex align-center space-between">
+    <div class="compare-avatar-block">
+      <%= render 'stats_avatar.html.erb', player: @user_player, stats: false %>
       <h3 class='compare-player-name'><%= PlayerDecorator.new(@user_player).full_name %></h3>
     </div>
     <%= render 'stats_wins_losses.html.erb', wins: @query_user_player.get_head_to_head(@player, true, @year),
                                              losses: @query_user_player.get_head_to_head(@player, false, @year),
                                              head_to_head: true,
-                                             size: 250 %>
-    <div>
-      <%= render 'stats_avatar.html.erb', player: @player %>
+                                             header: false %>
+    <div class="compare-avatar-block">
+      <%= render 'stats_avatar.html.erb', player: @player, stats: false %>
       <h3 class='compare-player-name'><%= PlayerDecorator.new(@player).full_name %></h3>
     </div>
   </div>
 
-  <div class="compare-head-to-head-div">
-    <div class="compare-head-to-head-centered-div">
-      <% @query_user_player.get_head_to_head_history(@player, @year).each do |game_players| %>
-        <ul class='compare-head-to-head-details display-flex space-between <%= (game_players.victory ? 'negative' : 'positive') %>'>
-          <li>  <%= "#{game_players.game.date.strftime("%d-%m-%Y")}" %> </li>
-          <li class='middle'>  <%= "#{game_players.game.tournament.club.name.titleize}" %> </li>
-          <li>  <%= "#{GameDecorator.new(game_players.game).game_score(@user_player.id)}" %> </li>
-        </ul>
-      <% end %>
-    </div>
-  </div>
+  <table class="compare-table">
+    <% @query_user_player.get_head_to_head_history(@player, @year).each do |game_players| %>
+      <tr>
+        <td class='<%= (game_players.victory ? 'negative' : 'positive') %>'> <%= "#{game_players.game.date.strftime("%d-%m-%Y")}" %> </td>
+        <td class='<%= (game_players.victory ? 'negative' : 'positive') %>'> <%= "#{game_players.game.tournament.club.name.titleize}" %> </td>
+        <td class='<%= (game_players.victory ? 'negative' : 'positive') %>'> <%= "#{GameDecorator.new(game_players.game).game_score(@user_player.id)}" %> </td>
+      </tr>
+    <% end %>
+  </table>
+ 
 </div>

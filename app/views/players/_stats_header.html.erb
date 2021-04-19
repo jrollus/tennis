@@ -1,7 +1,7 @@
 <div class='stats-block'>
   <div class="stats-header display-flex space-between">
     <div class="display-flex align-center stats-avatar-img-div">
-      <%= render 'stats_avatar.html.erb', player: @player %>
+      <%= render 'stats_avatar.html.erb', player: @player, stats: true %>
     </div>
     <%= render 'stats_wins_losses.html.erb', wins: @query.get_nbr_wins_losses(true,  @year),
                                              losses: @query.get_nbr_wins_losses(false,  @year),
