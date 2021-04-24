@@ -42,11 +42,25 @@ export default class extends Controller {
     }
 
     clickOutside(event) {
-      if (event.target.parentElement == this.popupTarget) {
-        this.selectPopupItem(event)
-      } else {
-        this.closeAllPopups();
+      if (this.hasPopupTarget) {
+        let e = event
+        if (e.target.tagName == 'B') {
+          e = e.parentElement;
+        }
+        if (e) {
+          if (e.target.parentElement == this.popupTarget) {
+            this.selectPopupItemFromClickOutside(e.target.innerHTML)
+            
+          } else {
+            this.closeAllPopups();
+          }
+        }
       }
+    }
+
+    selectPopupItemFromClickOutside(player) {
+      this.autocompleteTarget.value = player.replace(/<\/?b>/gi,'');
+      this.closeAllPopups();
     }
 
     selectPopupItem(e) {
