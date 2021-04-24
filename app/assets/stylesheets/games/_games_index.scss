@@ -37,21 +37,21 @@
   padding: 0.5% 0.5%;
   background-color: $color-lighter-grey;
   border-bottom: 1px solid $color-lighter-grey-border;
-  font-size: calc(4px + 0.5vw);
+  font-size: calc(4px + 0.8vw);
   color: $color-blue;
   vertical-align: middle;
   text-align: center;
 }
 
 .tournament-table tr {
-  font-size: calc(4px + 0.5vw);
+  font-size: calc(4px + 0.8vw);
   border-bottom: 1px solid $color-lighter-grey-border;
   vertical-align: middle;
   text-align: center;
 }
 
 .th-round{
-  width: 10%;
+  width: 6%;
 }
 
 .th-ranking{
@@ -59,23 +59,23 @@
 }
 
 .th-opponent{
-  width: 30%;
+  width: 33%;
 }
 
 .th-victory{
-  width: 10%;
+  width: 6%;
 }
 
 .th-status{
-  width: 15%;
+  width: 10%;
 }
 
 .th-score{
-  width: 15%;
+  width: 23%;
 }
 
 .th-actions{
-  width: 10%;
+  width: 12%;
 }
 
 .tournament-name {
@@ -89,13 +89,13 @@
 }
 
 .tournament-category {
-  font-size: calc(4px + 0.5vw);
+  font-size: calc(4px + 0.8vw);
   padding: 0px;
   margin: 0px;
 }
 
 .tournament-action {
-  padding: 0px 5px;
+  padding: 0px 0.3vw;
   color: $color-grey-darker;
   &:hover {
     color: $color-yellow;

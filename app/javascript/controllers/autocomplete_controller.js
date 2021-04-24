@@ -42,7 +42,11 @@ export default class extends Controller {
     }
 
     clickOutside(event) {
-      this.closeAllPopups(event.target.innerHTML);
+      if (event.target.parentElement == this.popupTarget) {
+        this.selectPopupItem(event)
+      } else {
+        this.closeAllPopups();
+      }
     }
 
     selectPopupItem(e) {

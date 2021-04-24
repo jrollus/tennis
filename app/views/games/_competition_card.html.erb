@@ -13,9 +13,9 @@
 <table class="tournament-table">
   <tr>
     <th class="th-round"> <%= competition_type == 'tournament' ? 'Tour' : 'Date' %></th>
+    <th class="th-victory">V-D</th>
     <th class="th-ranking">Classement</th>
     <th class="th-opponent">Adversaire</th>
-    <th class="th-victory">V-D</th>
     <th class="th-status">Status</th>
     <th class="th-score">Score</th>
     <th class="th-actions">Actions</th>
@@ -23,13 +23,13 @@
   <% competition[:games].each do |game| %>
     <tr>
       <td><%= competition_type == 'tournament' ? "#{game[:round].capitalize.gsub('_','/')}" : game[:date].strftime("%d-%m-%Y")  %></td>
-      <td><%= "#{game[:ranking]}" %></td>
-      <td><%= "#{game[:name]}" %></td>
       <% if game[:victory] %>
         <td>V</td>
       <% else %>
         <td>D</td>
       <% end %>
+      <td><%= "#{game[:ranking]}" %></td>
+      <td><%= "#{game[:name]}" %></td>
       <% if game[:status] == 'completed' %>
         <td>Terminé</td>
       <% elsif game[:status] == 'WO' %>
