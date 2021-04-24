@@ -47,7 +47,7 @@
   width: 100%;
   margin-bottom: 3vmin;
   margin-top: 3vmin;
- 
+  padding: 0 3vmin;
 }
 
 .stats-category-tournament {
@@ -143,8 +143,13 @@
   padding-right: 15px;
 }
 
+.stats-ranking-mobile-card  :last-child {
+  text-align: right;
+}
+
 .stats-ranking-mobile-card li {
   font-size: calc(5px + 1vw);
+  width: calc(30px + 6vw);
   margin: auto 0px;
 }
 
@@ -229,6 +234,7 @@
 }
 
 .wins-losses-div.category {
+  width: 50%;
   .wins-losses-title {
     font-size: calc(4px + 0.8vw);
   }
