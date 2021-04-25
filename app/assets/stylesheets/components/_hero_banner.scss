@@ -22,7 +22,7 @@
 
 @media screen and (max-width: 940px) {
   #banner {
-    height: 50vh;
+    height: 55vmax;
     div {
       top: 55%;
     }
@@ -32,7 +32,7 @@
 #banner-cta {
   font-weight: bold;
   font-size: calc(5px + 3vw);
-  margin-bottom: 5vh;
+  margin-bottom: 3vmax;
 }
 
 #banner-button {
@@ -43,6 +43,6 @@
   border-radius: 5px;
   font-weight: bold;
   color: $color-black;
-  padding: 10px 40px;
+  padding: 2vmin 3.5vmax;
   font-size: calc(5px + 1vw);
 }
