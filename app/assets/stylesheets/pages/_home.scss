@@ -9,7 +9,7 @@
 .explainer-text {
   width: 45%;
   color: $color-grey-darker;
-  font-size: 1.5vw;
+  font-size: calc(8px + 1vw);
 }
 
 .explainer-text em {
