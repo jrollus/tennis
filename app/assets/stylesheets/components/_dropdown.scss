@@ -8,7 +8,6 @@
   position: absolute; right: 0px;
   background-color: $color-grey;
   border-color: $color-grey;
-  min-width: 100px;
   border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 100;
@@ -17,9 +16,12 @@
 .dropdown-content a {
   color: $color-grey-darker !important;
   border-radius: 5px;
-  padding: 8px 16px;
+  padding: 8px 2vw;
+  margin-right: 0px;
+  text-align: center;
   text-decoration: none;
   display: block;
+  font-size: calc(10px + 0.5vw);
 }
 
 .dropdown-content a:hover {background-color: $color-grey-border}
