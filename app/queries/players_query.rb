@@ -182,11 +182,11 @@ class PlayersQuery
 
   def get_tournament_won(year=nil)
     if year
-      query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ? AND rounds.id = ?'
+      query = 'game_players.player_id = ? AND game_players.victory = ? AND extract(year from games.date) = ? AND rounds.id = ? AND games.interclub_id IS NULL'
       Game.joins(:game_players, :round).includes(tournament: [:club, :category]).where(query, @player.id, true, year, 2)
           .order('tournaments.start_date DESC')
     else
-      query = 'game_players.player_id = ? AND game_players.victory = ? AND rounds.id = ?'
+      query = 'game_players.player_id = ? AND game_players.victory = ? AND rounds.id = ? AND games.interclub_id IS NULL'
       Game.joins(:game_players, :round).includes(tournament: [:club, :category]).where(query, @player.id, true, 2).order('tournaments.start_date DESC')
     end
   end
