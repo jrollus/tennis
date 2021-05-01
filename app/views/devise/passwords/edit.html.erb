@@ -1,27 +1,42 @@
-<h2>Change your password</h2>
+<div class='container'>
+  <div class='form-container'>
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+      <%= f.input :reset_password_token, as: :hidden %>
+      <%= f.full_error :reset_password_token %>
 
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
+      <div class="form-inputs">
+        <%= f.input :password,
+                    label: "Nouveau password",
+                    required: true,
+                    autofocus: true,
+                    hint: ("#{@minimum_password_length} charactères minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    label: "Confirmer votre nouveau password",
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :password,
-                label: "New password",
-                required: true,
-                autofocus: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                label: "Confirm your new password",
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+       <div class='form-actions'>
+          <%= f.button :submit, "Changer mon password", class: 'base-btn' %>
+      </div>
+    <% end %>
+
+    <div class='form-extra-links'>
+        <%- if controller_name != 'sessions' %>
+          <%= link_to "Connexion", new_session_path(resource_name) %><br />
+        <% end %>
+
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to "S'inscrire", new_registration_path(resource_name) %><br />
+        <% end %>
+
+        <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+          <%= link_to "Email de confirmation pas reçu?", new_confirmation_path(resource_name) %><br />
+        <% end %>
+      </div>
+
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
