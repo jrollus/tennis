@@ -4,6 +4,24 @@
   font-size: calc(7px + 1.8vw);
 }
 
+.mobile-points {
+  display: none;
+  border: 2px solid $color-yellow;
+  background-color: $color-yellow;
+  margin-bottom: 0px;
+  color: $color-blue;
+  padding: 0.5vh 2vw;
+  border-radius: 5px;
+  font-size: calc(7px + 1.8vw);
+}
+
+@media screen and (max-width: 680px) {
+  .mobile-points {
+    display: block;
+  }
+
+}
+
 .competition-type {
   margin: 2vh 0px;
   color: $color-blue;

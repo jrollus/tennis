@@ -1,5 +1,8 @@
 <% if player.present? %>
-  <h3 id='player-name'><%= player.player_description %></h3>
+  <div class="display-flex space-between align-center">
+    <h3 id='player-name'><%= player.player_description %></h3>
+    <h3 class='mobile-points'> <%= player.ranking_histories.max_by{|ranking| ranking.start_date}.points %> pts</h3>
+  </div>
   <% unless tournaments.blank? %>
     <h3 class='competition-type'> Tournois </h2>
     <% tournaments.each do |tournament| %>

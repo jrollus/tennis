@@ -11,7 +11,7 @@
                     label: "Nouveau password",
                     required: true,
                     autofocus: true,
-                    hint: ("#{@minimum_password_length} charactères minimum" if @minimum_password_length),
+                    hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
                     label: "Confirmer votre nouveau password",
