@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # Generale Routes
   root to: 'pages#home'
 
+  # Contacts
+  resources :contacts, only: [:new, :create]
+
   # Ranking Histories
   resources :ranking_histories, only: [:index, :edit, :update], path: 'ranking-histories' do
     post '/validate',  to:'ranking_histories#validate'

@@ -200,12 +200,12 @@
 
 .wins-number, .losses-number {
   font-weight: bold;
-  
+  margin-bottom: 0px;
 }
 
 .wins-percentage, .losses-percentage {
   font-weight: bold;
-  
+  text-align: center;
 }
 
 .losses-number, .losses-percentage {
@@ -226,10 +226,10 @@
     font-size: calc(5px + 1vw);
   }
   .wins-percentage, .losses-percentage {
-    font-size: calc(5px + 0.5vw);
+    font-size: calc(5px + 0.8vw);
   }
   .wins-number, .losses-number {
-    font-size: calc(5px + 1vw);
+    font-size: calc(10px + 4vw);
   }
 }
 
@@ -239,9 +239,9 @@
     font-size: calc(4px + 0.8vw);
   }
   .wins-percentage, .losses-percentage {
-    font-size: calc(4px + 0.3vw);
+    font-size: calc(4px + 0.6vw);
   }
   .wins-number, .losses-number {
-    font-size: calc(4px + 0.8vw);
+    font-size: calc(6px + 3vw);
   }
 }

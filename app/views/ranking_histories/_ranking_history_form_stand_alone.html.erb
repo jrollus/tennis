@@ -3,8 +3,8 @@
     <%= simple_form_for(@ranking_history, method: (edit ? 'patch' : 'post')) do |f| %>
       <%= f.input :id, as: :hidden if edit %>
       <%= f.input :year, disabled: true%>
-      <%= f.input :start_date, as: :date, html5: true, disabled: true%>
-      <%= f.input :end_date, as: :date, html5: true, disabled: true %>
+      <%= f.input :start_date, as: :date, html5: true, input_html: {max: '2050-12-31'}, disabled: true%>
+      <%= f.input :end_date, as: :date, html5: true, input_html: {max: '2050-12-31'}, disabled: true %>
       <%= f.association :ranking %>
       <div class="form-actions">
         <%= f.button :submit, (edit ? 'Actualiser' : 'Créer'), class:'base-btn' %>

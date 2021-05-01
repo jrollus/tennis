@@ -13,7 +13,7 @@
                         input_html: {data: {target: 'affiliation.lastName'}} %>
 <%= f.association :club, label: 'Club',
                          input_html: {data: {target: 'affiliation.club'}} %>
-<%= f.input :birthdate, label: "Date d'anniversaire", as: :date, html5: true %>
+<%= f.input :birthdate, label: "Date d'anniversaire", as: :date, html5: true, input_html: {max: '2050-12-31'} %>
 <%= f.input :gender, label: 'Sexe', 
                      collection:[['Homme', 'male'], ['Femme', 'female']], 
                      input_html: {data: {target: 'affiliation.gender'}} %>

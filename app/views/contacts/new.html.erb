@@ -1,0 +1,13 @@
+<div class='container'>
+  <div class='form-container'>
+    <%= simple_form_for(@message, url: contacts_path, method: 'post') do |f| %>
+      <%= f.input :name, label: "Nom" %>
+      <%= f.input :email, label: "Email" %>
+      <%= f.input :subject, label: "Sujet" %>
+      <%= f.input :body, label: "Message", as: :text, :input_html => { :rows => 7 , :style => 'width: 100%'} %>
+      <div class="form-actions">
+        <%= f.button :submit, 'Envoyer le message', class:'base-btn' %>
+      </div>
+    <% end %>
+  </div>
+</div>
