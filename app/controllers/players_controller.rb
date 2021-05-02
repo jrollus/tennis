@@ -75,7 +75,6 @@ class PlayersController < ApplicationController
     authorize @user_player
     @query_user_player = PlayersQuery.new(@user_player)
     @query_player = PlayersQuery.new(@player)
-
     respond_to do |format|
       format.html { 
         @max_date = Game.maximum(:date).year

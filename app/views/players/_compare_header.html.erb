@@ -18,7 +18,11 @@
     <% @query_user_player.get_head_to_head_history(@player, @year).each do |game_players| %>
       <tr>
         <td class='<%= (game_players.victory ? 'negative' : 'positive') %>'> <%= "#{game_players.game.date.strftime("%d-%m-%Y")}" %> </td>
-        <td class='<%= (game_players.victory ? 'negative' : 'positive') %>'> <%= "#{game_players.game.tournament.club.name.titleize}" %> </td>
+        <% if game_players.game.tournament.present? %>
+          <td class='<%= (game_players.victory ? 'negative' : 'positive') %>'> <%= "#{game_players.game.tournament.club.name.titleize}" %> </td>
+        <% elsif game_players.game.interclub.present? %>
+          <td class='<%= (game_players.victory ? 'negative' : 'positive') %>'> <%= "Interclub - #{game_players.game.interclub.division.name.titleize}" %> </td>
+        <% end %>
         <td class='<%= (game_players.victory ? 'negative' : 'positive') %>'> <%= "#{GameDecorator.new(game_players.game).game_score(@user_player.id)}" %> </td>
       </tr>
     <% end %>
