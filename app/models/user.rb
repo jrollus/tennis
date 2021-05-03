@@ -9,6 +9,9 @@ class User < ApplicationRecord
   # Active Storage
   has_one_attached :avatar
 
+  # Validations
+  validates :terms_of_service, acceptance: true, on: :create
+  
   # Relations
   has_one :player
   has_many :ranking_histories, through: :player

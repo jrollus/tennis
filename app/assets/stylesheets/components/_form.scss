@@ -141,7 +141,7 @@
 
 // Style Checkbox
 
-.form-check {
+.form-court .form-check {
   display: inline-flex;
   align-items: flex-end;
   cursor: pointer;
@@ -156,6 +156,10 @@
   &:valid {
     color: $color-grey-darker;
   }
+}
+
+.form-check .invalid-feedback {
+  margin-left: -1.25rem !important;
 }
 
 .form-check-input {
@@ -194,6 +198,9 @@
   color: $color-grey-darker;
 }
 
+.was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {
+  color: $color-grey-darker;
+}
 
 // Style Checkbox - Toggle
 
