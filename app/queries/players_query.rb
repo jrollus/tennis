@@ -106,6 +106,7 @@ class PlayersQuery
         case type
         when 'dominant_hand'
           category = (category == 'left-handed' ? 'Gaucher' : 'Droitier')
+          win_loss = !win_loss
         when 'indoor'
           category = category ? 'Indoor' : 'Outdoor'
         end
