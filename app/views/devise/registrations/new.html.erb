@@ -30,7 +30,27 @@
         <% end  %>
       </div>
 
-      
+      <div data-controller='modal'>
+        <div class='terms-modal'  data-target='modal.modal' data-action='click->modal#hide'>
+          <div class='terms-modal-content'>
+            <h3 class="terms-modal-title">Conditions d'utilisation</h3>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quo, eveniet velit, repudiandae cumque fugit corrupti ullam vel quis modi deleniti alias facere possimus, laudantium sunt. Alias maiores provident nobis. </p>
+            <h3 class="terms-modal-title">Protection des données</h3>
+            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi totam ratione vel eaque nam temporibus pariatur veniam voluptatem excepturi nostrum libero, voluptates nisi fugit ea aspernatur consectetur alias quia tempora. </p>
+          </div>
+        </div>
+
+        <%= content_for(:the_links) do %>
+          <span>Accepter les <span id='terms-link' data-action='click->modal#show'> conditions d'utilisation </span></span>
+        <% end %>
+          
+        <%= f.input :terms_of_service, label: content_for(:the_links), as: :boolean %>
+      </div>
+
+      <div class='form-actions'>
+        <%= f.button :submit, "S'inscrire", class: 'base-btn' %>
+      </div>
+
     <% end %>
     
     <div class='form-extra-links'>
