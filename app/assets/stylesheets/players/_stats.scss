@@ -63,7 +63,8 @@
 }
 
 .stats-category-tournament li {
-  font-size: calc(4px + 0.7vw);
+  color: $color-blue;
+  font-size: calc(4px + 0.8vw);
 }
 
 .stats-category-title {
@@ -175,13 +176,13 @@
 // Wins-Losses Cards
 
 #stats-header-donut-chart {
-  width: 25vmin;
-  height: 25vmin;
+  width: 20vmin;
+  height: 20vmin;
 }
 
 .stats-category-donut-chart {
-  width: 20vmin;
-  height: 20vmin;
+  width: 15vmin;
+  height: 15vmin;
 }
 
 .wins-losses-div { 
@@ -194,6 +195,7 @@
   font-weight: bold;
 }
 
+
 .wins-number, .wins-percentage {
   color: $color-blue;
 }
@@ -201,6 +203,7 @@
 .wins-number, .losses-number {
   font-weight: bold;
   margin-bottom: 0px;
+  text-align: center;
 }
 
 .wins-percentage, .losses-percentage {
@@ -243,5 +246,9 @@
   }
   .wins-number, .losses-number {
     font-size: calc(6px + 3vw);
+  }
+
+  .wins-losses-numbers-div { 
+    width: 4vw;
   }
 }

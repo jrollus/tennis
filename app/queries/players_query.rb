@@ -24,6 +24,8 @@ class PlayersQuery
       else
         raw_db_output = @player.game_players.joins(:game).group('game_players.victory').count
       end
+      raw_db_output[true] = 0 unless raw_db_output.key?(true)
+      raw_db_output[false] = 0 unless raw_db_output.key?(false)
       return raw_db_output
     end
     
@@ -104,6 +106,7 @@ class PlayersQuery
         case type
         when 'dominant_hand'
           category = (category == 'left-handed' ? 'Gaucher' : 'Droitier')
+          win_loss = !win_loss
         when 'indoor'
           category = category ? 'Indoor' : 'Outdoor'
         end

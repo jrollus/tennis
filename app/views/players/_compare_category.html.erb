@@ -1,11 +1,19 @@
 <% if user.key?(true) %>
   <ul class='compare-element display-flex space-between'>
     <li class='stat <%= (user[true] == player[true] ? 'equal' : (user[true] > player[true] ? 'positive' : 'negative')) %>'>
-      <%= "#{user[true]} (#{number_to_percentage((user[true] / (user[true]+user[false]).to_f)*100, precision: 0)})" %>
+      <% if user[true] != 0 || user[false] != 0 %>
+        <%= "#{user[true]} (#{number_to_percentage((user[true] / (user[true]+user[false]).to_f)*100, precision: 0)})" %>
+      <% else %>
+        <%= "#{user[true]} (#{number_to_percentage(0, precision: 0)})" %>
+      <% end %>
     </li>
     <li>Victoires</li>
     <li class='stat <%= (user[true] == player[true] ? 'equal' : (user[true] < player[true] ? 'positive' : 'negative')) %>'>
-      <%= "#{player[true]} (#{number_to_percentage((player[true] / (player[true]+player[false]).to_f)*100, precision: 0)})" %>
+      <% if player[true] != 0 || player[false] != 0 %>
+        <%= "#{player[true]} (#{number_to_percentage((player[true] / (player[true]+player[false]).to_f)*100, precision: 0)})" %>
+      <% else %>
+        <%= "#{player[true]} (#{number_to_percentage(0, precision: 0)})" %>
+      <% end %>
     </li>
   </ul>
 <% else %>

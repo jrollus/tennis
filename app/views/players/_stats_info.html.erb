@@ -13,7 +13,7 @@
                                  img_url: 'inside_outside_zxlnwd.png' %>
       <%= render 'stats_category.html.erb', title: 'Type de Terrain', query_data: @query.get_wins_losses_by('court_type', nil, @year),
                                  img_url: 'surface_ln6pqz.png' %>
-      <%= render 'stats_category.html.erb', title: 'Tie Breaks', query_data: @query.get_wins_losses_tie_breaks(nil, @year),
+      <%= render 'stats_category.html.erb', title: 'Tie-Breaks', query_data: @query.get_wins_losses_tie_breaks(nil, @year),
                                  img_url: 'tie-break_yhnjgh.png' %>
       <%= render 'stats_match_points.html.erb', title: 'Balles de Match', saved: @query.get_match_points(true, @year), missed: @query.get_match_points(false, @year),
                                     img_url: 'balle_de_matchs_rhexxs.png' %>
