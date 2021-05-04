@@ -24,7 +24,7 @@
                         input_html: {value: "#{set_number}", name: param_name + '[set_number]', data: {target: "sets.#{attr_name}"}},
                         wrapper_html: {class: 'visibility-off'} %>
 <% else %>
-    <%= f.input attr_name, as: :hidden, 
+    <%= f.input attr_name, as: :hidden,
                         input_html: {value: "#{set_number}", name: param_name + '[set_number]', data: {target: "sets.#{attr_name}"}},
                         wrapper_html: {class: 'visibility-off'},
                         disabled: true %>
@@ -33,10 +33,10 @@
 <td>
     <% attr_name = "set_#{set_number}_1".to_sym %>
     <% if set_number != 3 %>
-        <%= f.input attr_name, label: false, 
+        <%= f.input attr_name, label: false, as: :integer,
                             input_html: {name: param_name + "[games_1]", data: {target: "sets.#{attr_name}", action: 'sets#setsHandler'}} %>
     <% else %>
-        <%= f.input attr_name, label: false, 
+        <%= f.input attr_name, label: false, as: :integer,
                             input_html: {name: param_name + "[games_1]", data: {target: "sets.#{attr_name}", action: 'sets#setsHandler'}},
                             wrapper_html: {class: 'visibility-off', data: {target:"sets.#{attr_name}_2"}},
                             disabled: true %>
@@ -45,10 +45,10 @@
 <td>
     <% attr_name =  "set_#{set_number}_2".to_sym %>
     <% if set_number != 3 %>
-        <%= f.input attr_name, label: false,
+        <%= f.input attr_name, label: false, as: :integer,
                             input_html: { name: param_name + '[games_2]', data: { target: "sets.#{attr_name}", action: 'sets#setsHandler'}} %>
     <% else %>
-        <%= f.input attr_name, label: false,
+        <%= f.input attr_name, label: false, as: :integer,
                             input_html: { name: param_name + '[games_2]', data: { target: "sets.#{attr_name}", action: 'sets#setsHandler'}},
                             wrapper_html: {class: 'visibility-off', data: {target: "sets.#{attr_name}_2"}},
                             disabled: true %>

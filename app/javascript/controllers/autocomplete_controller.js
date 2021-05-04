@@ -6,39 +6,47 @@ export default class extends Controller {
 
     connect() {
       this.minSearchChars = 4;
+      this.timeOut = null;
     }
 
-    async autocomplete() {
+    autocomplete() {
       if (this.autocompleteTarget.value.length < this.minSearchChars) {
         this.closeAllPopups();
         return;
       }
-      const query = `query=${this.autocompleteTarget.value}`
-      const response = await fetch('/players?' + query, { headers: { accept: 'application/json' } });
-      if (response.ok) {
-        const data = await response.json()
-        // Close all other Popups
-        this.closeAllPopups();
 
-        // Generate DIV wrapper
-        const popup = document.createElement('DIV');
-        popup.setAttribute('class', 'autocomplete-popup');
-        popup.dataset.target = 'autocomplete.popup';
-        this.wrapperTarget.appendChild(popup);
-        useClickOutside(this, { element: this.popupTarget });
-
-        // Add search hits within the popup
-        data.forEach((player) => {
-          let popupItem = document.createElement('DIV');
-          popupItem.dataset.action = 'click->autocomplete#selectPopupItem';
-          const reg = new RegExp(this.autocompleteTarget.value, 'gi');
-          const result = `${player.description}`;
-          popupItem.innerHTML = result.replace(reg, function(str) {return '<b>'+str+'</b>'});
-          popup.appendChild(popupItem);
-        });
-      } else {
-        this.closeAllPopups();
+      if (this.timeOut) {
+        clearTimeout(this.timeOut);
       }
+      const stimulusController = this;
+      this.timeOut = setTimeout(async function() {
+        const query = `query=${stimulusController.autocompleteTarget.value}`
+        const response = await fetch('/players?' + query, { headers: { accept: 'application/json' } });
+        if (response.ok) {
+          const data = await response.json()
+          // Close all other Popups
+          stimulusController.closeAllPopups();
+
+          // Generate DIV wrapper
+          const popup = document.createElement('DIV');
+          popup.setAttribute('class', 'autocomplete-popup');
+          popup.dataset.target = 'autocomplete.popup';
+          stimulusController.wrapperTarget.appendChild(popup);
+          useClickOutside(stimulusController, { element: stimulusController.popupTarget });
+
+          // Add search hits within the popup
+          data.forEach((player) => {
+            let popupItem = document.createElement('DIV');
+            popupItem.dataset.action = 'click->autocomplete#selectPopupItem';
+            const reg = new RegExp(stimulusController.autocompleteTarget.value, 'gi');
+            const result = `${player.description}`;
+            popupItem.innerHTML = result.replace(reg, function(str) {return '<b>'+str+'</b>'});
+            popup.appendChild(popupItem);
+          });
+        } else {
+          stimulusController.closeAllPopups();
+        }
+      }, 1000);
     }
 
     clickOutside(event) {

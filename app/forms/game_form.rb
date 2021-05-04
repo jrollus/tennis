@@ -123,9 +123,9 @@ class GameForm
       sets.each_with_index do |set, set_number|
         # Compute Sets Won
         unless set[0].blank? || set[1].blank?
-          sets_won +=1 if set[0] > set[1]
+          sets_won +=1 if set[0].to_i > set[1].to_i
           # Set Score Validation
-          unless ([set[0], set[1]].max == '6') && ((set[0].to_i - set[1].to_i).abs >= 2) || ([set[0], set[1]].max == '7') && ((set[0].to_i - set[1].to_i).abs <= 2)
+          unless ([set[0].to_i, set[1].to_i].max == 6) && ((set[0].to_i - set[1].to_i).abs >= 2) || ([set[0].to_i, set[1].to_i].max == 7) && ((set[0].to_i - set[1].to_i).abs <= 2)
             errors.add("set_#{set_number + 1}_1".to_sym, "le score n'est pas valide") 
           end
         end 
