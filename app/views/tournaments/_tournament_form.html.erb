@@ -8,7 +8,7 @@
                                   value_method: :id %>
       <%= f.input :start_date, label: "Début", as: :date, html5: true, input_html: {max: '2050-12-31'} %>
       <%= f.input :end_date, label: 'Fin', as: :date, html5: true, input_html: {max: '2050-12-31'} %>
-      <%= f.input :nbr_participants, label: "Nombre d'inscrits" %>
+      <%= f.input :nbr_participants, label: "Nombre d'inscrits", as: :integer %>
       <div class="form-actions">
         <%= f.button :submit, (edit ? 'Actualiser' : 'Créer'), class: 'base-btn' %>
       </div>

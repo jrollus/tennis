@@ -125,21 +125,21 @@ export default class extends Controller {
       }
 
       // Tie Break 1
-      if (Math.abs(this.set_1_1Target.value - this.set_1_2Target.value) == 1) {
+      if ((Math.abs(this.set_1_1Target.value - this.set_1_2Target.value) == 1) && ([7, 4].includes(Math.max(this.set_1_1Target.value, this.set_1_2Target.value)))) {
         this.tieBreaksOnOff([this.tieBreak1], true);
       } else {
         this.tieBreaksOnOff([this.tieBreak1], false);
       }
 
       // Tie Break 2 
-      if (Math.abs(this.set_2_1Target.value - this.set_2_2Target.value) == 1) {
+      if ((Math.abs(this.set_2_1Target.value - this.set_2_2Target.value) == 1) && ([7, 4].includes(Math.max(this.set_2_1Target.value, this.set_2_2Target.value)))) {
         this.tieBreaksOnOff([this.tieBreak2], true);
       } else {
         this.tieBreaksOnOff([this.tieBreak2], false);
       }
 
       // Tie Break 3
-      if (Math.abs(this.set_3_1Target.value - this.set_3_2Target.value) == 1) {
+      if ((Math.abs(this.set_3_1Target.value - this.set_3_2Target.value) == 1) && ([7,4].includes(Math.max(this.set_3_1Target.value, this.set_3_2Target.value)))) {
         this.tieBreaksOnOff([this.tieBreak3], true);
       } else {
         this.tieBreaksOnOff([this.tieBreak3], false);
