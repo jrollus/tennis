@@ -245,6 +245,9 @@ GEM
     unf_ext (0.0.7.7)
     warden (1.2.9)
       rack (>= 2.0.9)
+    watir (6.17.0)
+      regexp_parser (~> 1.2)
+      selenium-webdriver (~> 3.6)
     web-console (4.0.4)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -281,6 +284,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  nokogiri
   pg (>= 0.18, < 2.0)
   pg_search (~> 2.3.0)
   pry-byebug
@@ -298,6 +302,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
+  watir
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
