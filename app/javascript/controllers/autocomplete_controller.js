@@ -46,7 +46,7 @@ export default class extends Controller {
         } else {
           stimulusController.closeAllPopups();
         }
-      }, 1000);
+      }, 500);
     }
 
     clickOutside(event) {
