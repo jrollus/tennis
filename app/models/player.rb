@@ -18,7 +18,7 @@ class Player < ApplicationRecord
 
   # Validations
   validates :affiliation_number, :gender, :first_name, :last_name, :birthdate, :dominant_hand, presence: true
-  validate :affiliation_number_check
+  validate :affiliation_number_check, on: :create
   
   # PG Search
   include PgSearch::Model

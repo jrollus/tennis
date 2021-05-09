@@ -11,7 +11,7 @@ module NestedUserConcern
     player = Player.find_by_affiliation_number(self.player.affiliation_number)
     if player 
       temp_player_data = self.player
-      temp_ranking_history = self.player.ranking_histories.last
+      temp_ranking_history = self.player.ranking_histories.max_by{|ranking| ranking.start_date}
 
       self.player= player
       self.player.assign_attributes(first_name: temp_player_data.first_name, 
@@ -25,7 +25,7 @@ module NestedUserConcern
                                                                                                          temp_ranking_history.year_number, temp_ranking_history.start_date, 
                                                                                                          temp_ranking_history.end_date)
         self.player.ranking_histories = player.ranking_histories
-        self.player.ranking_histories.last.assign_attributes(ranking_id: temp_ranking_history.ranking_id, year: temp_ranking_history.year, 
+        self.player.ranking_histories.max_by{|ranking| ranking.start_date}.assign_attributes(ranking_id: temp_ranking_history.ranking_id, year: temp_ranking_history.year, 
                                                              year_number: temp_ranking_history.year_number, start_date: temp_ranking_history.start_date,
                                                              end_date: temp_ranking_history.end_date)
       else

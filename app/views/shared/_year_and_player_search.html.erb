@@ -2,7 +2,7 @@
     <div>
       <div class='display-flex'>
         <div class='autocomplete' data-target='autocomplete.wrapper'>
-            <input class='player-search' placeholder='Cherche un joueur' autocomplete='off' data-target='filter.playerInput autocomplete.autocomplete' data-action='input->autocomplete#autocomplete' type='text'>
+            <input class='player-search' placeholder='Cherche un joueur' autocomplete='off' data-target='filter.playerInput autocomplete.autocomplete' data-action='input->autocomplete#autocomplete' data-gender="" type='text'>
         </div>
         <div class='search-btn' data-action=<%= (search_type == 'compare' ? 'click->filter#selectComparisons' : (search_type == 'games' ? 'click->filter#selectGames' : 'click->filter#selectStats')) %>>
           <i class='fas fa-search search-icon'></i>

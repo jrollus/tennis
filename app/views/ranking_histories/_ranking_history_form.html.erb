@@ -12,4 +12,4 @@
   <%= f.input :validated, as: :hidden,
                          input_html: {value: true} %>
 <% end %>
-<%= f.association :ranking, input_html: {data: {target: 'affiliation.ranking'}} %>
+<%= f.association :ranking, label: 'Classement', input_html: {data: {target: 'affiliation.ranking'}} %>
