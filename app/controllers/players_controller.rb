@@ -4,8 +4,13 @@ class PlayersController < ApplicationController
   before_action :set_player_ajax, only: [:show]
 
   def index
-    if params[:query].present?
-      @players = policy_scope(Player).includes(ranking_histories: :ranking).search_by_name_and_affiliation_number(params[:query]).first(10)
+    if params[:search].present?
+      if params[:gender].present?
+        @players = policy_scope(Player).includes(ranking_histories: :ranking).search_by_name_and_affiliation_number(params[:search])
+                                       .select{|player| player.gender == params[:gender]}.first(10)
+      else  
+        @players = policy_scope(Player).includes(ranking_histories: :ranking).search_by_name_and_affiliation_number(params[:search]).first(10)
+      end
     else
       @players = policy_scope(Player).includes(ranking_histories: :ranking)
     end

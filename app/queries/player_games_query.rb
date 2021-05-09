@@ -9,12 +9,12 @@ class PlayerGamesQuery
       if year
         query = 'game_players.player_id = ? AND games.interclub_id IS NULL AND extract(year from games.date) = ?'
         games = @games.includes(:round, players: :ranking_histories, game_players: :ranking, game_sets: :tie_break, tournament: [:club, :category])
-                      .joins(:game_players, :tournament).where(query, @player.id, year).order('tournaments.start_date DESC, games.round_id DESC')
+                      .joins(:game_players, :tournament).where(query, @player.id, year).order('tournaments.start_date DESC, games.round_id ASC')
                       .group_by(&:tournament_id)
       else
         query = 'game_players.player_id = ? AND games.interclub_id IS NULL'
         games = @games.includes(:round, players: :ranking_histories, game_players: :ranking, game_sets: :tie_break, tournament: [:club, :category])
-                      .joins(:game_players, :tournament).where(query, @player.id).order('tournaments.start_date DESC, games.round_id DESC')
+                      .joins(:game_players, :tournament).where(query, @player.id).order('tournaments.start_date DESC, games.round_id ASC')
                       .group_by(&:tournament_id)
       end
     end

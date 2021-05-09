@@ -42,6 +42,7 @@
 }
 
 .compare-player-name {
+  height: 5vh;
   font-size: calc(5px + 1.4vw);
   color: $color-blue;
   font-weight: bold;
@@ -65,12 +66,14 @@
 
 .compare-table {
   margin: 0 auto;
+  margin-bottom: 1vh;
 }
 
 .compare-table tr {
   font-size: calc(5px + 1vw);
   vertical-align: middle;
   text-align: center;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .compare-table td {
@@ -78,11 +81,13 @@
 }
 
 .compare-table td.positive {
-  color: $color-blue;
+  color: $color-yellow;
+  background-color: $color-blue;
 }
 
 .compare-table td.negative {
-  color: $color-yellow;
+  color: $color-blue;
+  background-color: $color-yellow;
 }
 
 .compare-element li {

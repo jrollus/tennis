@@ -50,7 +50,8 @@
 
   <%= f.input :opponent, label: 'Adversaire', 
                          wrapper_html: {class: 'autocomplete', data: {target:'autocomplete.wrapper'}},
-                         input_html: {autocomplete:'off', data: {target:'autocomplete.autocomplete', action:'input->autocomplete#autocomplete'}} %>
+                         input_html: {autocomplete:'off', data: {target:'autocomplete.autocomplete', action:'input->autocomplete#autocomplete', 
+                                      gender: current_user.player.gender}} %>
 
   <%= f.input :victory, label: 'Victoire?', as: :boolean %>
   

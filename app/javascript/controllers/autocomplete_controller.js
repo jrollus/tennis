@@ -20,7 +20,7 @@ export default class extends Controller {
       }
       const stimulusController = this;
       this.timeOut = setTimeout(async function() {
-        const query = `query=${stimulusController.autocompleteTarget.value}`
+        const query = `search=${stimulusController.autocompleteTarget.value}&gender=${stimulusController.autocompleteTarget.dataset.gender}`
         const response = await fetch('/players?' + query, { headers: { accept: 'application/json' } });
         if (response.ok) {
           const data = await response.json()

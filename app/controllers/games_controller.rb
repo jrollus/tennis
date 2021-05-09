@@ -127,6 +127,5 @@ class GamesController < ApplicationController
     PointsJob.perform_later(game_player, game_date)
     PointsJob.perform_later(game_opponent, game_date)
   end
-
   
 end

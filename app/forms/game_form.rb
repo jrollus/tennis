@@ -202,15 +202,16 @@ class GameForm
     # If not assume - for the lack of a better option - that his ranking then was the same as the current one
     else
       ranking_period_dates = YearDatesService.get_year_nbr_dates(@game.date)
-      player.ranking_histories.build
-      player.ranking_histories.last.year = @game.date.year
-      player.ranking_histories.last.year_number = ranking_period_dates[:year_number]
-      player.ranking_histories.last.start_date = ranking_period_dates[:start_date]
-      player.ranking_histories.last.end_date = ranking_period_dates[:end_date]
-      player.ranking_histories.last.ranking = player.ranking_histories.second_to_last.ranking
-      player.ranking_histories.last.validated = false
-      player.save
-      return player.ranking_histories.last.ranking
+      ranking_history = RankingHistory.new()
+      ranking_history.player_id = player.id
+      ranking_history.year = @game.date.year
+      ranking_history.year_number = ranking_period_dates[:year_number]
+      ranking_history.start_date = ranking_period_dates[:start_date]
+      ranking_history.end_date = ranking_period_dates[:end_date]
+      ranking_history.ranking = player.ranking_histories.max_by{|ranking| ranking.start_date}.ranking
+      ranking_history.validated = false
+      ranking_history.save
+      return ranking_history.ranking
     end
   end
 

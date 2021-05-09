@@ -20,7 +20,8 @@ class GameIndexDecorator < SimpleDelegator
                                   games: []
                                 }
           end
-          v.sort_by{|competition| [competition.date ? 1 : 0, competition.date] }.reverse.each do |game|
+          
+          v.each do |game|
             game_hash = {}
             user_score_order = (game.player_id.nil? ? GamePlayerOrderService.maintain?(game, selected_player_id) : (selected_player_id == game.player_id))
             opponent = game.players.find{|player| player.id != selected_player_id}

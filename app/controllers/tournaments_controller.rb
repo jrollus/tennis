@@ -3,7 +3,7 @@ class TournamentsController < ApplicationController
 
     def index
       if params[:club].present?
-        query = CascadingDropdownsQuery.new(policy_scope(Tournament), params[:club], current_user.player, true)
+        query = CascadingDropdownsQuery.new(policy_scope(Tournament).where('start_date >= ?', 12.months.ago), params[:club], current_user.player, true)
         if params[:type] == 'club' && params[:club].present?
           @options_list = query.select_categories(params[:type])
         elsif params[:type] == 'category' && params[:category].present?
