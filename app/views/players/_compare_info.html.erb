@@ -1,4 +1,5 @@
 <% if @user_player.present? && @player.present? && (@user_player != @player) %>
+  <h1 class='page-header'>Comparaisons</h1>
    <div data-controller='canvas'>
      <%= render 'compare_header.html.erb' %>
      <div class='compare-block'>
@@ -28,5 +29,5 @@
      </div>
    </div>
 <% else %>
-  <h3 id='player-name'>Veuillez sélectionner un joueur contre lequel vous comparer.</h3>
+  <h1 class='page-header'>Veuillez sélectionner un joueur contre lequel vous comparer.</h1>
 <% end %>

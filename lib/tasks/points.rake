@@ -9,7 +9,7 @@ namespace :points do
   desc "Task to compute the points for the current season"
   task compute_current_season: :environment do
     Player.all.each do |player|
-      PointsJob.perform_now(player, Date.today))
+      PointsJob.perform_now(player, Date.today)
     end
   end
 end

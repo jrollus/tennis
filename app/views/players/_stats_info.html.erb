@@ -1,5 +1,5 @@
 <% if @player.present? %>
-   <h3 id='player-name'><%= PlayerDecorator.new(@player).player_description %></h3>
+   <h1 class='page-header'><%= "Statistiques - #{PlayerDecorator.new(@player).player_description}" %></h1>
    <div data-controller='canvas'>
       <%= render 'stats_header.html.erb' %>
       <%= render 'stats_rankings.html.erb', title: 'Par Classement', query_data: @query.get_wins_by_ranking(nil, @year) %>
@@ -20,5 +20,5 @@
       <%= render 'stats_tournaments.html.erb', title: 'Tournois', tournaments: @query.get_tournament_won(@year), img_url: 'trophy_xel8ay.png' %>
    </div>
 <% else %>
-  <h3 id='player-name'>Joueur non disponible</h3>
+  <h1 class='page-header'>Joueur non disponible</h1>
 <% end %>

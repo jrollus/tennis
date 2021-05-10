@@ -1,7 +1,7 @@
 // General Stats
 
 .stats-header {
-  margin: 2vh 0px;
+  margin: 5vh 0px;
   padding: 0 10%;
 }
 
@@ -12,6 +12,10 @@
   padding-left: 5vmin;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
   margin-bottom: 15px;
+}
+
+.stats-block.first-block {
+  margin: 5vh 0px;
 }
 
 .stats-avatar-img {
@@ -67,7 +71,7 @@
   font-size: calc(5px + 1.4vw);
   color: $color-blue;
   font-weight: bold;
-  margin: 20px 0px;
+  margin: 2vh 0px;
 }
 
 .stats-category-name {
