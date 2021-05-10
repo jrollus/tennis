@@ -1,3 +1,6 @@
+<% content_for :meta_title, 'Teqis - Consulte tes résultats de tennis' %>
+<% content_for :meta_description, "Consulte tes résultats de tournois et d'interclubs de la saison en cours ou de n'importe quelle autre saison." %>
+
 <div class='container' data-controller='filter autocomplete'>
   <%= render 'shared/year_and_player_search', max_date: @max_date, min_date: @min_date, search_type: 'games' %>
   <div data-target='filter.container'>

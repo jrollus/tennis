@@ -28,7 +28,6 @@
         <%= link_to('Stats', stats_path, class: 'navbar-link') %>
         <%= link_to('Compare', compare_path, class: 'navbar-link') %>
         <%= link_to('Classement', ranking_histories_path, class: 'navbar-link') %>
-        <h6 class='navbar-points'> <%= current_user.player.ranking_histories.max_by{|ranking| ranking.start_date}.points %> pts</h6>
       </div>
       <% if current_user.admin %>
         <div data-controller='dropdown' class='dropdown'>
@@ -68,6 +67,7 @@
           <%= link_to('Classement', ranking_histories_path, class: 'navbar-link') %>
         </div>
       </div>
+      <h6 class='navbar-points'> <%= current_user.player.ranking_histories.max_by{|ranking| ranking.start_date}.points %> pts</h6>
       <div data-controller='dropdown' class='dropdown'>
         <% if current_user.avatar.attached? %>
           <%= cl_image_tag current_user.avatar.key, class: 'avatar', 
@@ -81,7 +81,7 @@
                                                             role:'button', 
                                                             'aria-haspopup': 'true', 
                                                             'aria-expanded': 'false'  %>
-        <% end %>  
+        <% end %>
         <div data-target='dropdown.popup' class='dropdown-content'>
           <%= link_to('Mon compte', edit_user_registration_path , class: 'dropdown-link') %>
           <%= link_to('Contact', new_contact_path , class: 'dropdown-link') %>

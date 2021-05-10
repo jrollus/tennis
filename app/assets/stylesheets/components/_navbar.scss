@@ -30,12 +30,12 @@
 }
 
 .navbar-points {
-  margin: 0px 10px;
+  margin: 0px 2px;
   border: 2px solid $color-yellow;
   color: $color-white;
-  padding: 5px 15px;
+  padding: 5px 0.8vw;
   border-radius: 5px;
-  font-size: calc(10px + 0.5vw);
+  font-size: calc(5px + 0.8vw);
 }
 
 .navbar-sandwich, .navbar-plus, .navbar-check {

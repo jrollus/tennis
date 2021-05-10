@@ -1,3 +1,6 @@
+<% content_for :meta_title, 'Teqis - Analyse tes statistiques de tennis' %>
+<% content_for :meta_description, "Analyse en détail tes statistiques pour la saison en cours comme pour n'importe quelle autre saison ou encore l'entièreté de ton historique de matchs." %>
+
 <div class='container' data-controller='filter autocomplete'>
   <%= render 'shared/year_and_player_search', max_date: @max_date, min_date: @min_date, search_type: 'stats' %>
   <div data-target='filter.container'>

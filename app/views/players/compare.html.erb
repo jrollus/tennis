@@ -1,3 +1,7 @@
+<% content_for :meta_title, "Teqis - Compare tes résultats de tennis aux autres joueurs et joueuses de ta région" %>
+<% content_for :meta_description, "Compare toi facilement aux autres joueurs et joueuses de ta région à travers des statistiques intéressantes. 
+                                   Tu peux spécifier une saison spécifique ou encore comparer l'entièreté de l'historique de résultats." %>
+
 <div class='container' data-controller='filter autocomplete'>
   <%= render 'shared/year_and_player_search', max_date: @max_date, min_date: @min_date, search_type: 'compare' %>
   <div data-target='filter.container'>
