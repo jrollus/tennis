@@ -33,7 +33,7 @@ namespace :scraping do
     tournament_index = 1
     nbr_tournaments = parser_all_tournaments.search('.grid-data-item').count
 
-    parser_all_tournaments.search('.grid-data-item').each do |tournament|
+    parser_all_tournaments.search('.grid-data-item').take(3).each do |tournament|
       unless tournament.search('.register-closed').empty?
         tournament_id = tournament.search('dd').search('a').first["data-url"].split("/")[-1]
 
@@ -75,6 +75,7 @@ namespace :scraping do
     clubs = Club.all
     categories = Category.all
     nbr_tournaments_added = 0
+    failed_insertions = []
     tournaments_data.each do |tournament_data|
       tournament = Tournament.new()
       club = clubs.find{|club| club.name.downcase == tournament_data[:club_name].downcase}
@@ -89,9 +90,21 @@ namespace :scraping do
         if tournament.save
           nbr_tournaments_added += 1
         end
+      else
+        failed_insertions << tournament_data 
       end
     end
     puts "#{nbr_tournaments_added} / #{tournaments_data.size} added"
+
+    ## Generate and send .CSV with failed attempts ##
+    csv = CSV.generate(headers: true) do |csv|
+      csv << failed_insertions.first.keys
+      failed_insertions.each do |tournament|
+        csv << tournament.values
+      end
+    end
+
+    ScrapingMailer.tournament_email(nbr_tournaments_added, tournaments_data.size, csv).deliver_now
   end
 
   desc "Task to update all player rankings - pass parameter as rake scraping:update_rankings\[YYYY-MM-DD\]"
