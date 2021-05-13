@@ -52,9 +52,11 @@ class GameForm
         self.match_points_saved = edit ? @game.game_players.find{|player| player.player_id == user_player_id}.match_points_saved : 
                                                                     attr[:match_points_saved]
         self.victory = edit ? @game.game_players.find{|player| player.player_id == user_player_id}.victory : attr[:victory]
-        opponent = @game.game_players.find{|player| player.player_id != user_player_id}.player
-        opponent = PlayerDecorator.new(opponent)
-        self.opponent = edit ? opponent.player_description : attr[:opponent]
+        if @game.game_players.find{|player| player.player_id != user_player_id}
+          opponent = @game.game_players.find{|player| player.player_id != user_player_id}.player
+          opponent = PlayerDecorator.new(opponent)
+          self.opponent = edit ? opponent.player_description : attr[:opponent]
+        end
 
         # Initialize Sets and Tie Breaks
         init_sets_tie_breaks(attr, current_user, edit)
