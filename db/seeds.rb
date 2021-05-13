@@ -220,3 +220,10 @@ CSV.foreach(filepath, headers: true) do |row|
     category_rounds << row.to_hash
 end
 CategoryRound.import(category_rounds)
+
+# Delete incorrect player entries
+puts "Deleting Legacy Players"
+filepath = 'db/data/players_to_delete.csv'
+CSV.foreach(filepath, headers: false) do |row|
+    Player.find(row[0]).destroy
+end

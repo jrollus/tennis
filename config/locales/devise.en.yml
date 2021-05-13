@@ -18,15 +18,15 @@ en:
       unconfirmed: "Vous devez confirmer votre adresse email avant de pouvoir continuer."
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Instructions de confirmation"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Instructions pour ré initialiser ton password"
       unlock_instructions:
-        subject: "Unlock instructions"
+        subject: "Instructions pour débloquer ton compte"
       email_changed:
-        subject: "Email Changed"
+        subject: "Email changé"
       password_change:
-        subject: "Password Changed"
+        subject: "Password changé"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."

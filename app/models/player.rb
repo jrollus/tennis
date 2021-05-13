@@ -6,7 +6,7 @@ class Player < ApplicationRecord
   has_many :games, through: :game_players
   has_many :tournaments, through: :games
   has_many :categories, through: :tournaments
-  has_many :ranking_histories
+  has_many :ranking_histories, dependent: :destroy
   has_many :ranking, through: :ranking_histories
 
   # Reflexive Relation
