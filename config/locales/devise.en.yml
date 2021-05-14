@@ -41,7 +41,7 @@ en:
       signed_up: "Votre compte a bien été crée."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
-      signed_up_but_unconfirmed: "Un message avec un lien de confirmation a été envoyé a votre adresse enail. Veuillez cliquer sur ce lien afin d'activer votre compte."
+      signed_up_but_unconfirmed: "Un message avec un lien de confirmation a été envoyé à votre adresse email. Veuillez cliquer sur ce lien afin d'activer votre compte."
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
       updated: "Votre compte a bien été mis à jour."
       updated_but_not_signed_in: "Votre compte a bien été mis à jour, mais comme votre password a été modifié, vous devez à nouveau vous authentifier."
@@ -55,7 +55,7 @@ en:
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
+      already_confirmed: "a déjà été confirmé, veuillez essayer de vous connecter"
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
       expired: "has expired, please request a new one"
       not_found: "not found"
