@@ -45,6 +45,19 @@ export default class extends Controller {
       }
     }
 
+    submitForm() {
+      const allScores = [this.set1, this.set2, this.set3, this.tieBreak1, this.tieBreak2, this.tieBreak3]
+      allScores.forEach((score, i) => {
+        if (score[0].value == '' || score[1].value == '') {
+          score[0].disabled = true;
+          score[1].disabled = true;
+          if (i <= 2) {
+            score[2].disabled = true;
+          }
+        }
+      });
+    }
+
     setsOnOff(structuredSets, on) {
       structuredSets.forEach((gameSet, i)  => {
         if (gameSet.length == 8) {

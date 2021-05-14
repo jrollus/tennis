@@ -279,7 +279,6 @@ class GameForm
       self.send("tie_break_#{set_index}_1=", (edit ? points_1 : attr["tie_break_#{set_index}_1".to_sym]))
       self.send("tie_break_#{set_index}_2=", (edit ? points_2 : attr["tie_break_#{set_index}_2".to_sym]))
       
-      
     end
   end
   
