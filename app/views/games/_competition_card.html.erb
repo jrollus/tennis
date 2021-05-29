@@ -41,12 +41,25 @@
       <td>
         <% if competitions.first[:games].first[:player_name] == PlayerDecorator.new(@user_player).player_description ||
           game[:name] == PlayerDecorator.new(@user_player).full_name %>
-           <div class="display-flex justify-center align-center">
+           <div class="display-flex justify-center align-center"  data-controller='modal'>
             <% unless game[:validated] %>
               <a data-method="post" data-remote="true" href="<%= game_validate_path(game[:game]) %>" class="fas fa-check tournament-action"></a> | 
             <% end %>
             <a data-method="get" href="<%= edit_game_path(game[:game]) %>" class="fas fa-edit tournament-action"></a> |
-            <a rel="nofollow" data-method="delete" href="<%= game_path(game[:game]) %>" class="fas fa-trash tournament-action"></a>
+          
+            <div class='terms-modal'  data-target='modal.modal' data-action='click->modal#hide'>
+              <div class='terms-modal-content small'>
+                <p> Es-tu sûr de vouloir supprimer ce match? </p>
+                <div class="display-flex">
+                  <a class='modal-link' rel="nofollow" data-method="delete" href="<%= game_path(game[:game]) %>">
+                    <div class='modal-btn'>Oui</div>
+                  </a>
+                  <div class='modal-secondary-btn'>Non</div>
+                </div>
+              </div>
+            </div>
+            <i class="fas fa-trash tournament-action" data-action='click->modal#show'></i>
+            
           </div>
         <% end %>
       </td> 
