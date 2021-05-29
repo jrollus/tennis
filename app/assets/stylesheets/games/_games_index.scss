@@ -113,7 +113,9 @@
 
 .tournament-action {
   padding: 0px 0.3vw;
+  font-size: calc(8px + 0.8vw);
   color: $color-grey-darker;
+  cursor: pointer;
   &:hover {
     color: $color-yellow;
   }
