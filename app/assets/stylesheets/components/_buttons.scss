@@ -4,7 +4,7 @@
   background: $color-grey;
   color: $color-grey-darker;
   border-radius: 5px;
-  font-size: calc(4px + 1vw);
+  font-size: calc(6px + 1vw);
   padding: 0px 8px;
   cursor: pointer;
   &:focus {
@@ -20,7 +20,7 @@
   height: calc(10px + 4vh);
   width: calc(125px + 20vw);
   padding: 5% 10%;
-  font-size: calc(4px + 1vw);
+  font-size: calc(6px + 1vw);
   color: $color-grey-darker;
   background: $color-grey;
   border-style: none;

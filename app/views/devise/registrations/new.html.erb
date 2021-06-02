@@ -34,12 +34,7 @@
 
       <div data-controller='modal'>
         <div class='terms-modal'  data-target='modal.modal' data-action='click->modal#hide'>
-          <div class='terms-modal-content'>
-            <h3 class="terms-modal-title">Conditions d'utilisation</h3>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quo, eveniet velit, repudiandae cumque fugit corrupti ullam vel quis modi deleniti alias facere possimus, laudantium sunt. Alias maiores provident nobis. </p>
-            <h3 class="terms-modal-title">Protection des données</h3>
-            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi totam ratione vel eaque nam temporibus pariatur veniam voluptatem excepturi nostrum libero, voluptates nisi fugit ea aspernatur consectetur alias quia tempora. </p>
-          </div>
+          <%= render 'terms' %>
         </div>
 
         <%= content_for(:the_links) do %>
