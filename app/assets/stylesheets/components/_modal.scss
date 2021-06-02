@@ -71,4 +71,13 @@
     color: $color-blue;
     font-size: calc(7px + 0.7vw);
     font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .terms-modal-main-title {
+    color: $color-blue;
+    font-size: calc(9px + 1vw);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
   }

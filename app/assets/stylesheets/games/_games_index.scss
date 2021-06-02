@@ -20,11 +20,18 @@
     display: block;
   }
 
+  .th-status {
+    display: none;
+  }
+
+  .tr-status {
+    display: none;
+  }
 }
 
 .competition-type {
   color: $color-blue;
-  font-size: calc(5px + 1.4vw);
+  font-size: calc(7px + 1.4vw);
 }
 
 .tournament {
@@ -54,14 +61,14 @@
   padding: 0.5% 0.5%;
   background-color: $color-lighter-grey;
   border-bottom: 1px solid $color-lighter-grey-border;
-  font-size: calc(4px + 0.8vw);
+  font-size: calc(6px + 0.8vw);
   color: $color-blue;
   vertical-align: middle;
   text-align: center;
 }
 
 .tournament-table tr {
-  font-size: calc(4px + 0.8vw);
+  font-size: calc(6px + 0.8vw);
   border-bottom: 1px solid $color-lighter-grey-border;
   vertical-align: middle;
   text-align: center;
@@ -72,11 +79,11 @@
 }
 
 .th-ranking{
-  width: 8%;
+  width: 9%;
 }
 
 .th-opponent{
-  width: 30%;
+  width: 29%;
 }
 
 .th-victory{
@@ -96,17 +103,17 @@
 }
 
 .tournament-name {
-  font-size: calc(5px + 0.9vw);
+  font-size: calc(8px + 1vw);
   font: bolder;
 }
 
 .tournament-date {
-  font-size: calc(5px + 0.9vw);
+  font-size: calc(8px + 1vw);
   font: bolder;
 }
 
 .tournament-category {
-  font-size: calc(4px + 0.8vw);
+  font-size: calc(6px + 0.8vw);
   padding: 0px;
   margin: 0px;
 }

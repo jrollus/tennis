@@ -14,9 +14,9 @@
   <tr>
     <th class="th-round"> <%= competition_type == 'tournament' ? 'Tour' : 'Date' %></th>
     <th class="th-victory">V-D</th>
-    <th class="th-ranking">Classement</th>
+    <th class="th-ranking">Ranking</th>
     <th class="th-opponent">Adversaire</th>
-    <th class="th-status">Status</th>
+    <th class="th-status">Statut</th>
     <th class="th-score">Score</th>
     <th class="th-actions">Actions</th>
   </tr>
@@ -31,11 +31,11 @@
       <td><%= "#{game[:ranking]}" %></td>
       <td><%= "#{game[:name]}" %></td>
       <% if game[:status] == 'completed' %>
-        <td>Terminé</td>
+        <td class="tr-status">Terminé</td>
       <% elsif game[:status] == 'WO' %>
-        <td>W.O.</td>
+        <td class="tr-status">W.O.</td>
       <% elsif game[:status] == 'retirement' %>
-        <td>Abandon</td>
+        <td class="tr-status">Abandon</td>
       <% end %>
       <td><%="#{game[:score]}" %></td>
       <td>
