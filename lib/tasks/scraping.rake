@@ -1,12 +1,10 @@
 namespace :scraping do
   TOURNAMENT_GENERAL_URL = "https://www.aftnet.be/MyAFT/Tooltip/TournamentDetails/"
-  TOURNAMENT_SEARCH_URL = "https://www.aftnet.be/MyAFT/Competitions/Tournaments/"
+  TOURNAMENT_SEARCH_URL = "https://www.aftnet.be/MyAFT/Competitions/Tournaments"
   TOURNAMENT_CATEGORIES_URL = "https://www.aftnet.be/MyAFT/Tooltip/TournamentCategories/"
   PLAYER_DETAILS_URL = "https://www.aftnet.be/MyAFT/Players/Detail/"
   REDIRECTION_URL = "https://www.aftnet.be/classements/index.html"
-  SEARCH_TOURNAMENT_BUTTON_TEXT = "OK"
-  USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.854.0 Safari/535.2"
-
+  
   desc "Scheduled task to scrape tournament data"
   task tournaments: :environment do
 
@@ -21,18 +19,47 @@ namespace :scraping do
     options.add_argument('--remote-debugging-port=9222')
     browser = Watir::Browser.new :chrome, :options => options
 
-    browser.goto(TOURNAMENT_SEARCH_URL)
-    browser.goto(TOURNAMENT_SEARCH_URL)
-    browser.button(text: SEARCH_TOURNAMENT_BUTTON_TEXT).fire_event "onclick"
+    # Resize screen to avoid mobile version
+    browser.driver.manage.window.maximize
+    browser.driver.manage.window.resize_to(1024,900)
 
-    sleep 3
-    parser_all_tournaments = Nokogiri::HTML(browser.html)
+    # Reload the page in case it was redirected
+    browser.goto(TOURNAMENT_SEARCH_URL)
+    browser.goto(TOURNAMENT_SEARCH_URL) if browser.url == REDIRECTION_URL
+
+    # Expand the search form
+    begin
+      browser.link(:href => '#collapse_competitions_tournament_search_form').wait_until(&:present?).click
+    rescue Watir::Wait::TimeoutError => e
+      puts "Scraping failed when trying to expand search form"
+      return
+    end
+
+    # If club search works then scrape online
+    begin
+      date_start = browser.text_field(:id => "periodStartDate").wait_until(&:present?)
+      date_start.set(Date.today.strftime("%d/%m/%Y"))
+      browser.button(text: 'OK').fire_event "onclick"
+      begin
+        browser.div(:id => "tournament_search_results_wrapper").wait_until(&:present?)
+        sleep 2
+        browser.link(class: 'ui-state-active').click
+        parser_all_tournaments = Nokogiri::HTML(browser.html)
+      rescue Watir::Wait::TimeoutError => e
+        puts "Scraping failed when waiting for the search results"
+        return
+      end
+    # Otherwise scraping failed
+    rescue Watir::Wait::TimeoutError => e
+      puts "Scraping failed when opening the search form"
+      return
+    end
 
     # For each tournament
     tournaments_data = []
     tournament_index = 1
     nbr_tournaments = parser_all_tournaments.search('.grid-data-item').count
-
+    
     parser_all_tournaments.search('.grid-data-item').each do |tournament|
       unless tournament.search('.register-closed').empty?
         tournament_id = tournament.search('dd').search('a').first["data-url"].split("/")[-1]
