@@ -1,6 +1,6 @@
 namespace :scraping do
   TOURNAMENT_GENERAL_URL = "https://www.aftnet.be/MyAFT/Tooltip/TournamentDetails/"
-  TOURNAMENT_SEARCH_URL = "https://www.aftnet.be/MyAFT/Competitions/Tournaments"
+  TOURNAMENT_SEARCH_URL = "https://www.aftnet.be/MyAFT/Competitions/Tournaments/"
   TOURNAMENT_CATEGORIES_URL = "https://www.aftnet.be/MyAFT/Tooltip/TournamentCategories/"
   PLAYER_DETAILS_URL = "https://www.aftnet.be/MyAFT/Players/Detail/"
   REDIRECTION_URL = "https://www.aftnet.be/classements/index.html"
@@ -154,7 +154,7 @@ namespace :scraping do
     rankings = Ranking.all
 
     counter = 0
-    players.take(1).each do |player|
+    players.each do |player|
       ### Scrape Data ###
       puts "Scraping #{player.affiliation_number}"
       sleep 0.5 # To avoid server rejecting requests

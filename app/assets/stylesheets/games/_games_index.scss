@@ -65,6 +65,7 @@
   color: $color-blue;
   vertical-align: middle;
   text-align: center;
+  font-weight: normal;
 }
 
 .tournament-table tr {
@@ -104,16 +105,17 @@
 
 .tournament-name {
   font-size: calc(8px + 1vw);
-  font: bolder;
+  font-weight: bold;
 }
 
 .tournament-date {
   font-size: calc(8px + 1vw);
-  font: bolder;
+  font-weight: bold;
 }
 
 .tournament-category {
   font-size: calc(6px + 0.8vw);
+  font-weight: bold;
   padding: 0px;
   margin: 0px;
 }
