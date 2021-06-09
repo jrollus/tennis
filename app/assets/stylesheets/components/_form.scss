@@ -133,6 +133,18 @@
   vertical-align: top;
 }
 
+@media screen and (max-width: 680px) {
+  .score-table .is-valid {
+    padding-right: 0px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .score-table .form-control {
+    padding: 0.375rem 0.375rem;
+  }
+}
+
 // Court
 
 .form-flex.form-court .form-group {
