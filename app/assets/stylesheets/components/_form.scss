@@ -67,7 +67,7 @@
 
 .form-group input {
   border-radius: 5px;
-  height: calc(10px + 4vh); 
+  height: calc(10px + 5vh); 
   &:focus {
     border-color: $color-blue;
   }
@@ -75,7 +75,7 @@
 
 .form-group select {
   border-radius: 5px;
-  height: calc(10px + 4vh); 
+  height: calc(10px + 5vh); 
   &:focus {
     border-color: $color-blue;
   }
@@ -163,7 +163,7 @@
 .form-check-label {
   display: flex;
   align-items: center;
-  height: calc(10px + 4vh); 
+  height: calc(10px + 5vh); 
   margin: auto calc(25px + 0.5vw);;
   padding: 5px 5px;
   &:valid {
@@ -177,7 +177,7 @@
 
 .form-check-input {
   margin-top: 0px;
-  height: calc(10px + 4vh); 
+  height: calc(10px + 5vh); 
   width: calc(10px + 4vh); 
   -webkit-appearance: none;
   -moz-appearance: none;
