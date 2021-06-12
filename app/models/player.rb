@@ -18,6 +18,7 @@ class Player < ApplicationRecord
 
   # Validations
   validates :affiliation_number, :gender, :first_name, :last_name, :birthdate, :dominant_hand, presence: true
+  validates :affiliation_number, format: { with: /\A\d{7}\z/, message: "le numéro d'affiliation doit être composé de 7 chiffres"}
   validate :affiliation_number_check, on: :create
   
   # PG Search

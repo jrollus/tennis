@@ -8,6 +8,7 @@
     <% if current_user %>
       <div class='navbar-collapsable'>
         <% if current_user.admin %>
+          <%= link_to('Admin', rails_admin_path, class: 'navbar-link')%>
           <div data-controller='dropdown' class='dropdown'>
             <div class='navbar-link' data-target='dropdown.button' data-action='click->dropdown#toggleVisibility' role='button' aria-haspopup='true' aria-expanded='false'> Validation </div>  
             <div data-target='dropdown.popup' class='dropdown-content'>
@@ -39,6 +40,7 @@
           <div data-target='dropdown.popup' class='dropdown-content'>
             <%= link_to('Joueur', players_validations_path, class: 'dropdown-link')%>
             <%= link_to('Tournoi', tournaments_validations_path, class: 'dropdown-link')%>
+            <%= link_to('Admin', rails_admin_path, class: 'dropdown-link')%>
           </div>
         </div>
       <% end %>

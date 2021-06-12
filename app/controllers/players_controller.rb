@@ -31,6 +31,10 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
+
+    @player.affiliation_number = '0000000' if !@player.affiliation_number.present? # Default Affiliation Number - Admin to fill it in when validating
+    @player.birthdate = Date.parse('01-01-1900') if !@player.birthdate.present? # Default Birthdate - Admin to fill it in when validating
+    
     @player.player_creator_id  = current_user.player.id
     @player.validated = (current_user.admin ? current_user.admin : false)
     @year_nbr_dates = YearDatesService.get_year_nbr_dates
@@ -111,7 +115,7 @@ class PlayersController < ApplicationController
 
   def player_params
     params.require(:player).permit(:id, :affiliation_number, :first_name, :last_name, :club_id, :birthdate, :gender, :dominant_hand,
-                                   ranking_histories_attributes: [:id, :ranking_id, :year, :year_number, :start_date, :end_date])
+                                   ranking_histories_attributes: [:id, :ranking_id, :year, :year_number, :start_date, :validated, :end_date])
   end
 
   def set_player
