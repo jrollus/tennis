@@ -14,8 +14,6 @@ class User < ApplicationRecord
   
   # Relations
   has_one :player
-  has_many :ranking_histories, through: :player
-  has_many :clubs
   
   # Nested Attributes
   accepts_nested_attributes_for :player
