@@ -91,6 +91,7 @@
         </div>
       </div>
     <% else %>
+      <%= link_to('Contact', new_contact_path , class: 'navbar-link') %>
       <%= link_to('Connexion', new_user_session_path , class: 'navbar-link') %>
       <%= link_to("S'inscrire", new_user_registration_path , class: 'navbar-link') %>
     <% end  %>

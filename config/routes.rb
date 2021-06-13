@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'validations/index'
+
   # Devise
   devise_for :users, controllers: {registrations: 'users/registrations'}
+  devise_scope :user do
+      delete 'users/delete_avatar', to: "users/registrations#delete_avatar"
+  end
 
   # Generale Routes
   root to: 'pages#home'
