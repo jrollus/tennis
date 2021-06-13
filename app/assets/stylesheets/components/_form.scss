@@ -22,6 +22,28 @@
   font-size: calc(7px + 0.7vw);
 }
 
+.form-container-light {
+  width: 90vmin;
+  min-width: 60vw;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  color: $color-grey-darker;
+  font-size: calc(7px + 0.7vw);
+}
+
+.form-container-light a {
+  display: inline-block;
+  margin: 5px 0px;
+  color: $color-grey-darker;
+  font-size: calc(7px + 0.7vw);
+}
+
+.form-container-light .form-container {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
 .form-container input {
   font-size: calc(7px + 0.7vw);
 }
@@ -34,12 +56,18 @@
   font-size: calc(7px + 0.7vw);
 }
 
+.form-block-title {
+  color: $color-blue;
+  font-size: calc(7px + 1.4vw);
+  margin-left: 5%;
+  margin-bottom: 3vh;
+}
+
 .form-extra-links {
   width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
-
 
 // Form sizes
 
@@ -279,6 +307,14 @@ input[type="radio"].toggle {
 	z-index: -1;
 }
 
+.form-input-file-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin-left: 6vw;
+}
+
 .form-input-file + label {
   width: 100%;
   padding: 7px 5px;
@@ -288,11 +324,26 @@ input[type="radio"].toggle {
   color: $color-white;
   background-color: $color-blue;
   display: inline-block;
+  word-wrap: break-word;
 }
 
 .form-input-file:focus + label,
 .form-input-file + label:hover {
   background-color: $color-yellow;
+}
+
+.form-delete-file {
+  margin-top: 20px !important;
+  width: 100%;
+  padding: 7px 5px;
+  border-radius: 5px;
+  margin-bottom: 0px;
+  text-align: center;
+  color: $color-white !important;
+  background-color: $color-blue;
+  &:hover {
+    background-color: $color-yellow;
+  }
 }
 
 .form-input-file + label {

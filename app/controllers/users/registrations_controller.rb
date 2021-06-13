@@ -20,15 +20,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  # DELETE /avatar
+  def delete_avatar
+    current_user.avatar.purge
+    redirect_to edit_user_registration_path
+  end
+
   # GET /resource/edit
   # def edit
   #   super
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    current_user.avatar.purge if account_update_params["avatar"].present?
+    super
+  end
 
   # DELETE /resource
   def destroy
@@ -45,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
@@ -64,6 +71,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
             player_attributes: [:id, :first_name, :last_name, :affiliation_number, :club_id, :birthdate, :dominant_hand, :gender]
            ]
     )
+  end
+
+  def update_resource(resource, params)
+    # Require current password if user is trying to change password.
+    return super if params["password"]&.present?
+
+    # Allows user to update registration information without password.
+    resource.update_without_password(params.except("current_password"))
   end
 
   # The path used after sign up.
