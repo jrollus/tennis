@@ -174,20 +174,22 @@ namespace :scraping do
       counter += 1
       puts "Scraping done #{counter} / #{players.size}"
 
-      ### Update DB ###
-      ranking_history = player.ranking_histories.where('? >= start_date AND ? <= end_date', ranking_date, ranking_date)
-      unless ranking_history.present?
-        ranking_period_dates = YearDatesService.get_year_nbr_dates(ranking_date)
-        ranking_history = RankingHistory.new()
-        ranking_history.player_id = player.id
-        ranking_history.year = Date.today.year
-        ranking_history.year_number = ranking_period_dates[:year_number]
-        ranking_history.start_date = ranking_period_dates[:start_date]
-        ranking_history.end_date = ranking_period_dates[:end_date]
-        ranking_history.ranking_id = rankings.find{|ranking| ranking.name == player_basic_data[:ranking]}.id
-        ranking_history.national_ranking = player_basic_data[:national_ranking]
-        ranking_history.validated = true
-        ranking_history.save
+      unless player_basic_data.nil?
+        ### Update DB ###
+        ranking_history = player.ranking_histories.where('? >= start_date AND ? <= end_date', ranking_date, ranking_date)
+        unless ranking_history.present?
+          ranking_period_dates = YearDatesService.get_year_nbr_dates(ranking_date)
+          ranking_history = RankingHistory.new()
+          ranking_history.player_id = player.id
+          ranking_history.year = Date.today.year
+          ranking_history.year_number = ranking_period_dates[:year_number]
+          ranking_history.start_date = ranking_period_dates[:start_date]
+          ranking_history.end_date = ranking_period_dates[:end_date]
+          ranking_history.ranking_id = rankings.find{|ranking| ranking.name == player_basic_data[:ranking]}.id
+          ranking_history.national_ranking = player_basic_data[:national_ranking]
+          ranking_history.validated = true
+          ranking_history.save
+        end
       end
     end
   end
