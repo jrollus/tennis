@@ -138,7 +138,7 @@ namespace :scraping do
   end
 
   desc "Task to update all player rankings - pass parameter as rake scraping:update_rankings\[YYYY-MM-DD\]"
-  task :update_rankings, [:ranking_date] do |t, args|
+  task :update_rankings, [:ranking_date] => [:environment] do |t, args|
     ranking_date = Date.parse(args[:ranking_date])
     
     # Setup WATIR
@@ -185,7 +185,7 @@ namespace :scraping do
         ranking_history.start_date = ranking_period_dates[:start_date]
         ranking_history.end_date = ranking_period_dates[:end_date]
         ranking_history.ranking_id = rankings.find{|ranking| ranking.name == player_basic_data[:ranking]}.id
-        ranking_history.national_ranking =  player_basic_data[:national_ranking]
+        ranking_history.national_ranking = player_basic_data[:national_ranking]
         ranking_history.validated = true
         ranking_history.save
       end
