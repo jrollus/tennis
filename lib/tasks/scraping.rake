@@ -155,29 +155,29 @@ namespace :scraping do
 
     counter = 0
     players.each do |player|
-      ### Scrape Data ###
-      puts "Scraping #{player.affiliation_number}"
-      sleep 0.5 # To avoid server rejecting requests
-      browser.goto(PLAYER_DETAILS_URL + player.affiliation_number)
-      browser.goto(PLAYER_DETAILS_URL + player.affiliation_number) if browser.url == REDIRECTION_URL
-      parser_player = Nokogiri::HTML(browser.html)
-      unless parser_player.search('#player-title').empty?
-        regex_parse = parser_player.search('#player-title').inner_text.strip.reverse.scan(/^\)(\d+)\(\s(.+)\s(.+)$/)
-        player_basic_data = {
-          gender: parser_player.search('#colInfo dd img').first["src"].include?("female") ? "female" : "male",
-          first_name: regex_parse[0][1].reverse.strip.capitalize,
-          last_name: regex_parse[0][2].reverse.capitalize,
-          ranking: parser_player.search('#colInfo dd')[2].inner_text.strip.scan(/^(A Nat|A int|.{1,6})(\s*)(.*)$/)[0][0],
-          national_ranking: parser_player.search('#colInfo dd')[2].inner_text.strip.scan(/^(A Nat|A int|.{1,6})(\s*)(.*)$/)[0][2]
-        }
-      end
-      counter += 1
-      puts "Scraping done #{counter} / #{players.size}"
+      ranking_history = player.ranking_histories.where('? >= start_date AND ? <= end_date', ranking_date, ranking_date)
+      unless ranking_history.present?
+        ### Scrape Data ###
+        puts "Scraping #{player.affiliation_number}"
+        sleep 0.5 # To avoid server rejecting requests
+        browser.goto(PLAYER_DETAILS_URL + player.affiliation_number)
+        browser.goto(PLAYER_DETAILS_URL + player.affiliation_number) if browser.url == REDIRECTION_URL
+        parser_player = Nokogiri::HTML(browser.html)
+        unless parser_player.search('#player-title').empty?
+          regex_parse = parser_player.search('#player-title').inner_text.strip.reverse.scan(/^\)(\d+)\(\s(.+)\s(.+)$/)
+          player_basic_data = {
+            gender: parser_player.search('#colInfo dd img').first["src"].include?("female") ? "female" : "male",
+            first_name: regex_parse[0][1].reverse.strip.capitalize,
+            last_name: regex_parse[0][2].reverse.capitalize,
+            ranking: parser_player.search('#colInfo dd')[2].inner_text.strip.scan(/^(A Nat|A int|.{1,6})(\s*)(.*)$/)[0][0],
+            national_ranking: parser_player.search('#colInfo dd')[2].inner_text.strip.scan(/^(A Nat|A int|.{1,6})(\s*)(.*)$/)[0][2]
+          }
+        end
+        counter += 1
+        puts "Scraping done #{counter} / #{players.size}"
 
-      unless player_basic_data.nil?
-        ### Update DB ###
-        ranking_history = player.ranking_histories.where('? >= start_date AND ? <= end_date', ranking_date, ranking_date)
-        unless ranking_history.present?
+        unless player_basic_data.nil?
+          ### Update DB ###
           ranking_period_dates = YearDatesService.get_year_nbr_dates(ranking_date)
           ranking_history = RankingHistory.new()
           ranking_history.player_id = player.id
@@ -185,7 +185,7 @@ namespace :scraping do
           ranking_history.year_number = ranking_period_dates[:year_number]
           ranking_history.start_date = ranking_period_dates[:start_date]
           ranking_history.end_date = ranking_period_dates[:end_date]
-          ranking_history.ranking_id = rankings.find{|ranking| ranking.name == player_basic_data[:ranking]}.id
+          ranking_history.ranking_id = rankings.find{|ranking| (ranking.name == player_basic_data[:ranking] || ranking.name == player_basic_data[:ranking].titleize)}.id
           ranking_history.national_ranking = player_basic_data[:national_ranking]
           ranking_history.validated = true
           ranking_history.save
