@@ -156,6 +156,7 @@ namespace :scraping do
     counter = 0
     players.each do |player|
       ranking_history = player.ranking_histories.where('? >= start_date AND ? <= end_date', ranking_date, ranking_date)
+      counter += 1
       unless ranking_history.present?
         ### Scrape Data ###
         puts "Scraping #{player.affiliation_number}"
@@ -173,7 +174,6 @@ namespace :scraping do
             national_ranking: parser_player.search('#colInfo dd')[2].inner_text.strip.scan(/^(A Nat|A int|.{1,6})(\s*)(.*)$/)[0][2]
           }
         end
-        counter += 1
         puts "Scraping done #{counter} / #{players.size}"
 
         unless player_basic_data.nil?
