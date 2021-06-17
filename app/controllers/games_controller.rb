@@ -71,9 +71,9 @@ class GamesController < ApplicationController
   def destroy
     @game = Game.includes(:game_players).find(params[:id])
     authorize @game
-    refresh_players_points
     @game.destroy
-
+    refresh_players_points
+    
     redirect_to games_path
   end
 
