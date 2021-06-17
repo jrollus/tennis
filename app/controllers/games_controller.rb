@@ -71,9 +71,17 @@ class GamesController < ApplicationController
   def destroy
     @game = Game.includes(:game_players).find(params[:id])
     authorize @game
+
+    user_player_id = current_user.player.id
+    game_player = @game.game_players.find{|player| player.player_id == user_player_id}.player
+    game_opponent = @game.game_players.find{|player| player.player_id != user_player_id}.player
+    game_date = @game.date
+
     @game.destroy
-    refresh_players_points
-    
+
+    PointsJob.perform_later(game_player, game_date)
+    PointsJob.perform_later(game_opponent, game_date)
+
     redirect_to games_path
   end
 
@@ -117,15 +125,6 @@ class GamesController < ApplicationController
     query = CascadingDropdownsQuery.new(policy_scope(Tournament), @form.club, current_user.player, false)
     @categories = query.select_categories unless @form.club.blank?
     @tournament_dates = query.select_dates(@form.category) unless @form.category.blank?
-  end
-
-  def refresh_players_points
-    user_player_id = current_user.player.id
-    game_player = @game.game_players.find{|player| player.player_id == user_player_id}.player
-    game_opponent = @game.game_players.find{|player| player.player_id != user_player_id}.player
-    game_date = @game.date
-    PointsJob.perform_later(game_player, game_date)
-    PointsJob.perform_later(game_opponent, game_date)
   end
   
 end
