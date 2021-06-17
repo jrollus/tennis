@@ -11,7 +11,7 @@
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     p {
       color: $color-grey-darker;
-      font-size: calc(4px + 0.8vw);
+      font-size: calc(6px + 0.7vw);
     }
   }
   
@@ -23,6 +23,7 @@
     padding: 20px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     width: 80%; /* Could be more or less, depending on screen size */
+    text-align: center;
   }
 
   .modal-btn {
@@ -32,7 +33,7 @@
     border-radius: 5px;
     padding: 7px 2vw;
     margin: 0 auto;
-    font-size: calc(7px + 0.7vw);
+    font-size: calc(6px + 0.7vw);
     &:hover {
       color: $color-yellow;
     }
@@ -47,7 +48,7 @@
     border-radius: 5px;
     padding: 7px 2vw;
     margin: 0 auto;
-    font-size: calc(7px + 0.7vw);
+    font-size: calc(6px + 0.7vw);
     &:hover {
       color: $color-yellow;
     }
