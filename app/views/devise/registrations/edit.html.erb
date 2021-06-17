@@ -60,8 +60,19 @@
       </div>
     <% end %>
 
-    <div class='form-extra-links'>
-      <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+    <div class='form-extra-links' data-controller='modal'>
+      <div class='terms-modal'  data-target='modal.modal' data-action='click->modal#hide'>
+        <div class='terms-modal-content small'>
+          <p> Es-tu sûr de vouloir supprimer ton compte? </p>
+          <div class="display-flex">
+            <a class='modal-link' rel="nofollow" data-method="delete" href="<%= registration_path(resource_name) %>">
+              <div class='modal-btn'>Oui</div>
+            </a>
+            <div class='modal-secondary-btn'>Non</div>
+          </div>
+        </div>
+      </div>
+      <a data-action='click->modal#show'>Supprimer mon compte</a>
       <br>
       <%= link_to "Retour", :back %>
       <br>
