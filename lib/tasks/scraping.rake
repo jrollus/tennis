@@ -156,7 +156,6 @@ namespace :scraping do
     counter = 0
     players.each do |player|
       ### Scrape Data ###
-      byebug
       puts "Scraping #{player.affiliation_number}"
       browser.goto(PLAYER_DETAILS_URL + player.affiliation_number)
       browser.goto(PLAYER_DETAILS_URL + player.affiliation_number) if browser.url == REDIRECTION_URL
