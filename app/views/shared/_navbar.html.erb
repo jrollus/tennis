@@ -1,8 +1,8 @@
 <div class='navbar-tennis'>
   <% if current_user %>
-    <%= link_to cl_image_tag('teqis_white_nh9yul.png', class: 'navbar-logo'), games_path %>
+    <%= link_to image_tag('navbar/teqis.png', class: 'navbar-logo'), games_path %>
   <% else %>
-    <%= link_to cl_image_tag('teqis_white_nh9yul.png', class: 'navbar-logo'), root_path %>
+    <%= link_to image_tag('navbar/teqis.png', class: 'navbar-logo'), root_path %>
   <% end %>
   <div class='navbar-right-section'>
     <% if current_user %>
@@ -32,7 +32,7 @@
       </div>
       <% if current_user.admin %>
         <div data-controller='dropdown' class='dropdown'>
-          <%= cl_image_tag 'check_svlwxk.png', class: 'navbar-check', 
+          <%= image_tag 'navbar/check.png', class: 'navbar-check', 
                                                      data: { target:'dropdown.button', action: 'click->dropdown#toggleVisibility'}, 
                                                      role:'button', 
                                                      'aria-haspopup': 'true', 
@@ -45,7 +45,7 @@
         </div>
       <% end %>
       <div data-controller='dropdown' class='dropdown'>
-        <%= cl_image_tag 'add_yx1hhl.png', class: 'navbar-plus', 
+        <%= image_tag 'navbar/add.png', class: 'navbar-plus', 
                                                      data: { target:'dropdown.button', action: 'click->dropdown#toggleVisibility'}, 
                                                      role:'button', 
                                                      'aria-haspopup': 'true', 
@@ -57,7 +57,7 @@
         </div>
       </div>
       <div data-controller='dropdown' class='dropdown'>
-        <%= cl_image_tag 'menu_txyibk.png', class: 'navbar-sandwich', 
+        <%= image_tag 'navbar/menu.png', class: 'navbar-sandwich', 
                                                      data: { target:'dropdown.button', action: 'click->dropdown#toggleVisibility'}, 
                                                      role:'button', 
                                                      'aria-haspopup': 'true', 
@@ -78,7 +78,7 @@
                                                     'aria-haspopup': 'true', 
                                                     'aria-expanded': 'false'  %>
         <% else %>
-          <%= cl_image_tag 'tennis-ball-white_y3xhzq.svg', class: 'avatar', 
+          <%= image_tag 'navbar/tennis_ball.svg', class: 'avatar', 
                                                             data: {target:'dropdown.button', action: 'click->dropdown#toggleVisibility'}, 
                                                             role:'button', 
                                                             'aria-haspopup': 'true', 
@@ -86,11 +86,13 @@
         <% end %>
         <div data-target='dropdown.popup' class='dropdown-content'>
           <%= link_to('Mon compte', edit_user_registration_path , class: 'dropdown-link') %>
+          <%= link_to('FAQ', faq_path , class: 'dropdown-link') %>
           <%= link_to('Contact', new_contact_path , class: 'dropdown-link') %>
           <%= link_to('Déconnexion', destroy_user_session_path, method: :delete, class: 'dropdown-link') %>
         </div>
       </div>
     <% else %>
+      <%= link_to('FAQ', faq_path , class: 'navbar-link') %>
       <%= link_to('Contact', new_contact_path , class: 'navbar-link') %>
       <%= link_to('Connexion', new_user_session_path , class: 'navbar-link') %>
       <%= link_to("S'inscrire", new_user_registration_path , class: 'navbar-link') %>

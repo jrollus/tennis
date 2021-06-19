@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   # Generale Routes
   root to: 'pages#home'
+  get '/faq', to:'pages#faq'
 
   # Contacts
   resources :contacts, only: [:new, :create]

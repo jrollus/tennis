@@ -7,7 +7,7 @@
   background-image: linear-gradient(
     rgba(0, 0, 0, 0),
     rgba(0, 0, 0, 0)
-  ), url(https://res.cloudinary.com/drm7kkwxn/image/upload/v1613671860/hero-banner_lnzpbv.jpg);
+  ), image-url("landing/hero_banner.jpg");
   background-size: cover;
   background-position: center;
   color: $color-grey;
