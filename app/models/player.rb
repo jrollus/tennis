@@ -17,8 +17,9 @@ class Player < ApplicationRecord
   accepts_nested_attributes_for :ranking_histories
 
   # Validations
-  validates :affiliation_number, :gender, :first_name, :last_name, :birthdate, :dominant_hand, presence: true
-  validates :affiliation_number, format: { with: /\A\d{7}\z/, message: "le numéro d'affiliation doit être composé de 7 chiffres"}
+  validates :affiliation_number, :gender, :first_name, :last_name, :dominant_hand, presence: true
+  validates :birthdate, presence: true, unless: :user_added?
+  validates :affiliation_number, format: { with: /\A\d{7}\z/, message: "le numéro d'affiliation doit être composé de 7 chiffres"}, allow_blank: true
   validate :affiliation_number_check, on: :create
   
   # PG Search
@@ -45,4 +46,8 @@ class Player < ApplicationRecord
     end
   end
   
+  def user_added?
+    !self.player_creator_id.nil?
+  end
+
 end
