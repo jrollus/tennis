@@ -30,14 +30,11 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.new(player_params)
-
-    @player.affiliation_number = '0000000' if !@player.affiliation_number.present? # Default Affiliation Number - Admin to fill it in when validating
-    @player.birthdate = Date.parse('01-01-1900') if !@player.birthdate.present? # Default Birthdate - Admin to fill it in when validating
-    
+    @player = Player.new(player_params)    
     @player.player_creator_id  = current_user.player.id
     @player.validated = (current_user.admin ? current_user.admin : false)
     @year_nbr_dates = YearDatesService.get_year_nbr_dates
+
     authorize @player
     if @player.save
       redirect_to games_path
