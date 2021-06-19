@@ -8,7 +8,7 @@
             <div class="col-12 col-lg-6">
                 <div class="stats-category display-flex">
                 <div class="stats-category-description">
-                    <%= cl_image_tag(img_url, class: 'stats-category-img') %>
+                    <%= image_tag(img_url, class: 'stats-category-img') %>
                     <h5 class="stats-category-name"><%= k %></h5>
                 </div>
                 <%= render 'stats_wins_losses.html.erb', wins: v[true], losses: v[false], head_to_head: false, header: false %>

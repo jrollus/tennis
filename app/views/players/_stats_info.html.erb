@@ -4,20 +4,20 @@
       <%= render 'stats_header.html.erb' %>
       <%= render 'stats_rankings.html.erb', title: 'Par Classement', query_data: @query.get_wins_by_ranking(nil, @year) %>
       <%= render 'stats_category.html.erb', title: 'Nombre de Sets', query_data: @query.get_wins_losses_nbr_sets(nil, nil, @year), 
-                                 img_url: 'scoreboard_2_p4rgdp.png' %>
+                                 img_url: 'stats/scoreboard.png' %>
       <%= render 'stats_category.html.erb', title: 'Tournois', query_data: @query.get_wins_losses_by('tournament', nil, @year), 
-                                 img_url: 'Wins_zg1lo9.png' %>
+                                 img_url: 'stats/win.png' %>
       <%= render 'stats_category.html.erb', title: 'Main Dominante', query_data: @query.get_wins_losses_by('dominant_hand', nil, @year), 
-                                 img_url: 'Racket_G_yyteyc.png' %>
+                                 img_url: 'stats/racket.png' %>
       <%= render 'stats_category.html.erb', title: 'Indoor/Outdoor', query_data: @query.get_wins_losses_by('indoor', nil, @year),
-                                 img_url: 'inside_outside_zxlnwd.png' %>
+                                 img_url: 'stats/inside_outside.png' %>
       <%= render 'stats_category.html.erb', title: 'Type de Terrain', query_data: @query.get_wins_losses_by('court_type', nil, @year),
-                                 img_url: 'surface_ln6pqz.png' %>
+                                 img_url: 'stats/surface.png' %>
       <%= render 'stats_category.html.erb', title: 'Tie-Breaks', query_data: @query.get_wins_losses_tie_breaks(nil, @year),
-                                 img_url: 'tie-break_yhnjgh.png' %>
+                                 img_url: 'stats/tie_break.png' %>
       <%= render 'stats_match_points.html.erb', title: 'Balles de Match', saved: @query.get_match_points(true, @year), missed: @query.get_match_points(false, @year),
-                                    img_url: 'balle_de_matchs_rhexxs.png' %>
-      <%= render 'stats_tournaments.html.erb', title: 'Tournois', tournaments: @query.get_tournament_won(@year), img_url: 'trophy_xel8ay.png' %>
+                                    img_url: 'stats/match_point.png' %>
+      <%= render 'stats_tournaments.html.erb', title: 'Tournois', tournaments: @query.get_tournament_won(@year), img_url: 'stats/trophy.png' %>
    </div>
 <% else %>
   <h1 class='page-header'>Joueur non disponible</h1>

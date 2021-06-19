@@ -3,7 +3,7 @@ class ContactMailer < ApplicationMailer
 
   def contact_email(contact_message)
     @message = contact_message
-    emails = ['rollus.jeremy@gmail.com', 'rollus.o@gmail.com']
+    emails = ['rollus.jeremy@gmail.com', 'teqisclub@gmail.com']
     mail(to: emails, subject: @message.subject)
   end
 end
