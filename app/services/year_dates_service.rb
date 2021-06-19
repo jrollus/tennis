@@ -1,20 +1,30 @@
-class YearDatesService
-  RANKINGS_PER_YEAR = 1
-  
+class YearDatesService 
   def self.get_year_nbr_dates(date=Date.today)
-    case RANKINGS_PER_YEAR
+    case ENV['RANKINGS_PER_YEAR'].to_i
     when 1
       year_number = 1
-      start_date = Date.new(date.year, 1, 1)
-      end_date = Date.new(date.year, 12, -1)
+      if date.month <= 10
+        start_date = Date.new(date.year - 1, 11, 1)
+        end_date = Date.new(date.year, 10, -1)
+      else
+        start_date = Date.new(date.year, 11, 1)
+        end_date = Date.new(date.year + 1, 10, -1)
+      end
     when 2
-      year_number = (date.month / 6.0).ceil
-      start_date = Date.new(date.year, year_number + (5 * (year_number - 1)), 1) 
-      end_date = Date.new(date.year, 6 * year_number, -1)
-    when 4
-      year_number = (date.month / 3.0).ceil
-      start_date = Date.new(date.year, year_number + (2 * (year_number - 1)), 1) 
-      end_date = Date.new(date.year, 3 * year_number, -1)
+      if date.month > 10 || date.month < 6
+        year_number = 1
+        if date.month > 10
+          start_date = Date.new(date.year, 11, 1)
+          end_date =  Date.new(date.year + 1, 5, -1)
+        else
+          start_date = Date.new(date.year - 1, 11, 1)
+          end_date =  Date.new(date.year, 5, -1)
+        end
+      else
+        year_number = 2
+        start_date = Date.new(date.year, 6, 1)
+        end_date =  Date.new(date.year, 10, -1)
+      end
     end
     
     return {
