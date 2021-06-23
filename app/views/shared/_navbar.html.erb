@@ -21,7 +21,9 @@
           <div class='navbar-link' data-target='dropdown.button' data-action='click->dropdown#toggleVisibility' role='button' aria-haspopup='true' aria-expanded='false'> Encodage </div>  
           <div data-target='dropdown.popup' class='dropdown-content'>
             <%= link_to('Match', new_game_path, class: 'dropdown-link')%>
-            <%= link_to('Tournoi', new_tournament_path, class: 'dropdown-link')%>
+            <% if current_user.admin %>
+              <%= link_to('Tournoi', new_tournament_path, class: 'dropdown-link')%>
+            <% end %>
             <%= link_to('Joueur', new_player_path, class: 'dropdown-link')%>
           </div>
         </div>
@@ -52,7 +54,9 @@
                                                      'aria-expanded': 'false' %>
         <div data-target='dropdown.popup' class='dropdown-content'>
           <%= link_to('Match', new_game_path, class: 'dropdown-link')%>
-          <%= link_to('Tournoi', new_tournament_path, class: 'dropdown-link')%>
+          <% if current_user.admin %>
+            <%= link_to('Tournoi', new_tournament_path, class: 'dropdown-link')%>
+          <% end %>
           <%= link_to('Joueur', new_player_path, class: 'dropdown-link')%>
         </div>
       </div>
