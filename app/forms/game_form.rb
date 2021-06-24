@@ -286,20 +286,22 @@ class GameForm
 
   def flatten_parameters(params)
     flat_params = params.except(:game_sets_attributes)
-    set_index = 0
-    params[:game_sets_attributes].each do |set_nbr|
-      set_index += 1
-      set_games = 0
-      set_nbr[1].each do |set_key, set_value|
-        set_games += 1 if set_key != 'set_number' && set_key!= 'id' && set_key!= '_destroy'
-        tb_index = 0
-        if set_value.is_a?((ActionController::Parameters))
-          set_value.each do |tb_key, tb_value|
-            tb_index += 1 if tb_key != 'id' && tb_key!= '_destroy'
-            flat_params["tie_break_#{set_index}_#{tb_index}".to_sym] = tb_value if tb_key != 'id' && tb_key!= '_destroy'
+    if params[:game_sets_attributes]
+      set_index = 0
+      params[:game_sets_attributes].each do |set_nbr|
+        set_index += 1
+        set_games = 0
+        set_nbr[1].each do |set_key, set_value|
+          set_games += 1 if set_key != 'set_number' && set_key!= 'id' && set_key!= '_destroy'
+          tb_index = 0
+          if set_value.is_a?((ActionController::Parameters))
+            set_value.each do |tb_key, tb_value|
+              tb_index += 1 if tb_key != 'id' && tb_key!= '_destroy'
+              flat_params["tie_break_#{set_index}_#{tb_index}".to_sym] = tb_value if tb_key != 'id' && tb_key!= '_destroy'
+            end
+          else
+            flat_params["set_#{set_index}_#{set_games}".to_sym] = set_value if set_key != 'set_number' && set_key!= 'id' && set_key!= '_destroy'
           end
-        else
-          flat_params["set_#{set_index}_#{set_games}".to_sym] = set_value if set_key != 'set_number' && set_key!= 'id' && set_key!= '_destroy'
         end
       end
     end

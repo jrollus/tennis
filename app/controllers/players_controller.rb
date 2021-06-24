@@ -12,7 +12,7 @@ class PlayersController < ApplicationController
         @players = policy_scope(Player).includes(ranking_histories: :ranking).search_by_name_and_affiliation_number(params[:search]).first(10)
       end
     else
-      @players = policy_scope(Player).includes(ranking_histories: :ranking)
+      @players = policy_scope(Player).includes(ranking_histories: :ranking).first(10)
     end
     @players = @players.map{|player| PlayerDecorator.new(player)}
     render json: { error: "Couldn't find #{params[:query].titleize}"} , status: :not_found if (@players.size == 0)
