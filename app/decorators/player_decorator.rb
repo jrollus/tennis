@@ -12,6 +12,7 @@ class PlayerDecorator < SimpleDelegator
   end
 
   def player_description
-    "#{self.first_name.titleize} #{self.last_name.titleize} (#{self.affiliation_number}) #{self.ranking_histories.max_by{|ranking| ranking.start_date}.ranking.name ? self.ranking_histories.max_by{|ranking| ranking.start_date}.ranking.name : ''}"
+    ranking = self.ranking_histories.max_by{|ranking| ranking.start_date}.ranking.name
+    "#{self.first_name.titleize} #{self.last_name.titleize} (#{self.affiliation_number}) #{ranking ? ranking : ''}"
   end
 end
