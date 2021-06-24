@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  # Rails Admin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'validations/index'
+
+  # Blazer
+  authenticate :user, ->(user) { user.admin? } do
+    mount Blazer::Engine, at: "queries"
+  end
 
   # Devise
   devise_for :users, controllers: {registrations: 'users/registrations'}
