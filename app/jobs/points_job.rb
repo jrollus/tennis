@@ -19,11 +19,11 @@ class PointsJob < ApplicationJob
       if games.present?
         games.each do |tournament_key, tournament_value| 
           points = 0
-          unless (games.size == 1) && !tournament_value.first.game_players.find{|game_player| game_player.player_id == player.id}.victory
+          unless (tournament_value.size == 1) && !tournament_value.first.game_players.find{|game_player| game_player.player_id == player.id}.victory
             points += tournament_value.size * 2
             last_round_game = tournament_value.min{|a, b| a.round_id <=> b.round_id}
             round_id = last_round_game.round_id
-            round_id = 1 if (round_id == 2)  && last_round_game.game_players.find{|game_player| game_player.player_id == player.id}.victory
+            round_id -= 1 if last_round_game.game_players.find{|game_player| game_player.player_id == player.id}.victory
             nbr_participants = tournament_value.first.tournament.nbr_participants
             weight = nbr_participant_rules.find{|e| nbr_participants.between?(e.lower_bound, e.upper_bound)}.weight
             points += tournament_value.first.tournament.category.category_rounds.find{|category_round| category_round.round_id == round_id}.points * weight  
@@ -36,8 +36,8 @@ class PointsJob < ApplicationJob
                 end
               end
             end
+            points_by_competition << points
           end
-          points_by_competition << points
         end
       end
 
@@ -65,7 +65,7 @@ class PointsJob < ApplicationJob
       # Total Points
       player_points = points_by_competition.sort.reverse.take(MIN_NUMBER_COMPETITIONS).sum(0.0) / points_by_competition.take(MIN_NUMBER_COMPETITIONS).size
       player_points *= (1 - ((MIN_NUMBER_COMPETITIONS - points_by_competition.size) * COMPETITION_PENALTY)) if points_by_competition.size < MIN_NUMBER_COMPETITIONS
-
+      player_points = 0 if player_points.nan?
       ranking_history.update(points: player_points)
       puts "Player points: #{player_points}"
     end
