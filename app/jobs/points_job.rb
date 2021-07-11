@@ -49,17 +49,22 @@ class PointsJob < ApplicationJob
         games.each do |interclub_key, interclub_value|
           interclub_value.each do |game|
             victory = game.game_players.find{|game_player| game_player.player_id == player.id}.victory
-            opponent =  game.game_players.find{|game_player| game_player.player_id != player.id}
-            if opponent
-              if opponent.ranking
-                interclub_game_points << game.interclub.division.division_rankings.find{|division_ranking| division_ranking.ranking_id == opponent.ranking.id}.points
+            if victory
+              opponent =  game.game_players.find{|game_player| game_player.player_id != player.id}
+              if opponent
+                if opponent.ranking
+                  interclub_game_points << game.interclub.division.division_rankings.find{|division_ranking| division_ranking.ranking_id == opponent.ranking.id}.points
+                end
               end
             end
           end
         end
-        interclub_points = interclub_game_points.sort.reverse.take(MIN_NUMBER_INTERCLUB_GAMES).sum(0.0) / interclub_game_points.take(MIN_NUMBER_INTERCLUB_GAMES).size
-        interclub_points *= (1 - ((MIN_NUMBER_INTERCLUB_GAMES - interclub_game_points.size) * INTERCLUB_PENALTY)) if interclub_game_points.size < MIN_NUMBER_INTERCLUB_GAMES
-        points_by_competition << interclub_points
+
+        if interclub_game_points.present?
+          interclub_points = interclub_game_points.sort.reverse.take(MIN_NUMBER_INTERCLUB_GAMES).sum(0.0) / interclub_game_points.take(MIN_NUMBER_INTERCLUB_GAMES).size
+          interclub_points *= (1 - ((MIN_NUMBER_INTERCLUB_GAMES - interclub_game_points.size) * INTERCLUB_PENALTY)) if interclub_game_points.size < MIN_NUMBER_INTERCLUB_GAMES
+          points_by_competition << interclub_points
+        end
       end
 
       # Total Points
