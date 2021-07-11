@@ -129,12 +129,12 @@ class PlayersQuery
       end
     else
       if year
-        query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
-        raw_db_output = GamePlayer.joins(game: :game_sets).where(query, @player.id, year).group('games.id', 'game_players.victory').count
+        query = 'games.status = ? AND game_players.player_id = ? AND extract(year from games.date) = ?'
+        raw_db_output = GamePlayer.joins(game: :game_sets).where(query, 'completed', @player.id, year).group('games.id', 'game_players.victory').count
         
       else
-        query = 'game_players.player_id = ?'
-        raw_db_output = GamePlayer.joins(game: :game_sets).where(query, @player.id).group('games.id', 'game_players.victory').count
+        query = 'games.status = ? AND game_players.player_id = ?'
+        raw_db_output = GamePlayer.joins(game: :game_sets).where(query, 'completed', @player.id).group('games.id', 'game_players.victory').count
       end
       structured_output = raw_db_output.each_with_object({}) do |((id, win_loss), nbr_sets), hash|
         if nbr_sets != 1
@@ -190,6 +190,8 @@ class PlayersQuery
             end
           end
         end
+      else
+        structured_output = {}
       end
       
       return structured_output

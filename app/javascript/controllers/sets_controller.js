@@ -9,6 +9,7 @@ export default class extends Controller {
                       'tie_break_1_destroy', 'tie_break_2_destroy', 'tie_break_3_destroy', 'match_points_saved', 'label']
 
     connect() {
+      debugger;
       // Initialize Data
       this.set1 = [this.set_1_1Target, this.set_1_2Target, this.set_1_numberTarget, this.hasSet_1_idTarget,  (this.hasSet_1_idTarget ? this.set_1_idTarget : null)];
       this.set2 = [this.set_2_1Target, this.set_2_2Target, this.set_2_numberTarget, this.hasSet_2_idTarget,  (this.hasSet_2_idTarget ? this.set_2_idTarget : null)];
@@ -27,19 +28,27 @@ export default class extends Controller {
 
     // In case of edit check sets that have already defined values to enable them and have them visible
     checkSets() {
-      if (this.set_3_1Target.value || this.set_3_2Target.value) {
+      if (this.set_3_1Target.value || this.set_3_2Target.value ||
+         ((this.set_1_1Target.value > this.set_1_2Target.value) && (this.set_2_1Target.value < this.set_2_2Target.value)) ||
+         ((this.set_1_1Target.value < this.set_1_2Target.value) && (this.set_2_1Target.value > this.set_2_2Target.value))) {
         this.setsOnOff([this.set3], true);
       }
 
-      if (this.tie_break_1_1Target.value || this.tie_break_1_2Target.value) {
+      if (this.tie_break_1_1Target.value || this.tie_break_1_2Target.value ||
+         (this.set_1_1Target.value == '7' && this.set_1_2Target.value == '6') ||
+         (this.set_1_1Target.value == '6' && this.set_1_2Target.value == '7')) {
         this.tieBreaksOnOff([this.tieBreak1], true);
       }
 
-      if (this.tie_break_2_1Target.value || this.tie_break_2_2Target.value) {
+      if (this.tie_break_2_1Target.value || this.tie_break_2_2Target.value ||
+         (this.set_2_1Target.value == '7' && this.set_2_2Target.value == '6') ||
+         (this.set_2_1Target.value == '6' && this.set_2_2Target.value == '7')) {
        this.tieBreaksOnOff([this.tieBreak2], true);
       }
 
-      if (this.tie_break_3_1Target.value || this.tie_break_3_2Target.value) {
+      if (this.tie_break_3_1Target.value || this.tie_break_3_2Target.value || 
+         (this.set_3_1Target.value == '7' && this.set_3_2Target.value == '6') ||
+         (this.set_3_1Target.value == '6' && this.set_3_2Target.value == '7')) {
        this.tieBreaksOnOff([this.tieBreak3], true);
        this.labelTarget.classList.remove('visibility-off');
       }
@@ -115,14 +124,24 @@ export default class extends Controller {
 
     setsHandler() {
       // Status
-      if (this.statusTarget.value == 'wo') {
+      if (this.statusTarget.value == 'WO') {
         // Sets
-        this.setsOnOff([this.set1, this.set2, this.set3], false);
-        
+        this.setsOnOff([this.set3], false);
+        [this.set_1_1Target, this.set_1_2Target, this.set_2_1Target, this.set_2_2Target].forEach((setScore, i)  => {
+          setScore.value = '0';
+          setScore.readOnly = true;
+        });
+
         // Tie Breaks
         this.tieBreaksOnOff([this.tieBreak1, this.tieBreak2, this.tieBreak3], false);
       } else {
         this.setsOnOff([this.set1, this.set2], true);
+        [this.set_1_1Target, this.set_1_2Target, this.set_2_1Target, this.set_2_2Target].forEach((setScore, i)  => {
+          if (setScore.readOnly == true) {
+            setScore.value = '';
+          };
+          setScore.readOnly = false;
+        });
       }
 
       // Third set

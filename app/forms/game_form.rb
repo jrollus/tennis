@@ -13,9 +13,21 @@ class GameForm
   validates :club, :category, :round_id, presence: true, if: ->(o) { o.game_type == "true" }
   validates :date, :player_id, :status, :court_type_id, :opponent, :set_1_1, :set_1_2, 
             :set_2_1, :set_2_2, :match_points_saved, presence: true
+
+  validates_presence_of :tie_break_1_1, :if => lambda {(self.set_1_1 == '6' && self.set_1_2 == '7') || (self.set_1_1 == '7' && self.set_1_2 == '6')}
+  validates_presence_of :tie_break_1_2, :if => lambda {(self.set_1_1 == '6' && self.set_1_2 == '7') || (self.set_1_1 == '7' && self.set_1_2 == '6')}
+  validates_presence_of :tie_break_2_1, :if => lambda {(self.set_2_1 == '6' && self.set_2_2 == '7') || (self.set_2_1 == '7' && self.set_2_2 == '6')}
+  validates_presence_of :tie_break_2_2, :if => lambda {(self.set_2_1 == '6' && self.set_2_2 == '7') || (self.set_2_1 == '7' && self.set_2_2 == '6')}
+  validates_presence_of :tie_break_3_1, :if => lambda {(self.set_3_1 == '6' && self.set_3_2 == '7') || (self.set_3_1 == '7' && self.set_3_2 == '6')}
+  validates_presence_of :tie_break_3_2, :if => lambda {(self.set_3_1 == '6' && self.set_3_2 == '7') || (self.set_3_1 == '7' && self.set_3_2 == '6')}
+  
+  validates_presence_of :set_3_1, :if => lambda {(self.status == 'completed' && ((self.set_1_1 > self.set_1_2 && self.set_2_1 < self.set_2_2) || (self.set_1_1 < self.set_1_2 && self.set_2_1 > self.set_2_2)))}
+  validates_presence_of :set_3_2, :if => lambda {(self.status == 'completed' && ((self.set_1_1 > self.set_1_2 && self.set_2_1 < self.set_2_2) || (self.set_1_1 < self.set_1_2 && self.set_2_1 > self.set_2_2)))}
+
   validates :set_1_1, :set_1_2, :set_2_1, :set_2_2, :set_3_1, :set_3_2, :tie_break_1_1, :tie_break_1_2,
             :tie_break_2_1, :tie_break_2_2, :tie_break_3_1, :tie_break_3_2, numericality: { only_integer: true }, allow_blank: true
   validates :set_1_1, :set_1_2, :set_2_1, :set_2_2, :set_3_1, :set_3_2, inclusion: (0..7).map(&:to_s), allow_blank: true
+
   validates :indoor, :victory, inclusion: { in: [ '0', '1', true, false ] }
   validate  :valid_date, :valid_opponent, :valid_score, :interclub_or_tournament_present
  
