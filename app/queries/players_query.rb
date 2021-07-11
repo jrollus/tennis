@@ -159,15 +159,39 @@ class PlayersQuery
     else
       if year
         query = 'game_players.player_id = ? AND extract(year from games.date) = ?'
-        raw_db_output = GamePlayer.joins(game: {game_sets: :tie_break}).where(query, @player.id, year).group('game_players.victory').count
+        raw_db_output = Game.joins(:game_players, game_sets: :tie_break).includes(game_sets: :tie_break).where(query, @player.id, year)
       else
         query = 'game_players.player_id = ?'
-        raw_db_output = GamePlayer.joins(game: {game_sets: :tie_break}).where(query, @player.id).group('game_players.victory').count
+        raw_db_output = Game.joins(:game_players, game_sets: :tie_break).includes(game_sets: :tie_break).where(query, @player.id)
       end
-      structured_output = raw_db_output.each_with_object({}) do |(win_loss, win_loss_count), hash|
-        hash['Tie-Break'] ||= { true => 0, false => 0 }
-        hash['Tie-Break'][win_loss] = win_loss_count
+      
+      if raw_db_output.present?
+        structured_output = Hash.new { |h, k| h[k] = Hash.new(&h.default_proc) }
+        structured_output['Tie-Break'][true] = 0
+        structured_output['Tie-Break'][false] = 0
+        
+        raw_db_output.each do |game|
+          player_order = (game.player_id == @player.id)
+          game.game_sets.each do |set|
+            if set.tie_break.present?
+              if player_order
+                if set.tie_break.points_1 > set.tie_break.points_2
+                  structured_output['Tie-Break'][true] += 1
+                else
+                  structured_output['Tie-Break'][false] += 1
+                end
+              else
+                if set.tie_break.points_1 > set.tie_break.points_2
+                  structured_output['Tie-Break'][false] += 1
+                else
+                  structured_output['Tie-Break'][true] += 1
+                end
+              end
+            end
+          end
+        end
       end
+      
       return structured_output
     end
   end
