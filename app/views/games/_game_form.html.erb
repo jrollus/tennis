@@ -30,7 +30,7 @@
   <%= f.input :date, label: 'Date du match', as: :date, html5: true, input_html: {max: '2050-12-31'} %>
 
   <%= f.input :status, label: 'Statut', 
-                              collection: [['Terminé','completed'], ['Abandon', 'retirement'],['WO','wo']],
+                              collection: [['Terminé','completed'], ['Abandon', 'retirement'],['WO','WO']],
                               input_html: { data: { target:'sets.status', action:'sets#setsHandler' }} %>
 
   <div class="round-block <%= (@form.game_type == "false") ? "visibility-off" : "" %>" data-target='cascading.round'>       
