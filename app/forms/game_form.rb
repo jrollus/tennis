@@ -14,12 +14,12 @@ class GameForm
   validates :date, :player_id, :status, :court_type_id, :opponent, :set_1_1, :set_1_2, 
             :set_2_1, :set_2_2, :match_points_saved, presence: true
 
-  validates_presence_of :tie_break_1_1, :if => lambda {(self.set_1_1 == '6' && self.set_1_2 == '7') || (self.set_1_1 == '7' && self.set_1_2 == '6')}
-  validates_presence_of :tie_break_1_2, :if => lambda {(self.set_1_1 == '6' && self.set_1_2 == '7') || (self.set_1_1 == '7' && self.set_1_2 == '6')}
-  validates_presence_of :tie_break_2_1, :if => lambda {(self.set_2_1 == '6' && self.set_2_2 == '7') || (self.set_2_1 == '7' && self.set_2_2 == '6')}
-  validates_presence_of :tie_break_2_2, :if => lambda {(self.set_2_1 == '6' && self.set_2_2 == '7') || (self.set_2_1 == '7' && self.set_2_2 == '6')}
-  validates_presence_of :tie_break_3_1, :if => lambda {(self.set_3_1 == '6' && self.set_3_2 == '7') || (self.set_3_1 == '7' && self.set_3_2 == '6')}
-  validates_presence_of :tie_break_3_2, :if => lambda {(self.set_3_1 == '6' && self.set_3_2 == '7') || (self.set_3_1 == '7' && self.set_3_2 == '6')}
+  validates_presence_of :tie_break_1_1, :if => lambda {(self.set_1_1 == '6' && self.set_1_2 == '7') || (self.set_1_1 == '7' && self.set_1_2 == '6')}, message: "le score du tie-break doit être indiqué"
+  validates_presence_of :tie_break_1_2, :if => lambda {(self.set_1_1 == '6' && self.set_1_2 == '7') || (self.set_1_1 == '7' && self.set_1_2 == '6')}, message: "le score du tie-break doit être indiqué"
+  validates_presence_of :tie_break_2_1, :if => lambda {(self.set_2_1 == '6' && self.set_2_2 == '7') || (self.set_2_1 == '7' && self.set_2_2 == '6')}, message: "le score du tie-break doit être indiqué"
+  validates_presence_of :tie_break_2_2, :if => lambda {(self.set_2_1 == '6' && self.set_2_2 == '7') || (self.set_2_1 == '7' && self.set_2_2 == '6')}, message: "le score du tie-break doit être indiqué"
+  validates_presence_of :tie_break_3_1, :if => lambda {(self.set_3_1 == '6' && self.set_3_2 == '7') || (self.set_3_1 == '7' && self.set_3_2 == '6')}, message: "le score du tie-break doit être indiqué"
+  validates_presence_of :tie_break_3_2, :if => lambda {(self.set_3_1 == '6' && self.set_3_2 == '7') || (self.set_3_1 == '7' && self.set_3_2 == '6')}, message: "le score du tie-break doit être indiqué"
   
   validates_presence_of :set_3_1, :if => lambda {(self.status == 'completed' && ((self.set_1_1 > self.set_1_2 && self.set_2_1 < self.set_2_2) || (self.set_1_1 < self.set_1_2 && self.set_2_1 > self.set_2_2)))}
   validates_presence_of :set_3_2, :if => lambda {(self.status == 'completed' && ((self.set_1_1 > self.set_1_2 && self.set_2_1 < self.set_2_2) || (self.set_1_1 < self.set_1_2 && self.set_2_1 > self.set_2_2)))}
